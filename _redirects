@@ -1,10 +1,9 @@
-# dopusti admin i assete
-/admin/*      /admin/:splat    200
-/assets/*     /assets/:splat   200
-/content/*    /content/:splat  200
+/admin/*      /admin/:splat      200
+/assets/*     /assets/:splat     200
+/content/*    /content/:splat    200
 
-# stranica Coming soon
-/coming-soon  /coming-soon     200
+# ova ruta bez ekstenzije neka poslužuje datoteku .html
+/coming-soon  /coming-soon.html  200
 
-# sve ostalo ide na Coming soon
-/*            /coming-soon     302
+# privremeno preusmjeri sve na coming-soon.html
+/*            /coming-soon.html  302
