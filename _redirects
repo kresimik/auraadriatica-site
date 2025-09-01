@@ -1,0 +1,10 @@
+# dopusti admin i assete
+/admin/*      /admin/:splat    200
+/assets/*     /assets/:splat   200
+/content/*    /content/:splat  200
+
+# stranica Coming soon
+/coming-soon  /coming-soon     200
+
+# sve ostalo ide na Coming soon
+/*            /coming-soon     302
