@@ -4,6 +4,6 @@
 /robots.txt       /robots.txt            200
 
 /coming-soon      /coming-soon.html      200
-/coming-soon.html /coming-soon.html      200   # ← eksplicitno posluži datoteku
+/coming-soon.html /coming-soon.html      200
 
-/*                /coming-soon.html      302   # sve ostalo samo privremeno na coming soon
+/*                /coming-soon.html      302
