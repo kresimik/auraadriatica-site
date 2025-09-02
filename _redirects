@@ -3,6 +3,5 @@
 /content/*     /content/:splat     200
 /robots.txt    /robots.txt         200
 /index.html   /coming-soon.html   200
-/coming-soon  /coming-soon.html   200
 
 /*             /coming-soon.html   200
