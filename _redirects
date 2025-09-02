@@ -2,5 +2,3 @@
 /assets/*      /assets/:splat      200
 /content/*     /content/:splat     200
 /robots.txt    /robots.txt         200
-
-/*             /coming-soon.html   200
