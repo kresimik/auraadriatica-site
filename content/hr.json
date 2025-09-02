@@ -1,0 +1,20 @@
+{
+  "brand": "Aura Adriatica",
+  "tagline": "Moderni apartmani između Jadrana i Učke.",
+  "about_h": "Dobrodošli",
+  "about_p": "Uživajte u boravku u našim apartmanima.",
+  "apts_h": "Naši apartmani",
+  "olive_meta": "2 spavaće • do 5 gostiju • Pogled na more",
+  "onyx_meta": "2 spavaće • do 4 gostiju • Pristup bazenu",
+  "avail_h": "Kalendar dostupnosti",
+  "avail_note": "Kalendari prikazuju dostupnost.",
+  "loc_h": "Lokacija",
+  "loc_p": "Lovran, Kvarnerski zaljev.",
+  "info_h": "Informacije za goste",
+  "info_list": [
+    "Check-in od 14:00 • Check-out do 10:00",
+    "Wi‑Fi, Parking, Klima"
+  ],
+  "contact_h": "Kontakt",
+  "contact_email": "info@auraadriatica.com"
+}

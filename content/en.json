@@ -1,0 +1,20 @@
+{
+  "brand": "Aura Adriatica",
+  "tagline": "Modern apartments between the Adriatic and Učka.",
+  "about_h": "Welcome",
+  "about_p": "Enjoy your stay in our apartments.",
+  "apts_h": "Our Apartments",
+  "olive_meta": "2 bedrooms • up to 5 guests • Sea view",
+  "onyx_meta": "2 bedrooms • up to 4 guests • Pool access",
+  "avail_h": "Availability",
+  "avail_note": "Calendars show availability.",
+  "loc_h": "Location",
+  "loc_p": "Lovran, Kvarner Bay.",
+  "info_h": "Guest Information",
+  "info_list": [
+    "Check-in from 14:00 • Check-out until 10:00",
+    "Wi‑Fi, Parking, Air conditioning"
+  ],
+  "contact_h": "Contact",
+  "contact_email": "info@auraadriatica.com"
+}
