@@ -1,18 +1,84 @@
 backend:
   name: github
   repo: kresimik/auraadriatica-site
-  branch: main
+  branch: develop               # SVE izmjene idu u staging granu
+  auth_endpoint: /api/auth      # OAuth proxy koji ćemo postaviti ispod
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+publish_mode: editorial_workflow
+site_url: https://auraadriatica.com
+logo_url: /assets/img/logo.png
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
 
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "site_texts"
+    label: "Site Texts"
+    format: "json"
+    editor: { preview: false }
     files:
-      - file: "content/home.json"
-        label: "Homepage"
-        name: "home"
+      - label: "English"
+        name: "en"
+        file: "content/en.json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "text" }
+          - { label: "Brand", name: "brand", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "text" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apts — Heading", name: "apts_h", widget: "string" }
+          - { label: "Olive meta", name: "olive_meta", widget: "string" }
+          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
+            name: "info_list"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+
+      - label: "Hrvatski"
+        name: "hr"
+        file: "content/hr.json"
+        fields:
+          - { label: "Brand", name: "brand", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "text" }
+          - { label: "O nama — Naslov", name: "about_h", widget: "string" }
+          - { label: "O nama — Tekst", name: "about_p", widget: "text" }
+          - { label: "Apartmani — Naslov", name: "apts_h", widget: "string" }
+          - { label: "Olive meta", name: "olive_meta", widget: "string" }
+          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
+          - { label: "Kalendar — Naslov", name: "avail_h", widget: "string" }
+          - { label: "Kalendar — Napomena", name: "avail_note", widget: "text" }
+          - { label: "Lokacija — Naslov", name: "loc_h", widget: "string" }
+          - { label: "Lokacija — Tekst", name: "loc_p", widget: "text" }
+          - label: "Info za goste — Popis"
+            name: "info_list"
+            widget: "list"
+            field: { label: "Stavka", name: "item", widget: "string" }
+          - { label: "Kontakt — Naslov", name: "contact_h", widget: "string" }
+          - { label: "Kontakt — Email", name: "contact_email", widget: "string" }
+
+      - label: "Deutsch"
+        name: "de"
+        file: "content/de.json"
+        fields:
+          - { label: "Brand", name: "brand", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "text" }
+          - { label: "Über uns — Titel", name: "about_h", widget: "string" }
+          - { label: "Über uns — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Titel", name: "apts_h", widget: "string" }
+          - { label: "Olive meta", name: "olive_meta", widget: "string" }
+          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
+          - { label: "Verfügbarkeit — Titel", name: "avail_h", widget: "string" }
+          - { label: "Verfügbarkeit — Hinweis", name: "avail_note", widget: "text" }
+          - { label: "Lage — Titel", name: "loc_h", widget: "string" }
+          - { label: "Lage — Text", name: "loc_p", widget: "text" }
+          - label: "Gästeinfo — Liste"
+            name: "info_list"
+            widget: "list"
+            field: { label: "Eintrag", name: "item", widget: "string" }
+          - { label: "Kontakt — Titel", name: "contact_h", widget: "string" }
+          - { label: "Kontakt — Email", name: "contact_email", widget: "string" }
