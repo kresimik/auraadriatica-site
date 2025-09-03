@@ -1,67 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aura Adriatica Apartments</title>
-<link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aura Adriatica Apartments</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-<header class="hero">
-  <div class="container">
-    <h1 data-i18n="brand">Aura Adriatica</h1>
-    <p data-i18n="tagline">Modern apartments between the Adriatic and Učka.</p>
+  <div class="topbar">
+    <div class="brand"><img src="/assets/img/logo.png" alt="Logo" style="height:40px"> Aura Adriatica</div>
+    <nav><a href="#about">About</a><a href="#apts">Apartments</a><a href="#contact">Contact</a></nav>
   </div>
-</header>
-<nav class="sticky">
-  <div class="nav-links">
-    <a href="#about" data-i18n="about_h">About</a>
-    <a href="#apts" data-i18n="apts_h">Apartments</a>
-    <a href="#avail" data-i18n="avail_h">Availability</a>
-    <a href="#location" data-i18n="loc_h">Location</a>
-    <a href="#info" data-i18n="info_h">Info</a>
-    <a href="#contact" data-i18n="contact_h">Contact</a>
-  </div>
-  <div class="lang">
-    <button data-lang="hr">HR</button>
-    <button data-lang="en" class="active">EN</button>
-    <button data-lang="de">DE</button>
-  </div>
-</nav>
-<main class="container">
-  <section id="about">
-    <h2 data-i18n="about_h">Welcome</h2>
-    <p data-i18n="about_p">Enjoy your stay in our apartments.</p>
-  </section>
-  <section id="apts">
-    <h2 data-i18n="apts_h">Our Apartments</h2>
-    <div class="grid cards">
-      <div class="card"><img src="/assets/img/olive.jpg"><div class="pad"><span class="badge">Olive</span><p data-i18n="olive_meta">2 bedrooms</p></div></div>
-      <div class="card"><img src="/assets/img/onyx.jpg"><div class="pad"><span class="badge">Onyx</span><p data-i18n="onyx_meta">2 bedrooms</p></div></div>
-    </div>
-  </section>
-  <section id="avail">
-    <h2 data-i18n="avail_h">Availability</h2>
-    <p data-i18n="avail_note">Calendars show availability.</p>
-  </section>
-  <section id="location">
-    <h2 data-i18n="loc_h">Location</h2>
-    <p data-i18n="loc_p">Lovran, Kvarner Bay.</p>
-  </section>
-  <section id="info">
-    <h2 data-i18n="info_h">Guest Info</h2>
-    <ul id="info-list"></ul>
-  </section>
-  <section id="contact">
-    <h2 data-i18n="contact_h">Contact</h2>
-    <p><a href="mailto:info@auraadriatica.com" data-i18n="contact_email">info@auraadriatica.com</a></p>
-  </section>
-</main>
-<footer><div class="container">&copy; 2025 Aura Adriatica</div></footer>
-<script>
-async function loadLang(lang){const res=await fetch(`/content/${lang}.json`);const dict=await res.json();applyLang(dict,lang);}
-function applyLang(dict,lang){document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(dict[k]) el.textContent=dict[k];});const ul=document.getElementById('info-list');if(ul){ul.innerHTML='';(dict.info_list||[]).forEach(li=>{const liEl=document.createElement('li');liEl.textContent=li;ul.appendChild(liEl);});}document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));}
-document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>loadLang(b.dataset.lang)));loadLang('en');
-</script>
+  <header class="hero"><h1>Welcome to Aura Adriatica</h1><p>Modern apartments between the Adriatic and Učka</p></header>
+  <main>
+    <section id="about"><h2>About</h2><p>Enjoy your stay in our apartments in Lovran.</p></section>
+    <section id="apts"><h2>Our Apartments</h2>
+      <div><a href="/apartments/olive.html">Olive</a> | <a href="/apartments/onyx.html">Onyx</a></div>
+    </section>
+    <section id="contact"><h2>Contact</h2><p>Email: info@auraadriatica.com</p></section>
+  </main>
+  <footer>&copy; 2025 Aura Adriatica</footer>
 </body>
 </html>
