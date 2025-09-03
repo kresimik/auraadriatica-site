@@ -1,19 +1,27 @@
 {
   "brand": "Aura Adriatica",
-  "tagline": "Moderne Apartments zwischen Adria und Učka.",
+  "tagline": "Moderne, komfortable Apartments zwischen Adria und dem Berg Učka — ideal für Erholung und Ausflüge.",
+  "nav_about": "Über uns",
+  "nav_apts": "Apartments",
+  "nav_avail": "Verfügbarkeit",
+  "nav_location": "Lage",
+  "nav_info": "Gästeinfo",
+  "nav_contact": "Kontakt",
   "about_h": "Willkommen",
-  "about_p": "Genießen Sie Ihren Aufenthalt.",
+  "about_p": "Genießen Sie Ihren Aufenthalt in unseren modernen Apartments in Lovran — nahe den Stränden und dem Naturpark Učka. Ideal für Familien, Paare und Freunde.",
   "apts_h": "Unsere Apartments",
   "olive_meta": "2 Schlafzimmer • bis 5 Gäste • Meerblick",
   "onyx_meta": "2 Schlafzimmer • bis 4 Gäste • Poolzugang",
   "avail_h": "Verfügbarkeit",
-  "avail_note": "Kalender zeigen die Verfügbarkeit.",
+  "avail_note": "Die Kalender zeigen die allgemeine Verfügbarkeit. Für genaue Daten und Buchung kontaktieren Sie uns direkt.",
   "loc_h": "Lage",
-  "loc_p": "Lovran, Kvarner Bucht.",
+  "loc_p": "Lovran, Kvarner Bucht — Strände, Altstadt und Panoramawanderungen am Učka.",
   "info_h": "Gästeinformationen",
   "info_list": [
     "Check-in ab 14:00 • Check-out bis 10:00",
-    "WLAN, Parkplatz, Klimaanlage"
+    "Kostenloses WLAN, Parkplatz, Klimaanlage",
+    "PIN-Zugang für einfachen Self Check-in",
+    "Lokale Tipps und nützliche Links nach der Buchung"
   ],
   "contact_h": "Kontakt",
   "contact_email": "info@auraadriatica.com"
