@@ -1,8 +1,9 @@
 backend:
   name: github
-  repo: kresimik/auraadriatica-site
-  branch: develop               # SVE izmjene idu u staging granu
-  auth_endpoint: /api/auth      # OAuth proxy koji ćemo postaviti ispod
+  repo: kresimik/auraadriatica-site   # zamijeni ako je repo drugačiji
+  branch: develop
+  base_url: https://auraadriatica.com
+  auth_endpoint: /api/auth
 
 publish_mode: editorial_workflow
 site_url: https://auraadriatica.com
