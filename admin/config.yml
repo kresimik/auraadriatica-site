@@ -1,16 +1,3 @@
-backend:
-  name: github
-  repo: kresimik/auraadriatica-site
-  branch: develop
-  base_url: https://auraadriatica.com   # samo domena!
-  auth_endpoint: /api/auth              # putanja radnika
-
-publish_mode: editorial_workflow
-site_url: https://auraadriatica.com
-logo_url: /assets/img/logo.png
-media_folder: "assets/img"
-public_folder: "/assets/img"
-
 collections:
   - name: "site_texts"
     label: "Site Texts"
@@ -23,4 +10,31 @@ collections:
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          # ... (ostala polja kao prije)
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
+          - { label: "Olive meta", name: "olive_meta", widget: "string" }
+          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
+            name: "info_list"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "Call to action — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "Call to action — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+
+      - { label: "Hrvatski", name: "hr", file: "content/hr.json",  fields: *fields }
+      - { label: "Deutsch",  name: "de", file: "content/de.json",  fields: *fields }
+      - { label: "Italiano", name: "it", file: "content/it.json",  fields: *fields }
+      - { label: "Slovenščina", name: "sl", file: "content/sl.json", fields: *fields }
+      - { label: "Magyar",   name: "hu", file: "content/hu.json",  fields: *fields }
+      - { label: "Čeština",  name: "cs", file: "content/cs.json",  fields: *fields }
+      - { label: "Slovenčina", name: "sk", file: "content/sk.json", fields: *fields }
+      - { label: "Українська", name: "uk", file: "content/uk.json", fields: *fields }
