@@ -1,0 +1,30 @@
+{
+  "brand": "Aura Adriatica",
+  "tagline": "Két butik apartman az Opatijai Riviérán.",
+  "about_h": "Rólunk",
+  "about_p": "Üdvözöljük az Aura Adriaticában – két gondosan kialakított apartman Ičićiben, pár perc sétára a tengertől és a Lungomare sétánytól.",
+  "apts_h": "Apartmanok",
+  "olive_meta": "Olive — tengerre néző kilátás, erkély, légkondi, Wi-Fi",
+  "onyx_meta": "Onyx — terasz, kert, légkondi, Wi-Fi",
+  "avail_h": "Elérhetőség",
+  "avail_note": "A legpontosabb naptár és a legjobb árak érdekében lépjen velünk közvetlenül kapcsolatba.",
+  "loc_h": "Elhelyezkedés",
+  "loc_p": "Ičićiben, Opatija közelében vagyunk, strandok, éttermek és a Lungomare közelében.",
+  "info_list": [
+    {
+      "item": "Ingyenes parkolás"
+    },
+    {
+      "item": "Gyors Wi-Fi"
+    },
+    {
+      "item": "Self check-in"
+    }
+  ],
+  "contact_h": "Kapcsolat",
+  "contact_email": "info@auraadriatica.com",
+  "cta_book": "Ajánlatkérés",
+  "cta_weather": "7 napos időjárás",
+  "weather_h": "7 napos időjárás",
+  "weather_note": "Előrejelzés Lovranra (óránként frissül)."
+}

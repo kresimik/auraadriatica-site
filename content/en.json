@@ -1,28 +1,30 @@
 {
   "brand": "Aura Adriatica",
-  "tagline": "Modern, comfortable apartments between the Adriatic Sea and Mount Učka — perfect for relaxing coastal days and scenic hikes.",
-  "nav_about": "About",
-  "nav_apts": "Apartments",
-  "nav_avail": "Availability",
-  "nav_location": "Location",
-  "nav_info": "Guest Info",
-  "nav_contact": "Contact",
-  "about_h": "Welcome",
-  "about_p": "Enjoy your stay in our modern apartments in Lovran — steps from beaches and a short drive to Učka Nature Park. Ideal for families, couples, and friends.",
-  "apts_h": "Our Apartments",
-  "olive_meta": "2 bedrooms • up to 5 guests • Sea view",
-  "onyx_meta": "2 bedrooms • up to 4 guests • Pool access",
+  "tagline": "Two boutique apartments on the Opatija Riviera.",
+  "about_h": "About us",
+  "about_p": "Welcome to Aura Adriatica – two thoughtfully designed apartments in Ičići, a short walk from the sea and the Lungomare promenade.",
+  "apts_h": "Apartments",
+  "olive_meta": "Olive — sea view, balcony, AC, Wi-Fi",
+  "onyx_meta": "Onyx — terrace, garden, AC, Wi-Fi",
   "avail_h": "Availability",
-  "avail_note": "Calendars show general availability. For exact dates and booking, contact us directly.",
+  "avail_note": "For the most accurate calendar and best rates, contact us directly.",
   "loc_h": "Location",
-  "loc_p": "Lovran, Kvarner Bay — beaches, old town, and panoramic hikes on Učka.",
-  "info_h": "Guest Information",
+  "loc_p": "We are in Ičići near Opatija, close to beaches, restaurants and the seaside Lungomare.",
   "info_list": [
-    "Check-in from 14:00 • Check-out until 10:00",
-    "Free Wi‑Fi, Parking, Air conditioning",
-    "PIN access for easy self check-in",
-    "Local tips and useful links after booking"
+    {
+      "item": "Free parking"
+    },
+    {
+      "item": "Fast Wi-Fi"
+    },
+    {
+      "item": "Self check-in"
+    }
   ],
   "contact_h": "Contact",
-  "contact_email": "info@auraadriatica.com"
+  "contact_email": "info@auraadriatica.com",
+  "cta_book": "Send inquiry",
+  "cta_weather": "See 7-day weather",
+  "weather_h": "7-day Weather",
+  "weather_note": "Forecast for Lovran (updated hourly)."
 }

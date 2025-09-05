@@ -1,0 +1,30 @@
+{
+  "brand": "Aura Adriatica",
+  "tagline": "Dva butična apartmaja na Opatijski rivieri.",
+  "about_h": "O nas",
+  "about_p": "Dobrodošli v Aura Adriatica – dva skrbno urejena apartmaja v Ičićih, le nekaj minut hoje od morja in sprehajališča Lungomare.",
+  "apts_h": "Apartmaji",
+  "olive_meta": "Olive — pogled na morje, balkon, klima, Wi-Fi",
+  "onyx_meta": "Onyx — terasa, vrt, klima, Wi-Fi",
+  "avail_h": "Razpoložljivost",
+  "avail_note": "Za najbolj točen koledar in ceno nas kontaktirajte neposredno.",
+  "loc_h": "Lokacija",
+  "loc_p": "Smo v Ičićih pri Opatiji, blizu plaž, restavracij in sprehajališča Lungomare.",
+  "info_list": [
+    {
+      "item": "Brezplačno parkirišče"
+    },
+    {
+      "item": "Hiter Wi-Fi"
+    },
+    {
+      "item": "Self check-in"
+    }
+  ],
+  "contact_h": "Kontakt",
+  "contact_email": "info@auraadriatica.com",
+  "cta_book": "Pošljite povpraševanje",
+  "cta_weather": "7-dnevna napoved",
+  "weather_h": "Vremenska napoved (7 dni)",
+  "weather_note": "Napoved za Lovran (posodobljena vsako uro)."
+}

@@ -1,0 +1,30 @@
+{
+  "brand": "Aura Adriatica",
+  "tagline": "Due appartamenti boutique sulla Riviera di Abbazia.",
+  "about_h": "Chi siamo",
+  "about_p": "Benvenuti ad Aura Adriatica – due appartamenti curati a Ičići, a pochi minuti dal mare e dalla passeggiata Lungomare.",
+  "apts_h": "Appartamenti",
+  "olive_meta": "Olive — vista mare, balcone, aria condizionata, Wi-Fi",
+  "onyx_meta": "Onyx — terrazza, giardino, aria condizionata, Wi-Fi",
+  "avail_h": "Disponibilità",
+  "avail_note": "Per il calendario più preciso e la migliore tariffa, contattateci direttamente.",
+  "loc_h": "Posizione",
+  "loc_p": "Siamo a Ičići vicino ad Abbazia, vicino a spiagge, ristoranti e al Lungomare.",
+  "info_list": [
+    {
+      "item": "Parcheggio gratuito"
+    },
+    {
+      "item": "Wi-Fi veloce"
+    },
+    {
+      "item": "Self check-in"
+    }
+  ],
+  "contact_h": "Contatto",
+  "contact_email": "info@auraadriatica.com",
+  "cta_book": "Invia richiesta",
+  "cta_weather": "Meteo 7 giorni",
+  "weather_h": "Meteo 7 giorni",
+  "weather_note": "Previsioni per Lovran (aggiornate ogni ora)."
+}

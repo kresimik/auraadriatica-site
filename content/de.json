@@ -1,28 +1,30 @@
 {
   "brand": "Aura Adriatica",
-  "tagline": "Moderne, komfortable Apartments zwischen Adria und dem Berg Učka — ideal für Erholung und Ausflüge.",
-  "nav_about": "Über uns",
-  "nav_apts": "Apartments",
-  "nav_avail": "Verfügbarkeit",
-  "nav_location": "Lage",
-  "nav_info": "Gästeinfo",
-  "nav_contact": "Kontakt",
-  "about_h": "Willkommen",
-  "about_p": "Genießen Sie Ihren Aufenthalt in unseren modernen Apartments in Lovran — nahe den Stränden und dem Naturpark Učka. Ideal für Familien, Paare und Freunde.",
-  "apts_h": "Unsere Apartments",
-  "olive_meta": "2 Schlafzimmer • bis 5 Gäste • Meerblick",
-  "onyx_meta": "2 Schlafzimmer • bis 4 Gäste • Poolzugang",
+  "tagline": "Zwei Boutique-Apartments an der Riviera von Opatija.",
+  "about_h": "Über uns",
+  "about_p": "Willkommen bei Aura Adriatica – zwei liebevoll gestaltete Apartments in Ičići, nur wenige Minuten vom Meer und der Lungomare-Promenade entfernt.",
+  "apts_h": "Apartments",
+  "olive_meta": "Olive — Meerblick, Balkon, Klimaanlage, WLAN",
+  "onyx_meta": "Onyx — Terrasse, Garten, Klimaanlage, WLAN",
   "avail_h": "Verfügbarkeit",
-  "avail_note": "Die Kalender zeigen die allgemeine Verfügbarkeit. Für genaue Daten und Buchung kontaktieren Sie uns direkt.",
+  "avail_note": "Für den genauesten Kalender und den besten Preis kontaktieren Sie uns direkt.",
   "loc_h": "Lage",
-  "loc_p": "Lovran, Kvarner Bucht — Strände, Altstadt und Panoramawanderungen am Učka.",
-  "info_h": "Gästeinformationen",
+  "loc_p": "Wir befinden uns in Ičići bei Opatija, nahe Stränden, Restaurants und der Lungomare-Promenade.",
   "info_list": [
-    "Check-in ab 14:00 • Check-out bis 10:00",
-    "Kostenloses WLAN, Parkplatz, Klimaanlage",
-    "PIN-Zugang für einfachen Self Check-in",
-    "Lokale Tipps und nützliche Links nach der Buchung"
+    {
+      "item": "Kostenloses Parken"
+    },
+    {
+      "item": "Schnelles WLAN"
+    },
+    {
+      "item": "Self Check-in"
+    }
   ],
   "contact_h": "Kontakt",
-  "contact_email": "info@auraadriatica.com"
+  "contact_email": "info@auraadriatica.com",
+  "cta_book": "Anfrage senden",
+  "cta_weather": "7-Tage-Wetter",
+  "weather_h": "7-Tage-Wetter",
+  "weather_note": "Vorhersage für Lovran (stündlich aktualisiert)."
 }
