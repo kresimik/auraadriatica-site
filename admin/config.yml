@@ -1,14 +1,14 @@
 backend:
   name: github
-  repo: kresimik/auraadriatica-site     # <— ostavi svoj repo
+  repo: kresimik/auraadriatica-site     # <-- tvoj repo
   branch: develop                       # CMS čita/piše u develop
   base_url: https://auraadriatica.com
   auth_endpoint: /api/auth
 
 site_url: https://auraadriatica.com
 logo_url: /assets/img/logo.png
-media_folder: "assets/img"      # gdje se uploadaju slike u repo-u
-public_folder: "/assets/img"    # kako im je put na webu
+media_folder: "assets/img"
+public_folder: "/assets/img"
 publish_mode: editorial_workflow
 
 collections:
