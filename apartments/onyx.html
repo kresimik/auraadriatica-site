@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apartment Onyx — Aura Adriatica</title>
   <meta name="description" content="Apartment Onyx — modern apartment near Opatija, Croatia">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250906">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
   <script src="/assets/js/i18n.js" defer></script>
 </head>
 <body>
@@ -19,7 +19,7 @@
       </a>
       <nav class="main-nav">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
@@ -35,7 +35,7 @@
   <section class="hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/assets/img/onyx-hero.jpg');">
     <div class="container">
       <h1 data-i18n="onyx_h">Onyx Apartment</h1>
-      <p data-i18n="onyx_intro">Modern design, balcony, private parking, fast Wi-Fi.</p>
+      <p data-i18n="onyx_intro">Modern design, close to the sea, parking, Wi-Fi.</p>
       <div class="cta">
         <a class="button blue" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
@@ -46,13 +46,14 @@
   <section class="section">
     <div class="container">
       <h2 data-i18n="apts_h">Apartment details</h2>
+
       <p id="apt-intro"></p>
 
       <div class="features" id="apt-features"></div>
 
       <div class="gallery" id="apt-gallery" style="margin-top:1rem;"></div>
 
-      <div id="apt-calendar-wrap" style="margin-top:2rem;display:none;">
+      <div id="apt-calendar-wrap" style="margin-top:2rem; display:none;">
         <h2 data-i18n="avail_h">Availability</h2>
         <p data-i18n="avail_note">Select your dates to check availability.</p>
         <iframe id="apt-calendar" class="calendar-iframe" loading="lazy"></iframe>
@@ -60,94 +61,36 @@
     </div>
   </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container footer-flex">
-    <a href="/" class="footer-logo">
-      <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica"></span>
-      <span>Aura Adriatica</span>
-    </a>
-    <nav class="footer-nav">
-      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-    </nav>
-    <div class="footer-contact">
-      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
-      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <a href="/" class="footer-logo">
+        <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica"></span>
+        <span>Aura Adriatica</span>
+      </a>
+      <nav class="footer-nav">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+        <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      </div>
     </div>
-  </div>
-</footer>
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </footer>
 
-    <!-- Navigacija -->
-    <nav class="footer-nav">
-      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-    </nav>
-
-    <!-- Kontakt -->
-    <div class="footer-contact">
-      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
-      <p>&copy; <span id="year"></span> Aura Adriatica</p>
-    </div>
-
-  </div>
-</footer>
-
+  <!-- SCRIPTS -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // FETCH APARTMENT CONTENT (Onyx) BY LANGUAGE JSON
-    (function(){
-      const lang = (localStorage.getItem('lang')||'en').toLowerCase();
-      fetch(`/content/apartments/onyx/${lang}.json`, { cache:'no-store' })
-        .then(r => r.ok ? r.json() : null)
-        .then(data => {
-          if(!data) return;
-          // Intro/desc
-          if(data.intro) document.getElementById('apt-intro').textContent = data.intro;
-          // Features
-          const fWrap = document.getElementById('apt-features');
-          if(Array.isArray(data.features)){
-            fWrap.innerHTML = '';
-            data.features.forEach(x=>{
-              const t=document.createElement('span');
-              t.className='tag'; t.textContent=x;
-              fWrap.appendChild(t);
-            });
-          }
-          // Gallery
-          const gWrap = document.getElementById('apt-gallery');
-          if(Array.isArray(data.gallery)){
-            gWrap.innerHTML='';
-            data.gallery.forEach(src=>{
-              const img=document.createElement('img');
-              img.src = src; img.alt = data.title || 'Onyx';
-              gWrap.appendChild(img);
-            });
-          }
-          // Calendar
-          if(data.calendar){
-            const w=document.getElementById('apt-calendar-wrap');
-            const i=document.getElementById('apt-calendar');
-            i.src=data.calendar; w.style.display='block';
-          }
-          // Title overrides (optional)
-          if(data.title) document.querySelector('h1[data-i18n="onyx_h"]').textContent = data.title;
-          if(data.onyx_intro) document.querySelector('.hero p').textContent = data.onyx_intro;
-        })
-        .catch(console.warn);
-    })();
   </script>
   <script src="/assets/js/apt.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function(){
-    initApt('olive'); // na onyx.html promijeni u 'onyx'
-  });
-</script>
+  <script>
+    // Učitaj sadržaj za ONYX iz JSON-a i prikaži kalendar ako postoji HTTPS URL
+    document.addEventListener('DOMContentLoaded', function(){
+      initApt('onyx');
+    });
+  </script>
 </body>
 </html>
