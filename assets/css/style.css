@@ -1,76 +1,140 @@
+/* ========== Brand vars ========== */
 :root{
   --brand-blue:#4da6ff;
   --brand-blue-hover:#1f78d1;
   --brand-olive:#6b8e23;
   --brand-olive-hover:#556b2f;
+  --bg:#ffffff;
   --bg-alt:#f8f9fb;
-  --text:#333;
+  --text:#333333;
+  --muted:#666666;
   --max-width:1100px;
 }
 
-body{font-family:sans-serif;margin:0;color:var(--text);}
-.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem;}
-a{color:var(--brand-blue);text-decoration:none;}
-a:hover{text-decoration:underline;}
+/* ========== Base ========== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;margin:0;color:var(--text);background:var(--bg);}
+a{color:var(--brand-blue);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto;display:block}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem}
 
-header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.08);}
-header .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;}
-header .brand{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.2rem;}
-header .brand img{height:36px;}
-header nav.main a{margin:0 .6rem;font-weight:500;}
-header .lang button{margin:0 .2rem;padding:.3rem .6rem;border:1px solid #ccc;background:#fff;cursor:pointer;border-radius:4px;font-size:.8rem;}
-header .lang button.active{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue);}
+/* ========== Header ========== */
+.site-header{background:#fff;border-bottom:1px solid #eee;padding:.5rem 0;position:sticky;top:0;z-index:50}
+.header-flex{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo img{height:40px}
+.logo span{font-size:1.4rem;font-weight:700;color:var(--brand-blue);transition:color .2s}
+.logo:hover span{color:var(--brand-olive)}
+.main-nav a{margin:0 1rem;text-decoration:none;font-weight:500;color:var(--brand-blue)}
+.main-nav a:hover{color:var(--brand-olive)}
+.lang-switch{display:flex;gap:.25rem;flex-wrap:wrap}
+.lang-switch button{background:#fff;border:1px solid #ccc;border-radius:6px;padding:.25rem .6rem;cursor:pointer;font-size:.85rem;font-weight:600;color:#333}
+.lang-switch button.active,.lang-switch button:hover{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
 
-/* HERO */
+/* ========== Hero ========== */
 .hero{
   position:relative;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url('/assets/img/hero.jpg') center/cover no-repeat,
-    linear-gradient(120deg, var(--brand-blue), var(--brand-olive));
   color:#fff;
   text-align:center;
   padding:6rem 1rem;
   overflow:hidden;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('/assets/img/hero.jpg') center/cover no-repeat,
+    linear-gradient(120deg, var(--brand-blue), var(--brand-olive));
 }
-.hero h1{
-  font-size:2.8rem;
-  margin-bottom:1rem;
-  text-shadow:0 2px 6px rgba(0,0,0,.6);
-}
-.hero p{
-  font-size:1.3rem;
-  margin-bottom:2rem;
-  text-shadow:0 2px 4px rgba(0,0,0,.5);
-}
-.hero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;}
+.hero h1{font-size:2.8rem;margin-bottom:1rem;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.hero p{font-size:1.3rem;margin-bottom:2rem;text-shadow:0 2px 4px rgba(0,0,0,.5)}
+.hero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
 .hero .button{
-  color:#fff;text-decoration:none;padding:.9rem 1.8rem;border-radius:8px;
-  font-weight:600;box-shadow:0 3px 6px rgba(0,0,0,.25);
-  transition:background .3s,transform .2s;
+  color:#fff;text-decoration:none;padding:.9rem 1.8rem;border-radius:10px;
+  font-weight:700;letter-spacing:.2px;
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
+  transition:transform .2s,filter .2s,background .3s
 }
-.hero .button.blue{background:var(--brand-blue);}
-.hero .button.blue:hover{background:var(--brand-blue-hover);transform:translateY(-2px);}
-.hero .button.olive{background:var(--brand-olive);}
-.hero .button.olive:hover{background:var(--brand-olive-hover);transform:translateY(-2px);}
+.hero .button:hover{transform:translateY(-2px);filter:saturate(1.05)}
+.hero .button.blue{background:var(--brand-blue)}
+.hero .button.blue:hover{background:var(--brand-blue-hover)}
+.hero .button.olive{background:var(--brand-olive)}
+.hero .button.olive:hover{background:var(--brand-olive-hover)}
 
-/* Sections */
-.section{padding:3rem 1rem;}
-.section.alt{background:var(--bg-alt);}
-.section h2{margin-top:0;color:var(--brand-olive);}
-ul{padding-left:1.2rem;}
+/* ========== Sections ========== */
+.section{padding:3rem 1rem}
+.section.alt{background:var(--bg-alt)}
+.section h2{margin:0 0 1rem;color:var(--brand-olive)}
+ul{padding-left:1.2rem}
 
-/* Footer */
-.footer{background:#222;color:#ccc;text-align:center;padding:1.5rem;margin-top:2rem;}
-
-/* Weather */
-.weather{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;}
-.weather-day {
-  width:92px; text-align:center; border-radius:12px;
-  background:#ffffff; border:1px solid #e6eef9;
-  box-shadow:0 2px 6px rgba(0,0,0,.06); padding:.6rem .5rem;
+/* Tag “chips” (npr. features) */
+.features{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{
+  display:inline-block;background:#eef6ff;color:#1f78d1;border:1px solid #cfe4ff;
+  padding:.25rem .6rem;border-radius:999px;font-size:.9rem;font-weight:600
 }
-.weather-day .w-day{ font-weight:700; margin-bottom:.25rem; color:var(--brand-olive); }
-.weather-day .w-icon svg{ display:block; margin:0 auto; }
-.weather-day .w-temp{ font-size:.95rem; color:#333; margin-top:.25rem; }
 
+/* ========== Gallery grid (generic) ========== */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+
+/* ========== Reviews ========== */
+.reviews .card{background:#fff;border:1px solid #e6eef9;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1rem}
+.reviews .card+.card{margin-top:1rem}
+.rev-head{margin-bottom:.4rem;color:#333;font-weight:700}
+.rev-text{margin:.5rem 0 1rem}
+.rev-foot{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--muted)}
+.chip{background:#eef6ff;color:#1f78d1;padding:.2rem .5rem;border-radius:999px}
+.rev-lang{color:#999;font-size:.9rem;margin-left:.25rem}
+
+/* ========== Weather widget ========== */
+.weather{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1rem}
+.weather-day{
+  width:92px;text-align:center;border-radius:12px;background:#ffffff;
+  border:1px solid #e6eef9;box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:.6rem .5rem
+}
+.weather-day .w-day{font-weight:700;margin-bottom:.25rem;color:var(--brand-olive)}
+.weather-day .w-icon{margin:.25rem 0}
+.weather-day .w-icon svg{display:block;margin:0 auto}
+.weather-day .w-temp{font-size:.95rem;color:#333;margin-top:.1rem}
+
+/* ========== Calendar iframe (apartments) ========== */
+.calendar-iframe{width:100%;min-height:560px;border:1px solid #e6eef9;border-radius:12px}
+
+/* ========== Footer ========== */
+.site-footer{
+  background:linear-gradient(90deg, var(--brand-blue), var(--brand-olive));
+  color:#fff;padding:2rem 1rem;margin-top:3rem
+}
+.footer-flex{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem}
+.footer-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;font-size:1.2rem;font-weight:700;color:#fff}
+.footer-logo img{height:30px}
+.footer-logo:hover span{color:#f0f0f0}
+.footer-nav a{margin:0 .8rem;color:#fff;text-decoration:none;font-weight:500}
+.footer-nav a:hover{text-decoration:underline}
+.footer-contact{text-align:right;font-size:.9rem}
+.footer-contact a{color:#fff;font-weight:600}
+
+/* ========== Utilities ========== */
+.hidden{display:none !important}
+
+/* ========== Responsive ========== */
+@media (max-width:960px){
+  .main-nav a{margin:0 .6rem}
+  .hero{padding:5rem 1rem}
+  .hero h1{font-size:2.3rem}
+  .hero p{font-size:1.1rem}
+}
+@media (max-width:720px){
+  .header-flex{flex-wrap:wrap;gap:.5rem}
+  .main-nav{width:100%;display:flex;justify-content:center;flex-wrap:wrap;margin:.25rem 0}
+  .main-nav a{margin:.25rem .5rem}
+  .lang-switch{width:100%;justify-content:center}
+  .hero{padding:4rem 1rem}
+  .hero h1{font-size:2rem}
+  .hero p{font-size:1rem}
+}
+@media (max-width:520px){
+  .weather-day{width:84px}
+  .gallery{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
