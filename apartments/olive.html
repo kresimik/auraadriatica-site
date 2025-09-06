@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title data-i18n="olive_h">Olive Apartment</title>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <meta name="description" content="Aura Adriatica — Olive apartment in Ičići, Opatija Riviera">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica" onerror="this.style.display='none'">
+        <span data-i18n="brand">Aura Adriatica</span>
+      </div>
+      <nav class="main">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
+      </nav>
+      <div class="lang">
+        <button data-lang="hr">HR</button>
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="it">IT</button>
+        <button data-lang="sl">SL</button>
+        <button data-lang="hu">HU</button>
+        <button data-lang="cs">CS</button>
+        <button data-lang="sk">SK</button>
+        <button data-lang="uk">UK</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1 data-i18n="olive_h">Olive Apartment</h1>
+      <p data-i18n="olive_intro">Sea view, balcony, AC, Wi-Fi — ideal for 2–4 guests.</p>
+      <div class="backnav">
+        <a class="button outline" href="/">← <span data-i18n="back_home">Back to home</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid">
+        <div class="card span12">
+          <div class="gallery">
+            <img src="/assets/img/sample1.jpg" alt="Olive photo 1">
+            <img src="/assets/img/sample2.jpg" alt="Olive photo 2">
+            <img src="/assets/img/sample3.jpg" alt="Olive photo 3">
+            <img src="/assets/img/sample4.jpg" alt="Olive photo 4">
+          </div>
+          <div class="features">
+            <span class="tag">Wi-Fi</span>
+            <span class="tag">AC</span>
+            <span class="tag">Kitchen</span>
+            <span class="tag">Sea view</span>
+          </div>
+        </div>
+
+        <div class="card span12">
+          <h2 data-i18n="avail_h">Availability</h2>
+          <p class="small" data-i18n="avail_note">For the most accurate calendar, contact us directly.</p>
+          <div class="calendar-wrap">
+            <iframe class="calendar-iframe" 
+              src="REPLACE_WITH_EMBED_OLIVE"
+              loading="lazy" referrerpolicy="no-referrer">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Aura Adriatica</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/assets/js/i18n.js"></script>
+</body>
+</html>
