@@ -2,29 +2,30 @@
   "brand": "Aura Adriatica",
   "tagline": "Zwei Boutique-Apartments an der Riviera von Opatija.",
   "about_h": "Über uns",
-  "about_p": "Willkommen bei Aura Adriatica – zwei liebevoll gestaltete Apartments in Ičići, nur wenige Minuten vom Meer und der Lungomare-Promenade entfernt.",
-  "apts_h": "Apartments",
-  "olive_meta": "Olive — Meerblick, Balkon, Klimaanlage, WLAN",
-  "onyx_meta": "Onyx — Terrasse, Garten, Klimaanlage, WLAN",
+  "about_p": "Willkommen bei Aura Adriatica — Ihr perfekter Urlaubsort an der Riviera von Opatija. Genießen Sie Komfort, modernes Design und einen atemberaubenden Blick auf die Adria.",
+  "apts_h": "Unsere Apartments",
+  "olive_meta": "Olive — Meerblick, Balkon, Klimaanlage, Wi-Fi",
+  "onyx_meta": "Onyx — Terrasse, Garten, Klimaanlage, Wi-Fi",
+  "olive_h": "Apartment Olive",
+  "olive_intro": "Meerblick, Balkon, Klimaanlage, Wi-Fi — ideal für 2–4 Gäste.",
+  "onyx_h": "Apartment Onyx",
+  "onyx_intro": "Terrasse, Zugang zum Garten, Klimaanlage, Wi-Fi — ideal für 2–4 Gäste.",
+  "back_home": "Zurück zur Startseite",
   "avail_h": "Verfügbarkeit",
-  "avail_note": "Für den genauesten Kalender und den besten Preis kontaktieren Sie uns direkt.",
+  "avail_note": "Für die genaueste Verfügbarkeit kontaktieren Sie uns bitte direkt unter info@auraadriatica.com.",
   "loc_h": "Lage",
-  "loc_p": "Wir befinden uns in Ičići bei Opatija, nahe Stränden, Restaurants und der Lungomare-Promenade.",
+  "loc_p": "Wir befinden uns in Ičići, einem charmanten Küstenort in der Nähe von Opatija, Kroatien. Strand, Yachthafen und die Wanderwege des Učka-Gebirges sind zu Fuß erreichbar.",
   "info_list": [
-    {
-      "item": "Kostenloses Parken"
-    },
-    {
-      "item": "Schnelles WLAN"
-    },
-    {
-      "item": "Self Check-in"
-    }
+    "Privatparkplatz inklusive",
+    "Kostenloses Wi-Fi in allen Räumen",
+    "Klimaanlage",
+    "Voll ausgestattete Küche",
+    "Nähe zum Strand und zu Restaurants"
   ],
   "contact_h": "Kontakt",
   "contact_email": "info@auraadriatica.com",
   "cta_book": "Anfrage senden",
-  "cta_weather": "7-Tage-Wetter",
-  "weather_h": "7-Tage-Wetter",
-  "weather_note": "Vorhersage für Lovran (stündlich aktualisiert)."
+  "cta_weather": "7-Tage-Wetter anzeigen",
+  "weather_h": "Wetter",
+  "weather_note": "7-Tage-Vorhersage für Lovran (stündlich aktualisiert)."
 }
