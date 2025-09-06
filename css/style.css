@@ -99,7 +99,7 @@
 
 /* ===== FOOTER ===== */
 .site-footer {
-  background: linear-gradient(to right, var(--brand-blue), var(--brand-olive));
+  background: linear-gradient(to right, var(--brand-olive), var(--brand-blue));
   color: #fff;
   padding: 2rem 0;
 }
