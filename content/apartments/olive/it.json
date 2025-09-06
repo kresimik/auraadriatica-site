@@ -1,0 +1,19 @@
+{
+  "title": "Appartamento Olive",
+  "intro": "Vista mare, balcone, aria condizionata, Wi-Fi — ideale per 2–4 ospiti.",
+  "description": "Olive è un appartamento luminoso e moderno con un ampio balcone affacciato sull’Adriatico. Cucina completamente attrezzata, aria condizionata, Wi-Fi veloce e parcheggio privato inclusi.",
+  "features": [
+    "Balcone con vista mare",
+    "Aria condizionata",
+    "Wi-Fi veloce",
+    "Cucina completamente attrezzata",
+    "Parcheggio privato"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
