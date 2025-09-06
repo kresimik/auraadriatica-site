@@ -65,8 +65,12 @@ ul{padding-left:1.2rem;}
 
 /* Weather */
 .weather{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;}
-.weather-day{width:92px;text-align:center;border-radius:12px;background:#ffffff;
-  border:1px solid #e6eef9;box-shadow:0 2px 6px rgba(0,0,0,.06);padding:.6rem .5rem;}
-.weather-day .w-day{font-weight:700;margin-bottom:.25rem;color:#333;}
-.weather-day .w-icon{color:var(--brand-blue);margin:.25rem 0;}
-.weather-day .w-temp{font-size:.95rem;color:#333;}
+.weather-day {
+  width:92px; text-align:center; border-radius:12px;
+  background:#ffffff; border:1px solid #e6eef9;
+  box-shadow:0 2px 6px rgba(0,0,0,.06); padding:.6rem .5rem;
+}
+.weather-day .w-day{ font-weight:700; margin-bottom:.25rem; color:var(--brand-olive); }
+.weather-day .w-icon svg{ display:block; margin:0 auto; }
+.weather-day .w-temp{ font-size:.95rem; color:#333; margin-top:.25rem; }
+
