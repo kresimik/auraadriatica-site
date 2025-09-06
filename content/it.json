@@ -1,30 +1,31 @@
 {
   "brand": "Aura Adriatica",
-  "tagline": "Due appartamenti boutique sulla Riviera di Abbazia.",
+  "tagline": "Due appartamenti boutique sulla Riviera di Opatija.",
   "about_h": "Chi siamo",
-  "about_p": "Benvenuti ad Aura Adriatica – due appartamenti curati a Ičići, a pochi minuti dal mare e dalla passeggiata Lungomare.",
-  "apts_h": "Appartamenti",
+  "about_p": "Benvenuti ad Aura Adriatica — la vostra vacanza perfetta sulla Riviera di Opatija. Godetevi il comfort, il design moderno e la splendida vista sul mare Adriatico.",
+  "apts_h": "I nostri appartamenti",
   "olive_meta": "Olive — vista mare, balcone, aria condizionata, Wi-Fi",
   "onyx_meta": "Onyx — terrazza, giardino, aria condizionata, Wi-Fi",
+  "olive_h": "Appartamento Olive",
+  "olive_intro": "Vista mare, balcone, aria condizionata, Wi-Fi — ideale per 2–4 ospiti.",
+  "onyx_h": "Appartamento Onyx",
+  "onyx_intro": "Terrazza, accesso al giardino, aria condizionata, Wi-Fi — ideale per 2–4 ospiti.",
+  "back_home": "Torna alla home",
   "avail_h": "Disponibilità",
-  "avail_note": "Per il calendario più preciso e la migliore tariffa, contattateci direttamente.",
+  "avail_note": "Per la disponibilità più aggiornata contattateci direttamente a info@auraadriatica.com.",
   "loc_h": "Posizione",
-  "loc_p": "Siamo a Ičići vicino ad Abbazia, vicino a spiagge, ristoranti e al Lungomare.",
+  "loc_p": "Ci troviamo a Ičići, una pittoresca località costiera vicino a Opatija, Croazia. Spiaggia, marina e sentieri del monte Učka sono raggiungibili a piedi.",
   "info_list": [
-    {
-      "item": "Parcheggio gratuito"
-    },
-    {
-      "item": "Wi-Fi veloce"
-    },
-    {
-      "item": "Self check-in"
-    }
+    "Parcheggio privato incluso",
+    "Wi-Fi gratuito in tutte le stanze",
+    "Aria condizionata",
+    "Cucina completamente attrezzata",
+    "Vicino a spiaggia e ristoranti"
   ],
-  "contact_h": "Contatto",
+  "contact_h": "Contatti",
   "contact_email": "info@auraadriatica.com",
   "cta_book": "Invia richiesta",
-  "cta_weather": "Meteo 7 giorni",
-  "weather_h": "Meteo 7 giorni",
-  "weather_note": "Previsioni per Lovran (aggiornate ogni ora)."
+  "cta_weather": "Guarda meteo 7 giorni",
+  "weather_h": "Meteo",
+  "weather_note": "Previsioni a 7 giorni per Lovran (aggiornate ogni ora)."
 }
