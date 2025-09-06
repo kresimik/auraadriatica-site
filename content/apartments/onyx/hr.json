@@ -1,0 +1,19 @@
+{
+  "title": "Apartman Onyx",
+  "intro": "Terasa, pristup vrtu, klima, Wi-Fi — idealno za 2–4 osobe.",
+  "description": "Onyx ima privatnu terasu s pristupom vrtu — savršeno za jutarnju kavu. Potpuno opremljena kuhinja, klima, brz Wi-Fi i privatni parking uključeni.",
+  "features": [
+    "Privatna terasa",
+    "Pristup vrtu",
+    "Klimatizacija",
+    "Brz Wi-Fi",
+    "Privatni parking"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
