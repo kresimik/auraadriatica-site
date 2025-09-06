@@ -1,0 +1,19 @@
+{
+  "title": "Apartment Onyx",
+  "intro": "Terrasse, Zugang zum Garten, Klimaanlage, WLAN — ideal für 2–4 Gäste.",
+  "description": "Onyx verfügt über eine private Terrasse mit Zugang zum Garten — perfekt für den Morgenkaffee. Voll ausgestattete Küche, Klimaanlage, schnelles WLAN und privater Parkplatz sind inklusive.",
+  "features": [
+    "Private Terrasse",
+    "Gartenzugang",
+    "Klimaanlage",
+    "Schnelles WLAN",
+    "Privater Parkplatz"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
