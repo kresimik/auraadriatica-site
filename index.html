@@ -17,6 +17,8 @@
       <nav class="main">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
       </nav>
       <div class="lang">
         <button data-lang="hr">HR</button>
@@ -32,7 +34,7 @@
     </div>
   </header>
 
-  <!-- Hero section -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <h1 data-i18n="brand">Aura Adriatica</h1>
@@ -48,7 +50,10 @@
   <section class="section">
     <div class="container">
       <h2 data-i18n="about_h">About us</h2>
-      <p data-i18n="about_p">Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera. Enjoy comfort, modern design, and stunning views of the Adriatic Sea.</p>
+      <p data-i18n="about_p">
+        Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera. 
+        Enjoy comfort, modern design, and stunning views of the Adriatic Sea.
+      </p>
     </div>
   </section>
 
@@ -56,11 +61,23 @@
   <section class="section alt">
     <div class="container">
       <h2 data-i18n="loc_h">Location</h2>
-      <p data-i18n="loc_p">We are located in Ičići, a charming coastal town near Opatija, Croatia. The beach, marina, and Učka mountain trails are all within walking distance.</p>
+      <p data-i18n="loc_p">
+        We are located in Ičići, a charming coastal town near Opatija, Croatia. 
+        The beach, marina, and Učka mountain trails are all within walking distance.
+      </p>
     </div>
   </section>
 
-  <!-- Info -->
+  <!-- Weather -->
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="weather_h">7-day Forecast</h2>
+      <p data-i18n="weather_note">Weather in Lovran — updated daily</p>
+      <div id="weather-widget" class="weather"></div>
+    </div>
+  </section>
+
+  <!-- Info list -->
   <section class="section">
     <div class="container">
       <h2 data-i18n="info_h">Information</h2>
@@ -72,34 +89,40 @@
   <section class="section alt">
     <div class="container">
       <h2 data-i18n="contact_h">Contact</h2>
-      <p><a href="mailto:info@auraadriatica.com" data-i18n="contact_email">info@auraadriatica.com</a></p>
+      <p>
+        <a href="mailto:info@auraadriatica.com" data-i18n="contact_email">
+          info@auraadriatica.com
+        </a>
+      </p>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      © <span id="year"></span> Aura Adriatica
-    </div>
+    <div class="container">© <span id="year"></span> Aura Adriatica</div>
   </footer>
 
+  <!-- Scripts -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/weather.js"></script>
   <script>
-    // Fill info list from JSON
-    fetch(`/content/${(localStorage.getItem('lang')||'en').toLowerCase()}.json`)
-      .then(r=>r.json())
-      .then(data=>{
-        const list=document.getElementById("info-list");
-        if(list && Array.isArray(data.info_list)){
-          list.innerHTML="";
-          data.info_list.forEach(item=>{
-            const li=document.createElement("li");
-            li.textContent=item;
+    // Info lista iz JSON-a
+    const lang = (localStorage.getItem('lang')||'en').toLowerCase();
+    fetch(`/content/${lang}.json`, { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data) return;
+        const list = document.getElementById('info-list');
+        if (list && Array.isArray(data.info_list)) {
+          list.innerHTML = '';
+          data.info_list.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
             list.appendChild(li);
           });
         }
-      });
+      })
+      .catch(console.warn);
   </script>
 </body>
 </html>
