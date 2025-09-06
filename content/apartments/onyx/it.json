@@ -1,0 +1,19 @@
+{
+  "title": "Appartamento Onyx",
+  "intro": "Terrazza, accesso al giardino, aria condizionata, Wi-Fi — ideale per 2–4 ospiti.",
+  "description": "Onyx offre una terrazza privata con accesso al giardino — perfetta per il caffè del mattino. Cucina completamente attrezzata, aria condizionata, Wi-Fi veloce e parcheggio privato inclusi.",
+  "features": [
+    "Terrazza privata",
+    "Accesso al giardino",
+    "Aria condizionata",
+    "Wi-Fi veloce",
+    "Parcheggio privato"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
