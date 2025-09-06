@@ -1,69 +1,72 @@
-
 :root{
-  --brand-blue:#3ba9ff;
-  --brand-olive:#7aa655;
-  --text:#1e2a35;
-  --muted:#5b6b7a;
-  --bg:#f7fbff;
-  --card:#ffffff;
+  --brand-blue:#4da6ff;
+  --brand-blue-hover:#1f78d1;
+  --brand-olive:#6b8e23;
+  --brand-olive-hover:#556b2f;
+  --bg-alt:#f8f9fb;
+  --text:#333;
+  --max-width:1100px;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
-a{color:var(--brand-blue);text-decoration:none}
-header{position:sticky;top:0;backdrop-filter:saturate(120%) blur(6px);background:rgba(255,255,255,.7);border-bottom:1px solid #e6eef7;z-index:10}
-.container{max-width:1080px;margin:0 auto;padding:0 20px}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
-.brand img{height:28px;width:auto}
-.lang{display:flex;gap:6px;flex-wrap:wrap}
-.lang button{border:1px solid #d5e6f7;background:#fff;color:#1e2a35;border-radius:999px;padding:6px 10px;cursor:pointer;font-size:13px}
-.lang button.active{background:var(--brand-blue);color:#fff;border-color:transparent}
+body{font-family:sans-serif;margin:0;color:var(--text);}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 1rem;}
+a{color:var(--brand-blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
 
-.hero{padding:72px 0 40px;background:linear-gradient(180deg,#eaf6ff,transparent)}
-.hero h1{font-size:40px;line-height:1.1;margin:0 0 10px}
-.hero p{color:var(--muted);font-size:18px;margin:0}
-.cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-.button{display:inline-block;border-radius:12px;padding:10px 14px;border:1px solid transparent}
-.button.primary{background:var(--brand-olive);color:#fff}
-.button.outline{border-color:#cfe7fd;color:var(--brand-blue);background:#fff}
+header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+header .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;}
+header .brand{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.2rem;}
+header .brand img{height:36px;}
+header nav.main a{margin:0 .6rem;font-weight:500;}
+header .lang button{margin:0 .2rem;padding:.3rem .6rem;border:1px solid #ccc;background:#fff;cursor:pointer;border-radius:4px;font-size:.8rem;}
+header .lang button.active{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue);}
 
-.section{padding:40px 0}
-.section h2{font-size:26px;margin:0 0 14px}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
-.card{grid-column:span 12;background:var(--card);border:1px solid #e9f1fb;border-radius:16px;padding:18px;box-shadow:0 2px 8px rgba(16,30,55,0.04)}
-@media(min-width:720px){.card.span6{grid-column:span 6} .card.span4{grid-column:span 4}}
+/* HERO */
+.hero{
+  position:relative;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('/assets/img/hero.jpg') center/cover no-repeat,
+    linear-gradient(120deg, var(--brand-blue), var(--brand-olive));
+  color:#fff;
+  text-align:center;
+  padding:6rem 1rem;
+  overflow:hidden;
+}
+.hero h1{
+  font-size:2.8rem;
+  margin-bottom:1rem;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+}
+.hero p{
+  font-size:1.3rem;
+  margin-bottom:2rem;
+  text-shadow:0 2px 4px rgba(0,0,0,.5);
+}
+.hero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;}
+.hero .button{
+  color:#fff;text-decoration:none;padding:.9rem 1.8rem;border-radius:8px;
+  font-weight:600;box-shadow:0 3px 6px rgba(0,0,0,.25);
+  transition:background .3s,transform .2s;
+}
+.hero .button.blue{background:var(--brand-blue);}
+.hero .button.blue:hover{background:var(--brand-blue-hover);transform:translateY(-2px);}
+.hero .button.olive{background:var(--brand-olive);}
+.hero .button.olive:hover{background:var(--brand-olive-hover);transform:translateY(-2px);}
 
-.footer{padding:28px 0;color:#4b5b6b;border-top:1px solid #e6eef7;font-size:14px}
+/* Sections */
+.section{padding:3rem 1rem;}
+.section.alt{background:var(--bg-alt);}
+.section h2{margin-top:0;color:var(--brand-olive);}
+ul{padding-left:1.2rem;}
+
+/* Footer */
+.footer{background:#222;color:#ccc;text-align:center;padding:1.5rem;margin-top:2rem;}
 
 /* Weather */
-.weather{background:linear-gradient(180deg,#f2fbff,#fff)}
-.weather .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:680px){.weather .tiles{grid-template-columns:repeat(7,1fr)}}
-.tile{background:#fff;border:1px solid #e6eef7;border-radius:16px;padding:12px;text-align:center}
-.tile .day{font-weight:600;margin-bottom:6px}
-.tile .icon{font-size:22px;margin:4px 0}
-.tile .temps{font-size:13px}
-.tile .tmax{color:#d44;font-weight:600}
-.tile .tmin{color:#357}
-.weather h2{margin:0 0 10px}
-.small{color:var(--muted);font-size:13px}
-
-.weather {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 1rem;
-}
-.weather-day {
-  background: #eef6ff;
-  border: 1px solid #cfe4ff;
-  border-radius: 12px;
-  padding: .5rem .8rem;
-  text-align: center;
-  width: 80px;
-}
-.w-day { font-weight: bold; margin-bottom: .2rem; }
-.w-icon { font-size: 1.5rem; }
-.w-temp { color: #333; font-size: .9rem; }
+.weather{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;}
+.weather-day{width:92px;text-align:center;border-radius:12px;background:#ffffff;
+  border:1px solid #e6eef9;box-shadow:0 2px 6px rgba(0,0,0,.06);padding:.6rem .5rem;}
+.weather-day .w-day{font-weight:700;margin-bottom:.25rem;color:#333;}
+.weather-day .w-icon{color:var(--brand-blue);margin:.25rem 0;}
+.weather-day .w-temp{font-size:.95rem;color:#333;}
