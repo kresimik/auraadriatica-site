@@ -1,28 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title data-i18n="brand">Aura Adriatica</title>
-  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera"/>
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250906"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Adriatica</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/lang.js" defer></script>
+  <script src="/assets/js/weather.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica" onerror="this.style.display='none'">
-        <span data-i18n="brand">Aura Adriatica</span>
-      </div>
-      <nav class="main">
-        <a href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-flex">
+      
+      <!-- Logo + ime (klikabilno za povratak na home) -->
+      <a href="/" class="logo">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica">
+        <span>Aura Adriatica</span>
+      </a>
+
+      <!-- Navigacija -->
+      <nav class="main-nav">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Apartman Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Apartman Onyx</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
-      <div class="lang">
+
+      <!-- Jezični gumbi -->
+      <div class="lang-switch">
         <button data-lang="hr">HR</button>
-        <button data-lang="en" class="active">EN</button>
+        <button data-lang="en">EN</button>
         <button data-lang="de">DE</button>
         <button data-lang="it">IT</button>
         <button data-lang="sl">SL</button>
@@ -31,6 +40,7 @@
         <button data-lang="sk">SK</button>
         <button data-lang="uk">UK</button>
       </div>
+
     </div>
   </header>
 
@@ -40,89 +50,30 @@
       <h1 data-i18n="brand">Aura Adriatica</h1>
       <p data-i18n="tagline">Two boutique apartments on the Opatija Riviera</p>
       <div class="cta">
-        <a class="button blue" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
-        <a class="button olive" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
+        <a class="button" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+        <a class="button outline" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="section">
+  <!-- WEATHER -->
+  <section class="weather">
     <div class="container">
-      <h2 data-i18n="about_h">About us</h2>
-      <p data-i18n="about_p">
-        Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera. 
-        Enjoy comfort, modern design, and stunning views of the Adriatic Sea.
-      </p>
+      <h2 data-i18n="weather_title">7-Day Forecast for Lovran</h2>
+      <div id="weather-widget" class="weather-grid"></div>
     </div>
   </section>
 
-  <!-- Location -->
-  <section class="section alt">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="container">
-      <h2 data-i18n="loc_h">Location</h2>
-      <p data-i18n="loc_p">
-        We are located in Ičići, a charming coastal town near Opatija, Croatia. 
-        The beach, marina, and Učka mountain trails are all within walking distance.
-      </p>
+      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
     </div>
-  </section>
-
-  <!-- Weather -->
-  <section class="section">
-    <div class="container">
-      <h2 data-i18n="weather_h">7-day Forecast</h2>
-      <p data-i18n="weather_note">Weather in Lovran — updated daily</p>
-      <div id="weather-widget" class="weather"></div>
-    </div>
-  </section>
-
-  <!-- Info list -->
-  <section class="section">
-    <div class="container">
-      <h2 data-i18n="info_h">Information</h2>
-      <ul id="info-list"></ul>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="section alt">
-    <div class="container">
-      <h2 data-i18n="contact_h">Contact</h2>
-      <p>
-        <a href="mailto:info@auraadriatica.com" data-i18n="contact_email">
-          info@auraadriatica.com
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">© <span id="year"></span> Aura Adriatica</div>
   </footer>
 
-  <!-- Scripts -->
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/weather.js"></script>
   <script>
-    // Info lista iz JSON-a
-    const lang = (localStorage.getItem('lang')||'en').toLowerCase();
-    fetch(`/content/${lang}.json`, { cache: 'no-store' })
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        if (!data) return;
-        const list = document.getElementById('info-list');
-        if (list && Array.isArray(data.info_list)) {
-          list.innerHTML = '';
-          data.info_list.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            list.appendChild(li);
-          });
-        }
-      })
-      .catch(console.warn);
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
