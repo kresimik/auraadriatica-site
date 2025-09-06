@@ -2,29 +2,30 @@
   "brand": "Aura Adriatica",
   "tagline": "Two boutique apartments on the Opatija Riviera.",
   "about_h": "About us",
-  "about_p": "Welcome to Aura Adriatica – two thoughtfully designed apartments in Ičići, a short walk from the sea and the Lungomare promenade.",
-  "apts_h": "Apartments",
+  "about_p": "Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera. Enjoy comfort, modern design, and stunning views of the Adriatic Sea.",
+  "apts_h": "Our Apartments",
   "olive_meta": "Olive — sea view, balcony, AC, Wi-Fi",
   "onyx_meta": "Onyx — terrace, garden, AC, Wi-Fi",
+  "olive_h": "Olive Apartment",
+  "olive_intro": "Sea view, balcony, AC, Wi-Fi — ideal for 2–4 guests.",
+  "onyx_h": "Onyx Apartment",
+  "onyx_intro": "Terrace, garden access, AC, Wi-Fi — ideal for 2–4 guests.",
+  "back_home": "Back to home",
   "avail_h": "Availability",
-  "avail_note": "For the most accurate calendar and best rates, contact us directly.",
+  "avail_note": "For the most accurate availability, please contact us directly at info@auraadriatica.com.",
   "loc_h": "Location",
-  "loc_p": "We are in Ičići near Opatija, close to beaches, restaurants and the seaside Lungomare.",
+  "loc_p": "We are located in Ičići, a charming coastal town near Opatija, Croatia. The beach, marina, and Učka mountain trails are all within walking distance.",
   "info_list": [
-    {
-      "item": "Free parking"
-    },
-    {
-      "item": "Fast Wi-Fi"
-    },
-    {
-      "item": "Self check-in"
-    }
+    "Private parking included",
+    "Free Wi-Fi in all rooms",
+    "Air conditioning",
+    "Fully equipped kitchen",
+    "Close to beach and restaurants"
   ],
   "contact_h": "Contact",
   "contact_email": "info@auraadriatica.com",
   "cta_book": "Send inquiry",
   "cta_weather": "See 7-day weather",
-  "weather_h": "7-day Weather",
-  "weather_note": "Forecast for Lovran (updated hourly)."
+  "weather_h": "Weather",
+  "weather_note": "7-day forecast for Lovran (updated hourly)."
 }
