@@ -156,3 +156,25 @@ ul{padding-left:1.2rem}
   .weather-day{width:84px}
   .gallery{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
 }
+/* === FOOTER (stabilno) === */
+.site-footer{background:linear-gradient(to right, var(--brand-blue), var(--brand-olive)); color:#fff; padding:2rem 0;}
+.footer-flex{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-logo{display:flex;align-items:center;gap:.6rem;color:#fff;text-decoration:none;font-weight:700}
+.logo-badge{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;height:52px;width:52px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.logo-badge img{display:block;height:36px;width:auto}
+.footer-nav a{margin-right:1rem;color:#fff;text-decoration:none;font-weight:500;transition:color .2s}
+.footer-nav a:hover{color:var(--brand-olive)}
+.footer-contact p{margin:0;font-size:.9rem}
+
+@media (max-width:768px){.footer-flex{flex-direction:column;text-align:center}}
+
+/* === TAG “chips” za features (ako nije već definirano) === */
+.features{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{display:inline-block;background:#eef6ff;color:#1f78d1;border:1px solid #cfe4ff;padding:.25rem .6rem;border-radius:999px;font-size:.9rem;font-weight:600}
+
+/* === Gallery grid (ako treba na apartmanima) === */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+
+/* === Calendar iframe === */
+.calendar-iframe{width:100%;min-height:560px;border:1px solid #e6eef9;border-radius:12px}
