@@ -1,58 +1,47 @@
+async function loadWeather() {
+  const url = "https://api.open-meteo.com/v1/forecast?latitude=45.3&longitude=14.27&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=Europe%2FBerlin";
 
-(function(){
-  const coords = { lat: 45.291, lon: 14.276 }; // Lovran approx
-  const tz = 'Europe/Zagreb';
-  const api = (lang)=>`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=${encodeURIComponent(tz)}&forecast_days=7`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-  const codeToIcon = (code)=>{
-    if(code===0) return '☀️';
-    if(code===1 || code===2) return '🌤️';
-    if(code===3) return '☁️';
-    if(code===45 || code===48) return '🌫️';
-    if([51,53,55].includes(code)) return '🌦️';
-    if([61,63,65,80,81,82].includes(code)) return '🌧️';
-    if([71,73,75,85,86].includes(code)) return '🌨️';
-    if([95,96,99].includes(code)) return '⛈️';
-    return '❓';
-  };
+    const days = data.daily.time;
+    const maxTemps = data.daily.temperature_2m_max;
+    const minTemps = data.daily.temperature_2m_min;
+    const codes = data.daily.weathercode;
 
-  const dayName = (dateStr, lang)=>{
-    try{
-      const d = new Date(dateStr+'T00:00:00');
-      return d.toLocaleDateString(lang||'en', { weekday: 'short' });
-    }catch{ return dateStr; }
-  };
+    const tiles = document.getElementById("weather-tiles");
+    tiles.innerHTML = "";
 
-  async function getForecast(lang){
-    const res = await fetch(api(lang));
-    const j = await res.json();
-    return j && j.daily ? j.daily : null;
+    days.forEach((day, i) => {
+      const date = new Date(day);
+      const options = { weekday: "short" };
+      const dayName = date.toLocaleDateString(currentLang || "en", options);
+
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.innerHTML = `
+        <div class="day">${dayName}</div>
+        <div class="icon">${iconForCode(codes[i])}</div>
+        <div class="temp">${minTemps[i]}° / ${maxTemps[i]}°</div>
+      `;
+      tiles.appendChild(tile);
+    });
+  } catch (err) {
+    console.error("Weather error", err);
   }
+}
 
-  async function renderWeather(lang){
-    const mount = document.getElementById('weather-tiles');
-    if(!mount) return;
-    mount.innerHTML = '<div class="small">Loading…</div>';
-    try{
-      const daily = await getForecast(lang);
-      if(!daily){ mount.textContent = '—'; return; }
-      const html = daily.time.map((t, i)=>{
-        const icon = codeToIcon(daily.weathercode[i]);
-        const tmax = Math.round(daily.temperature_2m_max[i]);
-        const tmin = Math.round(daily.temperature_2m_min[i]);
-        return `<div class="tile">
-          <div class="day">${dayName(t, lang)}</div>
-          <div class="icon">${icon}</div>
-          <div class="temps"><span class="tmax">${tmax}°</span> / <span class="tmin">${tmin}°</span></div>
-        </div>`;
-      }).join('');
-      mount.innerHTML = html;
-    }catch(e){
-      console.error(e);
-      mount.innerHTML = '<div class="small">Weather unavailable.</div>';
-    }
-  }
+function iconForCode(code) {
+  // simplified icons
+  if ([0].includes(code)) return "☀️";
+  if ([1, 2].includes(code)) return "🌤️";
+  if ([3].includes(code)) return "☁️";
+  if ([45, 48].includes(code)) return "🌫️";
+  if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return "🌧️";
+  if ([71, 73, 75, 85, 86].includes(code)) return "❄️";
+  if ([95, 96, 99].includes(code)) return "⛈️";
+  return "❓";
+}
 
-  window.renderWeather = renderWeather;
-  document.addEventListener('DOMContentLoaded', ()=> renderWeather(localStorage.getItem('lang')||'en'));
-})();
+document.addEventListener("DOMContentLoaded", loadWeather);
