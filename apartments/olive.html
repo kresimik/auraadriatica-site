@@ -4,8 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title data-i18n="olive_h">Olive Apartment</title>
-  <link rel="stylesheet" href="/assets/css/style.css"/>
   <meta name="description" content="Aura Adriatica — Olive apartment in Ičići, Opatija Riviera">
+  <link rel="stylesheet" href="/assets/css/style.css"/>
 </head>
 <body>
   <header>
@@ -45,29 +45,23 @@
   <section class="section">
     <div class="container">
       <div class="grid">
+        <!-- Galerija i značajke puni JS iz /content/apartments/olive/{lang}.json -->
         <div class="card span12">
-          <div class="gallery">
-            <img src="/assets/img/sample1.jpg" alt="Olive photo 1">
-            <img src="/assets/img/sample2.jpg" alt="Olive photo 2">
-            <img src="/assets/img/sample3.jpg" alt="Olive photo 3">
-            <img src="/assets/img/sample4.jpg" alt="Olive photo 4">
-          </div>
-          <div class="features">
-            <span class="tag">Wi-Fi</span>
-            <span class="tag">AC</span>
-            <span class="tag">Kitchen</span>
-            <span class="tag">Sea view</span>
-          </div>
+          <div id="apt-gallery" class="gallery"></div>
+          <div id="apt-features" class="features"></div>
         </div>
 
+        <!-- Opis iz JSON-a -->
+        <div class="card span12">
+          <p id="apt-description"></p>
+        </div>
+
+        <!-- Kalendar (URL se može postaviti u JSON -> "calendar") -->
         <div class="card span12">
           <h2 data-i18n="avail_h">Availability</h2>
           <p class="small" data-i18n="avail_note">For the most accurate calendar, contact us directly.</p>
           <div class="calendar-wrap">
-            <iframe class="calendar-iframe" 
-              src="REPLACE_WITH_EMBED_OLIVE"
-              loading="lazy" referrerpolicy="no-referrer">
-            </iframe>
+            <iframe class="calendar-iframe" src="" loading="lazy" referrerpolicy="no-referrer"></iframe>
           </div>
         </div>
       </div>
@@ -80,5 +74,6 @@
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/apartment.js"></script>
 </body>
 </html>
