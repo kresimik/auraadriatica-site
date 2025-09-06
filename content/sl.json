@@ -2,29 +2,30 @@
   "brand": "Aura Adriatica",
   "tagline": "Dva butična apartmaja na Opatijski rivieri.",
   "about_h": "O nas",
-  "about_p": "Dobrodošli v Aura Adriatica – dva skrbno urejena apartmaja v Ičićih, le nekaj minut hoje od morja in sprehajališča Lungomare.",
-  "apts_h": "Apartmaji",
+  "about_p": "Dobrodošli v Aura Adriatica — vaš popoln oddih na Opatijski rivieri. Uživajte v udobju, modernem dizajnu in čudovitem razgledu na Jadransko morje.",
+  "apts_h": "Naši apartmaji",
   "olive_meta": "Olive — pogled na morje, balkon, klima, Wi-Fi",
   "onyx_meta": "Onyx — terasa, vrt, klima, Wi-Fi",
+  "olive_h": "Apartma Olive",
+  "olive_intro": "Pogled na morje, balkon, klima, Wi-Fi — idealno za 2–4 osebe.",
+  "onyx_h": "Apartma Onyx",
+  "onyx_intro": "Terasa, dostop do vrta, klima, Wi-Fi — idealno za 2–4 osebe.",
+  "back_home": "Nazaj na začetno stran",
   "avail_h": "Razpoložljivost",
-  "avail_note": "Za najbolj točen koledar in ceno nas kontaktirajte neposredno.",
+  "avail_note": "Za najbolj točne informacije o razpoložljivosti nas kontaktirajte neposredno na info@auraadriatica.com.",
   "loc_h": "Lokacija",
-  "loc_p": "Smo v Ičićih pri Opatiji, blizu plaž, restavracij in sprehajališča Lungomare.",
+  "loc_p": "Nahajamo se v Ičićih, očarljivem obalnem mestu blizu Opatije na Hrvaškem. Plaža, marina in poti na goro Učka so dosegljive peš.",
   "info_list": [
-    {
-      "item": "Brezplačno parkirišče"
-    },
-    {
-      "item": "Hiter Wi-Fi"
-    },
-    {
-      "item": "Self check-in"
-    }
+    "Vključen zasebni parking",
+    "Brezplačen Wi-Fi v vseh prostorih",
+    "Klimatska naprava",
+    "Popolnoma opremljena kuhinja",
+    "Bližina plaže in restavracij"
   ],
   "contact_h": "Kontakt",
   "contact_email": "info@auraadriatica.com",
   "cta_book": "Pošljite povpraševanje",
-  "cta_weather": "7-dnevna napoved",
-  "weather_h": "Vremenska napoved (7 dni)",
-  "weather_note": "Napoved za Lovran (posodobljena vsako uro)."
+  "cta_weather": "Poglejte 7-dnevno vreme",
+  "weather_h": "Vreme",
+  "weather_note": "7-dnevna vremenska napoved za Lovran (posodablja se vsako uro)."
 }
