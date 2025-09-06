@@ -33,7 +33,61 @@
   transition:background .3s, transform .2s;
 }
 .hero .button:hover{ background:var(--brand-blue-hover); transform:translateY(-2px); }
-.hero .button.outline{ background:var(--brand-olive); }
-.hero .button.outline:hover{ background:var(--brand-olive-hover); transform:translateY(-2px); }
+.hero .button.outline{
+  background:var(--brand-olive);
+  color:#fff;
+}
+.hero .button.outline:hover{
+  background:var(--brand-olive-hover);
+  transform:translateY(-2px);
+}
 
-/* (ostatak tvog postojeceg CSS-a moze ostati) */
+/* FOOTER — brand gradient + logo in white circle */
+.site-footer{
+  background: linear-gradient(to right, var(--brand-blue), var(--brand-olive));
+  color:#fff;
+  padding:2rem 0;
+}
+.footer-flex{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1.5rem;
+}
+.footer-logo{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  font-size:1.1rem;
+}
+.footer-logo img{
+  background:#fff;
+  border-radius:50%;
+  padding:6px;
+  height:48px;
+  width:48px;
+  object-fit:contain;
+}
+.footer-nav a{
+  margin-right:1rem;
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  transition:color .2s;
+}
+.footer-nav a:hover{
+  color:var(--brand-olive);
+}
+.footer-contact p{
+  margin:0;
+  font-size:.9rem;
+}
+
+/* Responsive footer */
+@media (max-width: 768px){
+  .footer-flex{ flex-direction:column; text-align:center; }
+}
