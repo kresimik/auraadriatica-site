@@ -292,3 +292,96 @@ collections:
           - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
           - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
           - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+  - name: "apartment_olive"
+    label: "Apartment — Olive"
+    format: "json"
+    editor: { preview: false }
+    files:
+      - label: "Olive (English)"
+        name: "olive_en"
+        file: "content/apartments/olive/en.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Image", name: "image", widget: "image" }
+          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
+
+      - label: "Olive (Hrvatski)"
+        name: "olive_hr"
+        file: "content/apartments/olive/hr.json"
+        fields:
+          - { label: "Naslov", name: "title", widget: "string" }
+          - { label: "Uvod", name: "intro", widget: "text" }
+          - { label: "Opis", name: "description", widget: "text" }
+          - label: "Značajke"
+            name: "features"
+            widget: "list"
+            field: { label: "Stavka", name: "feature", widget: "string" }
+          - label: "Galerija"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Slika", name: "image", widget: "image" }
+          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
+
+      - { label: "Olive (Deutsch)",  name: "olive_de", file: "content/apartments/olive/de.json", fields: *id_apt_fields_de }
+      - { label: "Olive (Italiano)", name: "olive_it", file: "content/apartments/olive/it.json", fields: *id_apt_fields_it }
+      - { label: "Olive (Slovenščina)", name: "olive_sl", file: "content/apartments/olive/sl.json", fields: *id_apt_fields_sl }
+      - { label: "Olive (Magyar)", name: "olive_hu", file: "content/apartments/olive/hu.json", fields: *id_apt_fields_hu }
+      - { label: "Olive (Čeština)", name: "olive_cs", file: "content/apartments/olive/cs.json", fields: *id_apt_fields_cs }
+      - { label: "Olive (Slovenčina)", name: "olive_sk", file: "content/apartments/olive/sk.json", fields: *id_apt_fields_sk }
+      - { label: "Olive (Українська)", name: "olive_uk", file: "content/apartments/olive/uk.json", fields: *id_apt_fields_uk }
+
+  - name: "apartment_onyx"
+    label: "Apartment — Onyx"
+    format: "json"
+    editor: { preview: false }
+    files:
+      - label: "Onyx (English)"
+        name: "onyx_en"
+        file: "content/apartments/onyx/en.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            field: { label: "Feature", name: "feature", widget: "string" }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Image", name: "image", widget: "image" }
+          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
+
+      - label: "Onyx (Hrvatski)"
+        name: "onyx_hr"
+        file: "content/apartments/onyx/hr.json"
+        fields:
+          - { label: "Naslov", name: "title", widget: "string" }
+          - { label: "Uvod", name: "intro", widget: "text" }
+          - { label: "Opis", name: "description", widget: "text" }
+          - label: "Značajke"
+            name: "features"
+            widget: "list"
+            field: { label: "Stavka", name: "feature", widget: "string" }
+          - label: "Galerija"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Slika", name: "image", widget: "image" }
+          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
+
+      - { label: "Onyx (Deutsch)",  name: "onyx_de", file: "content/apartments/onyx/de.json", fields: *id_apt_fields_de }
+      - { label: "Onyx (Italiano)", name: "onyx_it", file: "content/apartments/onyx/it.json", fields: *id_apt_fields_it }
+      - { label: "Onyx (Slovenščina)", name: "onyx_sl", file: "content/apartments/onyx/sl.json", fields: *id_apt_fields_sl }
+      - { label: "Onyx (Magyar)", name: "onyx_hu", file: "content/apartments/onyx/hu.json", fields: *id_apt_fields_hu }
+      - { label: "Onyx (Čeština)", name: "onyx_cs", file: "content/apartments/onyx/cs.json", fields: *id_apt_fields_cs }
+      - { label: "Onyx (Slovenčina)", name: "onyx_sk", file: "content/apartments/onyx/sk.json", fields: *id_apt_fields_sk }
+      - { label: "Onyx (Українська)", name: "onyx_uk", file: "content/apartments/onyx/uk.json", fields: *id_apt_fields_uk }
