@@ -1,0 +1,19 @@
+{
+  "title": "Apartmán Olive",
+  "intro": "Výhľad na more, balkón, klimatizácia, Wi-Fi — ideálne pre 2–4 hostí.",
+  "description": "Olive je svetlý, moderný apartmán s priestranným balkónom a výhľadom na Jadran. Plne vybavená kuchyňa, klimatizácia, rýchle Wi-Fi a súkromné parkovanie sú zahrnuté.",
+  "features": [
+    "Balkón s výhľadom na more",
+    "Klimatizácia",
+    "Rýchle Wi-Fi",
+    "Plne vybavená kuchyňa",
+    "Súkromné parkovanie"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
