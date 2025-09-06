@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Aura Adriatica — Apartments in Opatija Riviera</title>
-  <meta name="description" content="Aura Adriatica — boutique apartments in Ičići, Opatija Riviera.">
+  <title data-i18n="brand">Aura Adriatica</title>
+  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera"/>
   <link rel="stylesheet" href="/assets/css/style.css"/>
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" onerror="this.style.display='none'">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica" onerror="this.style.display='none'">
         <span data-i18n="brand">Aura Adriatica</span>
       </div>
       <nav class="main">
@@ -32,64 +32,74 @@
     </div>
   </header>
 
+  <!-- Hero section -->
   <section class="hero">
     <div class="container">
       <h1 data-i18n="brand">Aura Adriatica</h1>
-      <p data-i18n="tagline">Two boutique apartments on the Opatija Riviera.</p>
+      <p data-i18n="tagline">Two boutique apartments on the Opatija Riviera</p>
       <div class="cta">
-        <a class="button primary" href="mailto:info@auraadriatica.com" data-i18n="cta_book">Send inquiry</a>
-        <a class="button outline" href="#weather" data-i18n="cta_weather">See 7-day weather</a>
+        <a class="button" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+        <a class="button outline" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section class="section">
     <div class="container">
-      <div class="grid">
-        <div class="card span6">
-          <h2 data-i18n="apts_h">Apartments</h2>
-          <ul>
-            <li><a href="/apartments/olive.html"><span data-i18n="olive_meta">Olive — sea view, balcony…</span></a></li>
-            <li><a href="/apartments/onyx.html"><span data-i18n="onyx_meta">Onyx — terrace, garden…</span></a></li>
-          </ul>
-        </div>
-        <div class="card span6">
-          <h2 data-i18n="about_h">About us</h2>
-          <p data-i18n="about_p">Welcome to Aura Adriatica…</p>
-        </div>
-      </div>
+      <h2 data-i18n="about_h">About us</h2>
+      <p data-i18n="about_p">Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera. Enjoy comfort, modern design, and stunning views of the Adriatic Sea.</p>
     </div>
   </section>
 
-  <section class="section weather" id="weather">
+  <!-- Location -->
+  <section class="section alt">
     <div class="container">
-      <h2 id="weather-title">Weather</h2>
-      <p class="small" id="weather-note">7-day forecast for Lovran (updated hourly).</p>
-      <div id="weather-tiles" class="tiles" aria-live="polite"></div>
+      <h2 data-i18n="loc_h">Location</h2>
+      <p data-i18n="loc_p">We are located in Ičići, a charming coastal town near Opatija, Croatia. The beach, marina, and Učka mountain trails are all within walking distance.</p>
     </div>
   </section>
 
+  <!-- Info -->
   <section class="section">
     <div class="container">
-      <div class="grid">
-        <div class="card span6">
-          <h2 data-i18n="loc_h">Location</h2>
-          <p data-i18n="loc_p">We are in Ičići near Opatija…</p>
-        </div>
-        <div class="card span6">
-          <h2 data-i18n="contact_h">Contact</h2>
-          <p><a href="mailto:info@auraadriatica.com" data-i18n="contact_email">info@auraadriatica.com</a></p>
-        </div>
-      </div>
+      <h2 data-i18n="info_h">Information</h2>
+      <ul id="info-list"></ul>
     </div>
   </section>
 
+  <!-- Contact -->
+  <section class="section alt">
+    <div class="container">
+      <h2 data-i18n="contact_h">Contact</h2>
+      <p><a href="mailto:info@auraadriatica.com" data-i18n="contact_email">info@auraadriatica.com</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">© <span id="year"></span> Aura Adriatica</div>
+    <div class="container">
+      © <span id="year"></span> Aura Adriatica
+    </div>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="/assets/js/i18n.js"></script>
-  <script src="/assets/js/weather.js" defer></script>
+  <script>
+    // Fill info list from JSON
+    fetch(`/content/${(localStorage.getItem('lang')||'en').toLowerCase()}.json`)
+      .then(r=>r.json())
+      .then(data=>{
+        const list=document.getElementById("info-list");
+        if(list && Array.isArray(data.info_list)){
+          list.innerHTML="";
+          data.info_list.forEach(item=>{
+            const li=document.createElement("li");
+            li.textContent=item;
+            list.appendChild(li);
+          });
+        }
+      });
+  </script>
 </body>
 </html>
