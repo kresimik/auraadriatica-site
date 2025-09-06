@@ -1,0 +1,19 @@
+{
+  "title": "Apartma Olive",
+  "intro": "Pogled na morje, balkon, klima, Wi-Fi — idealno za 2–4 osebe.",
+  "description": "Olive je svetel, moderen apartma s prostornim balkonom in razgledom na Jadran. Popolnoma opremljena kuhinja, klima, hiter Wi-Fi in zasebno parkirišče so vključeni.",
+  "features": [
+    "Balkon s pogledom na morje",
+    "Klimatska naprava",
+    "Hiter Wi-Fi",
+    "Popolnoma opremljena kuhinja",
+    "Zasebno parkirišče"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
