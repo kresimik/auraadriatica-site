@@ -1,1 +1,19 @@
-
+{
+  "title": "Olive Apartment",
+  "intro": "Sea view, balcony, AC, Wi-Fi — ideal for 2–4 guests.",
+  "description": "Olive is a bright, modern apartment with a spacious balcony overlooking the Adriatic. Fully equipped kitchen, AC, fast Wi-Fi, and private parking included.",
+  "features": [
+    "Sea view balcony",
+    "Air conditioning",
+    "Fast Wi-Fi",
+    "Fully equipped kitchen",
+    "Private parking"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
