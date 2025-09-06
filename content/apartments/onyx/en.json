@@ -1,1 +1,19 @@
-
+{
+  "title": "Onyx Apartment",
+  "intro": "Terrace, garden access, AC, Wi-Fi — ideal for 2–4 guests.",
+  "description": "Onyx features a private terrace with access to the garden, perfect for morning coffee. Fully equipped kitchen, AC, fast Wi-Fi, and private parking included.",
+  "features": [
+    "Private terrace",
+    "Garden access",
+    "Air conditioning",
+    "Fast Wi-Fi",
+    "Private parking"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
