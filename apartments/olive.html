@@ -63,14 +63,23 @@
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-flex">
-
-    <!-- Logo u bijelom krugu -->
-  <a href="/" class="footer-logo">
-    <span class="logo-badge">
-      <img src="/assets/img/logo.png" alt="Aura Adriatica">
-    </span>
-    <span>Aura Adriatica</span>
-  </a>
+    <a href="/" class="footer-logo">
+      <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica"></span>
+      <span>Aura Adriatica</span>
+    </a>
+    <nav class="footer-nav">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
     <!-- Navigacija -->
     <nav class="footer-nav">
