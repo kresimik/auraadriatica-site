@@ -1,24 +1,19 @@
 backend:
   name: github
-  repo: kresimik/auraadriatica-site     # <-- tvoj repo
-  branch: develop                       # CMS čita/piše u develop
+  repo: kresimik/auraadriatica-site   # zamijeni s imenom tvog repo-a
+  branch: develop                     # CMS piše u develop
   base_url: https://auraadriatica.com
   auth_endpoint: /api/auth
 
-site_url: https://auraadriatica.com
-logo_url: /assets/img/logo.png
 media_folder: "assets/img"
 public_folder: "/assets/img"
-publish_mode: editorial_workflow
 
 collections:
   - name: "site_texts"
     label: "Site Texts"
     format: "json"
-    editor:
-      preview: false
+    editor: { preview: false }
     files:
-      # ---------------- EN ----------------
       - label: "English"
         name: "en"
         file: "content/en.json"
@@ -30,6 +25,11 @@ collections:
           - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
           - { label: "Availability — Heading", name: "avail_h", widget: "string" }
           - { label: "Availability — Note", name: "avail_note", widget: "text" }
           - { label: "Location — Heading", name: "loc_h", widget: "string" }
@@ -45,218 +45,250 @@ collections:
           - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
           - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- HR ----------------
       - label: "Hrvatski"
         name: "hr"
         file: "content/hr.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "O nama — Naslov", name: "about_h", widget: "string" }
-          - { label: "O nama — Tekst", name: "about_p", widget: "text" }
-          - { label: "Apartmani — Naslov", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Kalendar — Naslov", name: "avail_h", widget: "string" }
-          - { label: "Kalendar — Napomena", name: "avail_note", widget: "text" }
-          - { label: "Lokacija — Naslov", name: "loc_h", widget: "string" }
-          - { label: "Lokacija — Tekst", name: "loc_p", widget: "text" }
-          - label: "Info za goste — Popis"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Stavka", name: "item", widget: "string" }
-          - { label: "Kontakt — Naslov", name: "contact_h", widget: "string" }
-          - { label: "Kontakt — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Rezervacija", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Vrijeme", name: "cta_weather", widget: "string", required: false }
-          - { label: "Vrijeme — Naslov", name: "weather_h", widget: "string", required: false }
-          - { label: "Vrijeme — Napomena", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- DE ----------------
       - label: "Deutsch"
         name: "de"
         file: "content/de.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "Über uns — Titel", name: "about_h", widget: "string" }
-          - { label: "Über uns — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Titel", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Verfügbarkeit — Titel", name: "avail_h", widget: "string" }
-          - { label: "Verfügbarkeit — Hinweis", name: "avail_note", widget: "text" }
-          - { label: "Lage — Titel", name: "loc_h", widget: "string" }
-          - { label: "Lage — Text", name: "loc_p", widget: "text" }
-          - label: "Gästeinfo — Liste"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Eintrag", name: "item", widget: "string" }
-          - { label: "Kontakt — Titel", name: "contact_h", widget: "string" }
-          - { label: "Kontakt — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Anfrage", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Wetter", name: "cta_weather", widget: "string", required: false }
-          - { label: "Wetter — Titel", name: "weather_h", widget: "string", required: false }
-          - { label: "Wetter — Hinweis", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- IT ----------------
       - label: "Italiano"
         name: "it"
         file: "content/it.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "Chi siamo — Titolo", name: "about_h", widget: "string" }
-          - { label: "Chi siamo — Testo", name: "about_p", widget: "text" }
-          - { label: "Appartamenti — Titolo", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Disponibilità — Titolo", name: "avail_h", widget: "string" }
-          - { label: "Disponibilità — Nota", name: "avail_note", widget: "text" }
-          - { label: "Posizione — Titolo", name: "loc_h", widget: "string" }
-          - { label: "Posizione — Testo", name: "loc_p", widget: "text" }
-          - label: "Info ospiti — Elenco"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Voce", name: "item", widget: "string" }
-          - { label: "Contatto — Titolo", name: "contact_h", widget: "string" }
-          - { label: "Contatto — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Richiesta", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Meteo", name: "cta_weather", widget: "string", required: false }
-          - { label: "Meteo — Titolo", name: "weather_h", widget: "string", required: false }
-          - { label: "Meteo — Nota", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- SL ----------------
       - label: "Slovenščina"
         name: "sl"
         file: "content/sl.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "O nas — Naslov", name: "about_h", widget: "string" }
-          - { label: "O nas — Besedilo", name: "about_p", widget: "text" }
-          - { label: "Apartmaji — Naslov", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Razpoložljivost — Naslov", name: "avail_h", widget: "string" }
-          - { label: "Razpoložljivost — Opomba", name: "avail_note", widget: "text" }
-          - { label: "Lokacija — Naslov", name: "loc_h", widget: "string" }
-          - { label: "Lokacija — Besedilo", name: "loc_p", widget: "text" }
-          - label: "Info za goste — Seznam"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Postavka", name: "item", widget: "string" }
-          - { label: "Kontakt — Naslov", name: "contact_h", widget: "string" }
-          - { label: "Kontakt — E-pošta", name: "contact_email", widget: "string" }
-          - { label: "CTA — Povpraševanje", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Vreme", name: "cta_weather", widget: "string", required: false }
-          - { label: "Vreme — Naslov", name: "weather_h", widget: "string", required: false }
-          - { label: "Vreme — Opomba", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- HU ----------------
       - label: "Magyar"
         name: "hu"
         file: "content/hu.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "Rólunk — Cím", name: "about_h", widget: "string" }
-          - { label: "Rólunk — Szöveg", name: "about_p", widget: "text" }
-          - { label: "Apartmanok — Cím", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Elérhetőség — Cím", name: "avail_h", widget: "string" }
-          - { label: "Elérhetőség — Megjegyzés", name: "avail_note", widget: "text" }
-          - { label: "Elhelyezkedés — Cím", name: "loc_h", widget: "string" }
-          - { label: "Elhelyezkedés — Szöveg", name: "loc_p", widget: "text" }
-          - label: "Vendég infó — Lista"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Tétel", name: "item", widget: "string" }
-          - { label: "Kapcsolat — Cím", name: "contact_h", widget: "string" }
-          - { label: "Kapcsolat — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Ajánlatkérés", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Időjárás", name: "cta_weather", widget: "string", required: false }
-          - { label: "Időjárás — Cím", name: "weather_h", widget: "string", required: false }
-          - { label: "Időjárás — Megjegyzés", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- CS ----------------
       - label: "Čeština"
         name: "cs"
         file: "content/cs.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "O nás — Titul", name: "about_h", widget: "string" }
-          - { label: "O nás — Text", name: "about_p", widget: "text" }
-          - { label: "Apartmány — Titul", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Dostupnost — Titul", name: "avail_h", widget: "string" }
-          - { label: "Dostupnost — Poznámka", name: "avail_note", widget: "text" }
-          - { label: "Poloha — Titul", name: "loc_h", widget: "string" }
-          - { label: "Poloha — Text", name: "loc_p", widget: "text" }
-          - label: "Info pro hosty — Seznam"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Položka", name: "item", widget: "string" }
-          - { label: "Kontakt — Titul", name: "contact_h", widget: "string" }
-          - { label: "Kontakt — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Poptávka", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Počasí", name: "cta_weather", widget: "string", required: false }
-          - { label: "Počasí — Titul", name: "weather_h", widget: "string", required: false }
-          - { label: "Počasí — Poznámka", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- SK ----------------
       - label: "Slovenčina"
         name: "sk"
         file: "content/sk.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "O nás — Nadpis", name: "about_h", widget: "string" }
-          - { label: "O nás — Text", name: "about_p", widget: "text" }
-          - { label: "Apartmány — Nadpis", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Dostupnosť — Nadpis", name: "avail_h", widget: "string" }
-          - { label: "Dostupnosť — Poznámka", name: "avail_note", widget: "text" }
-          - { label: "Lokalita — Nadpis", name: "loc_h", widget: "string" }
-          - { label: "Lokalita — Text", name: "loc_p", widget: "text" }
-          - label: "Info pre hostí — Zoznam"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Položka", name: "item", widget: "string" }
-          - { label: "Kontakt — Nadpis", name: "contact_h", widget: "string" }
-          - { label: "Kontakt — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Dopyt", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Počasie", name: "cta_weather", widget: "string", required: false }
-          - { label: "Počasie — Nadpis", name: "weather_h", widget: "string", required: false }
-          - { label: "Počasie — Poznámka", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
 
-      # ---------------- UK ----------------
       - label: "Українська"
         name: "uk"
         file: "content/uk.json"
         fields:
           - { label: "Brand", name: "brand", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "Про нас — Заголовок", name: "about_h", widget: "string" }
-          - { label: "Про нас — Текст", name: "about_p", widget: "text" }
-          - { label: "Апартаменти — Заголовок", name: "apts_h", widget: "string" }
+          - { label: "About — Heading", name: "about_h", widget: "string" }
+          - { label: "About — Text", name: "about_p", widget: "text" }
+          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
           - { label: "Olive meta", name: "olive_meta", widget: "string" }
           - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Наявність — Заголовок", name: "avail_h", widget: "string" }
-          - { label: "Наявність — Примітка", name: "avail_note", widget: "text" }
-          - { label: "Розташування — Заголовок", name: "loc_h", widget: "string" }
-          - { label: "Розташування — Текст", name: "loc_p", widget: "text" }
-          - label: "Інфо для гостей — Список"
+          - { label: "Olive Heading", name: "olive_h", widget: "string" }
+          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
+          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
+          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
+          - { label: "Back Home", name: "back_home", widget: "string" }
+          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
+          - { label: "Availability — Note", name: "avail_note", widget: "text" }
+          - { label: "Location — Heading", name: "loc_h", widget: "string" }
+          - { label: "Location — Text", name: "loc_p", widget: "text" }
+          - label: "Guest Info — List"
             name: "info_list"
             widget: "list"
-            field: { label: "Пункт", name: "item", widget: "string" }
-          - { label: "Контакти — Заголовок", name: "contact_h", widget: "string" }
-          - { label: "Контакти — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Запит", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Погода", name: "cta_weather", widget: "string", required: false }
-          - { label: "Погода — Заголовок", name: "weather_h", widget: "string", required: false }
-          - { label: "Погода — Примітка", name: "weather_note", widget: "text", required: false }
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+          - { label: "Contact — Email", name: "contact_email", widget: "string" }
+          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
+          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
+          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
