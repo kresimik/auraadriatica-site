@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Aura Adriatica</title>
+  <meta name="description" content="Photo gallery of Aura Adriatica apartments Olive & Onyx in Ičići, Opatija Riviera.">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
+  <script src="/assets/js/i18n.js" defer></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-flex">
+      <a href="/" class="logo">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica">
+        <span>Aura Adriatica</span>
+      </a>
+      <nav class="main-nav">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/gallery.html" class="active" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
+      <div class="lang-switch">
+        <button data-lang="hr">HR</button>
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="it">IT</button>
+        <button data-lang="sl">SL</button>
+        <button data-lang="hu">HU</button>
+        <button data-lang="cs">CS</button>
+        <button data-lang="sk">SK</button>
+        <button data-lang="uk">UK</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="background-image:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/assets/img/gallery-hero.jpg');">
+    <div class="container">
+      <h1 data-i18n="gallery">Gallery</h1>
+      <p data-i18n="gallery_intro">Discover Olive & Onyx apartments and the beauty of Opatija Riviera.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY GRID -->
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="gallery">Photo Gallery</h2>
+      <div class="gallery">
+        <img src="/assets/img/gallery1.jpg" alt="Aura Adriatica view">
+        <img src="/assets/img/gallery2.jpg" alt="Olive apartment interior">
+        <img src="/assets/img/gallery3.jpg" alt="Onyx apartment terrace">
+        <img src="/assets/img/gallery4.jpg" alt="Living room Olive">
+        <img src="/assets/img/gallery5.jpg" alt="Bedroom Onyx">
+        <img src="/assets/img/gallery6.jpg" alt="Balcony sea view">
+        <img src="/assets/img/gallery7.jpg" alt="Kitchen Olive">
+        <img src="/assets/img/gallery8.jpg" alt="Bathroom Onyx">
+        <img src="/assets/img/gallery9.jpg" alt="Lovran beach nearby">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <a href="/" class="footer-logo">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica">
+        <span>Aura Adriatica</span>
+      </a>
+      <nav class="footer-nav">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+        <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
