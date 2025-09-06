@@ -1,0 +1,19 @@
+{
+  "title": "Apartment Olive",
+  "intro": "Meerblick, Balkon, Klimaanlage, WLAN — ideal für 2–4 Gäste.",
+  "description": "Olive ist ein helles, modernes Apartment mit einem großzügigen Balkon und Blick auf die Adria. Voll ausgestattete Küche, Klimaanlage, schnelles WLAN und privater Parkplatz sind inklusive.",
+  "features": [
+    "Balkon mit Meerblick",
+    "Klimaanlage",
+    "Schnelles WLAN",
+    "Voll ausgestattete Küche",
+    "Privater Parkplatz"
+  ],
+  "gallery": [
+    "/assets/img/sample1.jpg",
+    "/assets/img/sample2.jpg",
+    "/assets/img/sample3.jpg",
+    "/assets/img/sample4.jpg"
+  ],
+  "calendar": ""
+}
