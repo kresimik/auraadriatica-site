@@ -1,30 +1,31 @@
 {
   "brand": "Aura Adriatica",
-  "tagline": "Két butik apartman az Opatijai Riviérán.",
+  "tagline": "Két butik apartman az Opatija Riviérán.",
   "about_h": "Rólunk",
-  "about_p": "Üdvözöljük az Aura Adriaticában – két gondosan kialakított apartman Ičićiben, pár perc sétára a tengertől és a Lungomare sétánytól.",
-  "apts_h": "Apartmanok",
+  "about_p": "Üdvözöljük az Aura Adriaticában — az Ön tökéletes nyaralási helyszíne az Opatija Riviérán. Élvezze a kényelmet, a modern dizájnt és az Adriai-tenger lenyűgöző kilátását.",
+  "apts_h": "Apartmanjaink",
   "olive_meta": "Olive — tengerre néző kilátás, erkély, légkondi, Wi-Fi",
   "onyx_meta": "Onyx — terasz, kert, légkondi, Wi-Fi",
+  "olive_h": "Olive apartman",
+  "olive_intro": "Tengerre néző kilátás, erkély, légkondi, Wi-Fi — ideális 2–4 vendég számára.",
+  "onyx_h": "Onyx apartman",
+  "onyx_intro": "Terasz, kertkapcsolat, légkondi, Wi-Fi — ideális 2–4 vendég számára.",
+  "back_home": "Vissza a főoldalra",
   "avail_h": "Elérhetőség",
-  "avail_note": "A legpontosabb naptár és a legjobb árak érdekében lépjen velünk közvetlenül kapcsolatba.",
+  "avail_note": "A legpontosabb elérhetőségért kérjük, vegye fel velünk a kapcsolatot: info@auraadriatica.com.",
   "loc_h": "Elhelyezkedés",
-  "loc_p": "Ičićiben, Opatija közelében vagyunk, strandok, éttermek és a Lungomare közelében.",
+  "loc_p": "Ičićiben találhatóunk, egy bájos tengerparti városban Opatija közelében, Horvátországban. A strand, a kikötő és az Učka-hegység túraútvonalai mind gyalogosan elérhetők.",
   "info_list": [
-    {
-      "item": "Ingyenes parkolás"
-    },
-    {
-      "item": "Gyors Wi-Fi"
-    },
-    {
-      "item": "Self check-in"
-    }
+    "Saját parkolóhely az árban",
+    "Ingyenes Wi-Fi minden szobában",
+    "Légkondicionálás",
+    "Teljesen felszerelt konyha",
+    "Strand és éttermek közelében"
   ],
   "contact_h": "Kapcsolat",
   "contact_email": "info@auraadriatica.com",
-  "cta_book": "Ajánlatkérés",
-  "cta_weather": "7 napos időjárás",
-  "weather_h": "7 napos időjárás",
-  "weather_note": "Előrejelzés Lovranra (óránként frissül)."
+  "cta_book": "Ajánlatkérés küldése",
+  "cta_weather": "7 napos időjárás megtekintése",
+  "weather_h": "Időjárás",
+  "weather_note": "7 napos előrejelzés Lovranra (óránként frissítve)."
 }
