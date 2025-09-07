@@ -97,6 +97,32 @@
   border-bottom: 2px solid var(--brand-olive);
 }
 
+/* ===== LANGUAGE DROPDOWN ===== */
+.lang-dropdown { position:relative; display:inline-block; }
+.lang-toggle {
+  background:#fff; border:1px solid #e1e7f0; border-radius:.6rem;
+  padding:.45rem .7rem; cursor:pointer; font-weight:600; line-height:1;
+}
+.lang-menu {
+  position:absolute; right:0; top:calc(100% + 6px);
+  background:#fff; border:1px solid #e1e7f0; border-radius:.6rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  padding:.4rem; z-index:1000;
+  display:grid; grid-template-columns:repeat(3, auto); gap:.3rem .5rem;
+  min-width: 180px;
+}
+.lang-menu[hidden]{ display:none !important; }
+.lang-menu button {
+  padding:.35rem .55rem; border:1px solid #e1e7f0; border-radius:.5rem;
+  background:#fff; cursor:pointer; white-space:nowrap;
+}
+.lang-menu button.active {
+  background:var(--brand-blue); color:#fff; border-color:transparent;
+}
+@media (max-width:640px){
+  .lang-menu{ grid-template-columns:repeat(2, auto); }
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
   background: linear-gradient(to left, var(--brand-blue), var(--brand-olive));
@@ -143,24 +169,6 @@
   font-size: .9rem;
 }
 
-/* Bijeli kružni bedž za logo (ako koristiš span.logo-badge) */
-.logo-badge {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  border-radius:50%;
-  height:52px;
-  width:52px;
-  box-shadow:0 2px 6px rgba(0,0,0,.2);
-  margin-right:.5rem;
-}
-.logo-badge img {
-  display:block;
-  height:36px;
-  width:auto;
-}
-
 /* ===== GALLERY PREVIEW ===== */
 .gallery-preview {
   display: grid;
@@ -192,30 +200,6 @@
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
-}
-
-/* ===== LANGUAGE DROPDOWN ===== */
-.lang-dropdown { position:relative }
-.lang-toggle {
-  background:#fff; border:1px solid #e1e7f0; border-radius:.6rem;
-  padding:.45rem .7rem; cursor:pointer; font-weight:600;
-}
-.lang-menu {
-  position:absolute; right:0; top:calc(100% + 6px);
-  background:#fff; border:1px solid #e1e7f0; border-radius:.6rem;
-  box-shadow:0 8px 24px rgba(0,0,0,.08);
-  padding:.4rem; display:grid; grid-template-columns:repeat(3, auto); gap:.3rem .5rem;
-  z-index:20;
-}
-.lang-menu button {
-  padding:.35rem .55rem; border:1px solid #e1e7f0; border-radius:.5rem;
-  background:#fff; cursor:pointer;
-}
-.lang-menu button.active {
-  background:var(--brand-blue); color:#fff; border-color:transparent
-}
-@media (max-width: 640px) {
-  .lang-menu{ grid-template-columns:repeat(2, auto) }
 }
 
 /* ===== RESPONSIVE ===== */
