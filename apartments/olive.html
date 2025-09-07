@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apartment Olive — Aura Adriatica</title>
-  <meta name="description" content="Apartment Olive — sea view apartment near Opatija, Croatia">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
+  <meta name="description" content="Apartment Olive — sea view apartment near Opatija, Croatia" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250907" />
   <script src="/assets/js/i18n.js" defer></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
   <header class="site-header">
     <div class="container header-flex">
       <a href="/" class="logo">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica" />
         <span>Aura Adriatica</span>
       </a>
       <nav class="main-nav">
@@ -23,6 +23,7 @@
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
+      <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown">
         <button class="lang-toggle" aria-expanded="false">
           <span class="current-lang">EN</span> ▾
@@ -42,13 +43,13 @@
     </div>
   </header>
 
-  <!-- HERO MINI -->
-  <section class="hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/assets/img/olive-hero.jpg');">
+  <!-- HERO (mini) -->
+  <section class="hero" style="background-image:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/assets/img/olive-hero.jpg');">
     <div class="container">
       <h1 data-i18n="olive_h">Olive Apartment</h1>
       <p data-i18n="olive_intro">Sunny balcony, sea view, parking, fast Wi-Fi.</p>
       <div class="cta">
-        <a class="button blue" href="/index.html" data-i18n="back_home">Back to Home</a>
+        <a class="button outline" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
     </div>
   </section>
@@ -76,7 +77,7 @@
   <footer class="site-footer">
     <div class="container footer-flex">
       <a href="/" class="footer-logo">
-        <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica"></span>
+        <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica" /></span>
         <span>Aura Adriatica</span>
       </a>
       <nav class="footer-nav">
@@ -91,11 +92,9 @@
       </div>
     </div>
   </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- SCRIPTS -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <!-- APARTMENT LOADER -->
   <script src="/assets/js/apt.js"></script>
   <script>
     // Učitaj sadržaj za OLIVE iz JSON-a i prikaži kalendar ako postoji HTTPS URL
@@ -103,44 +102,39 @@
       initApt('olive');
     });
   </script>
+
+  <!-- LANGUAGE DROPDOWN HANDLER -->
   <script>
-  (function(){
-    const dd   = document.querySelector('.lang-dropdown');
-    if(!dd) return;
-    const btn  = dd.querySelector('.lang-toggle');
-    const menu = dd.querySelector('.lang-menu');
-    const cur  = dd.querySelector('.current-lang');
+    (function(){
+      const dd   = document.querySelector('.lang-dropdown');
+      if(!dd) return;
+      const btn  = dd.querySelector('.lang-toggle');
+      const menu = dd.querySelector('.lang-menu');
+      const cur  = dd.querySelector('.current-lang');
 
-    function close(){ menu.hidden = true; btn.setAttribute('aria-expanded','false'); }
-    function open(){ menu.hidden = false; btn.setAttribute('aria-expanded','true'); }
+      const open  = () => { menu.hidden = false; btn.setAttribute('aria-expanded','true');  };
+      const close = () => { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); };
 
-    btn.addEventListener('click', (e)=> {
-      e.stopPropagation();
-      menu.hidden ? open() : close();
-    });
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); menu.hidden ? open() : close(); });
 
-    // klik na odabir jezika
-    menu.addEventListener('click', (e)=>{
-      const b = e.target.closest('button[data-lang]');
-      if(!b) return;
-      // tvoja postojeća logika promjene jezika:
-      localStorage.setItem('lang', b.dataset.lang);
-      cur.textContent = b.dataset.lang.toUpperCase();
-      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
-      close();
-      // reload da povučemo odgovarajući JSON/tekstove
-      location.reload();
-    });
+      menu.addEventListener('click', (e)=>{
+        const b = e.target.closest('button[data-lang]');
+        if(!b) return;
+        localStorage.setItem('lang', b.dataset.lang);
+        cur.textContent = b.dataset.lang.toUpperCase();
+        menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+        close();
+        location.reload();
+      });
 
-    // zatvaranje izvan dropdowna / Esc
-    document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+      document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
 
-    // inicijalni prikaz trenutnog jezika
-    const lang = (localStorage.getItem('lang')||'en').toUpperCase();
-    cur.textContent = lang;
-    menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.textContent===lang));
-  })();
-</script>
+      const saved = (localStorage.getItem('lang')||'en').toUpperCase();
+      cur.textContent = saved;
+      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.textContent===saved));
+    })();
+  </script>
+
 </body>
 </html>
