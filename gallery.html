@@ -137,6 +137,44 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<script>
+  (function(){
+    const dd   = document.querySelector('.lang-dropdown');
+    if(!dd) return;
+    const btn  = dd.querySelector('.lang-toggle');
+    const menu = dd.querySelector('.lang-menu');
+    const cur  = dd.querySelector('.current-lang');
 
+    function close(){ menu.hidden = true; btn.setAttribute('aria-expanded','false'); }
+    function open(){ menu.hidden = false; btn.setAttribute('aria-expanded','true'); }
+
+    btn.addEventListener('click', (e)=> {
+      e.stopPropagation();
+      menu.hidden ? open() : close();
+    });
+
+    // klik na odabir jezika
+    menu.addEventListener('click', (e)=>{
+      const b = e.target.closest('button[data-lang]');
+      if(!b) return;
+      // tvoja postojeća logika promjene jezika:
+      localStorage.setItem('lang', b.dataset.lang);
+      cur.textContent = b.dataset.lang.toUpperCase();
+      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+      close();
+      // reload da povučemo odgovarajući JSON/tekstove
+      location.reload();
+    });
+
+    // zatvaranje izvan dropdowna / Esc
+    document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+
+    // inicijalni prikaz trenutnog jezika
+    const lang = (localStorage.getItem('lang')||'en').toUpperCase();
+    cur.textContent = lang;
+    menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.textContent===lang));
+  })();
+</script>
 </body>
 </html>
