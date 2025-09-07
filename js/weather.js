@@ -1,53 +1,57 @@
-// Mapiranje Open-Meteo weathercode -> jednostavne SVG ikone (inline)
-function iconSVG(code){
-  const sun = '<svg viewBox="0 0 24 24" width="32" height="32"><circle cx="12" cy="12" r="5" fill="currentColor"/></svg>';
-  const cloud = '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M6 18h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
-  const rain = '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M6 16h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 19l-1 2M12 19l-1 2M16 19l-1 2" stroke="currentColor" stroke-width="2"/></svg>';
-  const snow = '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M6 16h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 19h0M12 19h0M15 19h0" stroke="currentColor" stroke-width="2"/></svg>';
-  const storm= '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M6 16h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 22l2-4H9l3-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
-  const fog  = '<svg viewBox="0 0 24 24" width="32" height="32"><path d="M3 12h18M4 16h16M5 8h14" stroke="currentColor" stroke-width="2"/></svg>';
+document.addEventListener("DOMContentLoaded", () => {
+  const widget = document.getElementById("weather-widget");
+  if (!widget) return;
 
-  if ([0].includes(code)) return sun;                  // clear
-  if ([1,2,3].includes(code)) return cloud;            // partly/overcast
-  if ([45,48].includes(code)) return fog;              // fog
-  if ([51,53,55,61,63,65,80,81,82].includes(code)) return rain; // rain
-  if ([71,73,75,77,85,86].includes(code)) return snow; // snow
-  if ([95,96,99].includes(code)) return storm;         // thunder
-  return cloud;
-}
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=45.3&longitude=14.3&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=Europe%2FBerlin`)
+    .then(r => r.json())
+    .then(data => {
+      if (!data || !data.daily) return;
 
-function weekdayName(date, lang) {
-  const locales = { hr:'hr-HR', en:'en-GB', de:'de-DE', it:'it-IT', sl:'sl-SI', hu:'hu-HU', cs:'cs-CZ', sk:'sk-SK', uk:'uk-UA' };
-  const loc = locales[lang] || 'en-GB';
-  return date.toLocaleDateString(loc, { weekday:'short' });
-}
+      const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      const today = new Date();
+      widget.innerHTML = "";
 
-async function loadWeather(){
-  try{
-    const url = "https://api.open-meteo.com/v1/forecast?latitude=45.2967&longitude=14.2722&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=Europe%2FZagreb";
-    const res = await fetch(url, { cache:'no-store' });
-    if(!res.ok) throw new Error("Weather fetch failed");
-    const data = await res.json();
+      const grid = document.createElement("div");
+      grid.className = "wx-grid";
 
-    const lang = (localStorage.getItem('lang')||'en').toLowerCase();
-    const wrap = document.getElementById("weather-widget");
-    wrap.innerHTML = "";
+      data.daily.time.forEach((d,i)=>{
+        const date = new Date(d);
+        const card = document.createElement("div");
+        card.className = "wx-card";
 
-    data.daily.time.forEach((iso, i) => {
-      const d = new Date(iso + "T00:00:00");
-      const card = document.createElement("div");
-      card.className = "weather-day";
-      card.innerHTML = `
-        <div class="w-day">${weekdayName(d, lang)}</div>
-        <div class="w-icon">${iconSVG(data.daily.weathercode[i])}</div>
-        <div class="w-temp">${Math.round(data.daily.temperature_2m_min[i])}° / ${Math.round(data.daily.temperature_2m_max[i])}°C</div>
-      `;
-      wrap.appendChild(card);
-    });
-  }catch(e){
-    console.error(e);
-    document.getElementById("weather-widget").innerHTML = "<p>Weather data unavailable.</p>";
+        // Dan
+        const day = document.createElement("div");
+        day.className = "wx-day";
+        day.textContent = days[date.getDay()];
+        card.appendChild(day);
+
+        // Ikona
+        const icon = document.createElement("div");
+        icon.className = "wx-icon";
+        icon.innerHTML = weatherIcon(data.daily.weathercode[i]); 
+        card.appendChild(icon);
+
+        // Temp
+        const temp = document.createElement("div");
+        temp.className = "wx-temp";
+        temp.textContent = `${data.daily.temperature_2m_min[i]}° / ${data.daily.temperature_2m_max[i]}°C`;
+        card.appendChild(temp);
+
+        grid.appendChild(card);
+      });
+
+      widget.appendChild(grid);
+    })
+    .catch(console.error);
+
+  function weatherIcon(code){
+    // minimalni set ikona — SVG boja se definira u CSS-u (var(--brand-blue))
+    if ([0].includes(code)) return `<svg width="28" height="28" fill="currentColor"><circle cx="14" cy="14" r="8"/></svg>`;
+    if ([1,2,3].includes(code)) return `<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="14" cy="14" r="8"/></svg>`;
+    if ([45,48].includes(code)) return `<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="20" x2="23" y2="20"/></svg>`;
+    if ([51,61,80].includes(code)) return `<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="18" x2="8" y2="24"/><line x1="14" y1="18" x2="14" y2="24"/><line x1="20" y1="18" x2="20" y2="24"/></svg>`;
+    if ([71,85].includes(code)) return `<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><text x="5" y="20" font-size="12">*</text></svg>`;
+    if ([95,96,99].includes(code)) return `<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><polygon points="14,4 18,20 10,20"/></svg>`;
+    return `<svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="14" cy="14" r="10"/></svg>`;
   }
-}
-
-document.addEventListener("DOMContentLoaded", loadWeather);
+});
