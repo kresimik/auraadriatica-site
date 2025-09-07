@@ -24,10 +24,21 @@
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
-      <div class="lang-switch">
-        <button data-lang="hr">HR</button><button data-lang="en" class="active">EN</button>
-        <button data-lang="de">DE</button><button data-lang="it">IT</button><button data-lang="sl">SL</button>
-        <button data-lang="hu">HU</button><button data-lang="cs">CS</button><button data-lang="sk">SK</button><button data-lang="uk">UK</button>
+      <div class="lang-dropdown">
+        <button class="lang-toggle" aria-expanded="false">
+          <span class="current-lang">EN</span> ▾
+        </button>
+        <div class="lang-menu" role="menu" hidden>
+          <button data-lang="hr">HR</button>
+          <button data-lang="en" class="active">EN</button>
+          <button data-lang="de">DE</button>
+          <button data-lang="it">IT</button>
+          <button data-lang="sl">SL</button>
+          <button data-lang="hu">HU</button>
+          <button data-lang="cs">CS</button>
+          <button data-lang="sk">SK</button>
+          <button data-lang="uk">UK</button>
+        </div>
       </div>
     </div>
   </header>
