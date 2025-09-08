@@ -1,52 +1,112 @@
-function initApt(slug){
-  const lang = (localStorage.getItem('lang')||'en').toLowerCase();
-  const url  = `/content/apartments/${slug}/${lang}.json`;
+/* Apartment page bootstrap
+   - initApt('olive') / initApt('onyx')
+   - loads /content/apartments/<slug>/<lang>.json with fallback to 'en'
+   - renders intro, features, gallery, and optional Zoho calendar (https)
+*/
 
-  fetch(url, { cache:'no-store' })
-    .then(r => r.ok ? r.json() : Promise.reject('No JSON'))
-    .then(data => {
-      // title / intro
-      if (data.title) {
-        const h1 = document.querySelector('h1[data-i18n]');
-        if (h1) h1.textContent = data.title;
+function initApt(slug){
+  const getLang = () => (localStorage.getItem('lang') || 'en').toLowerCase();
+
+  const qs = (sel) => document.querySelector(sel);
+  const setText = (sel, txt) => { const el = qs(sel); if (el && typeof txt === 'string') el.textContent = txt; };
+  const setHTML = (el, html) => { if (el) el.innerHTML = html; };
+
+  const elIntro   = document.getElementById('apt-intro');
+  const elFeat    = document.getElementById('apt-features');
+  const elGal     = document.getElementById('apt-gallery');
+  const elWrapCal = document.getElementById('apt-calendar-wrap');
+  const elCal     = document.getElementById('apt-calendar');
+
+  // Loading state
+  if (elIntro && !elIntro.textContent) elIntro.textContent = 'Loading…';
+  if (elFeat)  setHTML(elFeat, '<span class="tag">…</span>');
+  if (elGal)   setHTML(elGal,  '');
+
+  const fetchJson = async (lang) => {
+    const url = `/content/apartments/${slug}/${lang}.json`;
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw Object.assign(new Error('JSON not found'), { code: res.status, lang });
+    return res.json();
+  };
+
+  const loadWithFallback = async () => {
+    const lang = getLang();
+    try {
+      return await fetchJson(lang);
+    } catch (e) {
+      // Fallback to EN only if traženi jezik ne postoji
+      if (lang !== 'en') {
+        try { return await fetchJson('en'); }
+        catch (_) { throw e; }
       }
-      if (data.intro) {
-        const intro = document.getElementById('apt-intro');
-        if (intro) intro.textContent = data.intro;
+      throw e;
+    }
+  };
+
+  loadWithFallback()
+    .then((data) => {
+      // ---- Title / meta
+      if (data.page_title) document.title = data.page_title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && data.meta_desc) metaDesc.setAttribute('content', data.meta_desc);
+
+      // H1 (ako želiš override iz JSON-a)
+      if (data.title) setText('h1[data-i18n]', data.title);
+
+      // Hero subtitle (opcionalno: koristi "olive_intro"/"onyx_intro" ako postoji; inače "intro_short" ili ništa)
+      const heroP = document.querySelector('.hero p');
+      if (heroP) {
+        const altIntro = data[`${slug}_intro`] || data.intro_short || data.intro;
+        if (altIntro) heroP.textContent = altIntro;
       }
-      // features
-      const fWrap = document.getElementById('apt-features');
-      if (fWrap && Array.isArray(data.features)) {
-        fWrap.innerHTML = '';
-        data.features.forEach(x=>{
-          const t=document.createElement('span');
-          t.className='tag'; t.textContent=x;
-          fWrap.appendChild(t);
-        });
+
+      // Intro long
+      if (elIntro) elIntro.textContent = data.intro || '';
+
+      // Features
+      if (elFeat) {
+        elFeat.innerHTML = '';
+        if (Array.isArray(data.features)) {
+          data.features.forEach(f => {
+            const t = document.createElement('span');
+            t.className = 'tag';
+            t.textContent = f;
+            elFeat.appendChild(t);
+          });
+        }
       }
-      // gallery
-      const gWrap = document.getElementById('apt-gallery');
-      if (gWrap && Array.isArray(data.gallery)) {
-        gWrap.innerHTML='';
-        data.gallery.forEach(src=>{
-          const img=document.createElement('img');
-          img.src = src; img.alt = data.title || slug;
-          gWrap.appendChild(img);
-        });
+
+      // Gallery
+      if (elGal) {
+        elGal.innerHTML = '';
+        if (Array.isArray(data.gallery)) {
+          data.gallery.forEach(src => {
+            const img = document.createElement('img');
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.alt = data.title || slug;
+            img.src = src;
+            elGal.appendChild(img);
+
+            // Best-effort preload za brži hover/scroll
+            const l = new Image();
+            l.src = src;
+          });
+        }
       }
-      // calendar (only if HTTPS and embeddable)
-      const w = document.getElementById('apt-calendar-wrap');
-      const i = document.getElementById('apt-calendar');
-      if (data.calendar && /^https:\/\//i.test(data.calendar) && w && i) {
-        i.src = data.calendar;
-        w.style.display = 'block';
-      } else if (w) {
-        w.style.display = 'none';
+
+      // Calendar (Zoho embed – mora biti https)
+      if (elWrapCal) elWrapCal.style.display = 'none';
+      if (data.calendar && /^https:\/\//i.test(data.calendar) && elCal && elWrapCal) {
+        elCal.src = data.calendar;
+        elWrapCal.style.display = 'block';
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.warn('APT JSON load error:', err);
-      const w = document.getElementById('apt-calendar-wrap');
-      if (w) w.style.display = 'none';
+      if (elIntro) elIntro.textContent = 'Content currently unavailable.';
+      if (elFeat)  elFeat.innerHTML   = '';
+      if (elGal)   elGal.innerHTML    = '';
+      if (elWrapCal) elWrapCal.style.display = 'none';
     });
 }
