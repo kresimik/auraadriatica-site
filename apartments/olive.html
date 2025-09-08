@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apartment Olive — Aura Adriatica</title>
   <meta name="description" content="Apartment Olive — sea view apartment near Opatija, Croatia" />
- <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/lang.js" defer></script>
 </head>
 <body>
 
@@ -18,12 +17,14 @@
         <img src="/assets/img/logo.png" alt="Aura Adriatica" />
         <span>Aura Adriatica</span>
       </a>
+
       <nav class="main-nav">
         <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
+
       <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown">
         <button class="lang-toggle" aria-expanded="false">
@@ -44,13 +45,16 @@
     </div>
   </header>
 
-  <!-- HERO (mini) -->
-  <section class="hero" style="background-image:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/assets/img/olive-hero.jpg');">
+  <!-- HERO (Olive) -->
+  <section class="hero" style="
+    background-image:
+      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+      url('/assets/img/olive-hero.jpg');">
     <div class="container">
       <h1 data-i18n="olive_h">Olive Apartment</h1>
       <p data-i18n="olive_intro">Sunny balcony, sea view, parking, fast Wi-Fi.</p>
       <div class="cta">
-        <a class="button outline" href="/index.html" data-i18n="back_home">Back to Home</a>
+        <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
     </div>
   </section>
@@ -60,12 +64,16 @@
     <div class="container">
       <h2 data-i18n="apts_h">Apartment details</h2>
 
+      <!-- intro tekst iz JSON-a -->
       <p id="apt-intro"></p>
 
+      <!-- feature tagovi iz JSON-a -->
       <div class="features" id="apt-features"></div>
 
+      <!-- galerija slika iz JSON-a -->
       <div class="gallery" id="apt-gallery" style="margin-top:1rem;"></div>
 
+      <!-- Zoho kalendar (ako je postavljen u JSON-u kao https URL) -->
       <div id="apt-calendar-wrap" style="margin-top:2rem; display:none;">
         <h2 data-i18n="avail_h">Availability</h2>
         <p data-i18n="avail_note">Select your dates to check availability.</p>
@@ -81,12 +89,14 @@
         <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica" /></span>
         <span>Aura Adriatica</span>
       </a>
+
       <nav class="footer-nav">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
+
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
         <p>&copy; <span id="year"></span> Aura Adriatica</p>
@@ -96,7 +106,7 @@
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
   <!-- APARTMENT LOADER -->
-  <script src="/assets/js/apt.js"></script>
+  <script src="/assets/js/apt.js" defer></script>
   <script>
     // Učitaj sadržaj za OLIVE iz JSON-a i prikaži kalendar ako postoji HTTPS URL
     document.addEventListener('DOMContentLoaded', function(){
@@ -104,7 +114,7 @@
     });
   </script>
 
-  <!-- LANGUAGE DROPDOWN HANDLER -->
+  <!-- LANGUAGE DROPDOWN HANDLER (inline) -->
   <script>
     (function(){
       const dd   = document.querySelector('.lang-dropdown');
