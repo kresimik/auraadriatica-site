@@ -1,52 +1,67 @@
-function iconSVG(code){
-  const sun   = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#4da6ff"><circle cx="12" cy="12" r="5"/></svg>';
-  const cloud = '<svg viewBox="0 0 24 24" width="32" height="32" stroke="#6b8e23" stroke-width="2" fill="none"><path d="M6 18h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2"/></svg>';
-  const rain  = '<svg viewBox="0 0 24 24" width="32" height="32" stroke="#6b8e23" stroke-width="2" fill="none"><path d="M6 16h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2"/><path d="M8 19l-1 2M12 19l-1 2M16 19l-1 2"/></svg>';
-  const snow  = '<svg viewBox="0 0 24 24" width="32" height="32" stroke="#4da6ff" stroke-width="2" fill="none"><path d="M6 16h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2"/><path d="M9 19h0M12 19h0M15 19h0"/></svg>';
-  const storm = '<svg viewBox="0 0 24 24" width="32" height="32" stroke="#6b8e23" stroke-width="2" fill="none"><path d="M6 16h11a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2"/><path d="M10 22l2-4H9l3-6"/></svg>';
-  const fog   = '<svg viewBox="0 0 24 24" width="32" height="32" stroke="#999" stroke-width="2" fill="none"><path d="M3 12h18M4 16h16M5 8h14"/></svg>';
+// Weather widget – Lovran (Open-Meteo), brand-blue ikone
+// Uključi na index.html: <script src="/assets/js/weather.js" defer></script>
 
-  if ([0].includes(code)) return sun;                   // clear
-  if ([1,2,3].includes(code)) return cloud;             // partly/overcast
-  if ([45,48].includes(code)) return fog;               // fog
-  if ([51,53,55,61,63,65,80,81,82].includes(code)) return rain;  // rain
-  if ([71,73,75,77,85,86].includes(code)) return snow;  // snow
-  if ([95,96,99].includes(code)) return storm;          // thunder
-  return cloud;
-}
+(function(){
+  const mount = document.getElementById('weather-widget');
+  if(!mount) return;
 
-function weekdayName(date, lang) {
-  const locales = { hr:'hr-HR', en:'en-GB', de:'de-DE', it:'it-IT', sl:'sl-SI', hu:'hu-HU', cs:'cs-CZ', sk:'sk-SK', uk:'uk-UA' };
-  const loc = locales[lang] || 'en-GB';
-  return date.toLocaleDateString(loc, { weekday:'short' });
-}
+  // Lovran (otprilike)
+  const LAT = 45.290;
+  const LON = 14.272;
 
-async function loadWeather(){
-  try{
-    const url = "https://api.open-meteo.com/v1/forecast?latitude=45.2967&longitude=14.2722&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=Europe%2FZagreb";
-    const res = await fetch(url, { cache:'no-store' });
-    if(!res.ok) throw new Error("Weather fetch failed");
-    const data = await res.json();
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBelgrade`;
 
-    const lang = (localStorage.getItem('lang')||'en').toLowerCase();
-    const wrap = document.getElementById("weather-widget");
-    wrap.innerHTML = "";
+  // brand-blue ikonice (SVG)
+  const ICONS = {
+    sun:       '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>',
+    cloud:     '<svg viewBox="0 0 24 24"><path d="M6 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.31 2"/></svg>',
+    cloud_sun: '<svg viewBox="0 0 24 24"><path d="M6 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.31 2"/><circle cx="5" cy="5" r="2.5"/></svg>',
+    rain:      '<svg viewBox="0 0 24 24"><path d="M6 16h10a4 4 0 0 0 0-8 6 6 0 0 0-11.31 2"/><path d="M8 19l-1 2M12 19l-1 2M16 19l-1 2"/></svg>',
+    thunder:   '<svg viewBox="0 0 24 24"><path d="M6 16h10a4 4 0 0 0 0-8 6 6 0 0 0-11.31 2"/><path d="M13 12l-3 6h3l-1 4 4-7h-3l1-3z"/></svg>',
+    snow:      '<svg viewBox="0 0 24 24"><path d="M12 2v20M4 6l16 12M4 18L20 6"/></svg>',
+    fog:       '<svg viewBox="0 0 24 24"><path d="M3 9h18M3 12h18M3 15h18"/></svg>'
+  };
 
-    data.daily.time.forEach((iso, i) => {
-      const d = new Date(iso + "T00:00:00");
-      const card = document.createElement("div");
-      card.className = "weather-day";
-      card.innerHTML = `
-        <div class="w-day">${weekdayName(d, lang)}</div>
-        <div class="w-icon">${iconSVG(data.daily.weathercode[i])}</div>
-        <div class="w-temp">${Math.round(data.daily.temperature_2m_min[i])}° / ${Math.round(data.daily.temperature_2m_max[i])}°C</div>
-      `;
-      wrap.appendChild(card);
-    });
-  }catch(e){
-    console.error(e);
-    document.getElementById("weather-widget").innerHTML = "<p>Weather data unavailable.</p>";
+  // Open-Meteo weathercode mapa → ikona
+  function iconFor(code){
+    // referenca: https://open-meteo.com/en/docs
+    if (code === 0) return ICONS.sun;                                // clear
+    if (code === 1 || code === 2) return ICONS.cloud_sun;            // mainly/partly clear
+    if (code === 3) return ICONS.cloud;                              // overcast
+    if (code === 45 || code === 48) return ICONS.fog;                // fog
+    if ([51,53,55,61,63,65,80,81,82].includes(code)) return ICONS.rain;     // drizzle/rain
+    if ([71,73,75,77,85,86].includes(code)) return ICONS.snow;              // snow
+    if ([95,96,99].includes(code)) return ICONS.thunder;                    // thunder
+    return ICONS.cloud;
   }
-}
 
-document.addEventListener("DOMContentLoaded", loadWeather);
+  function dayName(ts){
+    const d = new Date(ts);
+    return d.toLocaleDateString((localStorage.getItem('lang')||'en'), { weekday: 'short' });
+  }
+
+  fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      const { daily } = data;
+      if(!daily) return;
+
+      const frag = document.createDocumentFragment();
+      for (let i=0; i<daily.time.length; i++){
+        const el = document.createElement('div');
+        el.className = 'day';
+        el.innerHTML = `
+          <div class="name">${dayName(daily.time[i])}</div>
+          <div class="icon">${iconFor(daily.weathercode[i])}</div>
+          <div class="temps">
+            <span>${Math.round(daily.temperature_2m_min[i])}°</span>
+            <small> / ${Math.round(daily.temperature_2m_max[i])}°C</small>
+          </div>
+        `;
+        frag.appendChild(el);
+      }
+      mount.innerHTML = '';
+      mount.appendChild(frag);
+    })
+    .catch(console.error);
+})();
