@@ -45,10 +45,12 @@
     </div>
   </header>
 
-  <!-- HERO (galerija) -->
-  <section class="hero" style="background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('/assets/img/gallery-hero.jpg');">
+  <!-- HERO (gallery) -->
+  <section class="hero" style="
+    background-image:
+      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+      url('/assets/img/gallery-hero.jpg');
+  ">
     <div class="container">
       <h1 data-i18n="gallery">Gallery</h1>
       <p data-i18n="gallery_intro">Discover Olive &amp; Onyx and the beauty of the Opatija Riviera.</p>
@@ -100,7 +102,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- LANGUAGE DROPDOWN HANDLER (inline; lang.js uklonjen) -->
+  <!-- LANGUAGE DROPDOWN HANDLER (inline) -->
   <script>
     (function(){
       const dd   = document.querySelector('.lang-dropdown');
