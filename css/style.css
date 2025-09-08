@@ -1,120 +1,104 @@
-// Minimal, čisto, sve boje dolaze iz CSS-a (brand blue).
-// Prikazuje 7-dnevnu prognozu za Lovran/Ičići (Open-Meteo).
+:root{
+  --brand-blue:#4da6ff;
+  --brand-blue-hover:#1f78d1;
+  --brand-olive:#6b8e23;
+  --brand-olive-hover:#556b2f;
+  --text:#333;
+  --muted:#6b7280;
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  const widget = document.getElementById("weather-widget");
-  if (!widget) return;
+/* ===== Base ===== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
+img{max-width:100%;display:block}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-  const lat = 45.291;  // Lovran/Ičići approx
-  const lon = 14.276;
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=Europe%2FBerlin`;
+/* ===== Header ===== */
+.site-header{background:#fff;border-bottom:1px solid #eee;padding:.75rem 0;position:sticky;top:0;z-index:50}
+.header-flex{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.5rem;color:var(--brand-blue);text-decoration:none;font-weight:800;font-size:1.4rem}
+.logo img{height:42px;object-fit:contain}
 
-  fetch(url)
-    .then(r => r.json())
-    .then(data => {
-      if (!data || !data.daily) return;
+.main-nav a{margin:0 .8rem;text-decoration:none;color:var(--brand-blue);font-weight:600}
+.main-nav a:hover,.main-nav a.active{color:var(--brand-olive);border-bottom:2px solid var(--brand-olive)}
 
-      const daysShort = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+/* ===== Lang dropdown (HEADER) ===== */
+.lang-dropdown{position:relative}
+.lang-toggle{
+  background:#fff;border:1px solid #e5e7eb;border-radius:.6rem;
+  padding:.45rem .7rem;cursor:pointer;font-weight:700;min-width:64px
+}
+.lang-menu{
+  position:absolute;right:0;top:calc(100% + 6px);
+  background:#fff;border:1px solid #e5e7eb;border-radius:.6rem;
+  box-shadow:0 10px 24px rgba(0,0,0,.1);
+  padding:.35rem;display:grid;grid-template-columns:repeat(3,auto);gap:.35rem .5rem;
+  z-index:1000;
+}
+.lang-menu[hidden]{display:none !important}
+.lang-menu button{
+  padding:.35rem .6rem;border:1px solid #e5e7eb;border-radius:.5rem;background:#fff;cursor:pointer;font-weight:600
+}
+.lang-menu button.active{background:var(--brand-blue);color:#fff;border-color:transparent}
+@media (max-width:640px){.lang-menu{grid-template-columns:repeat(2,auto)}}
 
-      const grid = document.createElement("div");
-      grid.className = "wx-grid";
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url('/assets/img/hero.jpg') center/cover no-repeat,
+    linear-gradient(120deg,var(--brand-blue),var(--brand-olive));
+  color:#fff;text-align:center;padding:6rem 1rem;overflow:hidden
+}
+.hero h1{font-size:2.6rem;margin:.25rem 0 1rem;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.hero p{font-size:1.1rem;margin:0 0 1.6rem;text-shadow:0 2px 4px rgba(0,0,0,.5)}
+.hero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+.button{display:inline-block;text-decoration:none;color:#fff;background:var(--brand-blue);padding:.85rem 1.6rem;border-radius:10px;font-weight:700;box-shadow:0 3px 6px rgba(0,0,0,.25);transition:transform .15s,background .2s}
+.button:hover{transform:translateY(-2px);background:var(--brand-blue-hover)}
+.button.olive{background:var(--brand-olive)}
+.button.olive:hover{background:var(--brand-olive-hover)}
 
-      data.daily.time.forEach((iso, i) => {
-        const d = new Date(iso);
-        const card = document.createElement("div");
-        card.className = "wx-card";
+/* ===== Sections ===== */
+.section{padding:2.5rem 0}
+.section.alt{background:#f8fafc}
+h2{margin:.2rem 0 1rem;font-size:1.6rem}
 
-        const day = document.createElement("div");
-        day.className = "wx-day";
-        day.textContent = daysShort[d.getDay()];
-        card.appendChild(day);
+/* ===== Footer ===== */
+.site-footer{background:linear-gradient(to left,var(--brand-blue),var(--brand-olive));color:#fff;padding:2rem 0;margin-top:2rem}
+.footer-flex{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap}
+.footer-logo{display:flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none;font-weight:700}
+.logo-badge{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;height:52px;width:52px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.logo-badge img{height:36px;width:auto}
+.footer-nav a{margin-right:1rem;color:#fff;text-decoration:none;font-weight:600}
+.footer-nav a:hover{color:#e6f2ff}
+.footer-contact p{margin:.15rem 0}
+@media (max-width:768px){.footer-flex{flex-direction:column;text-align:center}}
 
-        const icon = document.createElement("div");
-        icon.className = "wx-icon";
-        icon.innerHTML = iconForCode(data.daily.weathercode[i]);
-        card.appendChild(icon);
+/* ===== Gallery ===== */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.gallery-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:1rem}
+.gallery-preview img{border-radius:12px;object-fit:cover;height:180px;width:100%;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .2s}
+.gallery-preview img:hover{transform:scale(1.03)}
 
-        const temp = document.createElement("div");
-        temp.className = "wx-temp";
-        temp.textContent = `${data.daily.temperature_2m_min[i]}° / ${data.daily.temperature_2m_max[i]}°C`;
-        card.appendChild(temp);
+/* ===== Weather widget ===== */
+.weather{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+.weather .day{
+  background:#fff;border:1px solid #eef2f7;border-radius:14px;padding:16px;text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.06)
+}
+.weather .name{font-weight:800;color:var(--brand-olive);margin-bottom:8px}
+.weather .icon svg{width:44px;height:44px;fill:var(--brand-blue);stroke:var(--brand-blue)}
+.weather .temps{margin-top:10px;font-weight:700}
+.weather .temps span{color:#111}
+.weather .temps small{color:var(--muted);font-weight:600}
 
-        grid.appendChild(card);
-      });
-
-      widget.innerHTML = "";
-      widget.appendChild(grid);
-    })
-    .catch(console.error);
-
-  // SVG ikone — koriste currentColor ⇒ boju zadaje CSS (brand blue)
-  function iconForCode(code){
-    // Sun (clear)
-    const sun = `
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="24" cy="24" r="8" fill="currentColor"/>
-        <line x1="24" y1="4"  x2="24" y2="12"/>
-        <line x1="24" y1="36" x2="24" y2="44"/>
-        <line x1="4"  y1="24" x2="12" y2="24"/>
-        <line x1="36" y1="24" x2="44" y2="24"/>
-        <line x1="9"  y1="9"  x2="14" y2="14"/>
-        <line x1="34" y1="34" x2="39" y2="39"/>
-        <line x1="9"  y1="39" x2="14" y2="34"/>
-        <line x1="34" y1="14" x2="39" y2="9"/>
-      </svg>`;
-
-    // Partly cloudy
-    const sunCloud = `
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="16" cy="16" r="5" fill="currentColor"/>
-        <path d="M28 34H16a6 6 0 1 1 3.5-11 7 7 0 0 1 13.5 3H35a5 5 0 0 1 0 10h-7z" fill="none"/>
-      </svg>`;
-
-    // Cloud
-    const cloud = `
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M30 36H16a8 8 0 1 1 4.5-14.7A9 9 0 0 1 39 23h1a7 7 0 0 1 0 14h-10z"/>
-      </svg>`;
-
-    // Rain
-    const rain = `
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M30 30H16a8 8 0 1 1 4.5-14.7A9 9 0 0 1 39 17h1a7 7 0 0 1 0 13h-10z"/>
-        <line x1="18" y1="34" x2="18" y2="42"/>
-        <line x1="24" y1="34" x2="24" y2="42"/>
-        <line x1="30" y1="34" x2="30" y2="42"/>
-      </svg>`;
-
-    // Snow (simple)
-    const snow = `
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M30 30H16a8 8 0 1 1 4.5-14.7A9 9 0 0 1 39 17h1a7 7 0 0 1 0 13h-10z"/>
-        <text x="18" y="41" font-size="12" fill="currentColor">*</text>
-        <text x="26" y="41" font-size="12" fill="currentColor">*</text>
-      </svg>`;
-
-    // Thunder
-    const thunder = `
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M30 28H16a8 8 0 1 1 4.5-14.7A9 9 0 0 1 39 15h1a7 7 0 0 1 0 13h-10z"/>
-        <polygon points="24,20 30,20 24,32 30,32 22,44 24,34 18,34" fill="currentColor" stroke="none"/>
-      </svg>`;
-
-    // Fog / mist
-    const fog = `
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="8" y1="20" x2="40" y2="20"/>
-        <line x1="8" y1="26" x2="40" y2="26"/>
-        <line x1="8" y1="32" x2="40" y2="32"/>
-      </svg>`;
-
-    // Mape Open-Meteo weathercode -> ikona
-    if ([0].includes(code)) return sun;                           // jasno
-    if ([1, 2, 3].includes(code)) return sunCloud;                // pretežno/umjereno oblačno
-    if ([45, 48].includes(code)) return fog;                      // magla
-    if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return rain;   // kišica/kiša/pljuskovi
-    if ([71, 73, 75, 85, 86].includes(code)) return snow;         // snijeg
-    if ([95, 96, 99].includes(code)) return thunder;              // grmljavina
-    return cloud;                                                 // default: oblačno
-  }
-});
+/* ===== Responsive tweaks ===== */
+@media (max-width:768px){
+  .hero{padding:4.5rem 1rem}
+  .hero h1{font-size:2.1rem}
+  .hero p{font-size:1rem}
+  .main-nav{display:none} /* (opcija – ako želiš burger, dodamo kasnije) */
+}
