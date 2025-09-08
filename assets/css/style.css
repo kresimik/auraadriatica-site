@@ -3,12 +3,16 @@
   --brand-blue-hover:#1f78d1;
   --brand-olive:#6b8e23;
   --brand-olive-hover:#556b2f;
+  /* opcionalno – korisno za konzistentan stil */
+  --bg:#ffffff;
+  --bg-alt:#f7f9fb;
+  --text:#333333;
 }
 
 /* ===== LAYOUT HELPERS ===== */
 .container{ max-width:1100px; margin:0 auto; padding:0 16px; }
 .section{ padding:3rem 0; }
-.section.alt{ background:#f7f9fb; }
+.section.alt{ background:var(--bg-alt); }
 
 /* ===== HERO — branded + overlay + fallback ===== */
 .hero{
@@ -38,8 +42,16 @@
   transition:background .3s, transform .2s;
 }
 .hero .button:hover{ background:var(--brand-blue-hover); transform:translateY(-2px); }
-.hero .button.outline{ background:var(--brand-olive); color:#fff; }
-.hero .button.outline:hover{ background:var(--brand-olive-hover); transform:translateY(-2px); }
+
+/* podrška za obje varijante koje koristiš u HTML-u */
+.hero .button.olive,
+.hero .button.outline{
+  background:var(--brand-olive); color:#fff;
+}
+.hero .button.olive:hover,
+.hero .button.outline:hover{
+  background:var(--brand-olive-hover); transform:translateY(-2px);
+}
 
 /* ===== HEADER ===== */
 .site-header{
@@ -135,6 +147,8 @@
 }
 .wx-icon svg{
   color:var(--brand-blue) !important;
+  fill: currentColor;
+  stroke: currentColor;
   display:block; margin:6px auto;
 }
 .wx-temp{
