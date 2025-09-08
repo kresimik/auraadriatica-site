@@ -1,22 +1,42 @@
+/* ===== VARIABLES ===== */
 :root{
   --brand-blue:#4da6ff;
   --brand-blue-hover:#1f78d1;
   --brand-olive:#6b8e23;
   --brand-olive-hover:#556b2f;
+  --bg:#ffffff;
+  --bg-alt:#f8f9fb;
+  --text:#333333;
+  --muted:#666666;
+  --max-width:1100px;
+}
+
+/* ===== FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  margin: 0;
+}
+h1, h2, h3, .logo span {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 /* ===== LAYOUT HELPERS ===== */
 .container{ max-width:1100px; margin:0 auto; padding:0 16px; }
 .section{ padding:3rem 0; }
-.section.alt{ background:#f7f9fb; }
+.section.alt{ background:var(--bg-alt); }
 
-/* ===== HERO — branded + overlay + fallback ===== */
+/* ===== HERO ===== */
 .hero{
   position:relative;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url('/assets/img/hero.jpg') center/cover no-repeat,
-    linear-gradient(120deg, var(--brand-blue), var(--brand-olive)); /* fallback */
+    linear-gradient(120deg, var(--brand-blue), var(--brand-olive));
   color:#fff;
   text-align:center;
   padding:6rem 1rem;
@@ -114,22 +134,14 @@
 
 /* ===== FULL GALLERY ===== */
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
   gap:16px;
 }
 .gallery img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  transition: transform .25s ease, box-shadow .25s ease;
+  width:100%; height:220px; object-fit:cover; border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .2s;
 }
-.gallery img:hover{
-  transform:scale(1.04);
-  box-shadow:0 4px 14px rgba(0,0,0,.15);
-}
+.gallery img:hover{ transform:scale(1.02); }
 
 /* ===== WEATHER WIDGET ===== */
 .weather{ margin-top:1rem; }
