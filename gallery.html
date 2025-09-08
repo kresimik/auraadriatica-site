@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery — Aura Adriatica</title>
-  <meta name="description" content="Photo gallery of Aura Adriatica apartments Olive & Onyx in Ičići, Opatija Riviera." />
+  <meta name="description" content="Photo gallery of Aura Adriatica apartments Olive & Onyx in Ičići (Opatija Riviera)." />
   <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/lang.js" defer></script>
 </head>
 <body>
 
@@ -18,12 +17,15 @@
         <img src="/assets/img/logo.png" alt="Aura Adriatica" />
         <span>Aura Adriatica</span>
       </a>
+
       <nav class="main-nav">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/gallery.html" class="active" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
+
+      <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown">
         <button class="lang-toggle" aria-expanded="false">
           <span class="current-lang">EN</span> ▾
@@ -43,11 +45,17 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" style="background-image:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/assets/img/gallery-hero.jpg');">
+  <!-- HERO (galerija) -->
+  <section class="hero" style="background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('/assets/img/gallery-hero.jpg');">
     <div class="container">
       <h1 data-i18n="gallery">Gallery</h1>
-      <p data-i18n="gallery_intro">Discover Olive & Onyx apartments and the beauty of Opatija Riviera.</p>
+      <p data-i18n="gallery_intro">Discover Olive &amp; Onyx and the beauty of the Opatija Riviera.</p>
+      <div class="cta">
+        <a class="button" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+        <a class="button olive" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
+      </div>
     </div>
   </section>
 
@@ -56,15 +64,15 @@
     <div class="container">
       <h2 data-i18n="gallery">Photo Gallery</h2>
       <div class="gallery">
-        <img src="/assets/img/gallery1.jpg" alt="Aura Adriatica view" loading="lazy">
-        <img src="/assets/img/gallery2.jpg" alt="Olive apartment interior" loading="lazy">
-        <img src="/assets/img/gallery3.jpg" alt="Onyx apartment terrace" loading="lazy">
-        <img src="/assets/img/gallery4.jpg" alt="Living room Olive" loading="lazy">
-        <img src="/assets/img/gallery5.jpg" alt="Bedroom Onyx" loading="lazy">
-        <img src="/assets/img/gallery6.jpg" alt="Balcony sea view" loading="lazy">
-        <img src="/assets/img/gallery7.jpg" alt="Kitchen Olive" loading="lazy">
-        <img src="/assets/img/gallery8.jpg" alt="Bathroom Onyx" loading="lazy">
-        <img src="/assets/img/gallery9.jpg" alt="Lovran beach nearby" loading="lazy">
+        <img src="/assets/img/gallery1.jpg" alt="Aura Adriatica view">
+        <img src="/assets/img/gallery2.jpg" alt="Olive apartment interior">
+        <img src="/assets/img/gallery3.jpg" alt="Onyx apartment terrace">
+        <img src="/assets/img/gallery4.jpg" alt="Living room Olive">
+        <img src="/assets/img/gallery5.jpg" alt="Bedroom Onyx">
+        <img src="/assets/img/gallery6.jpg" alt="Balcony sea view">
+        <img src="/assets/img/gallery7.jpg" alt="Kitchen Olive">
+        <img src="/assets/img/gallery8.jpg" alt="Bathroom Onyx">
+        <img src="/assets/img/gallery9.jpg" alt="Lovran beach nearby">
       </div>
     </div>
   </section>
@@ -76,12 +84,14 @@
         <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica" /></span>
         <span>Aura Adriatica</span>
       </a>
+
       <nav class="footer-nav">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
+
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
         <p>&copy; <span id="year"></span> Aura Adriatica</p>
@@ -90,7 +100,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- LANGUAGE DROPDOWN HANDLER -->
+  <!-- LANGUAGE DROPDOWN HANDLER (inline; lang.js uklonjen) -->
   <script>
     (function(){
       const dd   = document.querySelector('.lang-dropdown');
