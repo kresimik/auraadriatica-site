@@ -4,14 +4,19 @@ let translations = {};
 
 async function loadLang(lang) {
   try {
-    const res = await fetch(`/content/${lang}.json`);
+    const res = await fetch(`/content/${lang}.json`, { cache: "no-store" });
     if (!res.ok) throw new Error("No file");
     translations = await res.json();
     currentLang = lang;
     applyTranslations();
-    document.querySelectorAll(".lang button").forEach(btn => {
+
+    // Osvježi stanje gumba u dropdownu
+    document.querySelectorAll(".lang-menu button").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.lang === lang);
     });
+    const cur = document.querySelector(".current-lang");
+    if (cur) cur.textContent = lang.toUpperCase();
+
   } catch (err) {
     console.error("Failed to load lang", lang, err);
   }
@@ -24,7 +29,6 @@ function applyTranslations() {
       el.textContent = translations[key];
     }
   });
-  // Update meta description if exists
   const metaDesc = document.querySelector("meta[name='description']");
   if (metaDesc && translations["meta_desc"]) {
     metaDesc.setAttribute("content", translations["meta_desc"]);
@@ -32,19 +36,16 @@ function applyTranslations() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Load default language
-  loadLang(currentLang);
+  // Restore saved language ili default
+  const saved = localStorage.getItem("lang") || DEFAULT_LANG;
+  loadLang(saved);
 
-  // Attach events to lang buttons
-  document.querySelectorAll(".lang button").forEach(btn => {
+  // Attach events na gumbe iz dropdowna
+  document.querySelectorAll(".lang-menu button").forEach(btn => {
     btn.addEventListener("click", () => {
       const lang = btn.dataset.lang;
-      loadLang(lang);
       localStorage.setItem("lang", lang);
+      loadLang(lang);
     });
   });
-
-  // Restore saved language
-  const saved = localStorage.getItem("lang");
-  if (saved) loadLang(saved);
 });
