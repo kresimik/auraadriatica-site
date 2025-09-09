@@ -1,5 +1,7 @@
-/* Weather widget – Lovran 7-day (Open-Meteo)
-   Renders into #weather-widget using colorful SVG icons
+/* Weather widget — Lovran 7-day (Open-Meteo)
+   - Renders into #weather-widget
+   - Lively two-tone SVG icons (primary = currentColor -> brand-blue from CSS)
+   - Expects CSS hooks: .weather .wx-grid .wx-card .wx-day .wx-icon .wx-temp
 */
 
 (function(){
@@ -11,11 +13,19 @@
   const LON = 14.272;
   const TZ  = 'Europe/Zagreb';
 
-  // Map Open-Meteo WMO codes to simple icon keys
+  // Locale by saved language (fallback to browser)
+  const lang = (localStorage.getItem('lang') || 'en').toLowerCase();
+  const localeMap = {
+    hr: 'hr-HR', en: 'en-GB', de: 'de-DE', it: 'it-IT', sl: 'sl-SI',
+    hu: 'hu-HU', cs: 'cs-CZ', sk: 'sk-SK', uk: 'uk-UA'
+  };
+  const LOCALE = localeMap[lang] || undefined;
+
+  // Map WMO code -> icon key
   const codeToKey = (code) => {
-    if ([0].includes(code)) return 'clear';
+    if (code === 0) return 'clear';
     if ([1,2].includes(code)) return 'partly';
-    if ([3].includes(code)) return 'cloudy';
+    if (code === 3) return 'cloudy';
     if ([45,48].includes(code)) return 'fog';
     if ([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code)) return 'rain';
     if ([71,73,75,77,85,86].includes(code)) return 'snow';
@@ -23,64 +33,88 @@
     return 'cloudy';
   };
 
-  // Colorful SVG icons
+  // Two-tone (currentColor + soft blue accent)
+  const soft = 'rgba(77,166,255,.22)'; // nježna plava sjena/popuna
+
   const icons = {
-    clear: `
-      <svg width="42" height="42" viewBox="0 0 64 64">
-        <circle cx="32" cy="32" r="14" fill="#FFD93B"/>
-        <g stroke="#FFD93B" stroke-width="4">
-          <line x1="32" y1="4" x2="32" y2="14"/>
-          <line x1="32" y1="50" x2="32" y2="60"/>
-          <line x1="4" y1="32" x2="14" y2="32"/>
-          <line x1="50" y1="32" x2="60" y2="32"/>
-          <line x1="12" y1="12" x2="20" y2="20"/>
-          <line x1="44" y1="44" x2="52" y2="52"/>
-          <line x1="12" y1="52" x2="20" y2="44"/>
-          <line x1="44" y1="20" x2="52" y2="12"/>
+    clear:
+      `<svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="12" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none" opacity=".95">
+          <path d="M32 6v8"/><path d="M32 50v8"/>
+          <path d="M6 32h8"/><path d="M50 32h8"/>
+          <path d="M12 12l6 6"/><path d="M46 46l6 6"/>
+          <path d="M12 52l6-6"/><path d="M46 18l6-6"/>
+        </g>
+        <circle cx="32" cy="32" r="18" fill="${soft}"/>
+      </svg>`,
+
+    partly:
+      `<svg width="40" height="40" viewBox="0 0 64 64">
+        <circle cx="22" cy="22" r="10" fill="currentColor"/>
+        <circle cx="22" cy="22" r="16" fill="${soft}"/>
+        <g>
+          <path d="M22 46h20a8 8 0 0 0 0-16 14 14 0 0 0-26 5"
+                fill="currentColor" opacity=".95"/>
+          <path d="M14 46h24" stroke="currentColor" stroke-width="4" opacity=".35"/>
         </g>
       </svg>`,
-    partly: `
-      <svg width="42" height="42" viewBox="0 0 64 64">
-        <circle cx="24" cy="24" r="12" fill="#FFD93B"/>
-        <ellipse cx="38" cy="34" rx="16" ry="12" fill="#90A4AE"/>
+
+    cloudy:
+      `<svg width="40" height="40" viewBox="0 0 64 64">
+        <path d="M18 44h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6"
+              fill="${soft}"/>
+        <path d="M14 48h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5"
+              fill="currentColor"/>
       </svg>`,
-    cloudy: `
-      <svg width="42" height="42" viewBox="0 0 64 64">
-        <ellipse cx="26" cy="38" rx="16" ry="12" fill="#90A4AE"/>
-        <ellipse cx="42" cy="36" rx="16" ry="12" fill="#B0BEC5"/>
-      </svg>`,
-    rain: `
-      <svg width="42" height="42" viewBox="0 0 64 64">
-        <ellipse cx="32" cy="26" rx="18" ry="12" fill="#90A4AE"/>
-        <line x1="20" y1="40" x2="20" y2="54" stroke="#2196F3" stroke-width="4" stroke-linecap="round"/>
-        <line x1="32" y1="42" x2="32" y2="58" stroke="#2196F3" stroke-width="4" stroke-linecap="round"/>
-        <line x1="44" y1="40" x2="44" y2="54" stroke="#2196F3" stroke-width="4" stroke-linecap="round"/>
-      </svg>`,
-    snow: `
-      <svg width="42" height="42" viewBox="0 0 64 64">
-        <ellipse cx="32" cy="26" rx="18" ry="12" fill="#B0BEC5"/>
-        <g stroke="#00BCD4" stroke-width="3" stroke-linecap="round">
-          <line x1="20" y1="42" x2="20" y2="52"/>
-          <line x1="32" y1="44" x2="32" y2="56"/>
-          <line x1="44" y1="42" x2="44" y2="52"/>
+
+    rain:
+      `<svg width="40" height="40" viewBox="0 0 64 64">
+        <path d="M18 40h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6"
+              fill="${soft}"/>
+        <path d="M14 44h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5"
+              fill="currentColor"/>
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4" opacity=".9">
+          <path d="M22 48l-4 8"/><path d="M32 48l-4 8"/><path d="M42 48l-4 8"/>
         </g>
       </svg>`,
-    fog: `
-      <svg width="42" height="42" viewBox="0 0 64 64">
-        <ellipse cx="32" cy="26" rx="18" ry="12" fill="#CFD8DC"/>
-        <line x1="16" y1="44" x2="48" y2="44" stroke="#90A4AE" stroke-width="4" stroke-linecap="round"/>
-        <line x1="20" y1="52" x2="52" y2="52" stroke="#90A4AE" stroke-width="4" stroke-linecap="round"/>
+
+    snow:
+      `<svg width="40" height="40" viewBox="0 0 64 64">
+        <path d="M18 40h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6"
+              fill="${soft}"/>
+        <path d="M14 44h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5"
+              fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <path d="M22 48v8"/><path d="M28 48v8"/><path d="M34 48v8"/>
+        </g>
       </svg>`,
-    storm: `
-      <svg width="42" height="42" viewBox="0 0 64 64">
-        <ellipse cx="32" cy="26" rx="18" ry="12" fill="#90A4AE"/>
-        <polygon points="28,38 36,38 30,50 38,50 28,62" fill="#FFD93B"/>
+
+    fog:
+      `<svg width="40" height="40" viewBox="0 0 64 64">
+        <path d="M18 38h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6"
+              fill="${soft}"/>
+        <path d="M14 42h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5"
+              fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".7">
+          <path d="M12 48h40"/><path d="M16 54h32"/>
+        </g>
+      </svg>`,
+
+    storm:
+      `<svg width="40" height="40" viewBox="0 0 64 64">
+        <path d="M18 38h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6"
+              fill="${soft}"/>
+        <path d="M14 42h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5"
+              fill="currentColor"/>
+        <path d="M30 40l-8 14h6l-4 10 14-18h-6l4-6z"
+              fill="currentColor" opacity=".95"/>
       </svg>`
   };
 
   const dayName = (iso) => {
     const d = new Date(iso + 'T12:00:00');
-    return d.toLocaleDateString(undefined, { weekday: 'short' });
+    return d.toLocaleDateString(LOCALE, { weekday: 'short' });
   };
 
   const fmtTemp = (t) => `${Math.round(t)}°`;
@@ -121,6 +155,6 @@
     })
     .catch(err => {
       console.warn('Weather error:', err);
-      mount.innerHTML = `<p style="color:#666">Weather unavailable at the moment.</p>`;
+      mount.innerHTML = `<p style="color:var(--muted)">Weather unavailable at the moment.</p>`;
     });
 })();
