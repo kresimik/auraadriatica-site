@@ -1,22 +1,20 @@
 {
+  "page_title": "Apartment Onyx — Aura Adriatica",
+  "meta_desc": "Onyx Apartment — modern design, close to the sea, parking, Wi-Fi. Perfect for 2–4 guests.",
   "title": "Onyx Apartment",
   "intro": "Modern design, close to the sea, AC, Wi-Fi — ideal for 2–4 guests.",
   "features": [
-    "Terrace with partial sea view",
     "Private parking",
-    "Wi-Fi 200 Mbps",
+    "Fast Wi-Fi",
     "Air conditioning",
-    "Modern kitchen & bathroom"
+    "Smart TV",
+    "Fully equipped kitchen"
   ],
   "gallery": [
     "/assets/img/onyx-1.jpg",
     "/assets/img/onyx-2.jpg",
     "/assets/img/onyx-3.jpg"
   ],
-  "availability": [
-    { "from": "2025-09-10", "to": "2025-09-14" },
-    { "from": "2025-10-20", "to": "2025-10-25" },
-    { "from": "2025-12-28", "to": "2026-01-03" }
-  ],
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=onyx12345abcd&type=1&language=en&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=...&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAllEvents=0&showLogo=0",
+  "calendar_ics": "https://calendar.zoho.eu/…/onyx.ics"
 }
