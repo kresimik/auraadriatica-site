@@ -14,7 +14,6 @@
 
   // Map Open-Meteo WMO codes to simple icon keys
   const codeToKey = (code) => {
-    // https://open-meteo.com/en/docs
     if ([0].includes(code)) return 'clear';
     if ([1,2].includes(code)) return 'partly';
     if ([3].includes(code)) return 'cloudy';
@@ -25,7 +24,7 @@
     return 'cloudy';
   };
 
-  // Minimal SVG icon set (inherits color via CSS .wx-icon svg { color: var(--brand-blue); fill: currentColor; stroke: currentColor; })
+  // Minimal SVG icons
   const icons = {
     clear:  `<svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" fill="none"><path d="M12 1v3"/><path d="M12 20v3"/><path d="M4.22 4.22l2.12 2.12"/><path d="M17.66 17.66l2.12 2.12"/><path d="M1 12h3"/><path d="M20 12h3"/><path d="M4.22 19.78l2.12-2.12"/><path d="M17.66 6.34l2.12-2.12"/></g></svg>`,
     partly:`<svg width="36" height="36" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="9" r="3" fill="currentColor"/><path d="M1 9h2M8 2v2M14 9h2M3.6 4.6l1.4 1.4M11 4.6l1.4-1.4"/></g><path d="M7 18h9a3 3 0 0 0 0-6 5 5 0 0 0-9 2" fill="currentColor"/></svg>`,
@@ -41,16 +40,22 @@
     return d.toLocaleDateString(undefined, { weekday: 'short' });
   };
 
-  const fmtTemp = (t) => `${Math.round(t)}°`;
+  const fmtTemp = (t) => Math.round(t);
 
   const buildCard = (date, code, tmin, tmax) => {
     const key = codeToKey(code);
+
+    // odredi klasu po temperaturi
+    const hot = tmax >= 25 ? 'hot' : '';
+    const cold = tmax <= 15 ? 'cold' : '';
+    const tempClass = hot || cold ? ` class="wx-temp ${hot||cold}"` : ' class="wx-temp"';
+
     return `
       <div class="wx-card">
         <div class="wx-day">${dayName(date)}</div>
         <div class="wx-icon">${icons[key] || icons.cloudy}</div>
-        <div class="wx-temp">
-          <strong>${fmtTemp(tmax)}</strong> / <span>${fmtTemp(tmin)}</span>
+        <div${tempClass}>
+          <strong>${fmtTemp(tmax)}°</strong> / <span>${fmtTemp(tmin)}°</span>
         </div>
       </div>
     `;
