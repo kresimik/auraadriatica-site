@@ -6,7 +6,7 @@
   --brand-olive-hover:#556b2f;
   --bg:#ffffff;
   --bg-alt:#f8f9fb;
-  --text:#444444;          /* bilo #333333 -> mekša tamno siva */
+  --text:#444444;          /* mekša tamno siva */
   --muted:#666666;
   --max-width:1100px;
 }
@@ -30,6 +30,12 @@ h1, h2, h3, .logo span{
 h1{ font-size:2.4rem; }
 h2{ font-size:1.8rem; }
 h3{ font-size:1.3rem; color:var(--brand-olive); }
+
+/* Osiguraj da copy u sekcijama nije crn */
+.section p,
+.section ul,
+.section ol,
+.section li{ color:var(--text); }
 
 /* ===== LAYOUT HELPERS ===== */
 .container{ max-width:var(--max-width); margin:0 auto; padding:0 16px; }
@@ -77,8 +83,8 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .logo{
   display:flex; align-items:center;
-  gap:1rem;                         /* više zraka uz krug */
-  font-weight:700; font-size:1.35rem; /* malo izraženiji naziv */
+  gap:1rem;                          /* više zraka uz krug */
+  font-weight:700; font-size:1.35rem;/* izraženiji naziv */
   text-decoration:none; color:var(--brand-blue);
 }
 .logo img{ height:42px; object-fit:contain; }
@@ -104,7 +110,7 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 .footer-logo{
   display:flex;
   align-items:center;
-  gap:.9rem;                        /* malo veći razmak u footeru */
+  gap:1rem;                          /* malo veći razmak u footeru */
   text-decoration:none;
   color:#fff;
   font-weight:600;
@@ -122,12 +128,13 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   justify-content:center;
   background:#fff;
   border-radius:50%;
-  height:96px;                      /* ↑ bilo 60px */
-  width:96px;                       /* ↑ bilo 60px */
+  height:96px;                       /* veći krug */
+  width:96px;
+  flex:0 0 96px;                     /* stabilna širina da ne “guta” tekst */
   box-shadow:0 3px 10px rgba(0,0,0,.18);
 }
 .logo-badge img{
-  height:40px;                      /* prilagođeno većem krugu */
+  height:44px;                       /* skalirano za veći krug */
   width:auto;
 }
 .footer-nav a{
@@ -139,6 +146,10 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .footer-nav a:hover{ color:var(--brand-olive); }
 .footer-contact p{ margin:0; font-size:.9rem; }
+
+/* ===== LISTE ===== */
+.section ul{ padding-left:1.25rem; }
+.section li{ line-height:1.6; }
 
 /* ===== FEATURES (apartments) ===== */
 .features{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; }
