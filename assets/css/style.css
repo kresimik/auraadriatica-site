@@ -121,7 +121,7 @@ h3 { font-size: 1.3rem; color: var(--brand-olive); }
   background:#fff; 
   border-radius:50%;
   height:60px; 
-  width:48px;
+  width:60px;
   box-shadow:0 2px 6px rgba(0,0,0,.15); 
 }
 .logo-badge img{
