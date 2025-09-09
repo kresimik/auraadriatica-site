@@ -192,7 +192,7 @@ p, li{
   width:96px;
   box-shadow:0 3px 10px rgba(0,0,0,.18);
 }
-.logo-badge img{ height:44px; width:auto; }
+.logo-badge img{ height:40px; width:auto; }
 
 .footer-nav a{
   margin-right:1rem;
