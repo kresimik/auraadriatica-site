@@ -127,7 +127,7 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   box-shadow:0 3px 10px rgba(0,0,0,.18);
 }
 .logo-badge img{
-  height:44px;                      /* prilagođeno većem krugu */
+  height:40px;                      /* prilagođeno većem krugu */
   width:auto;
 }
 .footer-nav a{
