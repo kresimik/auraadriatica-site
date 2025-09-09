@@ -228,6 +228,67 @@ p, li{
   box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
+/* ===== MINI AVAILABILITY CALENDAR ===== */
+.cal {
+  --cal-accent: var(--brand-olive);   /* boja za 'zauzeto' (možeš promijeniti po apartmanu) */
+  margin-top: .5rem;
+  display: grid;
+  gap: 16px;
+}
+.cal-month {
+  border: 1px solid #e8eef5;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+.cal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.cal-title {
+  font-weight: 700;
+  color: var(--brand-blue);
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.cal-wd {
+  font-size: .8rem;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 4px;
+}
+.cal-day {
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #eef2f7;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-size: .95rem;
+  color: var(--text);
+}
+.cal-day.muted { opacity: .4; }
+.cal-day.busy  {
+  background: color-mix(in oklab, var(--cal-accent) 18%, white);
+  border-color: color-mix(in oklab, var(--cal-accent) 35%, white);
+  color: #1b1b1b;
+  font-weight: 700;
+}
+.cal-legend {
+  display: flex; gap: 10px; align-items: center; margin-top: 6px; font-size: .9rem; color: var(--muted);
+}
+.cal-dot {
+  width: 12px; height: 12px; border-radius: 3px;
+  background: color-mix(in oklab, var(--cal-accent) 18%, white);
+  border: 1px solid color-mix(in oklab, var(--cal-accent) 35%, white);
+}
+
 /* =========================
    GALLERY
    ========================= */
