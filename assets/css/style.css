@@ -75,7 +75,7 @@ p, li{
   overflow:hidden;
 }
 
-/* Hero tekst – prisilno bijel, da ga ništa ne pregazi */
+/* Hero tekst – prisilno bijel */
 .hero h1{
   font-size:2.8rem;
   margin-bottom:1rem;
@@ -89,7 +89,7 @@ p, li{
   color:#fff !important;
 }
 
-/* CTA gumbi u herou (generički + varijante) */
+/* CTA gumbi */
 .hero .cta{ display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
 
 .button{
@@ -104,15 +104,15 @@ p, li{
   box-shadow:0 6px 16px rgba(0,0,0,.18);
 }
 
-/* Default plavi (ako se negdje koristi bez varijante) */
+/* Default plavi */
 .button{ background:var(--brand-blue); color:#fff; }
 .button:hover{ transform:translateY(-2px); background:var(--brand-blue-hover); }
 
-/* Olive – maslinasto */
+/* Olive */
 .button.olive{ background:var(--brand-olive); color:#fff; }
 .button.olive:hover{ background:var(--brand-olive-hover); transform:translateY(-2px); }
 
-/* Onyx – tamna neutralna */
+/* Onyx */
 .button.onyx{ background:var(--brand-onyx); color:#fff; }
 .button.onyx:hover{ background:var(--brand-onyx-hover); transform:translateY(-2px); }
 
@@ -135,7 +135,6 @@ p, li{
 }
 .logo img{ height:42px; object-fit:contain; }
 
-/* Navigacija */
 .main-nav a{
   margin:0 .75rem;
   text-decoration:none;
@@ -180,8 +179,6 @@ p, li{
   display:block;
   object-fit:contain;
 }
-
-/* veći bijeli krug oko loga u footeru */
 .logo-badge{
   display:flex;
   align-items:center;
@@ -205,7 +202,7 @@ p, li{
 .footer-contact p{ margin:0; font-size:.95rem; }
 
 /* =========================
-   APARTMENT FEATURES
+   FEATURES
    ========================= */
 .features{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 0; }
 .tag{
@@ -274,49 +271,36 @@ p, li{
   grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
   gap:1rem;
 }
-
-/* NOVO – življi izgled kartica */
 .wx-card{
-  background: linear-gradient(135deg, #ffffff 0%, #f3f8ff 100%);
-  border-radius:16px;
-  padding:1rem;
+  background:#fff;
+  border-radius:12px;
+  padding:.8rem;
   text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,.12);
-  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
-.wx-card:hover{
-  transform: scale(1.05);
-  box-shadow:0 8px 20px rgba(0,0,0,.18);
-}
-
 .wx-day{
   font-weight:700;
   color:var(--brand-blue);
-  margin-bottom:10px;
-  font-size:1.1rem;
+  margin-bottom:6px;
 }
-
-/* veće ikone s laganim glow-om */
 .wx-icon svg{
-  width:38px;
-  height:38px;
   color:var(--brand-blue) !important;
-  filter: drop-shadow(0 2px 4px rgba(77,166,255,.4));
   display:block;
-  margin:8px auto;
+  margin:6px auto;
 }
-
-/* istaknutiji prikaz temperatura */
 .wx-temp{
-  margin-top:6px;
-  font-size:1.05rem;
-  font-weight:700;
-  color:var(--text);
+  margin-top:4px;
+  font-size:.95rem;
 }
-
-/* pomoćne klase za toplije/hladnije naglašavanje (dodaje JS) */
-.wx-temp.hot{  color:#e67e22; }  /* narančasta za >= 25°C */
-.wx-temp.cold{ color:#1f78d1; }  /* plavkasta za <= 15°C */
+/* Max temp u brand-blue, min temp muted */
+.wx-temp strong {
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+.wx-temp span {
+  color: var(--muted);
+  font-weight: 500;
+}
 
 /* =========================
    LANGUAGE DROPDOWN
