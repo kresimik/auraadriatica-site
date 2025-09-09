@@ -1,7 +1,8 @@
 /* Apartment page bootstrap
    - initApt('olive') / initApt('onyx')
    - loads /content/apartments/<slug>/<lang>.json with fallback to 'en'
-   - renders intro, features, gallery, and optional Zoho calendar (https)
+   - renders intro, features, gallery
+   - shows availability calendar (custom or Zoho iframe fallback)
 */
 
 function initApt(slug){
@@ -15,7 +16,7 @@ function initApt(slug){
   const elFeat    = document.getElementById('apt-features');
   const elGal     = document.getElementById('apt-gallery');
   const elWrapCal = document.getElementById('apt-calendar-wrap');
-  const elCal     = document.getElementById('apt-calendar');
+  const elCal     = document.getElementById('apt-calendar'); // kod nas <div>, ali može i iframe
 
   // Loading state
   if (elIntro && !elIntro.textContent) elIntro.textContent = 'Loading…';
@@ -34,7 +35,6 @@ function initApt(slug){
     try {
       return await fetchJson(lang);
     } catch (e) {
-      // Fallback to EN only if traženi jezik ne postoji
       if (lang !== 'en') {
         try { return await fetchJson('en'); }
         catch (_) { throw e; }
@@ -50,10 +50,10 @@ function initApt(slug){
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc && data.meta_desc) metaDesc.setAttribute('content', data.meta_desc);
 
-      // H1 (ako želiš override iz JSON-a)
+      // H1 override
       if (data.title) setText('h1[data-i18n]', data.title);
 
-      // Hero subtitle (opcionalno: koristi "olive_intro"/"onyx_intro" ako postoji; inače "intro_short" ili ništa)
+      // Hero subtitle
       const heroP = document.querySelector('.hero p');
       if (heroP) {
         const altIntro = data[`${slug}_intro`] || data.intro_short || data.intro;
@@ -88,18 +88,40 @@ function initApt(slug){
             img.src = src;
             elGal.appendChild(img);
 
-            // Best-effort preload za brži hover/scroll
+            // preload
             const l = new Image();
             l.src = src;
           });
         }
       }
 
-      // Calendar (Zoho embed – mora biti https)
+      // Calendar
       if (elWrapCal) elWrapCal.style.display = 'none';
-      if (data.calendar && /^https:\/\//i.test(data.calendar) && elCal && elWrapCal) {
-        elCal.src = data.calendar;
-        elWrapCal.style.display = 'block';
+      if (elCal && elWrapCal) {
+        if (Array.isArray(data.availability) && data.availability.length) {
+          // naš mini kalendar
+          elWrapCal.style.display = 'block';
+          const savedLang = getLang();
+          const accent = (slug === 'olive') ? 'var(--brand-olive)' : 'var(--brand-onyx)';
+          window.renderAvailabilityCalendar(elCal, {
+            ranges: data.availability,
+            months: 3,
+            locale: {
+              hr:'hr-HR', en:'en-GB', de:'de-DE', it:'it-IT', sl:'sl-SI',
+              hu:'hu-HU', cs:'cs-CZ', sk:'sk-SK', uk:'uk-UA'
+            }[savedLang] || undefined,
+            accent
+          });
+        } else if (data.calendar && /^https:\/\//i.test(data.calendar)) {
+          // fallback na Zoho iframe
+          const iframe = document.createElement('iframe');
+          iframe.src = data.calendar;
+          iframe.className = 'calendar-iframe';
+          iframe.loading = 'lazy';
+          elCal.innerHTML = '';
+          elCal.appendChild(iframe);
+          elWrapCal.style.display = 'block';
+        }
       }
     })
     .catch((err) => {
