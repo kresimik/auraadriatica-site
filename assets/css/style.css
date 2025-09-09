@@ -71,6 +71,15 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .hero .cta{ display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
 
+/* Hero tekst mora ostati bijel, bez obzira na globalne boje teksta */
+.hero,
+.hero h1,
+.hero p,
+.hero span,
+.hero li {
+  color: #fff !important;
+}
+
 /* Buttons (osnova) */
 .button{
   display:inline-block;
