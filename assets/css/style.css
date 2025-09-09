@@ -6,7 +6,7 @@
   --brand-olive-hover:#556b2f;
   --bg:#ffffff;
   --bg-alt:#f8f9fb;
-  --text:#333333;
+  --text:#444444;          /* bilo #333333 -> mekša tamno siva */
   --muted:#666666;
   --max-width:1100px;
 }
@@ -14,25 +14,25 @@
 /* ===== FONTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
 
-body {
-  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  margin: 0;
+body{
+  font-family:'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  margin:0;
 }
-h1, h2, h3, .logo span {
-  font-family: 'Poppins', 'Roboto', sans-serif;
-  font-weight: 700;
-  color: var(--brand-blue);
-  margin-top: 0;
-  margin-bottom: 1rem;
+h1, h2, h3, .logo span{
+  font-family:'Poppins','Roboto',sans-serif;
+  font-weight:700;
+  color:var(--brand-blue);
+  margin-top:0;
+  margin-bottom:1rem;
 }
-h1 { font-size: 2.4rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.3rem; color: var(--brand-olive); }
+h1{ font-size:2.4rem; }
+h2{ font-size:1.8rem; }
+h3{ font-size:1.3rem; color:var(--brand-olive); }
 
 /* ===== LAYOUT HELPERS ===== */
-.container{ max-width:1100px; margin:0 auto; padding:0 16px; }
+.container{ max-width:var(--max-width); margin:0 auto; padding:0 16px; }
 .section{ padding:3rem 0; }
 .section.alt{ background:var(--bg-alt); }
 
@@ -76,12 +76,14 @@ h3 { font-size: 1.3rem; color: var(--brand-olive); }
   display:flex; justify-content:space-between; align-items:center; gap:1rem;
 }
 .logo{
-  display:flex; align-items:center; gap:.5rem;
-  font-weight:700; font-size:1.2rem; text-decoration:none; color:var(--brand-blue);
+  display:flex; align-items:center;
+  gap:1rem;                         /* više zraka uz krug */
+  font-weight:700; font-size:1.35rem; /* malo izraženiji naziv */
+  text-decoration:none; color:var(--brand-blue);
 }
 .logo img{ height:42px; object-fit:contain; }
 .main-nav a{
-  margin:0 .75rem; text-decoration:none; color:#333; font-weight:500; transition:color .2s;
+  margin:0 .75rem; text-decoration:none; color:#2f2f2f; font-weight:500; transition:color .2s;
 }
 .main-nav a:hover{ color:var(--brand-blue); }
 .main-nav a.active{ color:var(--brand-olive); font-weight:700; border-bottom:2px solid var(--brand-olive); }
@@ -89,50 +91,50 @@ h3 { font-size: 1.3rem; color: var(--brand-olive); }
 /* ===== FOOTER ===== */
 .site-footer{
   background:linear-gradient(to left, var(--brand-blue), var(--brand-olive));
-  color:#fff; 
+  color:#fff;
   padding:2rem 0;
 }
 .footer-flex{
-  display:flex; 
-  justify-content:space-between; 
+  display:flex;
+  justify-content:space-between;
   align-items:center;
-  flex-wrap:wrap; 
+  flex-wrap:wrap;
   gap:1.5rem;
 }
 .footer-logo{
-  display:flex; 
-  align-items:center; 
-  gap:.6rem; 
+  display:flex;
+  align-items:center;
+  gap:.9rem;                        /* malo veći razmak u footeru */
   text-decoration:none;
-  color:#fff; 
-  font-weight:600; 
+  color:#fff;
+  font-weight:600;
   font-size:1.1rem;
 }
 .footer-logo img{
-  height:40px; 
-  width:auto; 
+  height:40px;
+  width:auto;
   display:block;
   object-fit:contain;
 }
 .logo-badge{
-  display:flex; 
-  align-items:center; 
+  display:flex;
+  align-items:center;
   justify-content:center;
-  background:#fff; 
+  background:#fff;
   border-radius:50%;
-  height:60px; 
-  width:60px;
-  box-shadow:0 2px 6px rgba(0,0,0,.15); 
+  height:76px;                      /* ↑ bilo 60px */
+  width:76px;                       /* ↑ bilo 60px */
+  box-shadow:0 3px 10px rgba(0,0,0,.18);
 }
 .logo-badge img{
-  height:36px; 
+  height:40px;                      /* prilagođeno većem krugu */
   width:auto;
 }
 .footer-nav a{
-  margin-right:1rem; 
-  color:#fff; 
-  text-decoration:none; 
-  font-weight:500; 
+  margin-right:1rem;
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
   transition:color .2s;
 }
 .footer-nav a:hover{ color:var(--brand-olive); }
@@ -190,9 +192,7 @@ h3 { font-size: 1.3rem; color: var(--brand-olive); }
   color:var(--brand-blue) !important;
   display:block; margin:6px auto;
 }
-.wx-temp{
-  margin-top:4px; font-size:.95rem;
-}
+.wx-temp{ margin-top:4px; font-size:.95rem; }
 
 /* ===== LANGUAGE DROPDOWN ===== */
 .lang-dropdown{ position:relative; }
@@ -213,7 +213,7 @@ h3 { font-size: 1.3rem; color: var(--brand-olive); }
 .lang-menu button.active{ background:var(--brand-blue); color:#fff; border-color:transparent; }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px){
+@media (max-width:768px){
   .hero h1{ font-size:2rem; }
   .hero p{ font-size:1rem; }
   .hero .cta{ flex-direction:column; }
