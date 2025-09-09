@@ -122,12 +122,12 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   justify-content:center;
   background:#fff;
   border-radius:50%;
-  height:76px;                      /* ↑ bilo 60px */
-  width:76px;                       /* ↑ bilo 60px */
+  height:84px;                      /* ↑ bilo 60px */
+  width:84px;                       /* ↑ bilo 60px */
   box-shadow:0 3px 10px rgba(0,0,0,.18);
 }
 .logo-badge img{
-  height:40px;                      /* prilagođeno većem krugu */
+  height:44px;                      /* prilagođeno većem krugu */
   width:auto;
 }
 .footer-nav a{
