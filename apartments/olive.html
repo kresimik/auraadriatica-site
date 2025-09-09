@@ -14,8 +14,9 @@
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
   <meta name="theme-color" content="#4da6ff">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <!-- Fonts (Roboto + Poppins) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
@@ -27,12 +28,12 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
-      <a href="/" class="logo">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica" />
+      <a href="/" class="logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
         <span>Aura Adriatica</span>
       </a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Primary">
         <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
@@ -41,10 +42,10 @@
 
       <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown" id="lang-dd">
-        <button class="lang-toggle" type="button" aria-expanded="false">
+        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
         </button>
-        <div class="lang-menu" id="lang-menu" hidden role="menu">
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
           <button type="button" data-lang="hr">HR</button>
           <button type="button" data-lang="en" class="active">EN</button>
           <button type="button" data-lang="de">DE</button>
@@ -60,15 +61,14 @@
   </header>
 
   <!-- HERO (Olive) -->
-  <section class="hero" style="
-    background-image:
+  <section class="hero" style="background-image:
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
       url('/assets/img/olive-hero.jpg');">
     <div class="container">
       <h1 data-i18n="olive_h">Olive Apartment</h1>
       <p data-i18n="olive_intro">Sunny balcony, sea view, parking, fast Wi-Fi.</p>
       <div class="cta">
-        <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
+        <a class="button outline" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
     </div>
   </section>
@@ -78,16 +78,10 @@
     <div class="container">
       <h2 data-i18n="apts_h">Apartment details</h2>
 
-      <!-- intro tekst iz JSON-a -->
       <p id="apt-intro"></p>
-
-      <!-- feature tagovi iz JSON-a -->
       <div class="features" id="apt-features"></div>
-
-      <!-- galerija slika iz JSON-a -->
       <div class="gallery" id="apt-gallery" style="margin-top:1rem;"></div>
 
-      <!-- Zoho kalendar (ako je postavljen u JSON-u kao https URL) -->
       <div id="apt-calendar-wrap" style="margin-top:2rem; display:none;">
         <h2 data-i18n="avail_h">Availability</h2>
         <p data-i18n="avail_note">Select your dates to check availability.</p>
@@ -99,18 +93,16 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <a href="/" class="footer-logo">
-        <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica" /></span>
+      <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+        <span class="logo-badge"><img src="/assets/img/logo.png" alt="Aura Adriatica logo" /></span>
         <span>Aura Adriatica</span>
       </a>
-
-      <nav class="footer-nav">
+      <nav class="footer-nav" aria-label="Footer">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
-
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
         <p>&copy; <span id="year"></span> Aura Adriatica</p>
@@ -119,44 +111,31 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- INIT OLIVE JSON -->
+  <!-- INIT APT -->
   <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      initApt('olive'); // čita /content/apartments/olive/{lang}.json
-    });
+    document.addEventListener('DOMContentLoaded', function(){ initApt('olive'); });
   </script>
 
   <!-- LANGUAGE DROPDOWN HANDLER -->
   <script>
     (function(){
-      const dd   = document.getElementById('lang-dd');
-      if(!dd) return;
-      const btn  = dd.querySelector('.lang-toggle');
-      const menu = dd.querySelector('.lang-menu');
-      const cur  = dd.querySelector('.current-lang');
-
-      // init
-      const saved = (localStorage.getItem('lang')||'en').toUpperCase();
-      cur.textContent = saved;
-      menu.querySelectorAll('button').forEach(x=>{
-        x.classList.toggle('active', x.dataset.lang.toUpperCase() === saved);
-      });
-
-      const open  = () => { menu.hidden = false; btn.setAttribute('aria-expanded','true');  };
-      const close = () => { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); };
-
-      btn.addEventListener('click', (e)=>{ e.stopPropagation(); menu.hidden ? open() : close(); });
-      menu.addEventListener('click', (e)=>{
-        const b = e.target.closest('button[data-lang]');
-        if(!b) return;
+      const dd = document.getElementById('lang-dd'); if(!dd) return;
+      const btn=dd.querySelector('.lang-toggle'), menu=dd.querySelector('.lang-menu'), cur=dd.querySelector('.current-lang');
+      const saved=(localStorage.getItem('lang')||'en').toUpperCase();
+      cur.textContent=saved;
+      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.dataset.lang.toUpperCase()===saved));
+      const open=()=>{menu.hidden=false;btn.setAttribute('aria-expanded','true');};
+      const close=()=>{menu.hidden=true; btn.setAttribute('aria-expanded','false');};
+      btn.addEventListener('click',e=>{e.stopPropagation();menu.hidden?open():close();});
+      menu.addEventListener('click',e=>{
+        const b=e.target.closest('button[data-lang]'); if(!b) return;
         localStorage.setItem('lang', b.dataset.lang);
-        cur.textContent = b.dataset.lang.toUpperCase();
+        cur.textContent=b.dataset.lang.toUpperCase();
         menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
-        close();
-        location.reload();
+        close(); location.reload();
       });
-      document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+      document.addEventListener('click',e=>{ if(!dd.contains(e.target)) close(); });
+      document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
     })();
   </script>
 
