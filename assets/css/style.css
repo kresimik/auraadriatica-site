@@ -1,47 +1,79 @@
-/* ===== VARIABLES ===== */
+/* ===== VARS ===== */
 :root{
   --brand-blue:#4da6ff;
   --brand-blue-hover:#1f78d1;
+
   --brand-olive:#6b8e23;
   --brand-olive-hover:#556b2f;
+
+  --brand-onyx:#353839;         /* tamni grafit (onyx) */
+  --brand-onyx-hover:#222629;
+
   --bg:#ffffff;
   --bg-alt:#f8f9fb;
-  --text:#444444;     /* mekša tamno siva */
+
+  --text:#444444;               /* mekša tamno siva za sve osnovne tekstove */
   --muted:#666666;
+
   --max-width:1100px;
 }
 
 /* ===== FONTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
 
+/* ===== BASE TEXT ===== */
+html,body{ margin:0; }
 body{
   font-family:'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   color:var(--text);
   background:var(--bg);
-  margin:0;
-  line-height:1.6;
 }
-
-/* ===== TEXT DEFAULTS ===== */
-p, li, ul, ol, span { color:var(--text); }
-a { color:var(--brand-blue); text-decoration:none; }
-a:hover { color:var(--brand-blue-hover); }
+p, li, ul, ol, span { color: var(--text); }
 
 h1, h2, h3, .logo span{
   font-family:'Poppins','Roboto',sans-serif;
   font-weight:700;
   color:var(--brand-blue);
-  margin-top:0;
-  margin-bottom:1rem;
+  margin:0 0 1rem 0;
 }
 h1{ font-size:2.4rem; }
 h2{ font-size:1.8rem; }
 h3{ font-size:1.3rem; color:var(--brand-olive); }
 
-/* ===== LAYOUT HELPERS ===== */
+/* ===== LAYOUT ===== */
 .container{ max-width:var(--max-width); margin:0 auto; padding:0 16px; }
 .section{ padding:3rem 0; }
 .section.alt{ background:var(--bg-alt); }
+
+/* ===== HEADER ===== */
+.site-header{
+  background:#fff;
+  border-bottom:1px solid #eee;
+  padding:.75rem 0;
+}
+.header-flex{
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+}
+.logo{
+  display:flex; align-items:center; gap:1rem;
+  text-decoration:none; color:var(--brand-blue);
+  font-weight:700; font-size:1.35rem;
+}
+.logo img{ height:42px; object-fit:contain; }
+
+.main-nav a{
+  margin:0 .75rem;
+  text-decoration:none;
+  color:var(--text);                 /* mekši sivi u navigaciji */
+  font-weight:500;
+  transition:color .2s, border-color .2s;
+}
+.main-nav a:hover{ color:var(--brand-blue); }
+.main-nav a.active{
+  color:var(--brand-olive);
+  font-weight:700;
+  border-bottom:2px solid var(--brand-olive);
+}
 
 /* ===== HERO ===== */
 .hero{
@@ -53,94 +85,63 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   color:#fff;
   text-align:center;
   padding:6rem 1rem;
+  overflow:hidden;
 }
 .hero h1{
-  font-size:2.8rem; margin-bottom:1rem;
+  font-size:2.8rem;
+  margin-bottom:1rem;
+  color:#fff;                        /* hero naslovi bijeli */
   text-shadow:0 2px 6px rgba(0,0,0,.6);
-  color:#fff;
 }
 .hero p{
-  font-size:1.3rem; margin-bottom:2rem;
+  font-size:1.3rem;
+  margin-bottom:2rem;
+  color:#fff;                        /* i podnaslov na slici bijel */
   text-shadow:0 2px 4px rgba(0,0,0,.5);
 }
 .hero .cta{ display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
-.hero .button{
-  background:var(--brand-blue); color:#fff; text-decoration:none;
-  padding:.9rem 1.8rem; border-radius:8px; font-weight:600;
-  box-shadow:0 3px 6px rgba(0,0,0,.25);
-  transition:background .3s, transform .2s;
-}
-.hero .button:hover{ background:var(--brand-blue-hover); transform:translateY(-2px); }
-.hero .button.outline{ background:var(--brand-olive); }
-.hero .button.outline:hover{ background:var(--brand-olive-hover); }
 
-/* ===== HEADER ===== */
-.site-header{
-  background:#fff; border-bottom:1px solid #eee; padding:.75rem 0;
+/* ===== BUTTONS (unificirano) ===== */
+.button{
+  --btn-bg: var(--brand-blue);
+  --btn-bg-hover: var(--brand-blue-hover);
+  --btn-fg: #fff;
+
+  background:var(--btn-bg);
+  color:var(--btn-fg);
+  text-decoration:none;
+  padding:.9rem 1.8rem;
+  border-radius:10px;
+  font-weight:700;
+  display:inline-block;
+  box-shadow:0 3px 6px rgba(0,0,0,.2);
+  transition:transform .15s ease, background .2s ease, opacity .2s ease;
 }
-.header-flex{
-  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+.button:hover{ background:var(--btn-bg-hover); transform:translateY(-2px); }
+
+/* Olive = maslinasto */
+.button.olive{
+  --btn-bg: var(--brand-olive);
+  --btn-bg-hover: var(--brand-olive-hover);
 }
-.logo{
-  display:flex; align-items:center; gap:1rem;
-  font-weight:700; font-size:1.35rem;
-  text-decoration:none; color:var(--brand-blue);
-}
-.logo img{ height:42px; object-fit:contain; }
-.main-nav a{
-  margin:0 .75rem; text-decoration:none;
-  color:var(--text); font-weight:500; transition:color .2s;
-}
-.main-nav a:hover{ color:var(--brand-blue); }
-.main-nav a.active{
-  color:var(--brand-olive); font-weight:700; border-bottom:2px solid var(--brand-olive);
+/* Onyx = tamni grafit */
+.button.onyx{
+  --btn-bg: var(--brand-onyx);
+  --btn-bg-hover: var(--brand-onyx-hover);
 }
 
-/* ===== FOOTER ===== */
-.site-footer{
-  background:linear-gradient(to left, var(--brand-blue), var(--brand-olive));
-  color:#fff; padding:2rem 0;
-}
-.footer-flex{
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:1.5rem;
-}
-.footer-logo{
-  display:flex; align-items:center; gap:1rem;
-  text-decoration:none; font-weight:600; font-size:1.1rem;
-  color:#fff; /* tekst uvijek bijel */
-}
-.logo-badge{
-  display:flex; align-items:center; justify-content:center;
-  background:#fff; border-radius:50%;
-  height:110px; width:110px; /* veći krug */
-  box-shadow:0 3px 10px rgba(0,0,0,.18);
-}
-.logo-badge img{ height:50px; width:auto; }
-.footer-nav a{
-  margin-right:1rem; color:#fff;
-  text-decoration:none; font-weight:500; transition:color .2s;
-}
-.footer-nav a:hover{ color:var(--brand-olive); }
-.footer-contact p{ margin:0; font-size:.9rem; color:#fff; }
-
-/* ===== FEATURES (apartments) ===== */
+/* ===== FEATURES (apartmani) ===== */
 .features{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; }
 .tag{
-  display:inline-block; background:#eef6ff; color:var(--brand-blue);
+  display:inline-block;
+  background:#eef6ff; color:var(--brand-blue);
   border:1px solid #dbeafe; padding:.35rem .6rem; border-radius:999px;
   font-size:.9rem; font-weight:600;
 }
 
-/* ===== CALENDAR IFRAME ===== */
-.calendar-iframe{
-  width:100%; max-width:820px; height:520px;
-  border:0; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-/* ===== GALLERY PREVIEW (index) ===== */
+/* ===== GALLERY ===== */
 .gallery-preview{
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr));
   gap:12px; margin-top:1rem;
 }
 .gallery-preview img{
@@ -149,9 +150,8 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .gallery-preview img:hover{ transform:scale(1.03); }
 
-/* ===== FULL GALLERY ===== */
 .gallery{
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
   gap:16px;
 }
 .gallery img{
@@ -160,9 +160,17 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .gallery img:hover{ transform:scale(1.02); }
 
-/* ===== WEATHER WIDGET ===== */
+/* ===== CALENDAR IFRAME ===== */
+.calendar-iframe{
+  width:100%; max-width:820px; height:520px;
+  border:0; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+/* ===== WEATHER ===== */
 .weather{ margin-top:1rem; }
-.wx-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1rem; }
+.wx-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1rem;
+}
 .wx-card{
   background:#fff; border-radius:12px; padding:.8rem; text-align:center;
   box-shadow:0 2px 6px rgba(0,0,0,.08);
@@ -185,10 +193,35 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .lang-menu[hidden]{ display:none !important; }
 .lang-menu button{
-  padding:.35rem .55rem; border:1px solid #e1e7f0;
-  border-radius:.5rem; background:#fff; cursor:pointer;
+  padding:.35rem .55rem; border:1px solid #e1e7f0; border-radius:.5rem; background:#fff; cursor:pointer;
 }
 .lang-menu button.active{ background:var(--brand-blue); color:#fff; border-color:transparent; }
+
+/* ===== FOOTER ===== */
+.site-footer{
+  background:linear-gradient(to left, var(--brand-blue), var(--brand-olive));
+  color:#fff; padding:2rem 0;
+}
+.footer-flex{
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:1.5rem;
+}
+.footer-logo{
+  display:flex; align-items:center; gap:.9rem;
+  text-decoration:none; color:#fff; font-weight:600; font-size:1.1rem;
+}
+.footer-logo img{ height:40px; width:auto; display:block; object-fit:contain; }
+.logo-badge{
+  display:flex; align-items:center; justify-content:center;
+  background:#fff; border-radius:50%;
+  height:96px; width:96px; box-shadow:0 3px 10px rgba(0,0,0,.18);
+}
+.logo-badge img{ height:44px; width:auto; }
+.footer-nav a{
+  margin-right:1rem; color:#fff; text-decoration:none; font-weight:500; transition:color .2s;
+}
+.footer-nav a:hover{ color:var(--brand-olive); }
+.footer-contact p{ margin:0; font-size:.9rem; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width:768px){
