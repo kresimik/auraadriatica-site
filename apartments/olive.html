@@ -6,24 +6,6 @@
   <title>Apartment Olive — Aura Adriatica</title>
   <meta name="description" content="Apartment Olive — sea view apartment near Opatija, Croatia" />
 
-  <!-- LANGUAGE DROPDOWN -->
-  <div class="lang-dropdown" id="lang-dd">
-    <button class="lang-toggle" type="button" aria-expanded="false">
-      <span class="current-lang" id="cur-lang">EN</span> ▾
-    </button>
-    <div class="lang-menu" id="lang-menu" hidden>
-      <button type="button" data-lang="hr">HR</button>
-      <button type="button" data-lang="en" class="active">EN</button>
-      <button type="button" data-lang="de">DE</button>
-      <button type="button" data-lang="it">IT</button>
-      <button type="button" data-lang="sl">SL</button>
-      <button type="button" data-lang="hu">HU</button>
-      <button type="button" data-lang="cs">CS</button>
-      <button type="button" data-lang="sk">SK</button>
-      <button type="button" data-lang="uk">UK</button>
-    </div>
-  </div>
-
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
@@ -38,7 +20,6 @@
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20250907">
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/lang.js" defer></script>
   <script src="/assets/js/apt.js" defer></script>
 </head>
 <body>
@@ -59,20 +40,20 @@
       </nav>
 
       <!-- LANGUAGE DROPDOWN -->
-      <div class="lang-dropdown">
-        <button class="lang-toggle" aria-expanded="false">
-          <span class="current-lang">EN</span> ▾
+      <div class="lang-dropdown" id="lang-dd">
+        <button class="lang-toggle" type="button" aria-expanded="false">
+          <span class="current-lang" id="cur-lang">EN</span> ▾
         </button>
-        <div class="lang-menu" role="menu" hidden>
-          <button data-lang="hr">HR</button>
-          <button data-lang="en" class="active">EN</button>
-          <button data-lang="de">DE</button>
-          <button data-lang="it">IT</button>
-          <button data-lang="sl">SL</button>
-          <button data-lang="hu">HU</button>
-          <button data-lang="cs">CS</button>
-          <button data-lang="sk">SK</button>
-          <button data-lang="uk">UK</button>
+        <div class="lang-menu" id="lang-menu" hidden role="menu">
+          <button type="button" data-lang="hr">HR</button>
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="de">DE</button>
+          <button type="button" data-lang="it">IT</button>
+          <button type="button" data-lang="sl">SL</button>
+          <button type="button" data-lang="hu">HU</button>
+          <button type="button" data-lang="cs">CS</button>
+          <button type="button" data-lang="sk">SK</button>
+          <button type="button" data-lang="uk">UK</button>
         </div>
       </div>
     </div>
@@ -138,29 +119,33 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- APARTMENT LOADER -->
-  <script src="/assets/js/apt.js" defer></script>
+  <!-- INIT OLIVE JSON -->
   <script>
-    // Učitaj sadržaj za OLIVE iz JSON-a i prikaži kalendar ako postoji HTTPS URL
     document.addEventListener('DOMContentLoaded', function(){
-      initApt('olive');
+      initApt('olive'); // čita /content/apartments/olive/{lang}.json
     });
   </script>
 
-  <!-- LANGUAGE DROPDOWN HANDLER (inline) -->
+  <!-- LANGUAGE DROPDOWN HANDLER -->
   <script>
     (function(){
-      const dd   = document.querySelector('.lang-dropdown');
+      const dd   = document.getElementById('lang-dd');
       if(!dd) return;
       const btn  = dd.querySelector('.lang-toggle');
       const menu = dd.querySelector('.lang-menu');
       const cur  = dd.querySelector('.current-lang');
 
+      // init
+      const saved = (localStorage.getItem('lang')||'en').toUpperCase();
+      cur.textContent = saved;
+      menu.querySelectorAll('button').forEach(x=>{
+        x.classList.toggle('active', x.dataset.lang.toUpperCase() === saved);
+      });
+
       const open  = () => { menu.hidden = false; btn.setAttribute('aria-expanded','true');  };
       const close = () => { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); };
 
       btn.addEventListener('click', (e)=>{ e.stopPropagation(); menu.hidden ? open() : close(); });
-
       menu.addEventListener('click', (e)=>{
         const b = e.target.closest('button[data-lang]');
         if(!b) return;
@@ -170,13 +155,8 @@
         close();
         location.reload();
       });
-
       document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
-
-      const saved = (localStorage.getItem('lang')||'en').toUpperCase();
-      cur.textContent = saved;
-      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.textContent===saved));
     })();
   </script>
 
