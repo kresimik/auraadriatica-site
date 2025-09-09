@@ -274,28 +274,49 @@ p, li{
   grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
   gap:1rem;
 }
+
+/* NOVO – življi izgled kartica */
 .wx-card{
-  background:#fff;
-  border-radius:12px;
-  padding:.8rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f8ff 100%);
+  border-radius:16px;
+  padding:1rem;
   text-align:center;
-  box-shadow:0 2px 6px rgba(0,0,0,.08);
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
+.wx-card:hover{
+  transform: scale(1.05);
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
 .wx-day{
   font-weight:700;
   color:var(--brand-blue);
-  margin-bottom:6px;
+  margin-bottom:10px;
+  font-size:1.1rem;
 }
+
+/* veće ikone s laganim glow-om */
 .wx-icon svg{
+  width:38px;
+  height:38px;
   color:var(--brand-blue) !important;
+  filter: drop-shadow(0 2px 4px rgba(77,166,255,.4));
   display:block;
-  margin:6px auto;
+  margin:8px auto;
 }
+
+/* istaknutiji prikaz temperatura */
 .wx-temp{
-  margin-top:4px;
-  font-size:.95rem;
+  margin-top:6px;
+  font-size:1.05rem;
+  font-weight:700;
   color:var(--text);
 }
+
+/* pomoćne klase za toplije/hladnije naglašavanje (dodaje JS) */
+.wx-temp.hot{  color:#e67e22; }  /* narančasta za >= 25°C */
+.wx-temp.cold{ color:#1f78d1; }  /* plavkasta za <= 15°C */
 
 /* =========================
    LANGUAGE DROPDOWN
