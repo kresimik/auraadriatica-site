@@ -1,8 +1,10 @@
 {
   "brand": "Aura Adriatica",
   "tagline": "Dva boutique apartmana na Opatijskoj rivijeri.",
+
   "about_h": "O nama",
   "about_p": "Dobrodošli u Auru Adriaticu — vaše savršeno mjesto za odmor na Opatijskoj rivijeri. Uživajte u udobnosti, modernom dizajnu i prekrasnom pogledu na Jadransko more.",
+
   "apts_h": "Naši apartmani",
   "olive_meta": "Olive — pogled na more, balkon, klima, Wi-Fi",
   "onyx_meta": "Onyx — terasa, vrt, klima, Wi-Fi",
@@ -11,10 +13,14 @@
   "onyx_h": "Apartman Onyx",
   "onyx_intro": "Terasa, pristup vrtu, klima, Wi-Fi — idealno za 2–4 osobe.",
   "back_home": "Povratak na početnu",
+
   "avail_h": "Dostupnost",
   "avail_note": "Za najtočniju dostupnost molimo kontaktirajte nas direktno na info@auraadriatica.com.",
+
   "loc_h": "Lokacija",
   "loc_p": "Nalazimo se u Ičićima, šarmantnom primorskom mjestu kraj Opatije. Plaža, marina i planinarske staze na Učki udaljeni su nekoliko minuta hoda.",
+
+  "info_h": "Informacije",
   "info_list": [
     "Privatni parking uključen",
     "Besplatan Wi-Fi u svim prostorijama",
@@ -22,10 +28,20 @@
     "Potpuno opremljena kuhinja",
     "Blizina plaže i restorana"
   ],
+
   "contact_h": "Kontakt",
   "contact_email": "info@auraadriatica.com",
+
   "cta_book": "Pošaljite upit",
   "cta_weather": "Pogledajte vremensku prognozu",
-  "weather_h": "Vrijeme",
-  "weather_note": "7-dnevna prognoza za Lovran (ažurira se svaki sat)."
+
+  "weather_h": "7-dnevna prognoza",
+  "weather_note": "Vrijeme u Lovranu — ažurirano dnevno",
+
+  "gallery": "Galerija",
+  "gallery_intro": "Otkrijte Olive i Onyx te ljepote Opatijske rivijere.",
+
+  "reviews": "Recenzije",
+
+  "explore": "Istražite"
 }
