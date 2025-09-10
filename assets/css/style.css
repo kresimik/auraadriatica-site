@@ -152,7 +152,7 @@ p, li{
    FOOTER
    ========================= */
 .site-footer{
-  background:linear-gradient(to left, var(--brand-blue), var(--brand-olive));
+  background:linear-gradient(to left, var(--brand-blue), var(--brand-blue));
   color:#fff;
   padding:2rem 0;
 }
