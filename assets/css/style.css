@@ -115,8 +115,12 @@ p, li{
   border-bottom:1px solid #eee;
   padding:.75rem 0;
 }
+/* poravnaj ulijevo i približi meni logotipu */
 .header-flex{
-  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:2rem;                /* razmak logo ↔ navigacija */
 }
 .logo{
   display:flex; align-items:center;
@@ -126,19 +130,23 @@ p, li{
 }
 .logo img{ height:42px; object-fit:contain; }
 
+/* navigacija u brand plavoj */
+.main-nav{ display:flex; gap:1.5rem; }
 .main-nav a{
-  margin:0 .75rem;
   text-decoration:none;
-  color:#2f2f2f;
+  color:var(--brand-blue);
   font-weight:600;
   transition:color .2s, border-color .2s;
 }
-.main-nav a:hover{ color:var(--brand-blue); }
+.main-nav a:hover{ color:var(--brand-blue-hover); }
 .main-nav a.active{
   color:var(--brand-olive);
   border-bottom:2px solid var(--brand-olive);
   padding-bottom:2px;
 }
+
+/* language dropdown skroz desno */
+.lang-dropdown{ margin-left:auto; }
 
 /* =========================
    FOOTER
@@ -286,19 +294,23 @@ p, li{
 .wx-temp span{ color:var(--muted); font-weight:500; }
 
 /* =========================
-   LANGUAGE DROPDOWN
+   LANGUAGE DROPDOWN (brand plavo)
    ========================= */
 .lang-dropdown{ position:relative; }
 .lang-toggle{
   background:#fff;
-  border:1px solid #e1e7f0;
+  border:1px solid rgba(77,166,255,.35);  /* svijetli brand plavi rub */
   border-radius:.6rem;
   padding:.45rem .7rem;
   cursor:pointer;
   font-weight:700;
   min-width:64px;
   text-align:left;
-  color:#2f2f2f;
+  color:var(--brand-blue);                 /* tekst brand plav */
+}
+.lang-toggle:hover{
+  border-color: var(--brand-blue);
+  color: var(--brand-blue-hover);
 }
 .lang-menu{
   position:absolute; right:0; top:calc(100% + 6px);
