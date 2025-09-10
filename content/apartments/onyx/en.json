@@ -1,20 +1,17 @@
 {
-  "page_title": "Apartment Onyx — Aura Adriatica",
-  "meta_desc": "Onyx Apartment — modern design, close to the sea, parking, Wi-Fi. Perfect for 2–4 guests.",
   "title": "Onyx Apartment",
-  "intro": "Modern design, close to the sea, AC, Wi-Fi — ideal for 2–4 guests.",
+  "intro": "Modern design, terrace, parking, Wi-Fi — ideal for 2–4 guests.",
   "features": [
+    "Spacious terrace",
     "Private parking",
-    "Fast Wi-Fi",
+    "Wi-Fi 200 Mbps",
     "Air conditioning",
-    "Smart TV",
-    "Fully equipped kitchen"
+    "Modern kitchen"
   ],
   "gallery": [
     "/assets/img/onyx-1.jpg",
     "/assets/img/onyx-2.jpg",
     "/assets/img/onyx-3.jpg"
   ],
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=...&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAllEvents=0&showLogo=0",
-  "calendar_ics": "https://calendar.zoho.eu/…/onyx.ics"
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
 }
