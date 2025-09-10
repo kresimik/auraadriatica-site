@@ -66,8 +66,8 @@
       <h1 data-i18n="brand">Aura Adriatica</h1>
       <p data-i18n="tagline">Two boutique apartments on the Opatija Riviera</p>
       <div class="cta">
-        <a class="button btn-olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
-        <a class="button btn-onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
+        <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+        <a class="button onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
       </div>
     </div>
   </section>
@@ -177,7 +177,6 @@
       const menu = dd.querySelector('.lang-menu');
       const cur  = dd.querySelector('.current-lang');
 
-      // init
       const saved = (localStorage.getItem('lang')||'en').toUpperCase();
       cur.textContent = saved;
       menu.querySelectorAll('button').forEach(x=>{
