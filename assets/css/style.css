@@ -144,9 +144,9 @@ p, li{
 .main-nav a:hover {
   color: var(--brand-blue-hover);
 }
-.main-nav a.active {
-  color: var(--brand-olive);
-  border-bottom: 2px solid var(--brand-olive);
+.main-nav a:active {
+  color: var(--brand-blue);
+  border-bottom: 2px solid var(--brand-blue-hover);
   padding-bottom: 2px;
 }
 
