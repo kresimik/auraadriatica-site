@@ -134,18 +134,20 @@ p, li{
 }
 .logo img{ height:42px; object-fit:contain; }
 
-.main-nav a{
-  margin:0 .75rem;
-  text-decoration:none;
-  color:#2f2f2f;
-  font-weight:600;
-  transition:color .2s, border-color .2s;
+.main-nav a {
+  margin: 0 .75rem;
+  text-decoration: none;
+  color: var(--brand-blue);
+  font-weight: 600;
+  transition: color .2s, border-color .2s;
 }
-.main-nav a:hover{ color:var(--brand-blue); }
-.main-nav a.active{
-  color:var(--brand-olive);
-  border-bottom:2px solid var(--brand-olive);
-  padding-bottom:2px;
+.main-nav a:hover {
+  color: var(--brand-blue-hover);
+}
+.main-nav a.active {
+  color: var(--brand-olive);
+  border-bottom: 2px solid var(--brand-olive);
+  padding-bottom: 2px;
 }
 
 /* =========================
