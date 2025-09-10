@@ -8,13 +8,13 @@
   --brand-olive:#6b8e23;          /* Olive */
   --brand-olive-hover:#556b2f;
 
-  --brand-onyx:#1f2937;           /* Onyx (tamna, neutralna) */
+  --brand-onyx:#1f2937;           /* Onyx */
   --brand-onyx-hover:#111827;
 
   --bg:#ffffff;
   --bg-alt:#f8f9fb;
 
-  --text:#444444;                  /* meka tamno siva za tekst */
+  --text:#444444;                  /* meka tamno siva */
   --muted:#666666;
 
   --max-width:1100px;
@@ -40,7 +40,7 @@ h1, h2, h3, .logo span{
   font-family:'Poppins','Roboto',sans-serif;
   font-weight:700;
   color:var(--brand-blue);
-  margin:0 0 1rem 0;
+  margin:0 0 .75rem 0;
 }
 h1{ font-size:2.4rem; }
 h2{ font-size:1.8rem; }
@@ -48,9 +48,17 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 
 /* Paragrafi & liste */
 p, li{
-  color:var(--text) !important;
+  color:var(--text);
   font-size:1rem;
   line-height:1.6;
+}
+
+/* Force brand text color for all section body copy */
+.section p,
+.section li,
+.section ul,
+.section ol {
+  color: var(--text) !important;
 }
 
 /* =========================
@@ -115,12 +123,8 @@ p, li{
   border-bottom:1px solid #eee;
   padding:.75rem 0;
 }
-/* poravnaj ulijevo i približi meni logotipu */
 .header-flex{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:2rem;                /* razmak logo ↔ navigacija */
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
 }
 .logo{
   display:flex; align-items:center;
@@ -130,23 +134,19 @@ p, li{
 }
 .logo img{ height:42px; object-fit:contain; }
 
-/* navigacija u brand plavoj */
-.main-nav{ display:flex; gap:1.5rem; }
 .main-nav a{
+  margin:0 .75rem;
   text-decoration:none;
-  color:var(--brand-blue);
+  color:#2f2f2f;
   font-weight:600;
   transition:color .2s, border-color .2s;
 }
-.main-nav a:hover{ color:var(--brand-blue-hover); }
+.main-nav a:hover{ color:var(--brand-blue); }
 .main-nav a.active{
   color:var(--brand-olive);
   border-bottom:2px solid var(--brand-olive);
   padding-bottom:2px;
 }
-
-/* language dropdown skroz desno */
-.lang-dropdown{ margin-left:auto; }
 
 /* =========================
    FOOTER
@@ -220,8 +220,8 @@ p, li{
    ========================= */
 .calendar-iframe{
   width:100%;
-  max-width:700px;   /* kompaktnije */
-  height:420px;      /* smanjena visina */
+  max-width:700px;
+  height:420px;
   border:0;
   border-radius:12px;
   box-shadow:0 2px 10px rgba(0,0,0,.08);
@@ -294,23 +294,19 @@ p, li{
 .wx-temp span{ color:var(--muted); font-weight:500; }
 
 /* =========================
-   LANGUAGE DROPDOWN (brand plavo)
+   LANGUAGE DROPDOWN
    ========================= */
 .lang-dropdown{ position:relative; }
 .lang-toggle{
   background:#fff;
-  border:1px solid rgba(77,166,255,.35);  /* svijetli brand plavi rub */
+  border:1px solid #e1e7f0;
   border-radius:.6rem;
   padding:.45rem .7rem;
   cursor:pointer;
   font-weight:700;
   min-width:64px;
   text-align:left;
-  color:var(--brand-blue);                 /* tekst brand plav */
-}
-.lang-toggle:hover{
-  border-color: var(--brand-blue);
-  color: var(--brand-blue-hover);
+  color:#2f2f2f;
 }
 .lang-menu{
   position:absolute; right:0; top:calc(100% + 6px);
