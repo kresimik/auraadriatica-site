@@ -1,57 +1,55 @@
-// /assets/js/explore.js
-(function(){
-  const getLang = () => (localStorage.getItem('lang') || 'en').toLowerCase();
-  const qs = (s) => document.querySelector(s);
+/* Explore page bootstrap
+   - učitava content/explore/<lang>.json
+   - puni liste i tekstove
+*/
 
-  const fillList = (id, arr) => {
-    const ul = document.getElementById(id);
-    if (!ul) return;
-    ul.innerHTML = '';
-    if (Array.isArray(arr)) {
-      arr.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        ul.appendChild(li);
-      });
-    }
-  };
+const DEFAULT_LANG = "en";
 
-  const fetchJson = async (lang) => {
-    const url = `/content/explore/${lang}.json`;
-    const res = await fetch(url, { cache:'no-store' });
-    if (!res.ok) throw Object.assign(new Error('JSON not found'), { code: res.status, lang });
-    return res.json();
-  };
+async function loadExplore(lang) {
+  try {
+    const res = await fetch(`/content/explore/${lang}.json`, { cache: "no-store" });
+    if (!res.ok) throw new Error("No file");
+    const data = await res.json();
 
-  const load = async () => {
-    const lang = getLang();
-    try {
-      return await fetchJson(lang);
-    } catch (e) {
-      if (lang !== 'en') {
-        try { return await fetchJson('en'); }
-        catch (_) { throw e; }
-      }
-      throw e;
-    }
-  };
+    // Hero
+    if (data.hero_title) document.getElementById("ex-hero-title").textContent = data.hero_title;
+    if (data.hero_sub)   document.getElementById("ex-hero-sub").textContent   = data.hero_sub;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    load().then(data => {
-      // Hero
-      if (data.title) qs('#ex-hero-title').textContent = data.title;
-      if (data.subtitle) qs('#ex-hero-sub').textContent = data.subtitle;
+    // About
+    if (data.about_h) document.getElementById("ex-about").textContent = data.about_h;
+    if (data.about_p) document.getElementById("ex-intro").textContent = data.about_p;
 
-      // Intro
-      if (data.intro) qs('#ex-intro').textContent = data.intro;
+    // Things to do
+    renderList("ex-do-list", data.do);
 
-      // Lists
-      fillList('ex-do-list',      data.things_to_do);
-      fillList('ex-beaches-list', data.beaches);
-      fillList('ex-trips-list',   data.day_trips);
-      fillList('ex-food-list',    data.food);
-    }).catch(err => {
-      console.warn('Explore load error:', err);
+    // Beaches
+    renderList("ex-beaches-list", data.beaches);
+
+    // Day trips
+    renderList("ex-trips-list", data.trips);
+
+    // Food
+    renderList("ex-food-list", data.food);
+
+  } catch (err) {
+    console.error("Explore load failed", err);
+  }
+}
+
+function renderList(id, items) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = "";
+  if (Array.isArray(items)) {
+    items.forEach(x => {
+      const li = document.createElement("li");
+      li.textContent = x;
+      el.appendChild(li);
     });
-  });
-})();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const saved = (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
+  loadExplore(saved);
+});
