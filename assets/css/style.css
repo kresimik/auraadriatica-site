@@ -213,54 +213,55 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
    FOOTER
    ========================= */
 .site-footer {
-  background: linear-gradient(to right, #1f4068, #0d1b2a);
+  background: linear-gradient(to right, #0a1a2f, #122c57);
   color: #fff;
   padding: 2rem 0;
 }
 
-.footer-flex{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:1.5rem;
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
-.footer-logo{
-  display:flex;
-  align-items:center;
-  gap:.9rem;
-  text-decoration:none;
-  color:#fff;
-  font-weight:700;
-  font-size:1.2rem;
-}
-.footer-logo img{
-  height:40px;
-  width:auto;
-  display:block;
-  object-fit:contain;
-}
-.logo-badge{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  border-radius:50%;
-  height:56px;
-  width:106px;
-  box-shadow:0 3px 10px rgba(0,0,0,.18);
-}
-.logo-badge img{ height:40px; width:auto; }
 
-.footer-nav a{
-  margin-right:1rem;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  transition:opacity .2s;
+/* Simplified footer logo */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
-.footer-nav a:hover{ opacity:.85; }
-.footer-contact p{ margin:0; font-size:.95rem; }
+
+.footer-logo img {
+  height: 56px;      /* bigger than before (40px → 56px) */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* remove white circle (deleted .logo-badge styles) */
+
+/* Footer nav */
+.footer-nav a {
+  margin-right: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity .2s;
+}
+.footer-nav a:hover {
+  opacity: .85;
+}
+
+.footer-contact p {
+  margin: 0;
+  font-size: .95rem;
+}
 
 /* =========================
    FEATURES
