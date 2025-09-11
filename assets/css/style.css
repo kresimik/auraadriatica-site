@@ -46,11 +46,12 @@ h1{ font-size:2.4rem; }
 h2{ font-size:1.8rem; }
 h3{ font-size:1.3rem; color:var(--brand-olive); }
 
-/* Paragrafi & liste */
-p, li{
-  color:var(--text);
-  font-size:1rem;
-  line-height:1.6;
+/* Sekcijski tekst (paragrafi i liste) */
+.section p,
+.section li {
+  color: #555 !important;   /* čitljiva siva */
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /* Force brand text color for all section body copy */
