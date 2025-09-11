@@ -75,23 +75,30 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 .section.alt{ background:var(--bg-alt); }
 
 /* =========================
-   HERO
-/* === HERO SPACING FIX for compact header === */
+HERO – ensure the image always shows
+ ========================= */
 .hero{
-  padding: 4rem 1rem;          /* was 6rem – tighter */
-}
-.hero h1{
-  font-size: 2.4rem;           /* slightly smaller */
-  margin-bottom: 0.75rem;
-}
-.hero p{
-  font-size: 1.15rem;
-  margin-bottom: 1.5rem;
+  position: relative;
+  color: #fff;
+
+  /* Use explicit background-* so nothing overrides it accidentally */
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('/assets/img/hero.jpg');     /* default image for index */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* compact spacing from earlier step */
+  padding: 4rem 1rem;
+  min-height: 46vh;                  /* ensures image is visible even with less padding */
 }
 
-/* Mobile */
+.hero h1{ font-size: 2.4rem; margin-bottom: .75rem; }
+.hero p { font-size: 1.15rem; margin-bottom: 1.5rem; }
+
 @media (max-width: 768px){
-  .hero{ padding: 3rem 1rem; }
+  .hero{ padding: 3rem 1rem; min-height: 40vh; }
   .hero h1{ font-size: 1.9rem; }
   .hero p{ font-size: 1rem; }
 }
