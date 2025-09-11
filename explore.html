@@ -36,7 +36,7 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/explore.html" class="active" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
@@ -66,54 +66,74 @@
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
       url('/assets/img/explore-hero.jpg');">
     <div class="container">
-      <h1 id="ex-hero-title">Explore Lovran & Opatija Riviera</h1>
-      <p id="ex-hero-sub">Beaches, lungomare, Učka, gastronomy & day trips.</p>
+      <h1 id="ex-hero-title" data-i18n="explore_h">Explore Lovran & Opatija Riviera</h1>
+      <p id="ex-hero-sub" data-i18n="explore_intro">Beaches, Lungomare, Učka trails, gastronomy & day trips.</p>
       <div class="cta">
-        <a class="button btn-olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
-        <a class="button btn-onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
+        <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+        <a class="button onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
       </div>
     </div>
   </section>
 
-  <!-- INTRO -->
+  <!-- INTRO (card) -->
   <section class="section" aria-labelledby="ex-about">
     <div class="container">
-      <h2 id="ex-about">About Lovran</h2>
-      <p id="ex-intro">
-        A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.
-      </p>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-about" data-i18n="explore_about_h">About Lovran</h2>
+        </div>
+        <p id="ex-intro" data-i18n="explore_about_p">
+          A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- THINGS TO DO -->
-  <section class="section alt" aria-labelledby="ex-do">
+  <!-- THINGS TO DO (card) -->
+  <section class="section" aria-labelledby="ex-do">
     <div class="container">
-      <h2 id="ex-do">Things to do</h2>
-      <ul id="ex-do-list"></ul>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-do" data-i18n="explore_do_h">Things to do</h2>
+        </div>
+        <ul id="ex-do-list"></ul>
+      </div>
     </div>
   </section>
 
-  <!-- BEACHES -->
+  <!-- BEACHES (card) -->
   <section class="section" aria-labelledby="ex-beaches">
     <div class="container">
-      <h2 id="ex-beaches">Beaches & Seaside</h2>
-      <ul id="ex-beaches-list"></ul>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-beaches" data-i18n="explore_beaches_h">Beaches & Seaside</h2>
+        </div>
+        <ul id="ex-beaches-list"></ul>
+      </div>
     </div>
   </section>
 
-  <!-- DAY TRIPS -->
-  <section class="section alt" aria-labelledby="ex-trips">
+  <!-- DAY TRIPS (card) -->
+  <section class="section" aria-labelledby="ex-trips">
     <div class="container">
-      <h2 id="ex-trips">Day trips</h2>
-      <ul id="ex-trips-list"></ul>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-trips" data-i18n="explore_trips_h">Day trips</h2>
+        </div>
+        <ul id="ex-trips-list"></ul>
+      </div>
     </div>
   </section>
 
-  <!-- FOOD -->
+  <!-- FOOD (card) -->
   <section class="section" aria-labelledby="ex-food">
     <div class="container">
-      <h2 id="ex-food">Gastronomy</h2>
-      <ul id="ex-food-list"></ul>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-food" data-i18n="explore_food_h">Gastronomy</h2>
+        </div>
+        <ul id="ex-food-list"></ul>
+      </div>
     </div>
   </section>
 
@@ -139,7 +159,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- LANGUAGE DROPDOWN HANDLER (isti kao na ostalim stranicama) -->
+  <!-- LANGUAGE DROPDOWN HANDLER -->
   <script>
     (function(){
       const dd = document.getElementById('lang-dd'); if(!dd) return;
