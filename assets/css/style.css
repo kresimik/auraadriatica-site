@@ -76,31 +76,25 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 
 /* =========================
    HERO
-   ========================= */
+/* === HERO SPACING FIX for compact header === */
 .hero{
-  position:relative;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url('/assets/img/hero.jpg') center/cover no-repeat,
-    linear-gradient(120deg, var(--brand-blue), var(--brand-olive));
-  color:#fff;
-  text-align:center;
-  padding:6rem 1rem;
-  overflow:hidden;
+  padding: 4rem 1rem;          /* was 6rem – tighter */
 }
 .hero h1{
-  font-size:2.8rem;
-  margin-bottom:1rem;
-  text-shadow:0 2px 6px rgba(0,0,0,.6);
-  color:#fff !important;
+  font-size: 2.4rem;           /* slightly smaller */
+  margin-bottom: 0.75rem;
 }
 .hero p{
-  font-size:1.3rem;
-  margin-bottom:2rem;
-  text-shadow:0 2px 4px rgba(0,0,0,.5);
-  color:#fff !important;
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
 }
-.hero .cta{ display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
+
+/* Mobile */
+@media (max-width: 768px){
+  .hero{ padding: 3rem 1rem; }
+  .hero h1{ font-size: 1.9rem; }
+  .hero p{ font-size: 1rem; }
+}
 
 /* =========================
    BUTTONS (Onyx softened via vars above)
