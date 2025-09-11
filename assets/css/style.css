@@ -134,49 +134,67 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 /* =========================
    HEADER
    ========================= */
-/* HEADER – tamni gradient kao footer */
-.site-header{
-  background: linear-gradient(to right, #0a2342, #112f4b); /* tamno plavi preljev */
-  color: #fff;
-  padding: .75rem 0;
-  position: sticky; top: 0; z-index: 1000;
+/* =========================
+   HEADER
+   ========================= */
+.site-header {
+  background: linear-gradient(to right, #0a2342, #1b3b6f); /* dark blue gradient */
+  padding: 1rem 0;
 }
 
-.logo span{
-  color:#fff !important; /* bijeli brand tekst */
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.main-nav a{
-  margin: 0 .75rem;
+/* Logo only image, no text */
+.logo {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: #f0f4fa;      /* svijetla siva za čitljivost */
+}
+.logo img {
+  height: 48px;         /* slightly bigger logo for balance */
+  object-fit: contain;
+}
+.logo span {
+  display: none;        /* hide the duplicate text */
+}
+
+/* Navigation centered */
+.main-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.main-nav a {
+  text-decoration: none;
+  color: #ffffff;        /* white for contrast */
   font-weight: 600;
-  transition: color .2s, border-color .2s;
+  transition: color .2s;
+}
+.main-nav a:hover {
+  color: var(--brand-blue);
 }
 
-.main-nav a:hover{
-  color: var(--brand-blue); /* hover brand plava */
+/* Language dropdown aligned right */
+.lang-dropdown {
+  margin-left: auto;
 }
-
-.main-nav a.active{
-  color: var(--brand-olive);
-  border-bottom: 2px solid var(--brand-olive);
-  padding-bottom: 2px;
-}
-
-/* Jezični izbornik kontrastan */
-.lang-toggle{
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: .6rem;
-  color: #fff;
-}
-.lang-menu{
+.lang-toggle {
   background: #fff;
-  border:1px solid #ddd;
+  border: 1px solid #e1e7f0;
+  border-radius: .6rem;
+  padding: .45rem .7rem;
+  cursor: pointer;
+  font-weight: 600;
+  min-width: 64px;
+  text-align: left;
+  color: var(--muted);
 }
-.lang-menu button{ color:#444; }
-
 
 /* =========================
    FOOTER
