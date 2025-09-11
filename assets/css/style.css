@@ -5,16 +5,21 @@
   --brand-blue:#4da6ff;
   --brand-blue-hover:#1f78d1;
 
-  --brand-olive:#6b8e23;          /* Olive */
+  --brand-olive:#6b8e23;
   --brand-olive-hover:#556b2f;
 
-  --brand-onyx:#1f2937;           /* Onyx */
-  --brand-onyx-hover:#111827;
+  /* NEW: softer slate for Onyx (instead of near-black) */
+  --brand-onyx:#2b3a4f;          /* slate blue/grey */
+  --brand-onyx-hover:#1f2e43;
+
+  /* NEW: footer navy */
+  --footer-navy:#0d2a52;
+  --footer-navy-2:#143e7a;
 
   --bg:#ffffff;
   --bg-alt:#f8f9fb;
 
-  --text:#444444;                  /* meka tamno siva */
+  --text:#444444;
   --muted:#666666;
 
   --max-width:1100px;
@@ -97,6 +102,16 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .hero .cta{ display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
 
+/* =========================
+   BUTTONS (Onyx softened via vars above)
+   ========================= */
+.button.onyx{ background:var(--brand-onyx); color:#fff; }
+.button.onyx:hover{ background:var(--brand-onyx-hover); transform:translateY(-2px); }
+
+/* Olive unchanged */
+.button.olive{ background:var(--brand-olive); color:#fff; }
+.button.olive:hover{ background:var(--brand-olive-hover); transform:translateY(-2px); }
+
 /* CTA gumbi */
 .button{
   display:inline-block;
@@ -155,10 +170,11 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
    FOOTER
    ========================= */
 .site-footer{
-  background:linear-gradient(to left, var(--brand-blue), var(--brand-blue));
+  background: linear-gradient(135deg, var(--footer-navy) 0%, var(--footer-navy-2) 100%);
   color:#fff;
   padding:2rem 0;
 }
+
 .footer-flex{
   display:flex;
   justify-content:space-between;
