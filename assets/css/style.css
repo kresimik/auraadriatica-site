@@ -134,37 +134,49 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 /* =========================
    HEADER
    ========================= */
+/* HEADER – tamni gradient kao footer */
 .site-header{
-  background:#fff;
-  border-bottom:1px solid #eee;
-  padding:.75rem 0;
+  background: linear-gradient(to right, #0a2342, #112f4b); /* tamno plavi preljev */
+  color: #fff;
+  padding: .75rem 0;
+  position: sticky; top: 0; z-index: 1000;
 }
-.header-flex{
-  display:flex; justify-content:space-between; align-items:center; gap:1rem;
-}
-.logo{
-  display:flex; align-items:center;
-  gap:1rem;
-  font-weight:700; font-size:1.35rem;
-  text-decoration:none; color:var(--brand-blue);
-}
-.logo img{ height:42px; object-fit:contain; }
 
-.main-nav a {
+.logo span{
+  color:#fff !important; /* bijeli brand tekst */
+}
+
+.main-nav a{
   margin: 0 .75rem;
   text-decoration: none;
-  color: var(--brand-blue);
+  color: #f0f4fa;      /* svijetla siva za čitljivost */
   font-weight: 600;
   transition: color .2s, border-color .2s;
 }
-.main-nav a:hover {
-  color: var(--brand-blue-hover);
+
+.main-nav a:hover{
+  color: var(--brand-blue); /* hover brand plava */
 }
-.main-nav a:active {
-  color: var(--brand-blue);
-  border-bottom: 2px solid var(--brand-blue-hover);
+
+.main-nav a.active{
+  color: var(--brand-olive);
+  border-bottom: 2px solid var(--brand-olive);
   padding-bottom: 2px;
 }
+
+/* Jezični izbornik kontrastan */
+.lang-toggle{
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: .6rem;
+  color: #fff;
+}
+.lang-menu{
+  background: #fff;
+  border:1px solid #ddd;
+}
+.lang-menu button{ color:#444; }
+
 
 /* =========================
    FOOTER
