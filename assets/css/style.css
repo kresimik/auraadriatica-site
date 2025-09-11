@@ -169,10 +169,10 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 /* =========================
    FOOTER
    ========================= */
-.site-footer{
-  background: linear-gradient(135deg, var(--footer-navy) 0%, var(--footer-navy-2) 100%);
-  color:#fff;
-  padding:2rem 0;
+.site-footer {
+  background: linear-gradient(to right, #1f4068, #0d1b2a);
+  color: #fff;
+  padding: 2rem 0;
 }
 
 .footer-flex{
