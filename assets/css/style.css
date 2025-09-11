@@ -132,31 +132,41 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 .button.onyx:hover{ background:var(--brand-onyx-hover); transform:translateY(-2px); }
 
 /* =========================
-   HEADER
-   ========================= */
-/* =========================
-   HEADER (updated)
+   HEADER (dark gradient, centered)
    ========================= */
 .site-header {
-  background: linear-gradient(to right, #0a1a2f, #122c57); /* same style as footer */
-  border-bottom: none; /* cleaner, no border line */
-  padding: .75rem 0;
+  background: linear-gradient(to right, #0a1a2f, #122c57);
+  border-bottom: none;
+  padding: 1rem 0;
+}
+
+.header-flex {
+  display: flex;
+  flex-direction: column;   /* stack logo + nav vertically */
+  align-items: center;      /* center horizontally */
+  gap: 0.75rem;
 }
 
 .logo img {
-  height: 48px;  /* slightly bigger logo for balance */
+  height: 64px;   /* bigger logo */
   object-fit: contain;
 }
 
+/* Nav centered under logo */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
 .main-nav a {
-  margin: 0 .75rem;
   text-decoration: none;
-  color: #ffffff;             /* white links */
+  color: #ffffff;
   font-weight: 600;
   transition: color .2s, border-color .2s;
 }
 .main-nav a:hover {
-  color: #a8c6ff;             /* subtle light blue on hover */
+  color: #a8c6ff;             /* subtle light blue hover */
 }
 .main-nav a.active {
   color: #ffdf80;             /* golden highlight for active */
@@ -164,21 +174,23 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   padding-bottom: 2px;
 }
 
-/* Navigation centered */
-.main-nav {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-.main-nav a {
-  text-decoration: none;
-  color: #ffffff;        /* white for contrast */
-  font-weight: 600;
-  transition: color .2s;
-}
-.main-nav a:hover {
-  color: var(--brand-blue);
+/* =========================
+   RESPONSIVE HEADER
+   ========================= */
+@media (max-width: 768px) {
+  .logo img {
+    height: 48px;   /* shrink logo on tablets/phones */
+  }
+  .main-nav {
+    gap: 1rem;      /* smaller spacing */
+    flex-wrap: wrap;
+  }
+  .main-nav a {
+    font-size: 0.95rem;
+  }
+  .site-header {
+    padding: 0.6rem 0; /* reduce top/bottom padding */
+  }
 }
 
 /* Language dropdown aligned right */
