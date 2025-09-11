@@ -1,30 +1,29 @@
 {
-  "title": "Explore Lovran & the Opatija Riviera",
-  "subtitle": "Beaches, seaside promenade, Učka trails, gastronomy & easy day trips.",
-  "intro": "Lovran is a picturesque coastal town next to Opatija: historic alleys, pebble beaches and the famous Lungomare — a 10+ km seaside promenade. Ideal for morning swims and sunset walks.",
-  "things_to_do": [
-    "Walk the Lungomare promenade (Lovran–Opatija–Volosko)",
-    "Hike Učka Nature Park (Poklon, Vojak viewpoint)",
-    "Rent bikes or e-bikes along the coast",
-    "Kayak or SUP around Lovran bay",
-    "Visit local markets and small bakeries"
+  "hero_title": "Explore Lovran & Opatija Riviera",
+  "hero_sub": "Beaches, Lungomare, Učka trails, gastronomy & day trips.",
+  "about_h": "About Lovran",
+  "about_p": "A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.",
+  "do": [
+    "Walk the famous Lungomare seaside promenade",
+    "Visit the historic old town of Lovran",
+    "Hike Učka Nature Park trails",
+    "Enjoy cultural events and festivals"
   ],
   "beaches": [
-    "Lovran Peharovo — family friendly, showers, cafes",
-    "Ičići beach — marina, SUP & kayak rentals",
-    "Medveja — long pebble beach with bars",
-    "Hidden coves between Lovran & Ika"
+    "Ičići Beach with marina",
+    "Lovran town beach",
+    "Hidden pebble coves along the promenade"
   ],
-  "day_trips": [
-    "Opatija — historic villas, parks & coffee culture",
-    "Rijeka — Trsat castle, markets & museums",
-    "Pula & Rovinj — Istria’s gems (1–1.5h drive)",
-    "Islands Cres & Krk — ferries from Istria/Kraljevica"
+  "trips": [
+    "Opatija — Austrian-style seaside resort",
+    "Rijeka — European Capital of Culture 2020",
+    "Islands Cres & Krk by boat",
+    "Istrian peninsula — wine and truffle tours"
   ],
   "food": [
-    "Fresh fish taverns along the promenade",
-    "Autumn ‘Marunada’ (chestnut festival in Lovran)",
-    "Try local wines (Malvasia, Teran) & olive oil tastings",
-    "Gelato & patisseries in Opatija"
+    "Fresh Adriatic seafood",
+    "Lovran chestnuts and cherries",
+    "Local olive oil and wine",
+    "Traditional Istrian pasta (fuži, pljukanci)"
   ]
 }
