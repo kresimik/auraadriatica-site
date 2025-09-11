@@ -134,44 +134,92 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 /* =========================
    HEADER (dark gradient, centered)
    ========================= */
-.site-header {
+/* === HEADER: compact, single row with logo | nav (centered) | language === */
+.site-header{
+  /* same dark gradient as footer for a cohesive bar */
   background: linear-gradient(to right, #0a1a2f, #122c57);
-  border-bottom: none;
-  padding: 1rem 0;
+  border-bottom: 0;
+  padding: 10px 0;              /* was larger – compact now */
+  position: sticky; top: 0; z-index: 50;
 }
 
-.header-flex {
-  display: flex;
-  flex-direction: column;   /* stack logo + nav vertically */
-  align-items: center;      /* center horizontally */
-  gap: 0.75rem;
+/* 3-column bar: logo (left), nav (center), language (right) */
+.header-flex{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
 }
 
-.logo img {
-  height: 64px;   /* bigger logo */
-  object-fit: contain;
+/* Logo a bit larger but still tidy */
+.logo{
+  display: inline-flex; align-items: center; gap:.6rem;
+  color:#fff; text-decoration:none; font-weight:700;
 }
+.logo img{ height: 56px; width:auto; object-fit:contain; }
 
-/* Nav centered under logo */
-.main-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+/* Centered nav */
+.main-nav{
+  display:flex;
+  justify-content:center;       /* centers the links in the middle column */
+  gap: 28px;                    /* consistent spacing between items */
 }
+.main-nav a{
+  text-decoration:none;
+  font-weight:700;
+  font-size:1.05rem;
+  color:#d7e6ff;                /* lighter than logo to differentiate */
+  transition:opacity .2s, color .2s, transform .15s;
+}
+.main-nav a:hover{ color:#ffffff; transform: translateY(-1px); }
+.main-nav a.active{ color:#a9d0ff; border-bottom:2px solid #a9d0ff; padding-bottom:2px; }
 
-.main-nav a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
-  transition: color .2s, border-color .2s;
+/* Language dropdown inline on the same row (no absolute positioning) */
+.lang-dropdown{ position: static; }
+.lang-toggle{
+  background:#fff;
+  border:1px solid #d3dbe7;
+  border-radius:.6rem;
+  padding:.45rem .7rem;
+  font-weight:600;
+  min-width:64px;
+  color:#445066;
 }
-.main-nav a:hover {
-  color: #a8c6ff;             /* subtle light blue hover */
+.lang-menu{
+  right:0; top:calc(100% + 6px);
+  background:#fff; border:1px solid #e1e7f0; border-radius:.6rem;
+  box-shadow:0 10px 28px rgba(0,0,0,.12);
+  padding:.4rem; display:flex; flex-direction:column; gap:.3rem;
+  z-index: 60;                   /* above header */
 }
-.main-nav a.active {
-  color: #ffdf80;             /* golden highlight for active */
-  border-bottom: 2px solid #ffdf80;
-  padding-bottom: 2px;
+.lang-menu button{
+  padding:.35rem .55rem; border:1px solid #e1e7f0; border-radius:.5rem;
+  background:#fff; cursor:pointer; font-weight:600; color:#61708a; text-align:left;
+}
+.lang-menu button:hover{ background:#f5f7fb; border-color:#d6deea; color:#2f7fe0; }
+.lang-menu button.active{ background:#2f7fe0; color:#fff; border-color:transparent; }
+
+/* Make sure hero doesn't add extra gap under the now-shorter header */
+.hero{ margin-top: 0; }
+
+/* Mobile tweaks */
+@media (max-width: 900px){
+  .header-flex{
+    grid-template-columns: auto auto;          /* logo + language on one row… */
+    grid-template-areas:
+      "logo lang"
+      "nav  nav";
+    row-gap: 10px;
+  }
+  .logo{ grid-area: logo; }
+  .lang-dropdown{ grid-area: lang; justify-self: end; }
+  .main-nav{
+    grid-area: nav;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .logo img{ height: 48px; }
+  .main-nav a{ font-size: 1rem; }
 }
 
 /* =========================
