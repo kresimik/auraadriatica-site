@@ -135,32 +135,33 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
    HEADER
    ========================= */
 /* =========================
-   HEADER
+   HEADER (updated)
    ========================= */
 .site-header {
-  background: linear-gradient(to right, #0a2342, #1b3b6f); /* dark blue gradient */
-  padding: 1rem 0;
+  background: linear-gradient(to right, #0a1a2f, #122c57); /* same style as footer */
+  border-bottom: none; /* cleaner, no border line */
+  padding: .75rem 0;
 }
 
-.header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-/* Logo only image, no text */
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
 .logo img {
-  height: 48px;         /* slightly bigger logo for balance */
+  height: 48px;  /* slightly bigger logo for balance */
   object-fit: contain;
 }
-.logo span {
-  display: none;        /* hide the duplicate text */
+
+.main-nav a {
+  margin: 0 .75rem;
+  text-decoration: none;
+  color: #ffffff;             /* white links */
+  font-weight: 600;
+  transition: color .2s, border-color .2s;
+}
+.main-nav a:hover {
+  color: #a8c6ff;             /* subtle light blue on hover */
+}
+.main-nav a.active {
+  color: #ffdf80;             /* golden highlight for active */
+  border-bottom: 2px solid #ffdf80;
+  padding-bottom: 2px;
 }
 
 /* Navigation centered */
