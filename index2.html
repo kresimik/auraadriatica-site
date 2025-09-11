@@ -2,187 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aura Adriatica — Seaside Apartments</title>
-  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera.">
-  <link rel="stylesheet" href="/assets/css/style2.css?v=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aura Adriatica</title>
+  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera" />
 
-  <!-- (opcionalno zadrži svoje favicone) -->
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
   <meta name="theme-color" content="#4da6ff">
 
-  <!-- i18n i weather možeš koristiti postojeće -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- NEW CSS -->
+  <link rel="stylesheet" href="/assets/css/style2.css?v=1">
+
+  <!-- JS (koristi postojeći i18n i weather) -->
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/weather.js" defer></script>
 </head>
 <body>
 
-  <!-- Sticky glass header -->
-  <header class="x-header">
-    <div class="x-container x-header__inner">
-      <a href="/" class="x-brand">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica" />
-        <span>Aura Adriatica</span>
+  <!-- HEADER (kompaktan) -->
+  <header class="aa-header">
+    <div class="aa-container aa-header__row">
+      <a href="/" class="aa-brand" aria-label="Aura Adriatica — home">
+        <span class="aa-brand__badge">
+          <img src="/assets/img/logo.png" alt="Aura Adriatica logo">
+        </span>
+        <span class="aa-brand__name">Aura Adriatica</span>
       </a>
-      <nav class="x-nav">
-        <a href="/apartments/olive.html">Olive</a>
-        <a href="/apartments/onyx.html">Onyx</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
-        <a href="/guide.html" class="pill">Guide</a>
+
+      <nav class="aa-nav" aria-label="Primary">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/discover.html" data-i18n="discover_h">Discover</a>
       </nav>
-      <div class="x-lang" id="lang-dd">
-        <button class="x-lang__btn" type="button" aria-expanded="false">
-          <span class="x-lang__cur">EN</span> ▾
+
+      <!-- LANG -->
+      <div class="aa-lang" id="lang-dd">
+        <button class="aa-lang__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+          <span class="aa-lang__cur">EN</span> ▾
         </button>
-        <div class="x-lang__menu" hidden>
-          <button data-lang="hr">HR</button>
-          <button data-lang="en" class="active">EN</button>
-          <button data-lang="de">DE</button>
-          <button data-lang="it">IT</button>
-          <button data-lang="sl">SL</button>
-          <button data-lang="hu">HU</button>
-          <button data-lang="cs">CS</button>
-          <button data-lang="sk">SK</button>
-          <button data-lang="uk">UK</button>
+        <div class="aa-lang__menu" role="menu" hidden>
+          <button type="button" data-lang="hr">HR</button>
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="de">DE</button>
+          <button type="button" data-lang="it">IT</button>
+          <button type="button" data-lang="sl">SL</button>
+          <button type="button" data-lang="hu">HU</button>
+          <button type="button" data-lang="cs">CS</button>
+          <button type="button" data-lang="sk">SK</button>
+          <button type="button" data-lang="uk">UK</button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- HERO – glass panel over photo -->
-  <section class="x-hero">
-    <picture>
-      <source srcset="/assets/img/hero@2x.jpg" media="(min-width: 900px)">
-      <img src="/assets/img/hero.jpg" alt="Opatija Riviera view" loading="eager">
-    </picture>
-    <div class="x-container">
-      <div class="x-hero__panel">
-        <h1>Seaside apartments on the Opatija Riviera</h1>
-        <p>Two boutique stays in Ičići — sea views, balconies/terrace, parking and fast Wi-Fi.</p>
-        <div class="x-actions">
-          <a href="/apartments/olive.html" class="x-btn x-btn--olive">Explore Olive</a>
-          <a href="/apartments/onyx.html"  class="x-btn x-btn--onyx">Explore Onyx</a>
+  <!-- HERO (čist, bez tame preko fotke) -->
+  <section class="aa-hero">
+    <div class="aa-container aa-hero__inner">
+      <div class="aa-hero__copy">
+        <h1 data-i18n="brand">Aura Adriatica</h1>
+        <p class="aa-lead" data-i18n="tagline">Two boutique apartments on the Opatija Riviera.</p>
+        <div class="aa-actions">
+          <a class="aa-btn aa-btn--olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+          <a class="aa-btn aa-btn--onyx" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
         </div>
       </div>
+      <div class="aa-hero__image" role="img" aria-label="Opatija Riviera seaside">
+        <!-- dekorativna slika preko CSS-a -->
+      </div>
     </div>
   </section>
 
-  <!-- 3 feature cards -->
-  <section class="x-section">
-    <div class="x-container">
-      <div class="x-kpis">
-        <article class="x-card">
-          <h3>Sea & Sun</h3>
-          <p>Beach and marina within a few minutes’ walk. Morning swim, sunset promenades.</p>
+  <!-- HIGHLIGHTS (3 kartice) -->
+  <section class="aa-section">
+    <div class="aa-container">
+      <div class="aa-cards">
+        <article class="aa-card">
+          <h3 class="aa-card__title" data-i18n="about_h">About us</h3>
+          <p data-i18n="about_p">Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera...</p>
         </article>
-        <article class="x-card">
-          <h3>Comfort</h3>
-          <p>AC, 200 Mbps Wi-Fi, fully-equipped kitchens — designed for couples or small families.</p>
+        <article class="aa-card">
+          <h3 class="aa-card__title" data-i18n="loc_h">Location</h3>
+          <p data-i18n="loc_p">We are located in Ičići, a charming coastal town near Opatija...</p>
         </article>
-        <article class="x-card">
-          <h3>Parking</h3>
-          <p>Private parking for both apartments. Arrive relaxed, explore freely.</p>
+        <article class="aa-card">
+          <h3 class="aa-card__title" data-i18n="weather_h">Weather</h3>
+          <p class="aa-muted" data-i18n="weather_note">7-day forecast for Lovran (updated hourly).</p>
+          <div id="weather-widget" class="weather"></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Split section: text + image -->
-  <section class="x-section x-split">
-    <div class="x-container x-split__grid">
+  <!-- GALLERY PREVIEW (mosaic) -->
+  <section class="aa-section aa-section--alt">
+    <div class="aa-container">
+      <h2 data-i18n="gallery">Gallery</h2>
+      <div class="aa-mosaic">
+        <img src="/assets/img/gallery1.jpg" alt="Sea view">
+        <img src="/assets/img/gallery2.jpg" alt="Interior">
+        <img src="/assets/img/gallery3.jpg" alt="Terrace">
+        <img src="/assets/img/gallery4.jpg" alt="Bedroom">
+        <img src="/assets/img/gallery5.jpg" alt="Kitchen">
+        <img src="/assets/img/gallery6.jpg" alt="Lovran coast">
+      </div>
+      <div class="aa-more">
+        <a class="aa-link" href="/gallery.html">See full gallery →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="aa-strip">
+    <div class="aa-container aa-strip__row">
       <div>
-        <h2>Location — Ičići / Lovran</h2>
-        <p>Ičići is a charming coastal town near Opatija. The Lungomare promenade, coves and Učka trails are all close by.</p>
-        <ul class="x-list">
-          <li>Lungomare 50 m • Beaches 5–10 min</li>
-          <li>Opatija center 5 min drive</li>
-          <li>Učka Nature Park 20 min</li>
-        </ul>
+        <h3 data-i18n="cta_book">Send inquiry</h3>
+        <p class="aa-muted">info@auraadriatica.com</p>
       </div>
-      <div class="x-media">
-        <img src="/assets/img/location.jpg" alt="Ičići & Lovran coast" loading="lazy">
-      </div>
+      <a class="aa-btn" href="mailto:info@auraadriatica.com">info@auraadriatica.com</a>
     </div>
   </section>
 
-  <!-- Weather (reuses your weather.js) -->
-  <section class="x-section x-alt">
-    <div class="x-container">
-      <div class="x-section__head">
-        <h2>7-day forecast</h2>
-        <p class="x-sub">Lovran — auto-updated</p>
-      </div>
-      <div id="weather-widget" class="weather"></div>
-    </div>
-  </section>
-
-  <!-- Info / FAQ -->
-  <section class="x-section">
-    <div class="x-container">
-      <div class="x-section__head">
-        <h2>Good to know</h2>
-      </div>
-      <ul class="x-bullets">
-        <li>Private parking included</li>
-        <li>Fast Wi-Fi in all rooms</li>
-        <li>Air conditioning</li>
-        <li>Fully equipped kitchens</li>
-        <li>Near beaches & restaurants</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="x-footer">
-    <div class="x-container x-footer__grid">
-      <a class="x-brand x-brand--footer" href="/">
-        <span class="x-badge"><img src="/assets/img/logo.png" alt="" /></span>
-        <span>Aura Adriatica</span>
+  <!-- FOOTER -->
+  <footer class="aa-footer">
+    <div class="aa-container aa-footer__row">
+      <a href="/" class="aa-brand aa-brand--footer">
+        <span class="aa-brand__badge aa-brand__badge--lg"><img src="/assets/img/logo.png" alt=""></span>
+        <span class="aa-brand__name">Aura Adriatica</span>
       </a>
-
-      <nav class="x-footer__nav">
-        <a href="/apartments/olive.html">Olive</a>
-        <a href="/apartments/onyx.html">Onyx</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/guide.html">Guide</a>
+      <nav class="aa-nav aa-nav--footer" aria-label="Footer">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/discover.html" data-i18n="discover_h">Discover</a>
       </nav>
-
-      <div class="x-footer__cta">
+      <div class="aa-footnote">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
-        <small>© <span id="year"></span> Aura Adriatica</small>
+        <p>© <span id="year"></span> Aura Adriatica</p>
       </div>
     </div>
   </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
+  <!-- LANG HANDLER (isti pattern, ali neutralno siva) -->
   <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // language dropdown (isti princip)
     (function(){
       const dd = document.getElementById('lang-dd'); if(!dd) return;
-      const btn = dd.querySelector('.x-lang__btn');
-      const menu= dd.querySelector('.x-lang__menu');
-      const cur = dd.querySelector('.x-lang__cur');
-      const saved=(localStorage.getItem('lang')||'en').toUpperCase();
-      cur.textContent=saved;
-      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.dataset.lang.toUpperCase()===saved));
-      const open=()=>{menu.hidden=false;btn.setAttribute('aria-expanded','true');};
-      const close=()=>{menu.hidden=true; btn.setAttribute('aria-expanded','false');};
-      btn.addEventListener('click',e=>{e.stopPropagation();menu.hidden?open():close();});
-      menu.addEventListener('click',e=>{
+      const btn = dd.querySelector('.aa-lang__toggle');
+      const menu = dd.querySelector('.aa-lang__menu');
+      const cur = dd.querySelector('.aa-lang__cur');
+
+      const saved = (localStorage.getItem('lang')||'en').toUpperCase();
+      cur.textContent = saved;
+      menu.querySelectorAll('button').forEach(b=>{
+        b.classList.toggle('active', b.dataset.lang.toUpperCase()===saved);
+      });
+
+      const open = () => { menu.hidden=false; btn.setAttribute('aria-expanded','true'); };
+      const close= () => { menu.hidden=true;  btn.setAttribute('aria-expanded','false'); };
+
+      btn.addEventListener('click', e=>{ e.stopPropagation(); menu.hidden?open():close(); });
+      menu.addEventListener('click', e=>{
         const b=e.target.closest('button[data-lang]'); if(!b) return;
         localStorage.setItem('lang', b.dataset.lang);
         cur.textContent=b.dataset.lang.toUpperCase();
         menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
         close(); location.reload();
       });
-      document.addEventListener('click',e=>{ if(!dd.contains(e.target)) close(); });
-      document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+      document.addEventListener('click', e=>{ if(!dd.contains(e.target)) close(); });
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
   </script>
+
 </body>
 </html>
