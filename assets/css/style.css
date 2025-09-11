@@ -313,6 +313,20 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 .wx-temp span{ color:var(--muted); font-weight:500; }
 
 /* =========================
+   FOOTER EMAIL LINK
+   ========================= */
+.footer-contact a {
+  color: #fff;             /* bijela kao ostali tekst */
+  text-decoration: none;   /* bez podcrtavanja */
+  font-weight: 600;
+  transition: color .2s;
+}
+
+.footer-contact a:hover {
+  color: var(--brand-blue);  /* lagani hover u brand plavu */
+}
+
+/* =========================
    LANGUAGE DROPDOWN
    ========================= */
 .lang-dropdown { position:relative; }
