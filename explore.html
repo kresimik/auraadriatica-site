@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aura Adriatica</title>
-  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera" />
+  <title>Explore — Aura Adriatica</title>
+  <meta name="description" content="What to do in Lovran and the Opatija Riviera — beaches, walks, Učka trails, gastronomy, day trips." />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -14,37 +14,33 @@
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
   <meta name="theme-color" content="#4da6ff">
 
-  <!-- Fonts (Roboto + Poppins) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/weather.js?v=20250907" defer></script>
+  <script src="/assets/js/explore.js" defer></script>
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="site-header">
   <div class="container header-flex">
-    <!-- LOGO -->
     <a href="/" class="logo" aria-label="Aura Adriatica — home">
       <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
     </a>
-
-    <!-- NAVIGATION -->
     <nav class="main-nav" aria-label="Primary">
       <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/explore.html" class="active" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
       <a href="/reviews.html" data-i18n="reviews">Reviews</a>
     </nav>
-
     <!-- LANGUAGE DROPDOWN -->
     <div class="lang-dropdown" id="lang-dd">
-      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
         <span class="current-lang" id="cur-lang">EN</span> ▾
       </button>
       <div class="lang-menu" id="lang-menu" role="menu" hidden>
@@ -62,23 +58,20 @@
   </div>
 </header>
 
-  <!-- HERO -->
-  <section class="hero" style="background-image:
-      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url('/assets/img/explore-hero.jpg');">
-    <div class="container">
-      <h1 id="ex-hero-title" data-i18n="explore_h">Explore Lovran & Opatija Riviera</h1>
-      <p id="ex-hero-sub" data-i18n="explore_intro">Beaches, Lungomare, Učka trails, gastronomy & day trips.</p>
-      <div class="cta">
-        <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
-        <a class="button onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
-      </div>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero" style="background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('/assets/img/explore-hero.jpg');">
+  <div class="container hero-center">
+    <h1 id="ex-hero-title" data-i18n="explore_h">Explore Lovran & Opatija Riviera</h1>
+    <p id="ex-hero-sub" data-i18n="explore_intro">Beaches, Lungomare, Učka trails, gastronomy & day trips.</p>
+  </div>
+</section>
 
-  <!-- INTRO (card) -->
-  <section class="section" aria-labelledby="ex-about">
-    <div class="container">
+<!-- ABOUT + THINGS TO DO (two-col) -->
+<section class="section">
+  <div class="container two-col two-col--boxed">
+    <div class="col">
       <div class="card">
         <div class="card-head">
           <h2 id="ex-about" data-i18n="explore_about_h">About Lovran</h2>
@@ -88,11 +81,7 @@
         </p>
       </div>
     </div>
-  </section>
-
-  <!-- THINGS TO DO (card) -->
-  <section class="section" aria-labelledby="ex-do">
-    <div class="container">
+    <div class="col">
       <div class="card">
         <div class="card-head">
           <h2 id="ex-do" data-i18n="explore_do_h">Things to do</h2>
@@ -100,11 +89,13 @@
         <ul id="ex-do-list"></ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- BEACHES (card) -->
-  <section class="section" aria-labelledby="ex-beaches">
-    <div class="container">
+<!-- BEACHES + DAY TRIPS (two-col) -->
+<section class="section">
+  <div class="container two-col two-col--boxed">
+    <div class="col">
       <div class="card">
         <div class="card-head">
           <h2 id="ex-beaches" data-i18n="explore_beaches_h">Beaches & Seaside</h2>
@@ -112,11 +103,7 @@
         <ul id="ex-beaches-list"></ul>
       </div>
     </div>
-  </section>
-
-  <!-- DAY TRIPS (card) -->
-  <section class="section" aria-labelledby="ex-trips">
-    <div class="container">
+    <div class="col">
       <div class="card">
         <div class="card-head">
           <h2 id="ex-trips" data-i18n="explore_trips_h">Day trips</h2>
@@ -124,73 +111,64 @@
         <ul id="ex-trips-list"></ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOD (card) -->
-  <section class="section" aria-labelledby="ex-food">
-    <div class="container">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="ex-food" data-i18n="explore_food_h">Gastronomy</h2>
-        </div>
-        <ul id="ex-food-list"></ul>
+<!-- GASTRONOMY (full-width card) -->
+<section class="section">
+  <div class="container">
+    <div class="card">
+      <div class="card-head">
+        <h2 id="ex-food" data-i18n="explore_food_h">Gastronomy</h2>
       </div>
+      <ul id="ex-food-list"></ul>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-flex">
-    
-    <!-- Logo -->
     <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
-      <span class="logo-badge">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-      </span>
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
     </a>
-
-    <!-- Footer Navigation -->
     <nav class="footer-nav" aria-label="Footer">
       <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/explore.html" class="active" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
       <a href="/reviews.html" data-i18n="reviews">Reviews</a>
     </nav>
-
-    <!-- Contact & Copyright -->
     <div class="footer-contact">
       <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
       <p>&copy; <span id="year"></span> Aura Adriatica</p>
     </div>
   </div>
 </footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- LANGUAGE DROPDOWN HANDLER -->
-  <script>
-    (function(){
-      const dd = document.getElementById('lang-dd'); if(!dd) return;
-      const btn=dd.querySelector('.lang-toggle'), menu=dd.querySelector('.lang-menu'), cur=dd.querySelector('.current-lang');
-      const saved=(localStorage.getItem('lang')||'en').toUpperCase();
-      cur.textContent=saved;
-      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.dataset.lang.toUpperCase()===saved));
-      const open=()=>{menu.hidden=false;btn.setAttribute('aria-expanded','true');};
-      const close=()=>{menu.hidden=true; btn.setAttribute('aria-expanded','false');};
-      btn.addEventListener('click',e=>{e.stopPropagation();menu.hidden?open():close();});
-      menu.addEventListener('click',e=>{
-        const b=e.target.closest('button[data-lang]'); if(!b) return;
-        localStorage.setItem('lang', b.dataset.lang);
-        cur.textContent=b.dataset.lang.toUpperCase();
-        menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
-        close(); location.reload();
-      });
-      document.addEventListener('click',e=>{ if(!dd.contains(e.target)) close(); });
-      document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
-    })();
-  </script>
+<!-- LANGUAGE DROPDOWN HANDLER -->
+<script>
+  (function(){
+    const dd = document.getElementById('lang-dd'); if(!dd) return;
+    const btn=dd.querySelector('.lang-toggle'), menu=dd.querySelector('.lang-menu'), cur=dd.querySelector('.current-lang');
+    const saved=(localStorage.getItem('lang')||'en').toUpperCase();
+    cur.textContent=saved;
+    menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.dataset.lang.toUpperCase()===saved));
+    const open=()=>{menu.hidden=false;btn.setAttribute('aria-expanded','true');};
+    const close=()=>{menu.hidden=true; btn.setAttribute('aria-expanded','false');};
+    btn.addEventListener('click',e=>{e.stopPropagation();menu.hidden?open():close();});
+    menu.addEventListener('click',e=>{
+      const b=e.target.closest('button[data-lang]'); if(!b) return;
+      localStorage.setItem('lang', b.dataset.lang);
+      cur.textContent=b.dataset.lang.toUpperCase();
+      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+      close(); location.reload();
+    });
+    document.addEventListener('click',e=>{ if(!dd.contains(e.target)) close(); });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  })();
+</script>
 
 </body>
 </html>
