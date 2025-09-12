@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aura Adriatica</title>
-  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera" />
+  <title>Apartment Onyx — Aura Adriatica</title>
+  <meta name="description" content="Apartment Onyx — modern design, close to the sea, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -14,97 +14,94 @@
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
   <meta name="theme-color" content="#4da6ff">
 
-  <!-- Fonts (Roboto + Poppins) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/weather.js?v=20250907" defer></script>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="container header-flex">
-    <!-- LOGO -->
-    <a href="/" class="logo" aria-label="Aura Adriatica — home">
-      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-    </a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-flex">
+      <!-- LOGO -->
+      <a href="/" class="logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </a>
 
-    <!-- NAVIGATION -->
-    <nav class="main-nav" aria-label="Primary">
-      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" data-i18n="explore">Explore</a>
-      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-    </nav>
+      <!-- NAVIGATION -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
 
-    <!-- LANGUAGE DROPDOWN -->
-    <div class="lang-dropdown" id="lang-dd">
-      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
-        <span class="current-lang" id="cur-lang">EN</span> ▾
-      </button>
-      <div class="lang-menu" id="lang-menu" role="menu" hidden>
-        <button type="button" data-lang="hr">HR</button>
-        <button type="button" data-lang="en" class="active">EN</button>
-        <button type="button" data-lang="de">DE</button>
-        <button type="button" data-lang="it">IT</button>
-        <button type="button" data-lang="sl">SL</button>
-        <button type="button" data-lang="hu">HU</button>
-        <button type="button" data-lang="cs">CS</button>
-        <button type="button" data-lang="sk">SK</button>
-        <button type="button" data-lang="uk">UK</button>
+      <!-- LANGUAGE DROPDOWN -->
+      <div class="lang-dropdown" id="lang-dd">
+        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+          <span class="current-lang" id="cur-lang">EN</span> ▾
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
+          <button type="button" data-lang="hr">HR</button>
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="de">DE</button>
+          <button type="button" data-lang="it">IT</button>
+          <button type="button" data-lang="sl">SL</button>
+          <button type="button" data-lang="hu">HU</button>
+          <button type="button" data-lang="cs">CS</button>
+          <button type="button" data-lang="sk">SK</button>
+          <button type="button" data-lang="uk">UK</button>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-  <!-- HERO -->
+  <!-- HERO (Onyx) -->
   <section class="hero" style="background-image:
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url('/assets/img/explore-hero.jpg');">
+      url('/assets/img/onyx-hero.jpg');">
     <div class="container">
-      <h1 id="ex-hero-title" data-i18n="explore_h">Explore Lovran & Opatija Riviera</h1>
-      <p id="ex-hero-sub" data-i18n="explore_intro">Beaches, Lungomare, Učka trails, gastronomy & day trips.</p>
+      <h1 data-i18n="onyx_h">Onyx Apartment</h1>
+      <p data-i18n="onyx_intro">Modern design, close to the sea, parking, Wi-Fi.</p>
       <div class="cta">
-        <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
-        <a class="button onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
+        <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
     </div>
   </section>
-  
-  <!-- CONTENT -->
-  <section class="section">
-    <div class="container two-col">
-      
-      <!-- LEFT: Description -->
-      <div class="col">
-        <h2 data-i18n="apts_h">Apartment details</h2>
-        <p>
-          Apartment Onyx blends modern design with a calming slate palette and easy access to the sea.
-          Perfect for 2–4 guests, it offers a spacious layout, private terrace, and everything you need
-          for a comfortable coastal stay near Opatija.
-        </p>
-        <p>
-          Enjoy relaxed mornings on the terrace, fast Wi-Fi for work or streaming, and a fully equipped
-          kitchen for easy meals after a day by the Adriatic.
-        </p>
-      </div>
 
-      <!-- RIGHT: Highlights -->
-      <div class="col">
-        <h3>Highlights</h3>
-        <ul class="highlights">
-          <li>🌿 Private terrace & garden access</li>
-          <li>📶 Fast Wi-Fi (200 Mbps)</li>
-          <li>❄️ Air conditioning</li>
-          <li>🍳 Fully equipped kitchen</li>
-          <li>🚗 Private parking</li>
-          <li>🛏️ King bed + sofa bed (2–4 guests)</li>
-        </ul>
+  <!-- DETAILS (two columns, each framed) -->
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="apts_h">Apartment details</h2>
+
+      <div class="two-col two-col--boxed">
+        <div class="col">
+          <h3>Description</h3>
+          <p>
+            Apartment Onyx combines contemporary style with comfort, just steps from the Adriatic coast.
+            Ideal for 2–4 guests, it features elegant interiors, generous light, and easy access to Opatija Riviera highlights.
+          </p>
+          <p>
+            Perfect for couples, families, or business travelers, Onyx provides a relaxing yet modern atmosphere for your stay.
+          </p>
+        </div>
+
+        <div class="col">
+          <h3>Highlights</h3>
+          <ul class="highlights">
+            <li>🌊 Close to the sea</li>
+            <li>🏊 Private pool access</li>
+            <li>📶 Fast Wi-Fi (200 Mbps)</li>
+            <li>❄️ Air conditioning</li>
+            <li>🍳 Fully equipped kitchen</li>
+            <li>🚗 Private parking</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -112,12 +109,12 @@
   <!-- GALLERY -->
   <section class="section alt">
     <div class="container">
-      <h2 data-i18n="gallery">Gallery</h2>
+      <h2>Gallery</h2>
       <div class="gallery">
-        <img src="/assets/img/onyx-1.jpg" alt="Onyx living area" />
-        <img src="/assets/img/onyx-2.jpg" alt="Onyx terrace and garden" />
-        <img src="/assets/img/onyx-3.jpg" alt="Onyx bedroom" />
-        <img src="/assets/img/onyx-4.jpg" alt="Onyx kitchen and dining" />
+        <img src="/assets/img/onyx-1.jpg" alt="Onyx living room" />
+        <img src="/assets/img/onyx-2.jpg" alt="Onyx dining area" />
+        <img src="/assets/img/onyx-3.jpg" alt="Bedroom Onyx apartment" />
+        <img src="/assets/img/onyx-4.jpg" alt="Kitchen Onyx apartment" />
       </div>
     </div>
   </section>
@@ -127,11 +124,9 @@
     <div class="container">
       <h2 data-i18n="avail_h">Availability</h2>
       <p data-i18n="avail_note">Select your dates to check availability.</p>
-      <iframe
-        id="apt-calendar"
-        class="calendar-iframe"
-        loading="lazy"
-        src="https://calendar.zoho.eu/zc/ui/embed/#calendar=REPLACE_WITH_ONYX_CALENDAR_ID&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0">
+      <iframe id="apt-calendar" class="calendar-iframe" 
+        src="https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0" 
+        loading="lazy">
       </iframe>
     </div>
   </section>
@@ -139,7 +134,7 @@
   <!-- CONTACT -->
   <section class="section alt">
     <div class="container contact-box">
-      <h2 data-i18n="contact_h">Contact us</h2>
+      <h2 data-i18n="contact_h">Contact</h2>
       <p>
         Interested in Apartment Onyx? Send us your inquiry directly:
         <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a>
@@ -148,57 +143,30 @@
   </section>
 
   <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container footer-flex">
-    
-    <!-- Logo -->
-    <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
-      <span class="logo-badge">
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <!-- Logo -->
+      <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-      </span>
-    </a>
+      </a>
 
-    <!-- Footer Navigation -->
-    <nav class="footer-nav" aria-label="Footer">
-      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" data-i18n="explore">Explore</a>
-      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-    </nav>
+      <!-- Footer Navigation -->
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
 
-    <!-- Contact & Copyright -->
-    <div class="footer-contact">
-      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
-      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      <!-- Contact & Copyright -->
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+        <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      </div>
     </div>
-  </div>
-</footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-  <!-- INFO LIST LOADER -->
-  <script>
-    (function(){
-      const curLang = (localStorage.getItem('lang') || 'en').toLowerCase();
-      fetch(`/content/${curLang}.json`, { cache: 'no-store' })
-        .then(r => r.ok ? r.json() : null)
-        .then(data => {
-          if (!data) return;
-          const list = document.getElementById('info-list');
-          if (list && Array.isArray(data.info_list)) {
-            list.innerHTML = '';
-            data.info_list.forEach(item => {
-              const li = document.createElement('li');
-              li.textContent = item;
-              list.appendChild(li);
-            });
-          }
-        })
-        .catch(console.warn);
-    })();
-  </script>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
   <!-- LANGUAGE DROPDOWN HANDLER -->
   <script>
