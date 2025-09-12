@@ -45,3 +45,38 @@
 
   "explore": "Explore"
 }
+{
+  "explore_about_h": "About Lovran",
+  "explore_about_p": "A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.",
+
+  "explore_do_h": "Things to do",
+  "explore_do_list": [
+    "Walk along the 12 km Lungomare promenade",
+    "Hike the Učka mountain trails",
+    "Discover Lovran's medieval old town",
+    "Relax at local cafés and bars"
+  ],
+
+  "explore_beaches_h": "Beaches & Seaside",
+  "explore_beaches_list": [
+    "Ičići beach — Blue Flag, pebble and marina",
+    "Medveja beach — wide bay with crystal clear water",
+    "Lovran town beach — family-friendly and central"
+  ],
+
+  "explore_trips_h": "Day trips",
+  "explore_trips_list": [
+    "Opatija — the Austrian Riviera town",
+    "Rijeka — Croatia’s port city & European Capital of Culture 2020",
+    "Plitvice Lakes National Park",
+    "Istrian towns Motovun & Rovinj"
+  ],
+
+  "explore_food_h": "Gastronomy",
+  "explore_food_list": [
+    "Local seafood — fresh Adriatic fish and calamari",
+    "Lovran chestnuts & cherries",
+    "Istrian truffles and olive oil",
+    "Kvarner scampi — regional delicacy"
+  ]
+}
