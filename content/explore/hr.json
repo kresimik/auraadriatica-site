@@ -1,29 +1,40 @@
 {
   "hero_title": "Istražite Lovran i Opatijsku rivijeru",
-  "hero_sub": "Plaže, Lungomare, staze Učke, gastronomija i izleti.",
+  "hero_sub": "Plaže, Lungomare, Učka staze, gastronomija i izleti.",
   "about_h": "O Lovranu",
-  "about_p": "Šarmantan primorski gradić pokraj Opatije — stara jezgra, plaže i poznata šetnica uz more.",
+  "about_p": "Lovran je šarmantno primorsko mjesto pokraj Opatije, poznato po staroj jezgri, šljunčanim plažama i poznatoj obalnoj šetnici Lungomare.",
   "do": [
-    "Prošetajte poznatom šetnicom Lungomare",
-    "Posjetite staru jezgru Lovrana",
-    "Planinarite stazama Parka prirode Učka",
-    "Uživajte u kulturnim događanjima i festivalima"
+    "Šetnja šetnicom Lungomare (Opatija–Lovran)",
+    "Jutarnja kava na trgu u starom gradu",
+    "Večernja šetnja marinom u Ičićima",
+    "Uspon na Učku (Poklon, Vojak) i vidikovci",
+    "Iznajmi SUP/kajak i istraži obalu",
+    "Opatijski parkovi i vile (Park Angiolina)",
+    "Lokalne tržnice i obrtnici u Lovranu",
+    "Biciklističke rute u Parku prirode Učka"
   ],
   "beaches": [
-    "Plaža Ičići s marinom",
-    "Gradska plaža Lovran",
-    "Skrivene šljunčane uvale uz Lungomare"
+    "Peharovo (šljunčana, pogodna za obitelji)",
+    "Plaža Ičići i šetnica uz marinu",
+    "Medveja (duga šljunčana uvala)",
+    "Mošćenička Draga (sitni šljunak, bistro more)",
+    "Male uvale između Lovrana i Medveje",
+    "Škver — brzo osvježenje u moru"
   ],
   "trips": [
-    "Opatija — austrougarsko ljetovalište",
-    "Rijeka — Europska prijestolnica kulture 2020",
-    "Otočje Cres i Krk brodom",
-    "Istra — vinske i tartufarske ture"
+    "Opatija (5–10 min) — belle époque ugođaj",
+    "Rijeka (30 min) — tržnica, Trsatska gradina",
+    "Otočje Cres i Krk — jednodnevni izleti",
+    "Nacionalni park Plitvička jezera (cjelodnevni)",
+    "Istra (Rovinj, Pula, Motovun) — gastro & povijest",
+    "Park prirode Učka — pješačke staze i vidikovci"
   ],
   "food": [
-    "Svježa jadranska riba i plodovi mora",
-    "Lovranski maruni i trešnje",
-    "Domaće maslinovo ulje i vino",
-    "Tradicionalna istarska tjestenina (fuži, pljukanci)"
+    "Kvarnerski škamp — lokalni specijalitet",
+    "Ribarske konobe uz šetnicu",
+    "Istarski tartufi i domaća tjestenina",
+    "Maslinova ulja i lokalna vina (Malvazija, Teran)",
+    "Sladoledne pauze na Lungomareu",
+    "Kava i kolači u opatijskim slastičarnama"
   ]
 }
