@@ -1,55 +1,68 @@
+<script>
 /* Explore page bootstrap
-   - učitava content/explore/<lang>.json
-   - puni liste i tekstove
+   - pokušaj: /content/explore/<lang>.json
+   - fallback: /content/<lang>.json (ako dedicated ne postoji)
+   - puni hero, about i liste (do, beaches, trips, food)
 */
-
 const DEFAULT_LANG = "en";
 
-async function loadExplore(lang) {
-  try {
-    const res = await fetch(`/content/explore/${lang}.json`, { cache: "no-store" });
-    if (!res.ok) throw new Error("No file");
-    const data = await res.json();
+async function loadExplore(lang){
+  const tryUrls = [
+    `/content/explore/${lang}.json`,
+    `/content/${lang}.json`
+  ];
+  let data = null;
 
-    // Hero
-    if (data.hero_title) document.getElementById("ex-hero-title").textContent = data.hero_title;
-    if (data.hero_sub)   document.getElementById("ex-hero-sub").textContent   = data.hero_sub;
-
-    // About
-    if (data.about_h) document.getElementById("ex-about").textContent = data.about_h;
-    if (data.about_p) document.getElementById("ex-intro").textContent = data.about_p;
-
-    // Things to do
-    renderList("ex-do-list", data.do);
-
-    // Beaches
-    renderList("ex-beaches-list", data.beaches);
-
-    // Day trips
-    renderList("ex-trips-list", data.trips);
-
-    // Food
-    renderList("ex-food-list", data.food);
-
-  } catch (err) {
-    console.error("Explore load failed", err);
+  for (const url of tryUrls){
+    try{
+      const res = await fetch(url, { cache: "no-store" });
+      if (res.ok){ data = await res.json(); break; }
+    }catch(_){}
   }
+
+  if (!data){
+    console.error("Explore load failed for lang:", lang);
+    return;
+  }
+
+  // Helperi
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && typeof val === "string") el.textContent = val;
+  };
+  const renderList = (id, items) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = "";
+    if (Array.isArray(items)){
+      items.forEach(x=>{
+        const li = document.createElement("li");
+        li.textContent = x;
+        el.appendChild(li);
+      });
+    }
+  };
+
+  // Mapiraj i dedicated i globalne ključeve (fallback)
+  const get = (primary, fallback) => data[primary] ?? data[fallback];
+
+  // Hero
+  setText("ex-hero-title", get("hero_title", "explore_h"));
+  setText("ex-hero-sub",   get("hero_sub",   "explore_intro"));
+
+  // About
+  setText("ex-about", get("about_h", "explore_about_h"));
+  setText("ex-intro", get("about_p", "explore_about_p"));
+
+  // Lists
+  renderList("ex-do-list",      get("do",      "explore_do_list"));
+  renderList("ex-beaches-list", get("beaches", "explore_beaches_list"));
+  renderList("ex-trips-list",   get("trips",   "explore_trips_list"));
+  renderList("ex-food-list",    get("food",    "explore_food_list"));
 }
 
-function renderList(id, items) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.innerHTML = "";
-  if (Array.isArray(items)) {
-    items.forEach(x => {
-      const li = document.createElement("li");
-      li.textContent = x;
-      el.appendChild(li);
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const saved = (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
-  loadExplore(saved);
+document.addEventListener("DOMContentLoaded", ()=>{
+  const lang = (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
+  loadExplore(lang);
 });
+</script>
