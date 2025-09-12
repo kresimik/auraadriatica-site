@@ -161,58 +161,49 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 
 /* =========================
-   HERO (with default background)
+   HERO
    ========================= */
-.hero{
+/* Center hero content (title, tagline, buttons) */
+.hero {
   position: relative;
   color: #fff;
   background-image:
     linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('/assets/img/hero.jpg');      /* default image for index; override inline per page */
+    url('/assets/img/hero.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 4rem 1rem;
-  min-height: 46vh;
-  margin-top: 0;
+  padding: 4rem 1rem;       /* compact height */
+  min-height: 46vh;         /* ensures image is visible */
 }
 
-/* Force white in hero regardless of global heading color */
-.hero h1,
-.hero p {
-  color: #fff !important;
+.hero .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* center horizontally */
+  justify-content: center;  /* center vertically within padding/min-height */
+  text-align: center;
+  gap: 1rem;
 }
 
-.hero h1{ font-size: 2.4rem; margin-bottom: .75rem; }
-.hero p { font-size: 1.15rem; margin-bottom: 1.5rem; }
-
-.hero .container{ display: grid; gap: 1rem; }
-
-/* HERO CTA buttons: translucent with white borders */
-.hero .cta{ display:flex; gap:1rem; flex-wrap:wrap; }
-.hero .button{
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border: 2px solid #fff;
-  box-shadow: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 8px;
-  transition: all 0.25s ease;
+.hero h1{
+  color:#fff;               /* ensure brand title is white on hero */
+  margin: 0 0 .5rem 0;
+  font-size: 2.4rem;
 }
-.hero .button:hover{
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-/* Even if .olive / .onyx classes are used inside hero, keep them translucent */
-.hero .button.olive,
-.hero .button.onyx{
-  background: rgba(255,255,255,.15);
-  border: 2px solid #fff;
+
+.hero p{
   color:#fff;
+  margin: 0 0 1rem 0;
+  font-size: 1.15rem;
+  max-width: 720px;         /* keeps long lines tidy */
 }
-.hero .button.olive:hover,
-.hero .button.onyx:hover{
-  background: rgba(255,255,255,.3);
+
+.hero .cta{
+  display:flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;  /* center buttons */
 }
 
 @media (max-width: 768px){
