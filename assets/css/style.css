@@ -94,7 +94,7 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   display: inline-flex; align-items: center; gap:.6rem;
   color:#fff; text-decoration:none; font-weight:700;
 }
-.logo img{ height: 56px; width:auto; object-fit:contain; }
+.logo img{ height: 66px; width:auto; object-fit:contain; }
 
 /* Centered nav */
 .main-nav{
