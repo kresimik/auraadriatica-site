@@ -1,25 +1,21 @@
 {
+  "meta_desc": "Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera. Explore Lovran, beaches, Lungomare, Učka mountain, gastronomy and day trips.",
   "brand": "Aura Adriatica",
   "tagline": "Two boutique apartments on the Opatija Riviera.",
-
   "about_h": "About us",
   "about_p": "Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera. Enjoy comfort, modern design, and stunning views of the Adriatic Sea.",
-
-  "apts_h": "Our Apartments",
+  "apts_h": "Apartment details",
   "olive_meta": "Olive — sea view, balcony, AC, Wi-Fi",
   "onyx_meta": "Onyx — terrace, garden, AC, Wi-Fi",
   "olive_h": "Olive Apartment",
   "olive_intro": "Sea view, balcony, AC, Wi-Fi — ideal for 2–4 guests.",
   "onyx_h": "Onyx Apartment",
   "onyx_intro": "Terrace, garden access, AC, Wi-Fi — ideal for 2–4 guests.",
-  "back_home": "Back to home",
-
+  "back_home": "Back to Home",
   "avail_h": "Availability",
-  "avail_note": "For the most accurate availability, please contact us directly at info@auraadriatica.com.",
-
+  "avail_note": "Select your dates to check availability.",
   "loc_h": "Location",
   "loc_p": "We are located in Ičići, a charming coastal town near Opatija, Croatia. The beach, marina, and Učka mountain trails are all within walking distance.",
-
   "info_h": "Information",
   "info_list": [
     "Private parking included",
@@ -28,55 +24,54 @@
     "Fully equipped kitchen",
     "Close to beach and restaurants"
   ],
-
   "contact_h": "Contact",
   "contact_email": "info@auraadriatica.com",
-
   "cta_book": "Send inquiry",
   "cta_weather": "See 7-day weather",
-
   "weather_h": "7-day Forecast",
   "weather_note": "Weather in Lovran — updated daily",
-
   "gallery": "Gallery",
-  "gallery_intro": "Discover Olive & Onyx and the beauty of the Opatija Riviera.",
-
   "reviews": "Reviews",
 
-  "explore": "Explore"
-}
-{
+  "explore": "Explore",
+  "explore_h": "Explore Lovran & Opatija Riviera",
+  "explore_intro": "Beaches, Lungomare, Učka trails, gastronomy & day trips.",
+
   "explore_about_h": "About Lovran",
-  "explore_about_p": "A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.",
+  "explore_about_p": "A charming coastal town beside Opatija — medieval old town, beaches, and the famous seaside promenade (Lungomare).",
 
   "explore_do_h": "Things to do",
   "explore_do_list": [
-    "Walk along the 12 km Lungomare promenade",
-    "Hike the Učka mountain trails",
-    "Discover Lovran's medieval old town",
-    "Relax at local cafés and bars"
+    "Walk the 12 km Lungomare seaside promenade",
+    "Hike Mount Učka — viewpoints, nature park trails",
+    "Stroll Lovran’s medieval old town & harbor",
+    "Rent SUP/kayak or join a boat tour",
+    "Visit Opatija’s villas, parks and the coastal boulevard",
+    "Seasonal events: Marunada (chestnut fest), Advent, concerts"
   ],
 
   "explore_beaches_h": "Beaches & Seaside",
   "explore_beaches_list": [
-    "Ičići beach — Blue Flag, pebble and marina",
-    "Medveja beach — wide bay with crystal clear water",
-    "Lovran town beach — family-friendly and central"
+    "Ičići Beach — Blue Flag pebble beach with marina & facilities",
+    "Medveja Beach — spacious bay with crystal clear water",
+    "Lovran town beach — family-friendly spot near the center",
+    "Pebble coves along Lungomare between Lovran & Opatija"
   ],
 
   "explore_trips_h": "Day trips",
   "explore_trips_list": [
-    "Opatija — the Austrian Riviera town",
-    "Rijeka — Croatia’s port city & European Capital of Culture 2020",
-    "Plitvice Lakes National Park",
-    "Istrian towns Motovun & Rovinj"
+    "Opatija — the elegant ‘Austrian Riviera’ town",
+    "Rijeka — lively market, Trsat Castle, museums",
+    "Istrian gems: Rovinj, Pula amphitheatre, Motovun hilltown",
+    "Islands of Cres & Krk — beaches and quaint villages",
+    "Plitvice Lakes National Park (longer full-day trip)"
   ],
 
   "explore_food_h": "Gastronomy",
   "explore_food_list": [
-    "Local seafood — fresh Adriatic fish and calamari",
-    "Lovran chestnuts & cherries",
-    "Istrian truffles and olive oil",
-    "Kvarner scampi — regional delicacy"
+    "Kvarner scampi — regional specialty",
+    "Fresh Adriatic fish, squid & octopus",
+    "Istrian truffles, olive oil & wines",
+    "Lovran chestnuts and cherries (seasonal)"
   ]
 }
