@@ -112,6 +112,17 @@
       <a href="/reviews.html" data-i18n="reviews">Reviews</a>
     </nav>
 
+    <!-- Contact & Copyright -->
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
   <!-- INIT APT -->
   <script>
     document.addEventListener('DOMContentLoaded', function(){ initApt('olive'); });
