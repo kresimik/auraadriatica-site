@@ -14,7 +14,7 @@
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
   <meta name="theme-color" content="#4da6ff">
 
-  <!-- Fonts (Roboto + Poppins) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -25,46 +25,46 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="container header-flex">
-    <!-- LOGO -->
-    <a href="/" class="logo" aria-label="Aura Adriatica — home">
-      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-    </a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-flex">
+      <a href="/" class="logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </a>
 
-    <!-- NAVIGATION -->
-    <nav class="main-nav" aria-label="Primary">
-      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" data-i18n="explore">Explore</a>
-      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-    </nav>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
 
-    <!-- LANGUAGE DROPDOWN -->
-    <div class="lang-dropdown" id="lang-dd">
-      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
-        <span class="current-lang" id="cur-lang">EN</span> ▾
-      </button>
-      <div class="lang-menu" id="lang-menu" role="menu" hidden>
-        <button type="button" data-lang="hr">HR</button>
-        <button type="button" data-lang="en" class="active">EN</button>
-        <button type="button" data-lang="de">DE</button>
-        <button type="button" data-lang="it">IT</button>
-        <button type="button" data-lang="sl">SL</button>
-        <button type="button" data-lang="hu">HU</button>
-        <button type="button" data-lang="cs">CS</button>
-        <button type="button" data-lang="sk">SK</button>
-        <button type="button" data-lang="uk">UK</button>
+      <!-- LANGUAGE DROPDOWN -->
+      <div class="lang-dropdown" id="lang-dd">
+        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+          <span class="current-lang" id="cur-lang">EN</span> ▾
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
+          <button type="button" data-lang="hr">HR</button>
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="de">DE</button>
+          <button type="button" data-lang="it">IT</button>
+          <button type="button" data-lang="sl">SL</button>
+          <button type="button" data-lang="hu">HU</button>
+          <button type="button" data-lang="cs">CS</button>
+          <button type="button" data-lang="sk">SK</button>
+          <button type="button" data-lang="uk">UK</button>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <!-- HERO -->
-  <section class="hero" aria-label="Intro">
-    <div class="container">
+  <section class="hero" aria-label="Intro" style="background-image:
+      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+      url('/assets/img/hero.jpg');">
+    <div class="container hero-center">
       <h1 data-i18n="brand">Aura Adriatica</h1>
       <p data-i18n="tagline">Two boutique apartments on the Opatija Riviera</p>
       <div class="cta">
@@ -74,37 +74,36 @@
     </div>
   </section>
 
-  <!-- ABOUT (card) -->
-  <section class="section" aria-labelledby="about">
-    <div class="container">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="about" data-i18n="about_h">About us</h2>
+  <!-- ROW 1: About + Location (two columns, boxed) -->
+  <section class="section" aria-labelledby="about location">
+    <div class="container two-col two-col--boxed">
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="about" data-i18n="about_h">About us</h2>
+          </div>
+          <p data-i18n="about_p">
+            Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera.
+            Enjoy comfort, modern design, and stunning views of the Adriatic Sea.
+          </p>
         </div>
-        <p data-i18n="about_p">
-          Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera.
-          Enjoy comfort, modern design, and stunning views of the Adriatic Sea.
-        </p>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="location" data-i18n="loc_h">Location</h2>
+          </div>
+          <p data-i18n="loc_p">
+            We are located in Ičići, a charming coastal town near Opatija, Croatia.
+            The beach, marina, and Učka mountain trails are all within walking distance.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- LOCATION (card) -->
-  <section class="section" aria-labelledby="location">
-    <div class="container">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="location" data-i18n="loc_h">Location</h2>
-        </div>
-        <p data-i18n="loc_p">
-          We are located in Ičići, a charming coastal town near Opatija, Croatia.
-          The beach, marina, and Učka mountain trails are all within walking distance.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WEATHER (card, 7 u redu) -->
+  <!-- WEATHER (single full-width card) -->
   <section class="section" aria-labelledby="weather">
     <div class="container">
       <div class="card">
@@ -117,64 +116,53 @@
     </div>
   </section>
 
-  <!-- INFO LIST (card) -->
-  <section class="section" aria-labelledby="info">
-    <div class="container">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="info" data-i18n="info_h">Information</h2>
+  <!-- ROW 2: Info + Contact (two columns, boxed) -->
+  <section class="section" aria-labelledby="info contact">
+    <div class="container two-col two-col--boxed">
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="info" data-i18n="info_h">Information</h2>
+          </div>
+          <ul id="info-list"></ul>
         </div>
-        <ul id="info-list"></ul>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="contact" data-i18n="contact_h">Contact</h2>
+          </div>
+          <p>
+            <a href="mailto:info@auraadriatica.com" data-i18n="contact_email">
+              info@auraadriatica.com
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (card) -->
-  <section class="section" aria-labelledby="contact">
-    <div class="container">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="contact" data-i18n="contact_h">Contact</h2>
-        </div>
-        <p>
-          <a href="mailto:info@auraadriatica.com" data-i18n="contact_email">
-            info@auraadriatica.com
-          </a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container footer-flex">
-    
-    <!-- Logo -->
-    <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
-      <span class="logo-badge">
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-      </span>
-    </a>
-
-    <!-- Footer Navigation -->
-    <nav class="footer-nav" aria-label="Footer">
-      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" data-i18n="explore">Explore</a>
-      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-    </nav>
-
-    <!-- Contact & Copyright -->
-    <div class="footer-contact">
-      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
-      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+        <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      </div>
     </div>
-  </div>
-</footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
   <!-- INFO LIST LOADER -->
   <script>
