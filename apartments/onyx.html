@@ -146,3 +146,93 @@
       </p>
     </div>
   </section>
+
+  <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-flex">
+    
+    <!-- Logo -->
+    <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+      <span class="logo-badge">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </span>
+    </a>
+
+    <!-- Footer Navigation -->
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+
+    <!-- Contact & Copyright -->
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+  <!-- INFO LIST LOADER -->
+  <script>
+    (function(){
+      const curLang = (localStorage.getItem('lang') || 'en').toLowerCase();
+      fetch(`/content/${curLang}.json`, { cache: 'no-store' })
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (!data) return;
+          const list = document.getElementById('info-list');
+          if (list && Array.isArray(data.info_list)) {
+            list.innerHTML = '';
+            data.info_list.forEach(item => {
+              const li = document.createElement('li');
+              li.textContent = item;
+              list.appendChild(li);
+            });
+          }
+        })
+        .catch(console.warn);
+    })();
+  </script>
+
+  <!-- LANGUAGE DROPDOWN HANDLER -->
+  <script>
+    (function(){
+      const dd   = document.getElementById('lang-dd');
+      if(!dd) return;
+      const btn  = dd.querySelector('.lang-toggle');
+      const menu = dd.querySelector('.lang-menu');
+      const cur  = dd.querySelector('.current-lang');
+
+      const saved = (localStorage.getItem('lang')||'en').toUpperCase();
+      cur.textContent = saved;
+      menu.querySelectorAll('button').forEach(x=>{
+        x.classList.toggle('active', x.dataset.lang.toUpperCase() === saved);
+      });
+
+      const open  = () => { menu.hidden = false; btn.setAttribute('aria-expanded','true');  };
+      const close = () => { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); };
+
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); menu.hidden ? open() : close(); });
+      menu.addEventListener('click', (e)=>{
+          const b = e.target.closest('button[data-lang]');
+          if(!b) return;
+          localStorage.setItem('lang', b.dataset.lang);
+          cur.textContent = b.dataset.lang.toUpperCase();
+          menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+          close();
+          location.reload();
+      });
+
+      document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+    })();
+  </script>
+
+</body>
+</html>
