@@ -1,12 +1,14 @@
 {
+  "page_title": "Olive Apartment — Aura Adriatica",
+  "meta_desc": "Apartment Olive — sea view balcony, AC, Wi-Fi, kitchen, private parking. Perfect for 2–4 guests on the Opatija Riviera.",
   "title": "Olive Apartment",
   "intro": "Sea view, balcony, AC, Wi-Fi — ideal for 2–4 guests.",
   "features": [
-    "Sea view balcony",
-    "Private parking",
-    "Wi-Fi 200 Mbps",
-    "Air conditioning",
-    "Fully equipped kitchen"
+    "🌅 Sea view balcony",
+    "🚗 Private parking",
+    "📶 Wi-Fi 200 Mbps",
+    "❄️ Air conditioning",
+    "🍳 Fully equipped kitchen"
   ],
   "gallery": [
     "/assets/img/olive-1.jpg",
