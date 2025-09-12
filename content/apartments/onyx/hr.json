@@ -1,19 +1,21 @@
 {
+  "page_title": "Apartman Onyx — Aura Adriatica",
+  "meta_desc": "Apartman Onyx — terasa s pristupom vrtu, klima, Wi-Fi, potpuno opremljena kuhinja i privatni parking. Idealno za 2–4 osobe u Ičićima kraj Opatije.",
   "title": "Apartman Onyx",
   "intro": "Terasa, pristup vrtu, klima, Wi-Fi — idealno za 2–4 osobe.",
-  "description": "Onyx ima privatnu terasu s pristupom vrtu — savršeno za jutarnju kavu. Potpuno opremljena kuhinja, klima, brz Wi-Fi i privatni parking uključeni.",
+  "description": "Onyx ima privatnu terasu s pristupom vrtu — savršeno za jutarnju kavu ili opuštanje uz večernje vino. Idealan je za parove ili obitelji, a uključuje potpuno opremljenu kuhinju, klima uređaj, brz Wi-Fi i privatni parking.",
   "features": [
-    "Privatna terasa",
-    "Pristup vrtu",
-    "Klimatizacija",
-    "Brz Wi-Fi",
-    "Privatni parking"
+    "🌿 Privatna terasa s pristupom vrtu",
+    "❄️ Klimatizacija",
+    "📶 Brz Wi-Fi (200 Mbps)",
+    "🍳 Potpuno opremljena kuhinja",
+    "🚗 Privatni parking"
   ],
   "gallery": [
-    "/assets/img/sample1.jpg",
-    "/assets/img/sample2.jpg",
-    "/assets/img/sample3.jpg",
-    "/assets/img/sample4.jpg"
+    "/assets/img/onyx-1.jpg",
+    "/assets/img/onyx-2.jpg",
+    "/assets/img/onyx-3.jpg",
+    "/assets/img/onyx-4.jpg"
   ],
-  "calendar": ""
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=hr&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
 }
