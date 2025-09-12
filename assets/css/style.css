@@ -262,6 +262,19 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   align-items:start;
 }
 
+/* Frame around the two-column layout */
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:start;
+
+  background:#fafbfd;              /* light background to separate */
+  border:1px solid #e1e7f0;        /* subtle frame */
+  border-radius:12px;
+  padding:1.5rem;
+}
+
 /* Keep subhead branded */
 .two-col .col h3{
   margin-top:0;
