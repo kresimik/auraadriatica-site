@@ -608,3 +608,34 @@ collections:
             widget: "list"
             field: { label: "Зображення", name: "image", widget: "image" }
           - { label: "Календар", name: "calendar", widget: "string", required: false }
+
+  - name: "explore"
+    label: "Explore"
+    format: "json"
+    editor: { preview: false }
+    folder: "content/explore"
+    create: true
+    extension: "json"
+    identifier_field: "lang"
+    fields:
+      - { label: "Language code", name: "lang", widget: "string", hint: "en, hr, de …" }
+      - { label: "Hero Title",    name: "hero_title", widget: "string" }
+      - { label: "Hero Subtitle", name: "hero_sub",   widget: "string" }
+      - { label: "About — Heading", name: "about_h", widget: "string" }
+      - { label: "About — Text",    name: "about_p", widget: "text" }
+      - label: "Things to do"
+        name: "do"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
+      - label: "Beaches & Seaside"
+        name: "beaches"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
+      - label: "Day trips"
+        name: "trips"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
+      - label: "Gastronomy"
+        name: "food"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
