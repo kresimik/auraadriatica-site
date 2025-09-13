@@ -1,35 +1,37 @@
 {
   "hero_title": "Entdecke Lovran & die Riviera von Opatija",
-  "hero_sub": "Erlebe Strände, Wanderwege, Gastronomie und Tagesausflüge.",
+  "hero_sub": "Erkunde Strände, Wanderungen, Gastronomie und Tagesausflüge in der Nähe.",
 
   "about_h": "Mehr erleben",
-  "about_p": "Von charmanten Altstädten über kristallklare Strände bis zu Bergpfaden — die Riviera von Opatija bietet Erlebnisse für jeden Geschmack. Ob Wandern, Entspannen oder Genießen — hier findest du alles.",
+  "about_p": "Von charmanten Altstädten über kristallklare Strände bis hin zu Bergwegen – die Riviera von Opatija bietet viele Erlebnisse. Ob Wandern, Entspannen oder gutes Essen – für jeden ist etwas dabei.",
+
+  "do_h": "Aktivitäten",
+  "beaches_h": "Strände & Küste",
+  "trips_h": "Tagesausflüge",
+  "food_h": "Gastronomie",
 
   "do": [
-    "Spaziergang entlang der Küstenpromenade Lungomare",
-    "Wandern im Učka-Gebirge",
-    "Besuch der Altstadt von Lovran",
+    "Spaziergang auf der Küstenpromenade Lungomare",
+    "Wanderungen in den Učka-Bergen",
+    "Besuch der historischen Altstadt von Lovran",
     "Sommerfestivals und Konzerte"
   ],
-
   "beaches": [
     "Strand Peharovo (Lovran)",
     "Strand Medveja",
     "Strand Ičići",
     "Strand Slatina (Opatija)"
   ],
-
   "trips": [
     "Tagesausflug nach Rijeka — Europäische Kulturhauptstadt",
-    "Besuch der Halbinsel Istrien (Motovun, Grožnjan, Rovinj)",
+    "Istrien besuchen (Motovun, Grožnjan, Rovinj)",
     "Bootsausflug zu den Inseln Krk oder Cres",
     "Nationalpark Plitvicer Seen"
   ],
-
   "food": [
-    "Frische Fischkonobas in Lovran",
-    "Hausgemachte Pasta (Pljukanci, Fuži)",
-    "Trüffel und Olivenöl",
-    "Kvarner Scampi — eine regionale Spezialität"
+    "Fischkonobas in Lovran",
+    "Hausgemachte Pasta (pljukanci, fuži)",
+    "Trüffel und lokales Olivenöl",
+    "Kvarner-Scampi — regionale Spezialität"
   ]
 }
