@@ -1,0 +1,33 @@
+{
+  "hero_title": "Esplora Lovran e la Riviera di Abbazia",
+  "hero_sub": "Spiagge, Lungomare, sentieri dell’Učka, gastronomia e gite giornaliere.",
+  "about_h": "Su Lovran",
+  "about_p": "Un affascinante borgo costiero accanto ad Abbazia — vicoli storici, spiagge di ghiaia e la famosa passeggiata sul mare.",
+  "do": [
+    "Passeggiata sul Lungomare (Volosko–Lovran, 12 km)",
+    "Città vecchia di Lovran (loggia, vicoli, chiesa di San Giorgio)",
+    "Parco Naturale dell’Učka (belvedere Vojak)",
+    "SUP o kayak lungo la costa",
+    "Wellness & spa ad Abbazia"
+  ],
+  "beaches": [
+    "Spiagge Pećine e Kvarner (Lovran)",
+    "Spiaggia principale e marina di Ičići",
+    "Baia di Medveja (ghiaia, adatta alle famiglie)",
+    "Mošćenička Draga (lunga spiaggia di ghiaia)"
+  ],
+  "trips": [
+    "Abbazia e Volosko (arte, caffè, ristoranti)",
+    "Fiume (Rijeka) e Castello di Tersatto (Trsat)",
+    "Istria (Rovigno, Pola, Montona)",
+    "Isole di Veglia (Krk) e Cherso (Cres)",
+    "Laghi di Plitvice (intera giornata)"
+  ],
+  "food": [
+    "Konobe con pesce fresco",
+    "Tartufi istriani e pasta",
+    "Scampi del Quarnero",
+    "Oli d’oliva e vini locali",
+    "Gelato artigianale e pasticcerie"
+  ]
+}
