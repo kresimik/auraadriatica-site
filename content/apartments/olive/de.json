@@ -1,19 +1,19 @@
 {
+  "page_title": "Apartment Olive — Aura Adriatica",
+  "meta_desc": "Apartment Olive — Meerblick-Balkon, Klimaanlage, WLAN, Küche, Privatparkplatz. Perfekt für 2–4 Gäste an der Riviera von Opatija.",
   "title": "Apartment Olive",
   "intro": "Meerblick, Balkon, Klimaanlage, WLAN — ideal für 2–4 Gäste.",
-  "description": "Olive ist ein helles, modernes Apartment mit einem großzügigen Balkon und Blick auf die Adria. Voll ausgestattete Küche, Klimaanlage, schnelles WLAN und privater Parkplatz sind inklusive.",
   "features": [
-    "Balkon mit Meerblick",
-    "Klimaanlage",
-    "Schnelles WLAN",
-    "Voll ausgestattete Küche",
-    "Privater Parkplatz"
+    "🌅 Balkon mit Meerblick",
+    "🚗 Privatparkplatz",
+    "📶 WLAN 200 Mbps",
+    "❄️ Klimaanlage",
+    "🍳 Voll ausgestattete Küche"
   ],
   "gallery": [
-    "/assets/img/sample1.jpg",
-    "/assets/img/sample2.jpg",
-    "/assets/img/sample3.jpg",
-    "/assets/img/sample4.jpg"
+    "/assets/img/olive-1.jpg",
+    "/assets/img/olive-2.jpg",
+    "/assets/img/olive-3.jpg"
   ],
-  "calendar": ""
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=de&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
 }
