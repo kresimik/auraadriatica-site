@@ -27,12 +27,10 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
-      <!-- LOGO -->
       <a href="/" class="logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
 
-      <!-- NAVIGATION -->
       <nav class="main-nav" aria-label="Primary">
         <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
@@ -41,7 +39,7 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN -->
+      <!-- LANGUAGE DROPDOWN (handled globally by i18n.js) -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -65,7 +63,7 @@
   <section class="hero" style="background-image:
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
       url('/assets/img/olive-hero.jpg');">
-    <div class="container">
+    <div class="container hero-center">
       <h1 data-i18n="olive_h">Olive Apartment</h1>
       <p data-i18n="olive_intro">Sunny balcony, sea view, parking, fast Wi-Fi.</p>
       <div class="cta">
@@ -104,7 +102,7 @@
         </div>
       </div>
     </div>
-  </section> <!-- ✅ closed so footer can be full width later -->
+  </section>
 
   <!-- GALLERY -->
   <section class="section alt">
@@ -145,12 +143,10 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <!-- Logo -->
       <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
 
-      <!-- Footer Navigation -->
       <nav class="footer-nav" aria-label="Footer">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
@@ -159,7 +155,6 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- Contact & Copyright -->
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
         <p>&copy; <span id="year"></span> Aura Adriatica</p>
@@ -167,42 +162,6 @@
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-  <!-- LANGUAGE DROPDOWN HANDLER -->
-<script>
-  (function(){
-    const dd = document.getElementById('lang-dd'); if(!dd) return;
-    const btn  = dd.querySelector('.lang-toggle');
-    const menu = dd.querySelector('.lang-menu');
-    const cur  = dd.querySelector('.current-lang');
-
-    const open  = () => { menu.hidden = false; btn.setAttribute('aria-expanded','true');  };
-    const close = () => { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); };
-
-    // Prikaži trenutno spremljeni jezik (i18n.js će ga ionako postaviti)
-    const saved = (localStorage.getItem('lang') || 'en').toUpperCase();
-    if (cur) cur.textContent = saved;
-
-    btn.addEventListener('click', (e)=>{ e.stopPropagation(); menu.hidden ? open() : close(); });
-
-    menu.addEventListener('click', async (e)=>{
-      const b = e.target.closest('button[data-lang]'); if(!b) return;
-      const lang = b.dataset.lang;                // npr. "hr"
-      localStorage.setItem('lang', lang);
-      if (typeof window.setLang === 'function') {
-        await window.setLang(lang);               // i18n.js prevede cijelu stranicu (data-i18n)
-      }
-      if (typeof window.loadExplore === 'function') {
-        // ako smo na explore stranici – ručno napuni Explore sadržaj
-        await window.loadExplore(lang);
-      }
-      close();
-    });
-
-    document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
-  })();
-</script>
 
 </body>
 </html>
