@@ -1,33 +1,35 @@
 {
   "hero_title": "Istražite Lovran i Opatijsku rivijeru",
-  "hero_sub": "Plaže, Lungomare, staze Učke, gastronomija i izleti.",
-  "about_h": "O Lovranu",
-  "about_p": "Šarmantan primorski gradić uz Opatiju — stare uličice, šljunčane plaže i poznata obalna šetnica.",
+  "hero_sub": "Otkrijte plaže, planinarske staze, gastronomiju i izlete u okolici.",
+
+  "about_h": "Doživite više",
+  "about_p": "Od šarmantnih starogradskih jezgri do kristalno čistih plaža i planinskih staza — Opatijska rivijera nudi iskustva za svakoga. Bilo da volite planinarenje, odmor na plaži ili vrhunsku gastronomiju, ovdje ćete pronaći nešto za sebe.",
+
   "do": [
-    "Šetnja Lungomare šetnicom (Volosko–Lovran, 12 km)",
-    "Stari grad Lovran (lođa, uske ulice, crkva sv. Jurja)",
-    "Park prirode Učka (vidikovac Vojak)",
-    "SUP ili kajak uz obalu",
-    "Wellness & spa u Opatiji"
+    "Šetnja obalnom šetnicom Lungomare",
+    "Planinarenje na stazama Učke",
+    "Posjet staroj jezgri Lovrana",
+    "Ljetni festivali i koncerti"
   ],
+
   "beaches": [
-    "Plaže Pećine i Kvarner (Lovran)",
-    "Glavna plaža i marina Ičići",
-    "Uvala Medveja (šljunčana, pogodna za obitelj)",
-    "Mošćenička Draga (duga šljunčana plaža)"
+    "Plaža Peharovo (Lovran)",
+    "Plaža Medveja",
+    "Plaža Ičići",
+    "Plaža Slatina (Opatija)"
   ],
+
   "trips": [
-    "Opatija i Volosko (umjetnost, kafići, gastronomija)",
-    "Rijeka i Trsatski grad",
-    "Istra (Rovinj, Pula, Motovun)",
-    "Otočje Krk i Cres",
-    "Plitvička jezera (cjelodnevni izlet)"
+    "Izlet u Rijeku — Europska prijestolnica kulture",
+    "Istra (Motovun, Grožnjan, Rovinj)",
+    "Izlet brodom na otoke Krk ili Cres",
+    "Nacionalni park Plitvička jezera"
   ],
+
   "food": [
-    "Svježa riba i konobe",
-    "Istarski tartufi i tjestenina",
-    "Kvarnerski škampi",
-    "Domaća maslinova ulja i vina",
-    "Sladoled i slastičarnice"
+    "Svježa riba i konobe u Lovranu",
+    "Domaća tjestenina (pljukanci, fuži)",
+    "Tartufi i maslinovo ulje",
+    "Kvarnerski škampi — lokalni specijalitet"
   ]
 }
