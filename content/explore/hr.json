@@ -1,35 +1,37 @@
 {
   "hero_title": "Istražite Lovran i Opatijsku rivijeru",
-  "hero_sub": "Otkrijte plaže, planinarske staze, gastronomiju i izlete u okolici.",
+  "hero_sub": "Otkrijte plaže, šetnje, gastronomiju i izlete u blizini.",
 
   "about_h": "Doživite više",
-  "about_p": "Od šarmantnih starogradskih jezgri do kristalno čistih plaža i planinskih staza — Opatijska rivijera nudi iskustva za svakoga. Bilo da volite planinarenje, odmor na plaži ili vrhunsku gastronomiju, ovdje ćete pronaći nešto za sebe.",
+  "about_p": "Od šarmantnih starogradskih jezgri do kristalno čistih plaža i planinskih staza — Opatijska rivijera nudi mnogo doživljaja. Volite li planinarenje, opuštanje ili vrhunsku gastronomiju — za svakoga ima ponešto.",
+
+  "do_h": "Što raditi",
+  "beaches_h": "Plaže i obala",
+  "trips_h": "Izleti",
+  "food_h": "Gastronomija",
 
   "do": [
     "Šetnja obalnom šetnicom Lungomare",
-    "Planinarenje na stazama Učke",
+    "Planinarenje po stazama Učke",
     "Posjet staroj jezgri Lovrana",
     "Ljetni festivali i koncerti"
   ],
-
   "beaches": [
     "Plaža Peharovo (Lovran)",
     "Plaža Medveja",
     "Plaža Ičići",
     "Plaža Slatina (Opatija)"
   ],
-
   "trips": [
-    "Izlet u Rijeku — Europska prijestolnica kulture",
+    "Izlet u Rijeku — Europsku prijestolnicu kulture",
     "Istra (Motovun, Grožnjan, Rovinj)",
-    "Izlet brodom na otoke Krk ili Cres",
+    "Brodicom do otoka Krka ili Cresa",
     "Nacionalni park Plitvička jezera"
   ],
-
   "food": [
-    "Svježa riba i konobe u Lovranu",
+    "Ribarske konobe u Lovranu",
     "Domaća tjestenina (pljukanci, fuži)",
-    "Tartufi i maslinovo ulje",
-    "Kvarnerski škampi — lokalni specijalitet"
+    "Tartufi i domaće maslinovo ulje",
+    "Kvarnerski škamp — lokalni specijalitet"
   ]
 }
