@@ -1,456 +1,141 @@
 backend:
   name: github
-  repo: kresimik/auraadriatica-site  # promijeni ako je drugačiji naziv repo-a
-  branch: develop                    # CMS piše u develop granu
+  repo: kresimik/auraadriatica-site
+  branch: develop
   base_url: https://auraadriatica.com
   auth_endpoint: /api/auth
 
 media_folder: "assets/img"
 public_folder: "/assets/img"
 
+# ==========
+# Field sets (reused via anchors)
+# ==========
+# Site (index) texts used on the homepage only
+site_fields: &site_fields
+  - { label: "Brand (Hero title)", name: "brand", widget: "string" }
+  - { label: "Tagline (Hero subtitle)", name: "tagline", widget: "text" }
+  - { label: "Meta Description (optional)", name: "meta_desc", widget: "text", required: false }
+  - { label: "About — Heading", name: "about_h", widget: "string" }
+  - { label: "About — Text", name: "about_p", widget: "text" }
+  - { label: "Location — Heading", name: "loc_h", widget: "string" }
+  - { label: "Location — Text", name: "loc_p", widget: "text" }
+  - label: "Guest Info — List"
+    name: "info_list"
+    widget: "list"
+    field: { label: "Item", name: "item", widget: "string" }
+  - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+  - { label: "Contact — Email", name: "contact_email", widget: "string" }
+  - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+  - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+
+# Apartment content fields (same structure for Olive & Onyx in all languages)
+apt_fields: &apt_fields
+  - { label: "Title", name: "title", widget: "string" }
+  - { label: "Intro", name: "intro", widget: "text" }
+  - { label: "Description", name: "description", widget: "text" }
+  - label: "Features"
+    name: "features"
+    widget: "list"
+    field: { label: "Feature", name: "feature", widget: "string" }
+  - label: "Gallery"
+    name: "gallery"
+    widget: "list"
+    field: { label: "Image", name: "image", widget: "image" }
+  - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
+
+# Explore page fields (per language)
+explore_fields: &explore_fields
+  - { label: "Hero Title", name: "hero_title", widget: "string" }
+  - { label: "Hero Subtitle", name: "hero_sub", widget: "string" }
+  - { label: "About — Heading", name: "about_h", widget: "string" }
+  - { label: "About — Text", name: "about_p", widget: "text" }
+  - label: "Things to do"
+    name: "do"
+    widget: "list"
+    field: { label: "Item", name: "item", widget: "string" }
+  - label: "Beaches & Seaside"
+    name: "beaches"
+    widget: "list"
+    field: { label: "Item", name: "item", widget: "string" }
+  - label: "Day trips"
+    name: "trips"
+    widget: "list"
+    field: { label: "Item", name: "item", widget: "string" }
+  - label: "Gastronomy"
+    name: "food"
+    widget: "list"
+    field: { label: "Item", name: "item", widget: "string" }
+
 collections:
-  # …
+  # ==========
+  # Site Texts (homepage only)
+  # ==========
   - name: "site_texts"
     label: "Site Texts"
     format: "json"
     editor: { preview: false }
-
-    # One canonical list of fields for index.html
-    fields: &site_fields
-      - { label: "Brand (Hero title)", name: "brand", widget: "string" }
-      - { label: "Tagline (Hero subtitle)", name: "tagline", widget: "text" }
-      - { label: "Meta Description (optional)", name: "meta_desc", widget: "text", required: false }
-
-      - { label: "About — Heading", name: "about_h", widget: "string" }
-      - { label: "About — Text",    name: "about_p", widget: "text" }
-
-      - { label: "Location — Heading", name: "loc_h", widget: "string" }
-      - { label: "Location — Text",    name: "loc_p", widget: "text" }
-
-      - label: "Guest Info — List"
-        name: "info_list"
-        widget: "list"
-        field: { label: "Item", name: "item", widget: "string" }
-
-      - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-      - { label: "Contact — Email",   name: "contact_email", widget: "string" }
-
-      - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-      - { label: "Weather — Note",    name: "weather_note", widget: "text", required: false }
-
     files:
-      - label: "English"
-        name: "en"
-        file: "content/en.json"
-        fields: *site_fields
+      - { label: "English",    name: "en", file: "content/en.json", fields: *site_fields }
+      - { label: "Hrvatski",   name: "hr", file: "content/hr.json", fields: *site_fields }
+      - { label: "Deutsch",    name: "de", file: "content/de.json", fields: *site_fields }
+      - { label: "Italiano",   name: "it", file: "content/it.json", fields: *site_fields }
+      - { label: "Slovenščina",name: "sl", file: "content/sl.json", fields: *site_fields }
+      - { label: "Magyar",     name: "hu", file: "content/hu.json", fields: *site_fields }
+      - { label: "Čeština",    name: "cs", file: "content/cs.json", fields: *site_fields }
+      - { label: "Slovenčina", name: "sk", file: "content/sk.json", fields: *site_fields }
+      - { label: "Українська", name: "uk", file: "content/uk.json", fields: *site_fields }
 
-      - label: "Hrvatski"
-        name: "hr"
-        file: "content/hr.json"
-        fields: *site_fields
-
-      - label: "Deutsch"
-        name: "de"
-        file: "content/de.json"
-        fields: *site_fields
-
-      - label: "Italiano"
-        name: "it"
-        file: "content/it.json"
-        fields: *site_fields
-
-      - label: "Slovenščina"
-        name: "sl"
-        file: "content/sl.json"
-        fields: *site_fields
-
-      - label: "Magyar"
-        name: "hu"
-        file: "content/hu.json"
-        fields: *site_fields
-
-      - label: "Čeština"
-        name: "cs"
-        file: "content/cs.json"
-        fields: *site_fields
-
-      - label: "Slovenčina"
-        name: "sk"
-        file: "content/sk.json"
-        fields: *site_fields
-
-      - label: "Українська"
-        name: "uk"
-        file: "content/uk.json"
-        fields: *site_fields
-
+  # ==========
+  # Apartment — Olive
+  # ==========
   - name: "apartment_olive"
     label: "Apartment — Olive"
     format: "json"
     editor: { preview: false }
     files:
-      - label: "Olive (English)"
-        name: "olive_en"
-        file: "content/apartments/olive/en.json"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "text" }
-          - { label: "Description", name: "description", widget: "text" }
-          - label: "Features"
-            name: "features"
-            widget: "list"
-            field: { label: "Feature", name: "feature", widget: "string" }
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Image", name: "image", widget: "image" }
-          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
+      - { label: "Olive (English)",      name: "olive_en", file: "content/apartments/olive/en.json", fields: *apt_fields }
+      - { label: "Olive (Hrvatski)",     name: "olive_hr", file: "content/apartments/olive/hr.json", fields: *apt_fields }
+      - { label: "Olive (Deutsch)",      name: "olive_de", file: "content/apartments/olive/de.json", fields: *apt_fields }
+      - { label: "Olive (Italiano)",     name: "olive_it", file: "content/apartments/olive/it.json", fields: *apt_fields }
+      - { label: "Olive (Slovenščina)",  name: "olive_sl", file: "content/apartments/olive/sl.json", fields: *apt_fields }
+      - { label: "Olive (Magyar)",       name: "olive_hu", file: "content/apartments/olive/hu.json", fields: *apt_fields }
+      - { label: "Olive (Čeština)",      name: "olive_cs", file: "content/apartments/olive/cs.json", fields: *apt_fields }
+      - { label: "Olive (Slovenčina)",   name: "olive_sk", file: "content/apartments/olive/sk.json", fields: *apt_fields }
+      - { label: "Olive (Українська)",   name: "olive_uk", file: "content/apartments/olive/uk.json", fields: *apt_fields }
 
-      - label: "Olive (Hrvatski)"
-        name: "olive_hr"
-        file: "content/apartments/olive/hr.json"
-        fields:
-          - { label: "Naslov", name: "title", widget: "string" }
-          - { label: "Uvod", name: "intro", widget: "text" }
-          - { label: "Opis", name: "description", widget: "text" }
-          - label: "Značajke"
-            name: "features"
-            widget: "list"
-            field: { label: "Stavka", name: "feature", widget: "string" }
-          - label: "Galerija"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Slika", name: "image", widget: "image" }
-          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
-
-      - label: "Olive (Deutsch)"
-        name: "olive_de"
-        file: "content/apartments/olive/de.json"
-        fields:
-          - { label: "Titel", name: "title", widget: "string" }
-          - { label: "Einleitung", name: "intro", widget: "text" }
-          - { label: "Beschreibung", name: "description", widget: "text" }
-          - label: "Ausstattung"
-            name: "features"
-            widget: "list"
-            field: { label: "Merkmal", name: "feature", widget: "string" }
-          - label: "Galerie"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Bild", name: "image", widget: "image" }
-          - { label: "Kalender", name: "calendar", widget: "string", required: false }
-
-      - label: "Olive (Italiano)"
-        name: "olive_it"
-        file: "content/apartments/olive/it.json"
-        fields:
-          - { label: "Titolo", name: "title", widget: "string" }
-          - { label: "Introduzione", name: "intro", widget: "text" }
-          - { label: "Descrizione", name: "description", widget: "text" }
-          - label: "Caratteristiche"
-            name: "features"
-            widget: "list"
-            field: { label: "Voce", name: "feature", widget: "string" }
-          - label: "Galleria"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Immagine", name: "image", widget: "image" }
-          - { label: "Calendario", name: "calendar", widget: "string", required: false }
-
-      - label: "Olive (Slovenščina)"
-        name: "olive_sl"
-        file: "content/apartments/olive/sl.json"
-        fields:
-          - { label: "Naslov", name: "title", widget: "string" }
-          - { label: "Uvod", name: "intro", widget: "text" }
-          - { label: "Opis", name: "description", widget: "text" }
-          - label: "Značilnosti"
-            name: "features"
-            widget: "list"
-            field: { label: "Stavka", name: "feature", widget: "string" }
-          - label: "Galerija"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Slika", name: "image", widget: "image" }
-          - { label: "Koledar", name: "calendar", widget: "string", required: false }
-
-      - label: "Olive (Magyar)"
-        name: "olive_hu"
-        file: "content/apartments/olive/hu.json"
-        fields:
-          - { label: "Cím", name: "title", widget: "string" }
-          - { label: "Bevezető", name: "intro", widget: "text" }
-          - { label: "Leírás", name: "description", widget: "text" }
-          - label: "Felszereltség"
-            name: "features"
-            widget: "list"
-            field: { label: "Tétel", name: "feature", widget: "string" }
-          - label: "Galéria"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Kép", name: "image", widget: "image" }
-          - { label: "Naptár", name: "calendar", widget: "string", required: false }
-
-      - label: "Olive (Čeština)"
-        name: "olive_cs"
-        file: "content/apartments/olive/cs.json"
-        fields:
-          - { label: "Název", name: "title", widget: "string" }
-          - { label: "Úvod", name: "intro", widget: "text" }
-          - { label: "Popis", name: "description", widget: "text" }
-          - label: "Vybavení"
-            name: "features"
-            widget: "list"
-            field: { label: "Položka", name: "feature", widget: "string" }
-          - label: "Galerie"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Obrázek", name: "image", widget: "image" }
-          - { label: "Kalendář", name: "calendar", widget: "string", required: false }
-
-      - label: "Olive (Slovenčina)"
-        name: "olive_sk"
-        file: "content/apartments/olive/sk.json"
-        fields:
-          - { label: "Názov", name: "title", widget: "string" }
-          - { label: "Úvod", name: "intro", widget: "text" }
-          - { label: "Popis", name: "description", widget: "text" }
-          - label: "Vybavenie"
-            name: "features"
-            widget: "list"
-            field: { label: "Položka", name: "feature", widget: "string" }
-          - label: "Galéria"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Obrázok", name: "image", widget: "image" }
-          - { label: "Kalendár", name: "calendar", widget: "string", required: false }
-
-      - label: "Olive (Українська)"
-        name: "olive_uk"
-        file: "content/apartments/olive/uk.json"
-        fields:
-          - { label: "Назва", name: "title", widget: "string" }
-          - { label: "Вступ", name: "intro", widget: "text" }
-          - { label: "Опис", name: "description", widget: "text" }
-          - label: "Зручності"
-            name: "features"
-            widget: "list"
-            field: { label: "Пункт", name: "feature", widget: "string" }
-          - label: "Галерея"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Зображення", name: "image", widget: "image" }
-          - { label: "Календар", name: "calendar", widget: "string", required: false }
-
+  # ==========
+  # Apartment — Onyx
+  # ==========
   - name: "apartment_onyx"
     label: "Apartment — Onyx"
     format: "json"
     editor: { preview: false }
     files:
-      - label: "Onyx (English)"
-        name: "onyx_en"
-        file: "content/apartments/onyx/en.json"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "text" }
-          - { label: "Description", name: "description", widget: "text" }
-          - label: "Features"
-            name: "features"
-            widget: "list"
-            field: { label: "Feature", name: "feature", widget: "string" }
-          - label: "Gallery"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Image", name: "image", widget: "image" }
-          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
+      - { label: "Onyx (English)",       name: "onyx_en", file: "content/apartments/onyx/en.json", fields: *apt_fields }
+      - { label: "Onyx (Hrvatski)",      name: "onyx_hr", file: "content/apartments/onyx/hr.json", fields: *apt_fields }
+      - { label: "Onyx (Deutsch)",       name: "onyx_de", file: "content/apartments/onyx/de.json", fields: *apt_fields }
+      - { label: "Onyx (Italiano)",      name: "onyx_it", file: "content/apartments/onyx/it.json", fields: *apt_fields }
+      - { label: "Onyx (Slovenščina)",   name: "onyx_sl", file: "content/apartments/onyx/sl.json", fields: *apt_fields }
+      - { label: "Onyx (Magyar)",        name: "onyx_hu", file: "content/apartments/onyx/hu.json", fields: *apt_fields }
+      - { label: "Onyx (Čeština)",       name: "onyx_cs", file: "content/apartments/onyx/cs.json", fields: *apt_fields }
+      - { label: "Onyx (Slovenčina)",    name: "onyx_sk", file: "content/apartments/onyx/sk.json", fields: *apt_fields }
+      - { label: "Onyx (Українська)",    name: "onyx_uk", file: "content/apartments/onyx/uk.json", fields: *apt_fields }
 
-      - label: "Onyx (Hrvatski)"
-        name: "onyx_hr"
-        file: "content/apartments/onyx/hr.json"
-        fields:
-          - { label: "Naslov", name: "title", widget: "string" }
-          - { label: "Uvod", name: "intro", widget: "text" }
-          - { label: "Opis", name: "description", widget: "text" }
-          - label: "Značajke"
-            name: "features"
-            widget: "list"
-            field: { label: "Stavka", name: "feature", widget: "string" }
-          - label: "Galerija"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Slika", name: "image", widget: "image" }
-          - { label: "Calendar embed URL", name: "calendar", widget: "string", required: false }
-
-      - label: "Onyx (Deutsch)"
-        name: "onyx_de"
-        file: "content/apartments/onyx/de.json"
-        fields:
-          - { label: "Titel", name: "title", widget: "string" }
-          - { label: "Einleitung", name: "intro", widget: "text" }
-          - { label: "Beschreibung", name: "description", widget: "text" }
-          - label: "Ausstattung"
-            name: "features"
-            widget: "list"
-            field: { label: "Merkmal", name: "feature", widget: "string" }
-          - label: "Galerie"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Bild", name: "image", widget: "image" }
-          - { label: "Kalender", name: "calendar", widget: "string", required: false }
-
-      - label: "Onyx (Italiano)"
-        name: "onyx_it"
-        file: "content/apartments/onyx/it.json"
-        fields:
-          - { label: "Titolo", name: "title", widget: "string" }
-          - { label: "Introduzione", name: "intro", widget: "text" }
-          - { label: "Descrizione", name: "description", widget: "text" }
-          - label: "Caratteristiche"
-            name: "features"
-            widget: "list"
-            field: { label: "Voce", name: "feature", widget: "string" }
-          - label: "Galleria"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Immagine", name: "image", widget: "image" }
-          - { label: "Calendario", name: "calendar", widget: "string", required: false }
-
-      - label: "Onyx (Slovenščina)"
-        name: "onyx_sl"
-        file: "content/apartments/onyx/sl.json"
-        fields:
-          - { label: "Naslov", name: "title", widget: "string" }
-          - { label: "Uvod", name: "intro", widget: "text" }
-          - { label: "Opis", name: "description", widget: "text" }
-          - label: "Značilnosti"
-            name: "features"
-            widget: "list"
-            field: { label: "Stavka", name: "feature", widget: "string" }
-          - label: "Galerija"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Slika", name: "image", widget: "image" }
-          - { label: "Koledar", name: "calendar", widget: "string", required: false }
-
-      - label: "Onyx (Magyar)"
-        name: "onyx_hu"
-        file: "content/apartments/onyx/hu.json"
-        fields:
-          - { label: "Cím", name: "title", widget: "string" }
-          - { label: "Bevezető", name: "intro", widget: "text" }
-          - { label: "Leírás", name: "description", widget: "text" }
-          - label: "Felszereltség"
-            name: "features"
-            widget: "list"
-            field: { label: "Tétel", name: "feature", widget: "string" }
-          - label: "Galéria"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Kép", name: "image", widget: "image" }
-          - { label: "Naptár", name: "calendar", widget: "string", required: false }
-
-      - label: "Onyx (Čeština)"
-        name: "onyx_cs"
-        file: "content/apartments/onyx/cs.json"
-        fields:
-          - { label: "Název", name: "title", widget: "string" }
-          - { label: "Úvod", name: "intro", widget: "text" }
-          - { label: "Popis", name: "description", widget: "text" }
-          - label: "Vybavení"
-            name: "features"
-            widget: "list"
-            field: { label: "Položka", name: "feature", widget: "string" }
-          - label: "Galerie"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Obrázek", name: "image", widget: "image" }
-          - { label: "Kalendář", name: "calendar", widget: "string", required: false }
-
-      - label: "Onyx (Slovenčina)"
-        name: "onyx_sk"
-        file: "content/apartments/onyx/sk.json"
-        fields:
-          - { label: "Názov", name: "title", widget: "string" }
-          - { label: "Úvod", name: "intro", widget: "text" }
-          - { label: "Popis", name: "description", widget: "text" }
-          - label: "Vybavenie"
-            name: "features"
-            widget: "list"
-            field: { label: "Položka", name: "feature", widget: "string" }
-          - label: "Galéria"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Obrázok", name: "image", widget: "image" }
-          - { label: "Kalendár", name: "calendar", widget: "string", required: false }
-
-      - label: "Onyx (Українська)"
-        name: "onyx_uk"
-        file: "content/apartments/onyx/uk.json"
-        fields:
-          - { label: "Назва", name: "title", widget: "string" }
-          - { label: "Вступ", name: "intro", widget: "text" }
-          - { label: "Опис", name: "description", widget: "text" }
-          - label: "Зручності"
-            name: "features"
-            widget: "list"
-            field: { label: "Пункт", name: "feature", widget: "string" }
-          - label: "Галерея"
-            name: "gallery"
-            widget: "list"
-            field: { label: "Зображення", name: "image", widget: "image" }
-          - { label: "Календар", name: "calendar", widget: "string", required: false }
-
+  # ==========
+  # Explore page
+  # ==========
   - name: "explore"
     label: "Explore"
     format: "json"
     editor: { preview: false }
     files:
-      - label: "Explore (English)"
-        name: "explore_en"
-        file: "content/explore/en.json"
-        fields:
-          - { label: "Hero Title",    name: "hero_title", widget: "string" }
-          - { label: "Hero Subtitle", name: "hero_sub",   widget: "string" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text",    name: "about_p", widget: "text" }
-          - label: "Things to do"
-            name: "do"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - label: "Beaches & Seaside"
-            name: "beaches"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - label: "Day trips"
-            name: "trips"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - label: "Gastronomy"
-            name: "food"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-
-      - label: "Explore (Hrvatski)"
-        name: "explore_hr"
-        file: "content/explore/hr.json"
-        fields:
-          - { label: "Hero Title",    name: "hero_title", widget: "string" }
-          - { label: "Hero Subtitle", name: "hero_sub",   widget: "string" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text",    name: "about_p", widget: "text" }
-          - label: "Things to do"
-            name: "do"
-            widget: "list"
-            field: { label: "Stavka", name: "item", widget: "string" }
-          - label: "Plaže i obala"
-            name: "beaches"
-            widget: "list"
-            field: { label: "Stavka", name: "item", widget: "string" }
-          - label: "Izleti"
-            name: "trips"
-            widget: "list"
-            field: { label: "Stavka", name: "item", widget: "string" }
-          - label: "Gastronomija"
-            name: "food"
-            widget: "list"
-            field: { label: "Stavka", name: "item", widget: "string" }
+      - { label: "Explore (English)",    name: "explore_en", file: "content/explore/en.json", fields: *explore_fields }
+      - { label: "Explore (Hrvatski)",   name: "explore_hr", file: "content/explore/hr.json", fields: *explore_fields }
+      - { label: "Explore (Deutsch)",    name: "explore_de", file: "content/explore/de.json", fields: *explore_fields }
+      - { label: "Explore (Italiano)",   name: "explore_it", file: "content/explore/it.json", fields: *explore_fields }
+      - { label: "Explore (Slovenščina)",name: "explore_sl", file: "content/explore/sl.json", fields: *explore_fields }
+      - { label: "Explore (Magyar)",     name: "explore_hu", file: "content/explore/hu.json", fields: *explore_fields }
+      - { label: "Explore (Čeština)",    name: "explore_cs", file: "content/explore/cs.json", fields: *explore_fields }
+      - { label: "Explore (Slovenčina)", name: "explore_sk", file: "content/explore/sk.json", fields: *explore_fields }
+      - { label: "Explore (Українська)", name: "explore_uk", file: "content/explore/uk.json", fields: *explore_fields }
