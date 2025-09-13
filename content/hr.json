@@ -1,77 +1,20 @@
 {
-  "meta_desc": "Aura Adriatica — boutique apartmani Olive i Onyx na Opatijskoj rivijeri. Istražite Lovran, plaže, Lungomare, Učku, gastronomiju i izlete.",
   "brand": "Aura Adriatica",
   "tagline": "Dva boutique apartmana na Opatijskoj rivijeri.",
+  "meta_desc": "Boutique apartmani Olive i Onyx u Ičićima kraj Opatije. Pogled na more, terasa, klima, brzi Wi-Fi, privatni parking.",
   "about_h": "O nama",
-  "about_p": "Dobrodošli u Auru Adriaticu — vaše savršeno mjesto za odmor na Opatijskoj rivijeri. Uživajte u udobnosti, modernom dizajnu i prekrasnom pogledu na Jadransko more.",
-  "apts_h": "Detalji apartmana",
-  "olive_meta": "Olive — pogled na more, balkon, klima, Wi-Fi",
-  "onyx_meta": "Onyx — terasa, vrt, klima, Wi-Fi",
-  "olive_h": "Apartman Olive",
-  "olive_intro": "Pogled na more, balkon, klima, Wi-Fi — idealno za 2–4 osobe.",
-  "onyx_h": "Apartman Onyx",
-  "onyx_intro": "Terasa, pristup vrtu, klima, Wi-Fi — idealno za 2–4 osobe.",
-  "back_home": "Povratak na početnu",
-  "avail_h": "Dostupnost",
-  "avail_note": "Odaberite datume kako biste provjerili dostupnost.",
+  "about_p": "Dobrodošli u Auru Adriaticu — vaše savršeno mjesto za odmor na Opatijskoj rivijeri. Uživajte u udobnosti, modernom dizajnu i prekrasnom pogledu na Jadran.",
   "loc_h": "Lokacija",
-  "loc_p": "Nalazimo se u Ičićima, šarmantnom primorskom mjestu kraj Opatije. Plaža, marina i planinarske staze na Učki udaljeni su nekoliko minuta hoda.",
-  "info_h": "Informacije",
+  "loc_p": "Nalazimo se u Ičićima, šarmantnom mjestu uz Opatiju. Plaža, marina i planinarske staze na Učki udaljene su nekoliko minuta hoda.",
   "info_list": [
     "Privatni parking uključen",
-    "Besplatan Wi-Fi u svim prostorijama",
+    "Brzi Wi-Fi (200 Mbps)",
     "Klimatizacija",
     "Potpuno opremljena kuhinja",
     "Blizina plaže i restorana"
   ],
   "contact_h": "Kontakt",
   "contact_email": "info@auraadriatica.com",
-  "cta_book": "Pošaljite upit",
-  "cta_weather": "Pogledajte vremensku prognozu",
-  "weather_h": "Prognoza za 7 dana",
-  "weather_note": "Vrijeme u Lovranu — ažurira se dnevno",
-  "gallery": "Galerija",
-  "reviews": "Recenzije",
-
-  "explore": "Istražite",
-  "explore_h": "Istražite Lovran i Opatijsku rivijeru",
-  "explore_intro": "Plaže, Lungomare, staze Učke, gastronomija i izleti.",
-
-  "explore_about_h": "O Lovranu",
-  "explore_about_p": "Šarmantan gradić pokraj Opatije — srednjovjekrna jezgra, plaže i poznata morska šetnica (Lungomare).",
-
-  "explore_do_h": "Što raditi",
-  "explore_do_list": [
-    "Prošetajte 12 km dugim Lungomareom uz more",
-    "Planinarite po Učki — vidikovci i staze Parka prirode",
-    "Istražite srednjovjekovnu jezgru i lučicu Lovrana",
-    "Unajmite SUP/kajak ili idite na izlet brodom",
-    "Posjetite opatijske vile, parkove i obalnu šetnicu",
-    "Sezonska događanja: Marunada, Advent, koncerti"
-  ],
-
-  "explore_beaches_h": "Plaže i obala",
-  "explore_beaches_list": [
-    "Plaža Ičići — Plava zastava, šljunčana s marinom i sadržajima",
-    "Plaža Medveja — prostrani zaljev s kristalno čistim morem",
-    "Gradska plaža Lovran — pogodna za obitelji, blizu centra",
-    "Šljunčane uvale uz Lungomare između Lovrana i Opatije"
-  ],
-
-  "explore_trips_h": "Izleti",
-  "explore_trips_list": [
-    "Opatija — elegantni grad ‘Austrougarske rivijere’",
-    "Rijeka — tržnica, Trsatska gradina, muzeji",
-    "Istra: Rovinj, Pula s Arenom, Motovun na brežuljku",
-    "Otoči Cres i Krk — plaže i slikovita mjesta",
-    "Nacionalni park Plitvička jezera (cjelodnevni izlet)"
-  ],
-
-  "explore_food_h": "Gastronomija",
-  "explore_food_list": [
-    "Kvarnerski škampi — lokalni specijalitet",
-    "Svježa jadranska riba, lignje i hobotnica",
-    "Istarski tartufi, maslinovo ulje i vina",
-    "Lovranski maruni i trešnje (sezonski)"
-  ]
+  "weather_h": "Vrijeme",
+  "weather_note": "7-dnevna prognoza za Lovran (ažurira se svaki sat)."
 }
