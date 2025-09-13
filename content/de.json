@@ -1,20 +1,19 @@
 {
-  "brand": "Aura Adriatica",
-  "tagline": "Zwei Boutique-Apartments an der Riviera von Opatija.",
-  "meta_desc": "Boutique-Apartments Olive & Onyx in Ičići bei Opatija. Meerblick, Terrasse, Klimaanlage, schnelles WLAN, Privatparkplatz.",
-  "about_h": "Über uns",
-  "about_p": "Willkommen bei Aura Adriatica — Ihr perfekter Rückzugsort an der Riviera von Opatija. Genießen Sie Komfort, modernes Design und einen herrlichen Blick auf die Adria.",
-  "loc_h": "Lage",
-  "loc_p": "Wir befinden uns in Ičići, einem charmanten Küstenort neben Opatija, Kroatien. Strand, Marina und die Wanderwege des Učka-Gebirges sind zu Fuß erreichbar.",
-  "info_list": [
-    "Privater Parkplatz inklusive",
-    "Schnelles WLAN (200 Mbps)",
-    "Klimaanlage",
-    "Voll ausgestattete Küche",
-    "In Strand- und Restaurantnähe"
+  "page_title": "Apartment Onyx — Aura Adriatica",
+  "meta_desc": "Apartment Onyx — modernes Design, Terrasse, Klimaanlage, WLAN, Küche, Privatparkplatz. Perfekt für 2–4 Gäste an der Riviera von Opatija.",
+  "title": "Apartment Onyx",
+  "intro": "Modernes Design, Terrasse, Parkplatz, WLAN — ideal für 2–4 Gäste.",
+  "features": [
+    "🌊 Geräumige Terrasse",
+    "🚗 Privatparkplatz",
+    "📶 WLAN 200 Mbps",
+    "❄️ Klimaanlage",
+    "🍳 Voll ausgestattete Küche"
   ],
-  "contact_h": "Kontakt",
-  "contact_email": "info@auraadriatica.com",
-  "weather_h": "Wetter",
-  "weather_note": "7-Tage-Vorhersage für Lovran (stündlich aktualisiert)."
+  "gallery": [
+    "/assets/img/onyx-1.jpg",
+    "/assets/img/onyx-2.jpg",
+    "/assets/img/onyx-3.jpg"
+  ],
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=de&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
 }
