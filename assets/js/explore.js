@@ -1,9 +1,16 @@
 /* Explore page bootstrap
    - Primary: /content/explore/<lang>.json
    - Fallback: /content/<lang>.json (for older global files)
-   - Populates hero, about, and lists (do, beaches, trips, food)
+   - Populates hero, about, headings, and lists (do, beaches, trips, food)
 */
 const DEFAULT_LANG = "en";
+
+function getCurrentLang() {
+  // prefer <html lang=".."> set by i18n.js, then localStorage, then default
+  const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+  if (htmlLang) return htmlLang;
+  return (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
+}
 
 async function loadExplore(lang) {
   const tryUrls = [
@@ -53,7 +60,7 @@ async function loadExplore(lang) {
   setText("ex-about", get("about_h", "explore_about_h"));
   setText("ex-intro", get("about_p", "explore_about_p"));
 
-  // Section headings (use dedicated *_h if present; fall back to global keys)
+  // Section headings (prefer dedicated *_h keys; fallback to global)
   setText("ex-do",      get("do_h",      "explore_do_h"));
   setText("ex-beaches", get("beaches_h", "explore_beaches_h"));
   setText("ex-trips",   get("trips_h",   "explore_trips_h"));
@@ -67,6 +74,11 @@ async function loadExplore(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const lang = (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
+  loadExplore(getCurrentLang());
+});
+
+// Re-render Explore whenever global language changes (from i18n.js)
+document.addEventListener("lang:changed", (e) => {
+  const lang = (e && e.detail && e.detail.lang) ? e.detail.lang : getCurrentLang();
   loadExplore(lang);
 });
