@@ -1,33 +1,35 @@
 {
-  "hero_title": "Entdecken Sie Lovran & die Riviera von Opatija",
-  "hero_sub": "Strände, Lungomare-Promenade, Učka-Wanderwege, Gastronomie & Ausflüge.",
-  "about_h": "Über Lovran",
-  "about_p": "Ein charmanter Küstenort neben Opatija — historische Gassen, Kiesstrände und die berühmte Promenade am Meer.",
+  "hero_title": "Entdecke Lovran & die Riviera von Opatija",
+  "hero_sub": "Erlebe Strände, Wanderwege, Gastronomie und Tagesausflüge.",
+
+  "about_h": "Mehr erleben",
+  "about_p": "Von charmanten Altstädten über kristallklare Strände bis zu Bergpfaden — die Riviera von Opatija bietet Erlebnisse für jeden Geschmack. Ob Wandern, Entspannen oder Genießen — hier findest du alles.",
+
   "do": [
-    "12 km Lungomare-Promenade (Volosko–Lovran) spazieren",
-    "Altstadt von Lovran (Loggia, enge Gassen, St.-Georgs-Kirche)",
-    "Učka-Naturpark (Aussichtspunkt Vojak)",
-    "SUP oder Kajak entlang der Küste",
-    "Wellness & Spas in Opatija"
+    "Spaziergang entlang der Küstenpromenade Lungomare",
+    "Wandern im Učka-Gebirge",
+    "Besuch der Altstadt von Lovran",
+    "Sommerfestivals und Konzerte"
   ],
+
   "beaches": [
-    "Strände Pećine & Kvarner (Lovran)",
-    "Hauptstrand & Marina Ičići",
-    "Bucht Medveja (Kiesel, familienfreundlich)",
-    "Mošćenička Draga (langer Kiesstrand)"
+    "Strand Peharovo (Lovran)",
+    "Strand Medveja",
+    "Strand Ičići",
+    "Strand Slatina (Opatija)"
   ],
+
   "trips": [
-    "Opatija & Volosko (Kunst, Cafés, Restaurants)",
-    "Rijeka & Burg Trsat",
-    "Istrien (Rovinj, Pula, Motovun)",
-    "Inseln Krk & Cres",
-    "Nationalpark Plitvicer Seen (Tagesausflug)"
+    "Tagesausflug nach Rijeka — Europäische Kulturhauptstadt",
+    "Besuch der Halbinsel Istrien (Motovun, Grožnjan, Rovinj)",
+    "Bootsausflug zu den Inseln Krk oder Cres",
+    "Nationalpark Plitvicer Seen"
   ],
+
   "food": [
-    "Frischer Fisch & Konobas",
-    "Istrische Trüffel & Pasta",
-    "Kvarner-Scampi",
-    "Lokale Olivenöle & Weine",
-    "Handwerkliches Eis und Konditoreien"
+    "Frische Fischkonobas in Lovran",
+    "Hausgemachte Pasta (Pljukanci, Fuži)",
+    "Trüffel und Olivenöl",
+    "Kvarner Scampi — eine regionale Spezialität"
   ]
 }
