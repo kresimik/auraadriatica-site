@@ -1,16 +1,9 @@
 /* Explore page bootstrap
    - Primary: /content/explore/<lang>.json
-   - Fallback: /content/<lang>.json (for older global files)
-   - Populates hero, about, headings, and lists (do, beaches, trips, food)
+   - Fallback: /content/<lang>.json (legacy global ključevi)
+   - Popunjava hero, about, headings i liste (do, beaches, trips, food)
 */
-const DEFAULT_LANG = "en";
-
-function getCurrentLang() {
-  // prefer <html lang=".."> set by i18n.js, then localStorage, then default
-  const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
-  if (htmlLang) return htmlLang;
-  return (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
-}
+const DEFAULT_LANG_EXPLORE = "en";
 
 async function loadExplore(lang) {
   const tryUrls = [
@@ -22,10 +15,7 @@ async function loadExplore(lang) {
   for (const url of tryUrls) {
     try {
       const res = await fetch(url, { cache: "no-store" });
-      if (res.ok) {
-        data = await res.json();
-        break;
-      }
+      if (res.ok) { data = await res.json(); break; }
     } catch (_) {}
   }
   if (!data) {
@@ -33,7 +23,6 @@ async function loadExplore(lang) {
     return;
   }
 
-  // Helpers
   const setText = (id, val) => {
     const el = document.getElementById(id);
     if (el && typeof val === "string") el.textContent = val;
@@ -60,7 +49,7 @@ async function loadExplore(lang) {
   setText("ex-about", get("about_h", "explore_about_h"));
   setText("ex-intro", get("about_p", "explore_about_p"));
 
-  // Section headings (prefer dedicated *_h keys; fallback to global)
+  // Headings (prefer dedicated)
   setText("ex-do",      get("do_h",      "explore_do_h"));
   setText("ex-beaches", get("beaches_h", "explore_beaches_h"));
   setText("ex-trips",   get("trips_h",   "explore_trips_h"));
@@ -73,12 +62,10 @@ async function loadExplore(lang) {
   renderList("ex-food-list",    get("food",    "explore_food_list"));
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadExplore(getCurrentLang());
-});
+// Expose za i18n dropdown
+window.loadExplore = loadExplore;
 
-// Re-render Explore whenever global language changes (from i18n.js)
-document.addEventListener("lang:changed", (e) => {
-  const lang = (e && e.detail && e.detail.lang) ? e.detail.lang : getCurrentLang();
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = (localStorage.getItem("lang") || DEFAULT_LANG_EXPLORE).toLowerCase();
   loadExplore(lang);
 });
