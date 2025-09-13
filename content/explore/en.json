@@ -1,33 +1,35 @@
 {
-  "hero_title": "Explore Lovran & the Opatija Riviera",
-  "hero_sub": "Beaches, Lungomare promenade, Učka trails, gastronomy & day trips.",
-  "about_h": "About Lovran",
-  "about_p": "A charming coastal town next to Opatija — historic streets, pebble beaches, and the famous seaside promenade.",
+  "hero_title": "Explore Lovran & Opatija Riviera",
+  "hero_sub": "Discover beaches, hikes, gastronomy and day trips nearby.",
+
+  "about_h": "Experience More",
+  "about_p": "From charming old towns to crystal-clear beaches and mountain trails, the Opatija Riviera is full of experiences worth discovering. Whether you love hiking, relaxing, or fine dining — there is something for everyone.",
+
   "do": [
-    "Walk the 12 km Lungomare promenade (Volosko–Lovran)",
-    "Old town of Lovran (loggias, narrow alleys, St. George church)",
-    "Hike the Učka Nature Park (Vojak viewpoint)",
-    "SUP or kayak along the coastline",
-    "Wellness & spas in Opatija"
+    "Stroll along the Lungomare coastal promenade",
+    "Hike the Učka mountain trails",
+    "Visit the historic town of Lovran",
+    "Enjoy summer festivals and concerts"
   ],
+
   "beaches": [
-    "Pećine & Kvarner beaches (Lovran)",
-    "Ičići main beach & marina",
-    "Medveja bay (pebble beach, family friendly)",
-    "Mošćenička Draga (long pebble beach)"
+    "Peharovo Beach (Lovran)",
+    "Medveja Beach",
+    "Ičići Beach",
+    "Slatina Beach (Opatija)"
   ],
+
   "trips": [
-    "Opatija & Volosko (art, coffee bars, dining)",
-    "Rijeka & Trsat Castle",
-    "Istria (Rovinj, Pula, Motovun)",
-    "Islands Krk & Cres",
-    "Plitvice Lakes (full-day)"
+    "Day trip to Rijeka — European Capital of Culture",
+    "Visit the Istrian peninsula (Motovun, Grožnjan, Rovinj)",
+    "Boat excursion to Krk or Cres islands",
+    "Plitvice Lakes National Park"
   ],
+
   "food": [
-    "Fresh seafood konobas",
-    "Istrian truffles & pasta",
-    "Kvarner scampi (shrimps)",
-    "Local olive oils & wines",
-    "Craft gelato and patisseries"
+    "Fresh seafood taverns in Lovran",
+    "Homemade pasta (pljukanci, fuži)",
+    "Truffles and local olive oil",
+    "Kvarner scampi — a regional delicacy"
   ]
 }
