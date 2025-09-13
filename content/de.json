@@ -1,31 +1,20 @@
 {
   "brand": "Aura Adriatica",
   "tagline": "Zwei Boutique-Apartments an der Riviera von Opatija.",
+  "meta_desc": "Boutique-Apartments Olive & Onyx in Ičići bei Opatija. Meerblick, Terrasse, Klimaanlage, schnelles WLAN, Privatparkplatz.",
   "about_h": "Über uns",
-  "about_p": "Willkommen bei Aura Adriatica — Ihr perfekter Urlaubsort an der Riviera von Opatija. Genießen Sie Komfort, modernes Design und einen atemberaubenden Blick auf die Adria.",
-  "apts_h": "Unsere Apartments",
-  "olive_meta": "Olive — Meerblick, Balkon, Klimaanlage, Wi-Fi",
-  "onyx_meta": "Onyx — Terrasse, Garten, Klimaanlage, Wi-Fi",
-  "olive_h": "Apartment Olive",
-  "olive_intro": "Meerblick, Balkon, Klimaanlage, Wi-Fi — ideal für 2–4 Gäste.",
-  "onyx_h": "Apartment Onyx",
-  "onyx_intro": "Terrasse, Zugang zum Garten, Klimaanlage, Wi-Fi — ideal für 2–4 Gäste.",
-  "back_home": "Zurück zur Startseite",
-  "avail_h": "Verfügbarkeit",
-  "avail_note": "Für die genaueste Verfügbarkeit kontaktieren Sie uns bitte direkt unter info@auraadriatica.com.",
+  "about_p": "Willkommen bei Aura Adriatica — Ihr perfekter Rückzugsort an der Riviera von Opatija. Genießen Sie Komfort, modernes Design und einen herrlichen Blick auf die Adria.",
   "loc_h": "Lage",
-  "loc_p": "Wir befinden uns in Ičići, einem charmanten Küstenort in der Nähe von Opatija, Kroatien. Strand, Yachthafen und die Wanderwege des Učka-Gebirges sind zu Fuß erreichbar.",
+  "loc_p": "Wir befinden uns in Ičići, einem charmanten Küstenort neben Opatija, Kroatien. Strand, Marina und die Wanderwege des Učka-Gebirges sind zu Fuß erreichbar.",
   "info_list": [
-    "Privatparkplatz inklusive",
-    "Kostenloses Wi-Fi in allen Räumen",
+    "Privater Parkplatz inklusive",
+    "Schnelles WLAN (200 Mbps)",
     "Klimaanlage",
     "Voll ausgestattete Küche",
-    "Nähe zum Strand und zu Restaurants"
+    "In Strand- und Restaurantnähe"
   ],
   "contact_h": "Kontakt",
   "contact_email": "info@auraadriatica.com",
-  "cta_book": "Anfrage senden",
-  "cta_weather": "7-Tage-Wetter anzeigen",
   "weather_h": "Wetter",
   "weather_note": "7-Tage-Vorhersage für Lovran (stündlich aktualisiert)."
 }
