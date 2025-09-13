@@ -20,8 +20,24 @@
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <!-- i18n must load first so it can translate on DOMContentLoaded -->
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/explore.js" defer></script>
+
+  <!-- Bridge: after i18n.js is ready, also refresh Explore content on language change -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof window.setLang === 'function') {
+        const _setLang = window.setLang;
+        window.setLang = async (lang) => {
+          await _setLang(lang);                 // i18n: translate all [data-i18n]
+          if (typeof window.loadExplore === 'function') {
+            await window.loadExplore(lang);     // refresh Explore dynamic content
+          }
+        };
+      }
+    });
+  </script>
 </head>
 <body>
 
@@ -38,7 +54,7 @@
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
       <a href="/reviews.html" data-i18n="reviews">Reviews</a>
     </nav>
-    <!-- LANGUAGE DROPDOWN -->
+    <!-- LANGUAGE DROPDOWN (handled globally by i18n.js: no inline handler here) -->
     <div class="lang-dropdown" id="lang-dd">
       <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
         <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -63,8 +79,8 @@
     linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
     url('/assets/img/explore-hero.jpg');">
   <div class="container hero-center">
-    <h1 id="ex-hero-title">Explore Lovran & Opatija Riviera</h1>
-    <p  id="ex-hero-sub">Beaches, Lungomare, Učka trails, gastronomy & day trips.</p>
+    <h1 id="ex-hero-title">Explore Lovran &amp; Opatija Riviera</h1>
+    <p  id="ex-hero-sub">Beaches, Lungomare, Učka trails, gastronomy &amp; day trips.</p>
   </div>
 </section>
 
@@ -98,7 +114,7 @@
     <div class="col">
       <div class="card">
         <div class="card-head">
-          <h2 id="ex-beaches">Beaches & Seaside</h2>
+          <h2 id="ex-beaches">Beaches &amp; Seaside</h2>
         </div>
         <ul id="ex-beaches-list"></ul>
       </div>
@@ -146,29 +162,6 @@
   </div>
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-<!-- LANGUAGE DROPDOWN HANDLER -->
-<script>
-  (function(){
-    const dd = document.getElementById('lang-dd'); if(!dd) return;
-    const btn=dd.querySelector('.lang-toggle'), menu=dd.querySelector('.lang-menu'), cur=dd.querySelector('.current-lang');
-    const saved=(localStorage.getItem('lang')||'en').toUpperCase();
-    cur.textContent=saved;
-    menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x.dataset.lang.toUpperCase()===saved));
-    const open=()=>{menu.hidden=false;btn.setAttribute('aria-expanded','true');};
-    const close=()=>{menu.hidden=true; btn.setAttribute('aria-expanded','false');};
-    btn.addEventListener('click',e=>{e.stopPropagation();menu.hidden?open():close();});
-    menu.addEventListener('click',e=>{
-      const b=e.target.closest('button[data-lang]'); if(!b) return;
-      localStorage.setItem('lang', b.dataset.lang);
-      cur.textContent=b.dataset.lang.toUpperCase();
-      menu.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
-      close(); location.reload();
-    });
-    document.addEventListener('click',e=>{ if(!dd.contains(e.target)) close(); });
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
-  })();
-</script>
 
 </body>
 </html>
