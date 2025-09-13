@@ -1,33 +1,35 @@
 {
   "hero_title": "Esplora Lovran e la Riviera di Abbazia",
-  "hero_sub": "Spiagge, Lungomare, sentieri dell’Učka, gastronomia e gite giornaliere.",
-  "about_h": "Su Lovran",
-  "about_p": "Un affascinante borgo costiero accanto ad Abbazia — vicoli storici, spiagge di ghiaia e la famosa passeggiata sul mare.",
+  "hero_sub": "Scopri spiagge, sentieri, gastronomia e gite di un giorno.",
+
+  "about_h": "Vivi di più",
+  "about_p": "Dai centri storici pittoreschi alle spiagge cristalline e ai sentieri di montagna — la Riviera di Abbazia offre esperienze indimenticabili. Che tu ami fare escursioni, rilassarti al mare o gustare la cucina locale, troverai ciò che cerchi.",
+
   "do": [
-    "Passeggiata sul Lungomare (Volosko–Lovran, 12 km)",
-    "Città vecchia di Lovran (loggia, vicoli, chiesa di San Giorgio)",
-    "Parco Naturale dell’Učka (belvedere Vojak)",
-    "SUP o kayak lungo la costa",
-    "Wellness & spa ad Abbazia"
+    "Passeggiata sul lungomare Lungomare",
+    "Escursioni sul monte Učka",
+    "Visita alla città storica di Lovran",
+    "Festival ed eventi estivi"
   ],
+
   "beaches": [
-    "Spiagge Pećine e Kvarner (Lovran)",
-    "Spiaggia principale e marina di Ičići",
-    "Baia di Medveja (ghiaia, adatta alle famiglie)",
-    "Mošćenička Draga (lunga spiaggia di ghiaia)"
+    "Spiaggia Peharovo (Lovran)",
+    "Spiaggia di Medveja",
+    "Spiaggia di Ičići",
+    "Spiaggia Slatina (Opatija)"
   ],
+
   "trips": [
-    "Abbazia e Volosko (arte, caffè, ristoranti)",
-    "Fiume (Rijeka) e Castello di Tersatto (Trsat)",
-    "Istria (Rovigno, Pola, Montona)",
-    "Isole di Veglia (Krk) e Cherso (Cres)",
-    "Laghi di Plitvice (intera giornata)"
+    "Escursione a Fiume (Rijeka) — Capitale Europea della Cultura",
+    "Visita all’Istria (Motovun, Grožnjan, Rovigno)",
+    "Gita in barca alle isole di Veglia (Krk) o Cherso (Cres)",
+    "Parco Nazionale dei Laghi di Plitvice"
   ],
+
   "food": [
-    "Konobe con pesce fresco",
-    "Tartufi istriani e pasta",
-    "Scampi del Quarnero",
-    "Oli d’oliva e vini locali",
-    "Gelato artigianale e pasticcerie"
+    "Taverne di pesce fresco a Lovran",
+    "Pasta fatta in casa (pljukanci, fuži)",
+    "Tartufi e olio d’oliva locale",
+    "Scampi del Quarnero — una specialità regionale"
   ]
 }
