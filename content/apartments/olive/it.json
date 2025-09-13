@@ -1,19 +1,19 @@
 {
+  "page_title": "Appartamento Olive — Aura Adriatica",
+  "meta_desc": "Appartamento Olive — balcone vista mare, aria condizionata, Wi-Fi, cucina, parcheggio privato. Perfetto per 2–4 ospiti sulla Riviera di Abbazia.",
   "title": "Appartamento Olive",
   "intro": "Vista mare, balcone, aria condizionata, Wi-Fi — ideale per 2–4 ospiti.",
-  "description": "Olive è un appartamento luminoso e moderno con un ampio balcone affacciato sull’Adriatico. Cucina completamente attrezzata, aria condizionata, Wi-Fi veloce e parcheggio privato inclusi.",
   "features": [
-    "Balcone con vista mare",
-    "Aria condizionata",
-    "Wi-Fi veloce",
-    "Cucina completamente attrezzata",
-    "Parcheggio privato"
+    "🌅 Balcone con vista mare",
+    "🚗 Parcheggio privato",
+    "📶 Wi-Fi 200 Mbps",
+    "❄️ Aria condizionata",
+    "🍳 Cucina completamente attrezzata"
   ],
   "gallery": [
-    "/assets/img/sample1.jpg",
-    "/assets/img/sample2.jpg",
-    "/assets/img/sample3.jpg",
-    "/assets/img/sample4.jpg"
+    "/assets/img/olive-1.jpg",
+    "/assets/img/olive-2.jpg",
+    "/assets/img/olive-3.jpg"
   ],
-  "calendar": ""
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=it&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
 }
