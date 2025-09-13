@@ -9,289 +9,80 @@ media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
+  # …
   - name: "site_texts"
     label: "Site Texts"
     format: "json"
     editor: { preview: false }
+
+    # One canonical list of fields for index.html
+    fields: &site_fields
+      - { label: "Brand (Hero title)", name: "brand", widget: "string" }
+      - { label: "Tagline (Hero subtitle)", name: "tagline", widget: "text" }
+      - { label: "Meta Description (optional)", name: "meta_desc", widget: "text", required: false }
+
+      - { label: "About — Heading", name: "about_h", widget: "string" }
+      - { label: "About — Text",    name: "about_p", widget: "text" }
+
+      - { label: "Location — Heading", name: "loc_h", widget: "string" }
+      - { label: "Location — Text",    name: "loc_p", widget: "text" }
+
+      - label: "Guest Info — List"
+        name: "info_list"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
+
+      - { label: "Contact — Heading", name: "contact_h", widget: "string" }
+      - { label: "Contact — Email",   name: "contact_email", widget: "string" }
+
+      - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
+      - { label: "Weather — Note",    name: "weather_note", widget: "text", required: false }
+
     files:
       - label: "English"
         name: "en"
         file: "content/en.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Hrvatski"
         name: "hr"
         file: "content/hr.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Deutsch"
         name: "de"
         file: "content/de.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Italiano"
         name: "it"
         file: "content/it.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Slovenščina"
         name: "sl"
         file: "content/sl.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Magyar"
         name: "hu"
         file: "content/hu.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Čeština"
         name: "cs"
         file: "content/cs.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Slovenčina"
         name: "sk"
         file: "content/sk.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
       - label: "Українська"
         name: "uk"
         file: "content/uk.json"
-        fields:
-          - { label: "Brand", name: "brand", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "text" }
-          - { label: "About — Heading", name: "about_h", widget: "string" }
-          - { label: "About — Text", name: "about_p", widget: "text" }
-          - { label: "Apartments — Heading", name: "apts_h", widget: "string" }
-          - { label: "Olive meta", name: "olive_meta", widget: "string" }
-          - { label: "Onyx meta", name: "onyx_meta", widget: "string" }
-          - { label: "Olive Heading", name: "olive_h", widget: "string" }
-          - { label: "Olive Intro", name: "olive_intro", widget: "text" }
-          - { label: "Onyx Heading", name: "onyx_h", widget: "string" }
-          - { label: "Onyx Intro", name: "onyx_intro", widget: "text" }
-          - { label: "Back Home", name: "back_home", widget: "string" }
-          - { label: "Availability — Heading", name: "avail_h", widget: "string" }
-          - { label: "Availability — Note", name: "avail_note", widget: "text" }
-          - { label: "Location — Heading", name: "loc_h", widget: "string" }
-          - { label: "Location — Text", name: "loc_p", widget: "text" }
-          - label: "Guest Info — List"
-            name: "info_list"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Contact — Heading", name: "contact_h", widget: "string" }
-          - { label: "Contact — Email", name: "contact_email", widget: "string" }
-          - { label: "CTA — Book", name: "cta_book", widget: "string", required: false }
-          - { label: "CTA — Weather", name: "cta_weather", widget: "string", required: false }
-          - { label: "Weather — Heading", name: "weather_h", widget: "string", required: false }
-          - { label: "Weather — Note", name: "weather_note", widget: "text", required: false }
+        fields: *site_fields
 
   - name: "apartment_olive"
     label: "Apartment — Olive"
