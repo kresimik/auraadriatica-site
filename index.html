@@ -20,6 +20,7 @@
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <!-- i18n FIRST so it can translate on DOMContentLoaded -->
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/weather.js?v=20250907" defer></script>
 </head>
@@ -40,7 +41,7 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN -->
+      <!-- LANGUAGE DROPDOWN (no inline JS; i18n.js handles clicks) -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -164,7 +165,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- INFO LIST LOADER -->
+  <!-- INFO LIST LOADER (kept; i18n.js handles translations for other texts) -->
   <script>
     (function(){
       const curLang = (localStorage.getItem('lang') || 'en').toLowerCase();
@@ -186,38 +187,5 @@
     })();
   </script>
 
-  <!-- LANGUAGE DROPDOWN HANDLER -->
- <script>
-  (function(){
-    const dd = document.getElementById('lang-dd'); if(!dd) return;
-    const btn  = dd.querySelector('.lang-toggle');
-    const menu = dd.querySelector('.lang-menu');
-    const cur  = dd.querySelector('.current-lang');
-
-    const open  = () => { menu.hidden = false; btn.setAttribute('aria-expanded','true');  };
-    const close = () => { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); };
-
-    // Prikaži trenutno spremljeni jezik (i18n.js će ga ionako postaviti)
-    const saved = (localStorage.getItem('lang') || 'en').toUpperCase();
-    if (cur) cur.textContent = saved;
-
-    btn.addEventListener('click', (e)=>{ e.stopPropagation(); menu.hidden ? open() : close(); });
-
-    menu.addEventListener('click', async (e)=>{
-      const b = e.target.closest('button[data-lang]'); if(!b) return;
-      const lang = b.dataset.lang;                // npr. "hr"
-      localStorage.setItem('lang', lang);
-      if (typeof window.setLang === 'function') {
-        await window.setLang(lang);               // i18n.js prevede cijelu stranicu (data-i18n)
-      }
-      if (typeof window.loadExplore === 'function') {
-        // ako smo na explore stranici – ručno napuni Explore sadržaj
-        await window.loadExplore(lang);
-      }
-      close();
-    });
-
-    document.addEventListener('click', (e)=>{ if(!dd.contains(e.target)) close(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
-  })();
-</script>
+</body>
+</html>
