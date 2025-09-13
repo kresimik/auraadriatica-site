@@ -1,40 +1,33 @@
 {
-  "hero_title": "Explore Lovran & Opatija Riviera",
-  "hero_sub": "Beaches, Lungomare, Učka trails, gastronomy & day trips.",
+  "hero_title": "Explore Lovran & the Opatija Riviera",
+  "hero_sub": "Beaches, Lungomare promenade, Učka trails, gastronomy & day trips.",
   "about_h": "About Lovran",
-  "about_p": "Lovran is a charming coastal town next to Opatija, known for its historic Old Town, pebble beaches, and the famous seaside promenade Lungomare.",
+  "about_p": "A charming coastal town next to Opatija — historic streets, pebble beaches, and the famous seaside promenade.",
   "do": [
-    "Walk the Lungomare promenade (Opatija–Lovran)",
-    "Morning coffee on the old town square",
-    "Sunset stroll along the marina in Ičići",
-    "Hike to Učka viewpoints (Poklon, Vojak)",
-    "Rent a SUP/kayak and explore the coast",
-    "Visit Opatija’s parks & villas (Angiolina Park)",
-    "Local markets and artisan shops in Lovran",
-    "Cycling routes around Učka Nature Park"
+    "Walk the 12 km Lungomare promenade (Volosko–Lovran)",
+    "Old town of Lovran (loggias, narrow alleys, St. George church)",
+    "Hike the Učka Nature Park (Vojak viewpoint)",
+    "SUP or kayak along the coastline",
+    "Wellness & spas in Opatija"
   ],
   "beaches": [
-    "Peharovo Beach (pebble, family friendly)",
-    "Ičići Beach & Marina promenade",
-    "Medveja Beach (long pebble bay)",
-    "Mošćenička Draga (fine pebbles, crystal water)",
-    "Small coves between Lovran and Medveja",
-    "Škver area for quick sea dips"
+    "Pećine & Kvarner beaches (Lovran)",
+    "Ičići main beach & marina",
+    "Medveja bay (pebble beach, family friendly)",
+    "Mošćenička Draga (long pebble beach)"
   ],
   "trips": [
-    "Opatija (5–10 min) — belle époque charm",
-    "Rijeka (30 min) — markets, Trsat Castle",
-    "Cres & Krk Islands — day island hopping",
-    "Plitvice Lakes National Park (long day)",
-    "Istria (Rovinj, Pula, Motovun) — gastronomy & history",
-    "Učka Nature Park — trails & viewpoints"
+    "Opatija & Volosko (art, coffee bars, dining)",
+    "Rijeka & Trsat Castle",
+    "Istria (Rovinj, Pula, Motovun)",
+    "Islands Krk & Cres",
+    "Plitvice Lakes (full-day)"
   ],
   "food": [
-    "Kvarner scampi — local specialty",
-    "Seafood konobas along the promenade",
-    "Istrian truffles & homemade pasta",
-    "Olive oils and local wines (Malvazija, Teran)",
-    "Gelato stops on the Lungomare",
-    "Coffee & cakes in Opatija’s patisseries"
+    "Fresh seafood konobas",
+    "Istrian truffles & pasta",
+    "Kvarner scampi (shrimps)",
+    "Local olive oils & wines",
+    "Craft gelato and patisseries"
   ]
 }
