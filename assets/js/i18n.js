@@ -1,13 +1,8 @@
-// i18n.js — global translations loader with fallback + dropdown sync + safety guards
-
+// i18n.js — central translations loader + dropdown sync (no reload)
 const DEFAULT_LANG = "en";
 let currentLang = DEFAULT_LANG;
 let translations = {};
-const langCache = Object.create(null); // simple in-memory cache
-
-function isPlainText(val) {
-  return typeof val === "string" || typeof val === "number";
-}
+const langCache = Object.create(null);
 
 async function fetchLangFile(lang) {
   if (langCache[lang]) return langCache[lang];
@@ -32,38 +27,24 @@ async function loadLang(lang) {
       return;
     }
   }
-
   applyTranslations();
   updateDropdown(currentLang);
   updateDocumentLang(currentLang);
-
-  // Let page-level scripts (e.g., explore.js) react to language changes
-  document.dispatchEvent(new CustomEvent("lang:changed", { detail: { lang: currentLang } }));
 }
 
 function applyTranslations() {
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    // Allow specific nodes to be managed by page scripts
-    if (el.hasAttribute("data-i18n-skip")) return;
-
     const key = el.getAttribute("data-i18n");
     if (!key) return;
-
     const val = translations[key];
     if (val == null) return;
-
-    // Only write plain text (no arrays/objects)
-    if (el.hasAttribute("data-i18n-html")) {
-      if (isPlainText(val)) el.innerHTML = String(val);
-    } else {
-      if (isPlainText(val)) el.textContent = String(val);
-    }
+    if (el.hasAttribute("data-i18n-html")) el.innerHTML = val;
+    else el.textContent = val;
   });
 
-  // Optional: meta description translation via key "meta_desc"
   const metaDesc = document.querySelector("meta[name='description']");
-  if (metaDesc && isPlainText(translations["meta_desc"])) {
-    metaDesc.setAttribute("content", String(translations["meta_desc"]));
+  if (metaDesc && translations["meta_desc"]) {
+    metaDesc.setAttribute("content", translations["meta_desc"]);
   }
 }
 
@@ -81,22 +62,25 @@ function updateDocumentLang(lang) {
   if (html) html.setAttribute("lang", lang);
 }
 
-// Expose small helper if you want to call from inline scripts
-window.setLang = function setLang(lang) {
+// public API
+window.setLang = async function setLang(lang) {
   localStorage.setItem("lang", lang);
-  loadLang(lang);
+  await loadLang(lang);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   const saved = (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
   loadLang(saved);
 
-  // Event delegation for any dropdown on the page
-  document.addEventListener("click", (e) => {
+  // Global event delegation for ANY language menu
+  document.addEventListener("click", async (e) => {
     const btn = e.target.closest(".lang-menu button[data-lang]");
     if (!btn) return;
     const lang = btn.dataset.lang;
-    localStorage.setItem("lang", lang);
-    loadLang(lang);
+    await window.setLang(lang);
+    // Ako explore.js postoji i expose-a loadExplore, napuni explore sadržaj
+    if (typeof window.loadExplore === "function") {
+      await window.loadExplore(lang);
+    }
   });
 });
