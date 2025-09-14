@@ -41,7 +41,7 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN (no inline JS; i18n.js handles clicks) -->
+      <!-- LANGUAGE DROPDOWN (i18n.js + small hook below) -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- ROW 1: About + Location (two columns, boxed) -->
+  <!-- ROW 1: About + Location -->
   <section class="section" aria-labelledby="about location">
     <div class="container two-col two-col--boxed">
       <div class="col">
@@ -104,7 +104,7 @@
     </div>
   </section>
 
-  <!-- WEATHER (single full-width card) -->
+  <!-- WEATHER -->
   <section class="section" aria-labelledby="weather">
     <div class="container">
       <div class="card">
@@ -117,7 +117,7 @@
     </div>
   </section>
 
-  <!-- ROW 2: Info + Contact (two columns, boxed) -->
+  <!-- ROW 2: Info + Contact -->
   <section class="section" aria-labelledby="info contact">
     <div class="container two-col two-col--boxed">
       <div class="col">
@@ -165,26 +165,44 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- INFO LIST LOADER (kept; i18n.js handles translations for other texts) -->
+  <!-- INFO LIST + LANGUAGE HOOK (no reload) -->
   <script>
-    (function(){
-      const curLang = (localStorage.getItem('lang') || 'en').toLowerCase();
-      fetch(`/content/${curLang}.json`, { cache: 'no-store' })
-        .then(r => r.ok ? r.json() : null)
-        .then(data => {
-          if (!data) return;
-          const list = document.getElementById('info-list');
-          if (list && Array.isArray(data.info_list)) {
-            list.innerHTML = '';
-            data.info_list.forEach(item => {
-              const li = document.createElement('li');
-              li.textContent = item;
-              list.appendChild(li);
-            });
-          }
-        })
-        .catch(console.warn);
-    })();
+    // Fill the info list from the current language JSON
+    async function reloadInfoList(lang) {
+      try {
+        const res = await fetch(`/content/${(lang || localStorage.getItem('lang') || 'en').toLowerCase()}.json`, { cache: 'no-store' });
+        if (!res.ok) return;
+        const data = await res.json();
+        const list = document.getElementById('info-list');
+        if (!list) return;
+        list.innerHTML = '';
+        if (Array.isArray(data.info_list)) {
+          data.info_list.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            list.appendChild(li);
+          });
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      reloadInfoList(); // initial fill
+
+      // When a language is chosen in the dropdown, let i18n.js translate,
+      // then re-fetch the info list in that language.
+      document.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.lang-menu button[data-lang]');
+        if (!btn) return;
+        const lang = btn.dataset.lang;
+        if (typeof window.setLang === 'function') {
+          await window.setLang(lang);   // translates all [data-i18n]
+        }
+        await reloadInfoList(lang);     // refresh the list items
+      });
+    });
   </script>
 
 </body>
