@@ -1,20 +1,20 @@
 {
-  "brand": "Aura Adriatica",
-  "tagline": "Two boutique apartments on the Opatija Riviera.",
-  "meta_desc": "Boutique apartments Olive & Onyx in Ičići near Opatija. Sea views, terrace, AC, fast Wi-Fi, private parking.",
-  "about_h": "About us",
-  "about_p": "Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera. Enjoy comfort, modern design, and stunning views of the Adriatic Sea.",
+  "brand": "Aura Adriatica Apartments",
+  "contact_h": "Contact",
   "loc_h": "Location",
-  "loc_p": "We are located in Ičići, a charming coastal town next to Opatija, Croatia. The beach, marina, and Učka mountain trails are all within walking distance.",
+  "meta_desc": "Boutique apartments Olive & Onyx in Ičići near Opatija. Sea views, terrace, AC, fast Wi-Fi, private parking.",
+  "tagline": "Two duplex apartments in Lovran, each featuring a private pool, spacious terrace, garden, and stunning sea views.",
   "info_list": [
-    "Private parking included",
-    "Fast Wi-Fi (200 Mbps)",
-    "Air conditioning",
+    "Private pool",
+    "Wi-Fi",
+    "Air conditioning in all rooms",
     "Fully equipped kitchen",
     "Close to beach and restaurants"
   ],
-  "contact_h": "Contact",
+  "loc_p": "Our apartments are situated in Lovran, a picturesque coastal town on the Opatija Riviera in Croatia. Just a short walk from the beach and the charming historic old town, they offer the perfect combination of relaxation, tradition, and modern comfort.\nGuests can enjoy spacious, bright interiors equipped with everything needed for a carefree holiday – from fully equipped kitchens and comfortable living areas to private balconies offering views of the sea or garden.",
+  "about_h": "About us",
+  "weather_note": "7-day forecast for Lovran (updated hourly).",
   "contact_email": "info@auraadriatica.com",
   "weather_h": "Weather",
-  "weather_note": "7-day forecast for Lovran (updated hourly)."
+  "about_p": "Welcome to our boutique duplex apartments in Lovran.\nAs passionate travelers ourselves, we wanted to create a place where guests can feel the same comfort and inspiration we seek when exploring the world.\nEach of our two duplex apartments is thoughtfully designed for relaxation and enjoyment. With private pools, spacious terraces, gardens, and stunning sea views, they offer the perfect setting for unforgettable holidays on the Opatija Riviera.\nOur philosophy is simple: combine modern comfort with the charm of Lovran’s history and nature, while offering every guest a warm and personal welcome.\n\nWe look forward to hosting you and sharing the beauty of Lovran with you."
 }
