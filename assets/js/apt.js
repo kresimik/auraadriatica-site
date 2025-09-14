@@ -1,112 +1,98 @@
-/* Apartment page bootstrap
-   - initApt('olive') / initApt('onyx')
-   - loads /content/apartments/<slug>/<lang>.json with fallback to 'en'
-   - renders intro, features, gallery, and optional Zoho calendar (https iframe)
-*/
+// /assets/js/apt.js
+const APT_DEFAULT_LANG = "en";
 
-function initApt(slug){
-  const getLang = () => (localStorage.getItem('lang') || 'en').toLowerCase();
+async function loadApartment(slug, langOpt){
+  const lang = (langOpt || localStorage.getItem("lang") || APT_DEFAULT_LANG).toLowerCase();
+  const fall  = APT_DEFAULT_LANG;
 
-  const qs = (sel) => document.querySelector(sel);
-  const setText = (sel, txt) => { const el = qs(sel); if (el && typeof txt === 'string') el.textContent = txt; };
-  const setHTML = (el, html) => { if (el) el.innerHTML = html; };
+  const tryUrls = [
+    `/content/apartments/${slug}/${lang}.json`,
+    lang !== fall ? `/content/apartments/${slug}/${fall}.json` : null
+  ].filter(Boolean);
 
-  const elIntro   = document.getElementById('apt-intro');
-  const elFeat    = document.getElementById('apt-features');
-  const elGal     = document.getElementById('apt-gallery');
-  const elWrapCal = document.getElementById('apt-calendar-wrap');
-  const elCal     = document.getElementById('apt-calendar');
+  let data = null;
+  for (const url of tryUrls){
+    try{
+      const res = await fetch(url, { cache: "no-store" });
+      if (res.ok){ data = await res.json(); break; }
+    }catch(_){}
+  }
+  if(!data){ console.warn(`[apt] Missing JSON for ${slug}/${lang}`); return; }
 
-  // Loading state
-  if (elIntro && !elIntro.textContent) elIntro.textContent = 'Loading…';
-  if (elFeat)  setHTML(elFeat, '<span class="tag">…</span>');
-  if (elGal)   setHTML(elGal,  '');
+  // Page <title> + meta description
+  if (data.page_title) document.title = data.page_title;
+  if (data.meta_desc){
+    let m = document.querySelector('meta[name="description"]');
+    if (!m){ m = document.createElement('meta'); m.setAttribute('name','description'); document.head.appendChild(m); }
+    m.setAttribute('content', data.meta_desc);
+  }
 
-  const fetchJson = async (lang) => {
-    const url = `/content/apartments/${slug}/${lang}.json`;
-    const res = await fetch(url, { cache: 'no-store' });
-    if (!res.ok) throw Object.assign(new Error('JSON not found'), { code: res.status, lang });
-    return res.json();
-  };
+  // H1 / intro (optional – in case you want CMS to override hero text)
+  const h1 = document.querySelector("h1[data-i18n]");
+  if (h1 && data.title) h1.textContent = data.title;
 
-  const loadWithFallback = async () => {
-    const lang = getLang();
-    try {
-      return await fetchJson(lang);
-    } catch (e) {
-      // fallback samo na en
-      if (lang !== 'en') {
-        try { return await fetchJson('en'); }
-        catch (_) { throw e; }
-      }
-      throw e;
+  // Description
+  const descEl = document.getElementById("apt-desc");
+  if (descEl){
+    descEl.innerHTML = "";
+    const text = data.description || data.intro || "";
+    if (text){
+      // split on blank line → paragraphs
+      text.split(/\n\s*\n/).forEach(p=>{
+        const el = document.createElement("p");
+        el.textContent = p.trim();
+        descEl.appendChild(el);
+      });
     }
-  };
+  }
 
-  loadWithFallback()
-    .then((data) => {
-      // ---- Title / meta
-      if (data.page_title) document.title = data.page_title;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc && data.meta_desc) metaDesc.setAttribute('content', data.meta_desc);
+  // Highlights
+  const list = document.getElementById("apt-highlights");
+  if (list){
+    list.innerHTML = "";
+    if (Array.isArray(data.features)){
+      data.features.forEach(f=>{
+        const li = document.createElement("li");
+        li.textContent = f;
+        list.appendChild(li);
+      });
+    }
+  }
 
-      // H1 (ako postoji u JSON-u)
-      if (data.title) setText('h1[data-i18n]', data.title);
+  // Gallery
+  const gal = document.getElementById("apt-gallery");
+  if (gal){
+    gal.innerHTML = "";
+    if (Array.isArray(data.gallery)){
+      data.gallery.forEach((src, i)=>{
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `${data.title || slug} photo ${i+1}`;
+        gal.appendChild(img);
+      });
+    }
+  }
 
-      // Hero subtitle (intro kratki)
-      const heroP = document.querySelector('.hero p');
-      if (heroP) {
-        const altIntro = data[`${slug}_intro`] || data.intro_short || data.intro;
-        if (altIntro) heroP.textContent = altIntro;
-      }
-
-      // Intro long
-      if (elIntro) elIntro.textContent = data.intro || '';
-
-      // Features
-      if (elFeat) {
-        elFeat.innerHTML = '';
-        if (Array.isArray(data.features)) {
-          data.features.forEach(f => {
-            const t = document.createElement('span');
-            t.className = 'tag';
-            t.textContent = f;
-            elFeat.appendChild(t);
-          });
-        }
-      }
-
-      // Gallery
-      if (elGal) {
-        elGal.innerHTML = '';
-        if (Array.isArray(data.gallery)) {
-          data.gallery.forEach(src => {
-            const img = document.createElement('img');
-            img.loading = 'lazy';
-            img.decoding = 'async';
-            img.alt = data.title || slug;
-            img.src = src;
-            elGal.appendChild(img);
-
-            // Preload
-            const l = new Image();
-            l.src = src;
-          });
-        }
-      }
-
-      // Calendar (Zoho embed – https)
-      if (elWrapCal) elWrapCal.style.display = 'none';
-      if (data.calendar && /^https:\/\//i.test(data.calendar) && elCal && elWrapCal) {
-        elCal.src = data.calendar;
-        elWrapCal.style.display = 'block';
-      }
-    })
-    .catch((err) => {
-      console.warn('APT JSON load error:', err);
-      if (elIntro) elIntro.textContent = 'Content currently unavailable.';
-      if (elFeat)  elFeat.innerHTML   = '';
-      if (elGal)   elGal.innerHTML    = '';
-      if (elWrapCal) elWrapCal.style.display = 'none';
-    });
+  // Calendar
+  const wrap = document.getElementById("apt-calendar-wrap");
+  const iframe = document.getElementById("apt-calendar");
+  if (iframe){
+    if (data.calendar){
+      iframe.src = data.calendar;
+      if (wrap) wrap.style.display = "";
+    } else {
+      if (wrap) wrap.style.display = "none";
+      iframe.removeAttribute("src");
+    }
+  }
 }
+
+// expose for language switcher
+window.loadApartment = loadApartment;
+
+// auto-init if we find a data-apt-slug marker on the <body>
+document.addEventListener("DOMContentLoaded", ()=>{
+  const body = document.body;
+  const slug = body ? body.getAttribute("data-apt-slug") : null;
+  if (slug) loadApartment(slug);
+});
