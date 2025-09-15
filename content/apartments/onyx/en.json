@@ -1,9 +1,9 @@
 {
   "page_title": "Onyx Apartment — Aura Adriatica",
-  "meta_desc": "Apartment Onyx — modern duplex with private pool, terrace with sea view, BBQ, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
+  "meta_desc": "Apartment Onyx — modern duplex close to the sea with private pool, terrace with garden and sea view, BBQ, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
 
   "title": "Onyx Apartment",
-  "intro": "Modern duplex with private pool, terrace, garden, and sea view.",
+  "intro": "Modern duplex near the sea with private pool, terrace, garden, and sea view.",
 
   "description": [
     "Apartment Onyx combines contemporary style with comfort, just steps from the Adriatic coast. Ideal for 2–4 guests, it features elegant interiors, generous light, and easy access to Opatija Riviera highlights.",
@@ -27,5 +27,6 @@
   ],
 
   "inquiry_h": "Availability & Inquiry",
-  "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates."
+  "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates.",
+  "inquiry_url_en": "<PASTE_YOUR_ZOHO_ONYX_EN_URL_HERE>"
 }
