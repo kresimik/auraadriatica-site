@@ -1,25 +1,24 @@
 {
   "page_title": "Onyx Apartment — Aura Adriatica",
-  "meta_desc": "Apartment Onyx — modern duplex with private pool, terrace with garden and sea view, barbecue, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
+  "meta_desc": "Apartment Onyx — modern duplex with private pool, terrace with sea view, BBQ, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
 
-  "onyx_h": "Onyx Apartment",
-  "onyx_intro": "Modern duplex with private pool, terrace, garden, and sea view.",
+  "title": "Onyx Apartment",
+  "intro": "Modern duplex with private pool, terrace, garden, and sea view.",
 
-  "desc_h": "Description",
-  "desc_p1": "Apartment Onyx combines contemporary design with comfort, just steps from the Adriatic coast. Ideal for 2–4 guests, it features elegant interiors, abundant light, and easy access to the highlights of the Opatija Riviera.",
-  "desc_p2": "Perfect for couples, families, or business travelers, Onyx provides a relaxing yet stylish atmosphere for your stay.",
+  "description": [
+    "Apartment Onyx combines contemporary style with comfort, just steps from the Adriatic coast. Ideal for 2–4 guests, it features elegant interiors, generous light, and easy access to Opatija Riviera highlights.",
+    "Perfect for couples, families, or business travelers, Onyx provides a relaxing yet modern atmosphere for your stay."
+  ],
 
-  "highlights_h": "Highlights",
-  "highlights": [
+  "features": [
     "🏊 Private pool",
     "🌅 Terrace with garden and sea view",
-    "🔥 Barbecue",
+    "🔥 Outdoor BBQ",
     "🚗 Private parking",
     "🍳 Fully equipped kitchen",
     "❄️ Air conditioning in all rooms"
   ],
 
-  "gallery_h": "Gallery",
   "gallery": [
     "/assets/img/onyx-1.jpg",
     "/assets/img/onyx-2.jpg",
@@ -27,11 +26,6 @@
     "/assets/img/onyx-4.jpg"
   ],
 
-  "avail_h": "Availability",
-  "avail_note": "Select your dates to check availability.",
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade",
-
-  "contact_h": "Contact",
-  "contact_p": "Interested in Apartment Onyx? Send us your inquiry directly:",
-  "back_home": "Back to Home"
+  "inquiry_h": "Availability & Inquiry",
+  "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates."
 }
