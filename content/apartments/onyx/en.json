@@ -1,19 +1,37 @@
 {
   "page_title": "Onyx Apartment — Aura Adriatica",
-  "meta_desc": "Apartment Onyx — modern design, terrace, AC, Wi-Fi, kitchen, private parking. Perfect for 2–4 guests near Opatija Riviera.",
-  "title": "Onyx Apartment",
-  "intro": "Modern design, terrace, parking, Wi-Fi — ideal for 2–4 guests.",
-  "features": [
-    "🌊 Spacious terrace",
+  "meta_desc": "Apartment Onyx — modern duplex with private pool, terrace with garden and sea view, barbecue, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
+
+  "onyx_h": "Onyx Apartment",
+  "onyx_intro": "Modern duplex with private pool, terrace, garden, and sea view.",
+
+  "desc_h": "Description",
+  "desc_p1": "Apartment Onyx combines contemporary design with comfort, just steps from the Adriatic coast. Ideal for 2–4 guests, it features elegant interiors, abundant light, and easy access to the highlights of the Opatija Riviera.",
+  "desc_p2": "Perfect for couples, families, or business travelers, Onyx provides a relaxing yet stylish atmosphere for your stay.",
+
+  "highlights_h": "Highlights",
+  "highlights": [
+    "🏊 Private pool",
+    "🌅 Terrace with garden and sea view",
+    "🔥 Barbecue",
     "🚗 Private parking",
-    "📶 Wi-Fi 200 Mbps",
-    "❄️ Air conditioning",
-    "🍳 Fully equipped kitchen"
+    "🍳 Fully equipped kitchen",
+    "❄️ Air conditioning in all rooms"
   ],
+
+  "gallery_h": "Gallery",
   "gallery": [
     "/assets/img/onyx-1.jpg",
     "/assets/img/onyx-2.jpg",
-    "/assets/img/onyx-3.jpg"
+    "/assets/img/onyx-3.jpg",
+    "/assets/img/onyx-4.jpg"
   ],
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
+
+  "avail_h": "Availability",
+  "avail_note": "Select your dates to check availability.",
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=en&timezone=Europe%2FBelgrade",
+
+  "contact_h": "Contact",
+  "contact_p": "Interested in Apartment Onyx? Send us your inquiry directly:",
+  "back_home": "Back to Home"
 }
