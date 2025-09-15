@@ -1,19 +1,42 @@
 {
-  "page_title": "Apartment Onyx — Aura Adriatica",
-  "meta_desc": "Apartment Onyx — modernes Design, Terrasse, Klimaanlage, WLAN, Küche, Privatparkplatz. Perfekt für 2–4 Gäste an der Riviera von Opatija.",
-  "title": "Apartment Onyx",
-  "intro": "Modernes Design, Terrasse, Parkplatz, WLAN — ideal für 2–4 Gäste.",
-  "features": [
-    "🌊 Geräumige Terrasse",
-    "🚗 Privatparkplatz",
-    "📶 WLAN 200 Mbps",
-    "❄️ Klimaanlage",
-    "🍳 Voll ausgestattete Küche"
+  "brand": "Aura Adriatica Apartments",
+  "tagline": "Zwei Maisonette-Apartments in Lovran, jeweils mit privatem Pool, großer Terrasse, Garten und herrlichem Meerblick.",
+
+  "meta_desc": "Boutique-Apartments Olive & Onyx in Ičići bei Opatija. Meerblick, Terrasse, Klimaanlage, schnelles WLAN, Privatparkplatz.",
+
+  "about_h": "Über uns",
+  "about_p": "Willkommen in unseren Boutique-Maisonette-Apartments in Lovran.\nAls leidenschaftliche Reisende wollten wir einen Ort schaffen, an dem sich Gäste genauso wohl und inspiriert fühlen wie wir unterwegs.\nBeide Apartments sind auf Entspannung ausgelegt: private Pools, großzügige Terrassen, Garten und fantastischer Meerblick – die perfekte Kulisse für unvergessliche Urlaubstage an der Opatija-Riviera.\nUnsere Philosophie: moderner Komfort trifft auf den Charme von Lovrans Geschichte und Natur – mit herzlicher, persönlicher Gastfreundschaft.\n\nWir freuen uns darauf, Sie zu beherbergen und Ihnen die Schönheiten Lovrans zu zeigen.",
+
+  "loc_h": "Lage",
+  "loc_p": "Unsere Apartments liegen in Lovran, einer malerischen Küstenstadt an der Opatija-Riviera in Kroatien. Strand und die charmante Altstadt sind nur wenige Gehminuten entfernt – ideal für Entspannung, Tradition und modernen Komfort.\nDie großzügigen, hellen Innenräume sind vollständig ausgestattet – von der Küche über gemütliche Wohnbereiche bis zu privaten Balkonen mit Blick auf Meer oder Garten.",
+
+  "contact_h": "Kontakt",
+  "contact_email": "info@auraadriatica.com",
+
+  "weather_h": "Wetter",
+  "weather_note": "7-Tage-Vorhersage für Lovran (stündlich aktualisiert).",
+
+  "info_list": [
+    "Privater Pool",
+    "WLAN",
+    "Klimaanlage in allen Räumen",
+    "Voll ausgestattete Küche",
+    "Strand und Restaurants in der Nähe"
   ],
-  "gallery": [
-    "/assets/img/onyx-1.jpg",
-    "/assets/img/onyx-2.jpg",
-    "/assets/img/onyx-3.jpg"
-  ],
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=de&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
+
+  "olive_h": "Apartment Olive",
+  "olive_intro": "Sonniger Balkon mit Meerblick, Parkplatz, schnelles WLAN.",
+
+  "onyx_h": "Apartment Onyx",
+  "onyx_intro": "Modernes Design, nah am Meer, Parkplatz, WLAN.",
+
+  "explore": "Entdecken",
+  "gallery": "Galerie",
+  "gallery_intro": "Entdecken Sie Olive & Onyx und die Schönheit der Opatija-Riviera.",
+  "reviews": "Bewertungen",
+
+  "apts_h": "Apartmentdetails",
+  "avail_h": "Verfügbarkeit",
+  "avail_note": "Wählen Sie Ihre Daten, um die Verfügbarkeit zu prüfen.",
+  "back_home": "Zur Startseite"
 }
