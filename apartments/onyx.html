@@ -40,7 +40,7 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN (i18n.js translates; small hook below reloads apt content) -->
+      <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -81,13 +81,11 @@
       <div class="two-col two-col--boxed">
         <div class="col">
           <h3>Description</h3>
-          <!-- apt.js injects paragraphs here (intro/description) -->
           <div id="apt-desc"></div>
         </div>
 
         <div class="col">
           <h3>Highlights</h3>
-          <!-- apt.js renders LI items here -->
           <ul class="highlights" id="apt-highlights"></ul>
         </div>
       </div>
@@ -102,7 +100,16 @@
     </div>
   </section>
 
-  <!-- AVAILABILITY (shown only if CMS provides URL) -->
+  <!-- INQUIRY (Zoho form — JSON-driven) -->
+  <section class="section">
+    <div class="container" id="apt-inquiry-wrap" style="display:none;">
+      <h2 id="apt-inquiry-h">Availability &amp; Inquiry</h2>
+      <p id="apt-inquiry-note">Send us your desired dates and we’ll reply with availability and rates.</p>
+      <div id="apt-inquiry"></div>
+    </div>
+  </section>
+
+  <!-- (Optional) CALENDAR fallback — hidden unless "calendar" exists in JSON -->
   <section class="section">
     <div class="container">
       <div id="apt-calendar-wrap" style="display:none;">
