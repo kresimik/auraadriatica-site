@@ -42,7 +42,7 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN (i18n.js handles translation; small hook below reloads apt content) -->
+      <!-- LANGUAGE DROPDOWN (i18n.js handles translation; apt.js listens to reload JSON) -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -105,7 +105,16 @@
     </div>
   </section>
 
-  <!-- AVAILABILITY (CMS URL toggles visibility) -->
+  <!-- INQUIRY (Zoho form — JSON-driven) -->
+  <section class="section">
+    <div class="container" id="apt-inquiry-wrap" style="display:none;">
+      <h2 id="apt-inquiry-h">Availability &amp; Inquiry</h2>
+      <p id="apt-inquiry-note">Send us your desired dates and we’ll reply with availability and rates.</p>
+      <div id="apt-inquiry"></div>
+    </div>
+  </section>
+
+  <!-- (Optional) CALENDAR fallback — ostaje skriven ako u JSON-u nema "calendar" -->
   <section class="section">
     <div class="container">
       <div id="apt-calendar-wrap" style="display:none;">
@@ -148,7 +157,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Hook language change → reload this apartment JSON -->
+  <!-- Hook language change → reload this apartment JSON (so the form can switch too when you add HR/DE/IT) -->
   <script>
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
