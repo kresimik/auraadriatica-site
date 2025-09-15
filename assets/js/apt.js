@@ -1,6 +1,22 @@
 // /assets/js/apt.js
 const APT_DEFAULT_LANG = "en";
 
+/** 1) URL-ovi Zoho formi po apartmanu i jeziku (dodaj kasnije nove jezike/linkove) */
+const FORM_URLS = {
+  olive: {
+    en: "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+    hr: null,
+    de: null,
+    it: null,
+  },
+  onyx: {
+    en: null, // <- zalijepi EN link kad ga imaš
+    hr: null,
+    de: null,
+    it: null,
+  }
+};
+
 async function loadApartment(slug, langOpt){
   const lang = (langOpt || localStorage.getItem("lang") || APT_DEFAULT_LANG).toLowerCase();
   const fall = APT_DEFAULT_LANG;
@@ -28,7 +44,7 @@ async function loadApartment(slug, langOpt){
   if(!data){ console.warn(`[apt] Missing JSON for ${slug}/${lang}`); return; }
   console.log(`[apt] Loaded ${usedUrl}`);
 
-  // <title> + meta description (ako postoje u JSON-u)
+  // <title> + meta description
   if (data.page_title) document.title = data.page_title;
   if (data.meta_desc){
     let m = document.querySelector('meta[name="description"]');
@@ -36,23 +52,22 @@ async function loadApartment(slug, langOpt){
     m.setAttribute('content', data.meta_desc);
   }
 
-  // HERO override (opcionalno: ako JSON ima "title"/"intro")
+  // HERO override (ako JSON ima naslove)
   const h1 = document.querySelector("h1[data-i18n]");
-  if (h1 && data.title) h1.textContent = data.title;
+  if (h1 && (data.title || data.olive_h || data.onyx_h)) {
+    h1.textContent = data.title || data.olive_h || data.onyx_h;
+  }
   const heroIntro = document.querySelector("[data-i18n='olive_intro'], [data-i18n='onyx_intro']");
-  if (heroIntro && data.intro) heroIntro.textContent = data.intro;
+  if (heroIntro && (data.intro || data.olive_intro || data.onyx_intro)) {
+    heroIntro.textContent = data.intro || data.olive_intro || data.onyx_intro;
+  }
 
   // ---------- DESCRIPTION ----------
-  // Podržavamo:
-  // - data.description kao string ili array
-  // - data.desc (array)
-  // - desc_p1, desc_p2, ... (spajamo po prirodnom poretku)
   const descEl = document.getElementById("apt-desc");
   if (descEl){
     descEl.innerHTML = "";
 
     let paragraphs = [];
-
     if (Array.isArray(data.description)) {
       paragraphs = data.description;
     } else if (typeof data.description === "string") {
@@ -60,18 +75,12 @@ async function loadApartment(slug, langOpt){
     } else if (Array.isArray(data.desc)) {
       paragraphs = data.desc;
     } else {
-      // pokupi desc_p1, desc_p2, ... po ključevima
       const descKeys = Object.keys(data)
         .filter(k => /^desc_p\d+$/i.test(k))
-        .sort((a,b) => {
-          const na = parseInt(a.match(/\d+/)[0],10);
-          const nb = parseInt(b.match(/\d+/)[0],10);
-          return na - nb;
-        });
+        .sort((a,b) => parseInt(a.replace(/\D/g,""),10) - parseInt(b.replace(/\D/g,""),10));
       if (descKeys.length){
         paragraphs = descKeys.map(k => data[k]);
       } else if (data.desc_p) {
-        // fallback ako postoji jedan "desc_p"
         paragraphs = [data.desc_p];
       }
     }
@@ -86,7 +95,6 @@ async function loadApartment(slug, langOpt){
   }
 
   // ---------- HIGHLIGHTS / FEATURES ----------
-  // Podržavamo "features" ili "highlights"
   const feats = Array.isArray(data.features) ? data.features
                : Array.isArray(data.highlights) ? data.highlights
                : [];
@@ -114,25 +122,64 @@ async function loadApartment(slug, langOpt){
     }
   }
 
-  // ---------- CALENDAR ----------
-  const wrap = document.getElementById("apt-calendar-wrap");
-  const iframe = document.getElementById("apt-calendar");
-  if (iframe){
-    if (data.calendar){
+  // ---------- INQUIRY FORM (preferirano) ----------
+  const formRendered = renderInquiryForm(slug, lang);
+
+  // ---------- (Opcionalni) FALLBACK NA KALENDAR ----------
+  // Ako ne postoji forma ni na default jeziku, a JSON ima "calendar" i u HTML-u postoji stari kalendar markup,
+  // možeš vratiti prikaz kalendara (ili ga skroz preskočiti, po želji).
+  if (!formRendered) {
+    const wrap = document.getElementById("apt-calendar-wrap");
+    const iframe = document.getElementById("apt-calendar");
+    if (iframe && data.calendar){
       iframe.src = data.calendar;
       if (wrap) wrap.style.display = "";
-    } else {
-      if (wrap) wrap.style.display = "none";
-      iframe.removeAttribute("src");
+    } else if (wrap) {
+      wrap.style.display = "none";
+      if (iframe) iframe.removeAttribute("src");
     }
   }
 }
 
-// globalno izložimo
+/** Render Zoho formu prema jeziku; vraća true ako je forma prikazana */
+function renderInquiryForm(slug, lang){
+  const container = document.getElementById('apt-inquiry');
+  if(!container) return false;
+
+  const urls = FORM_URLS[slug] || {};
+  const src  = urls[lang] || urls[APT_DEFAULT_LANG] || null;
+
+  container.innerHTML = "";
+  if (!src){
+    // nema forme – vrati false da fallback (kalendar) odluči što dalje
+    return false;
+  }
+
+  const iframe = document.createElement("iframe");
+  iframe.title = `${slug.charAt(0).toUpperCase()+slug.slice(1)} Inquiry`;
+  iframe.setAttribute("aria-label", iframe.title);
+  iframe.loading = "lazy";
+  iframe.style.width = "100%";
+  iframe.style.height = "740px"; // fiksna visina
+  iframe.style.border = "none";
+  iframe.src = src;
+
+  container.appendChild(iframe);
+
+  // NoScript fallback link
+  const ns = document.createElement("div");
+  ns.innerHTML = `<noscript><p><a href="${src}" target="_blank" rel="noopener">Open inquiry form</a></p></noscript>`;
+  container.appendChild(ns);
+
+  return true;
+}
+
+// izvoz funkcije
 window.loadApartment = loadApartment;
 
 // auto init po slug-u na <body>
 document.addEventListener("DOMContentLoaded", ()=>{
   const slug = document.body?.getAttribute("data-apt-slug");
-  if (slug) loadApartment(slug);
+  const lang = (localStorage.getItem("lang") || APT_DEFAULT_LANG).toLowerCase();
+  if (slug) loadApartment(slug, lang);
 });
