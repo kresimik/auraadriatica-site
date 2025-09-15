@@ -27,23 +27,35 @@ async function loadApartment(slug, langOpt){
     m.setAttribute('content', data.meta_desc);
   }
 
-  // H1 / intro (optional – in case you want CMS to override hero text)
+  // Hero override (opcionalno)
   const h1 = document.querySelector("h1[data-i18n]");
   if (h1 && data.title) h1.textContent = data.title;
+  const hTitle = document.getElementById("apt-title");
+  if (hTitle && data.title) hTitle.textContent = data.title;
+  const hIntro = document.getElementById("apt-intro");
+  if (hIntro && data.intro) hIntro.textContent = data.intro;
 
-  // Description
+  // Description — podupri array ili string (+ fallback na intro)
   const descEl = document.getElementById("apt-desc");
   if (descEl){
     descEl.innerHTML = "";
-    const text = data.description || data.intro || "";
-    if (text){
-      // split on blank line → paragraphs
-      text.split(/\n\s*\n/).forEach(p=>{
-        const el = document.createElement("p");
-        el.textContent = p.trim();
-        descEl.appendChild(el);
-      });
+
+    let paragraphs = [];
+    if (Array.isArray(data.description)) {
+      paragraphs = data.description.filter(s => typeof s === "string" && s.trim());
+    } else if (typeof data.description === "string") {
+      paragraphs = data.description.split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
     }
+
+    if (!paragraphs.length && typeof data.intro === "string" && data.intro.trim()){
+      paragraphs = [data.intro.trim()];
+    }
+
+    paragraphs.forEach(p=>{
+      const el = document.createElement("p");
+      el.textContent = p;
+      descEl.appendChild(el);
+    });
   }
 
   // Highlights
