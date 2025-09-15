@@ -1,21 +1,37 @@
 {
   "page_title": "Apartman Olive — Aura Adriatica",
-  "meta_desc": "Apartman Olive — balkon s pogledom na more, klima, Wi-Fi, potpuno opremljena kuhinja i privatni parking. Idealno za 2–4 osobe u Ičićima kraj Opatije.",
-  "title": "Apartman Olive",
-  "intro": "Pogled na more, balkon, klima, Wi-Fi — idealno za 2–4 osobe.",
-  "description": "Olive je svijetao i moderan apartman s prostranim balkonom i pogledom na Jadran. Idealan za odmor ili rad na daljinu, nudi potpuno opremljenu kuhinju, klima uređaj, brz Wi-Fi i privatni parking.",
-  "features": [
-    "🌅 Balkon s pogledom na more",
-    "❄️ Klimatizacija",
-    "📶 Brz Wi-Fi (200 Mbps)",
+  "meta_desc": "Apartman Olive — svijetli dvoetažni apartman s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimatizacijom u svim prostorijama i privatnim parkiralištem u Lovranu pokraj Opatije.",
+
+  "olive_h": "Apartman Olive",
+  "olive_intro": "Sunčani dvoetažni apartman s privatnim bazenom, terasom, vrtom i pogledom na more.",
+
+  "desc_h": "Opis",
+  "desc_p1": "Apartman Olive pruža svijetli i prostrani boravak s terasom koja gleda na Jadran. Idealan za 2–4 gosta, nudi moderan interijer, puno prirodnog svjetla i brzi pristup plažama i Opatijskoj rivijeri.",
+  "desc_p2": "Bilo da planirate opuštajući odmor ili rad na daljinu uz more, Olive je opremljen da vaš boravak učini ugodnim i nezaboravnim.",
+
+  "highlights_h": "Posebnosti",
+  "highlights": [
+    "🏊 Privatni bazen",
+    "🌅 Terasa s vrtom i pogledom na more",
+    "🔥 Roštilj",
+    "🚗 Privatno parkiralište",
     "🍳 Potpuno opremljena kuhinja",
-    "🚗 Privatni parking"
+    "❄️ Klimatizirane sve prostorije"
   ],
+
+  "gallery_h": "Galerija",
   "gallery": [
     "/assets/img/olive-1.jpg",
     "/assets/img/olive-2.jpg",
     "/assets/img/olive-3.jpg",
     "/assets/img/olive-4.jpg"
   ],
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=hr&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
+
+  "avail_h": "Dostupnost",
+  "avail_note": "Odaberite datume kako biste provjerili dostupnost.",
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=hr&timezone=Europe%2FBelgrade",
+
+  "contact_h": "Kontakt",
+  "contact_p": "Zainteresirani ste za Apartman Olive? Pošaljite nam svoj upit:",
+  "back_home": "Povratak na početnu"
 }
