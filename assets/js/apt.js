@@ -10,7 +10,7 @@ const FORM_URLS = {
     it: null,
   },
   onyx: {
-    en: null, // <- zalijepi EN link kad ga imaš
+    en: "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
     hr: null,
     de: null,
     it: null,
