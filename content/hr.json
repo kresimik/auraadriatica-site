@@ -1,19 +1,42 @@
 {
-  "page_title": "Apartman Onyx — Aura Adriatica",
-  "meta_desc": "Apartman Onyx — moderan dizajn, terasa, klima, Wi-Fi, kuhinja, privatni parking. Savršeno za 2–4 osobe na Opatijskoj rivijeri.",
-  "title": "Apartman Onyx",
-  "intro": "Moderan dizajn, terasa, parking, Wi-Fi — idealno za 2–4 osobe.",
-  "features": [
-    "🌊 Prostrana terasa",
-    "🚗 Privatni parking",
-    "📶 Wi-Fi 200 Mbps",
-    "❄️ Klimatizacija",
-    "🍳 Potpuno opremljena kuhinja"
+  "brand": "Apartmani Aura Adriatica",
+  "tagline": "Dva dvoetažna apartmana u Lovranu, svaki s privatnim bazenom, prostranom terasom, vrtom i prekrasnim pogledom na more.",
+
+  "meta_desc": "Butik apartmani Olive & Onyx u Ičićima kraj Opatije. Pogled na more, terasa, klima, brzi Wi-Fi, privatni parking.",
+
+  "about_h": "O nama",
+  "about_p": "Dobrodošli u naše boutique dvoetažne apartmane u Lovranu.\nKao strastveni putnici željeli smo stvoriti mjesto gdje će se gosti osjećati kao mi kad putujemo – udobno i inspirirano.\nNaša dva apartmana osmišljena su za opuštanje i uživanje: privatni bazeni, prostrane terase, vrt i prekrasan pogled na more čine savršenu kulisu za nezaborodan odmor na Opatijskoj rivijeri.\nNaša je filozofija jednostavna: spojiti moderan komfor s čarolijom lovranske povijesti i prirode te svakom gostu pružiti topao, osoban doček.\n\nVeselimo se vašem dolasku i zajedničkom otkrivanju ljepota Lovrana.",
+
+  "loc_h": "Lokacija",
+  "loc_p": "Naši se apartmani nalaze u Lovranu, slikovitom obalnom mjestu na Opatijskoj rivijeri. U samo nekoliko minuta hoda nalaze se plaža i šarmantna stara jezgra – idealan spoj opuštanja, tradicije i modernog komfora.\nGosti uživaju u prostranim, svijetlim interijerima opremljenima za bezbrižan odmor – od potpuno opremljene kuhinje i udobnih dnevnih prostora do privatnih balkona s pogledom na more ili vrt.",
+
+  "contact_h": "Kontakt",
+  "contact_email": "info@auraadriatica.com",
+
+  "weather_h": "Vrijeme",
+  "weather_note": "Sedmodnevna prognoza za Lovran (osvježava se svaki sat).",
+
+  "info_list": [
+    "Privatni bazen",
+    "Wi-Fi",
+    "Klima u svim prostorijama",
+    "Potpuno opremljena kuhinja",
+    "Blizina plaže i restorana"
   ],
-  "gallery": [
-    "/assets/img/onyx-1.jpg",
-    "/assets/img/onyx-2.jpg",
-    "/assets/img/onyx-3.jpg"
-  ],
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=hr&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
+
+  "olive_h": "Apartman Olive",
+  "olive_intro": "Sunčani balkon s pogledom na more, parking, brzi Wi-Fi.",
+
+  "onyx_h": "Apartman Onyx",
+  "onyx_intro": "Moderndan dizajn, blizina mora, parking, Wi-Fi.",
+
+  "explore": "Istraži",
+  "gallery": "Galerija",
+  "gallery_intro": "Upoznajte Olive i Onyx te ljepote Opatijske rivijere.",
+  "reviews": "Recenzije",
+
+  "apts_h": "Detalji apartmana",
+  "avail_h": "Dostupnost",
+  "avail_note": "Odaberite datume i provjerite dostupnost.",
+  "back_home": "Povratak na početnu"
 }
