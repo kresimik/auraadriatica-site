@@ -1,19 +1,37 @@
 {
   "page_title": "Apartment Olive — Aura Adriatica",
-  "meta_desc": "Apartment Olive — Meerblick-Balkon, Klimaanlage, WLAN, Küche, Privatparkplatz. Perfekt für 2–4 Gäste an der Riviera von Opatija.",
-  "title": "Apartment Olive",
-  "intro": "Meerblick, Balkon, Klimaanlage, WLAN — ideal für 2–4 Gäste.",
-  "features": [
-    "🌅 Balkon mit Meerblick",
-    "🚗 Privatparkplatz",
-    "📶 WLAN 200 Mbps",
-    "❄️ Klimaanlage",
-    "🍳 Voll ausgestattete Küche"
+  "meta_desc": "Apartment Olive — helles Duplex mit privatem Pool, Terrasse mit Garten und Meerblick, Grill, voll ausgestatteter Küche, Klimaanlage in allen Räumen und privatem Parkplatz in Lovran bei Opatija.",
+
+  "olive_h": "Apartment Olive",
+  "olive_intro": "Helles Duplex mit privatem Pool, Terrasse, Garten und Meerblick.",
+
+  "desc_h": "Beschreibung",
+  "desc_p1": "Das Apartment Olive bietet einen hellen und großzügigen Aufenthalt mit einer sonnigen Terrasse mit Blick auf die Adria. Ideal für 2–4 Gäste, es verfügt über ein modernes Interieur, viel Tageslicht und schnellen Zugang zu den Stränden und der Riviera von Opatija.",
+  "desc_p2": "Ob Sie einen erholsamen Urlaub oder Remote-Arbeit am Meer planen, Olive ist ausgestattet, um Ihren Aufenthalt komfortabel und unvergesslich zu machen.",
+
+  "highlights_h": "Highlights",
+  "highlights": [
+    "🏊 Privater Pool",
+    "🌅 Terrasse mit Garten und Meerblick",
+    "🔥 Grill",
+    "🚗 Privater Parkplatz",
+    "🍳 Voll ausgestattete Küche",
+    "❄️ Klimaanlage in allen Räumen"
   ],
+
+  "gallery_h": "Galerie",
   "gallery": [
     "/assets/img/olive-1.jpg",
     "/assets/img/olive-2.jpg",
-    "/assets/img/olive-3.jpg"
+    "/assets/img/olive-3.jpg",
+    "/assets/img/olive-4.jpg"
   ],
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=de&timezone=Europe%2FBelgrade&showTitle=1&showTimezone=0&startingDayOfWeek=1&timeFormat=1&view=month&showDetail=0&theme=1&showAttendee=0&showSwitchingViews=0&expandAllday=0&eventColorType=light&showAllEvents=0&showLogo=0"
+
+  "avail_h": "Verfügbarkeit",
+  "avail_note": "Wählen Sie Ihre Daten, um die Verfügbarkeit zu prüfen.",
+  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=de&timezone=Europe%2FBelgrade",
+
+  "contact_h": "Kontakt",
+  "contact_p": "Interessiert an Apartment Olive? Senden Sie uns Ihre Anfrage direkt:",
+  "back_home": "Zurück zur Startseite"
 }
