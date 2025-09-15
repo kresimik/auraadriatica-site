@@ -1,22 +1,6 @@
 // /assets/js/apt.js
 const APT_DEFAULT_LANG = "en";
 
-/** 1) URL-ovi Zoho formi po apartmanu i jeziku (dodaj kasnije nove jezike/linkove) */
-const FORM_URLS = {
-  olive: {
-    en: "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
-    hr: null,
-    de: null,
-    it: null,
-  },
-  onyx: {
-    en: "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
-    hr: null,
-    de: null,
-    it: null,
-  }
-};
-
 async function loadApartment(slug, langOpt){
   const lang = (langOpt || localStorage.getItem("lang") || APT_DEFAULT_LANG).toLowerCase();
   const fall = APT_DEFAULT_LANG;
@@ -52,15 +36,11 @@ async function loadApartment(slug, langOpt){
     m.setAttribute('content', data.meta_desc);
   }
 
-  // HERO override (ako JSON ima naslove)
+  // HERO (opcionalni override)
   const h1 = document.querySelector("h1[data-i18n]");
-  if (h1 && (data.title || data.olive_h || data.onyx_h)) {
-    h1.textContent = data.title || data.olive_h || data.onyx_h;
-  }
+  if (h1 && data.title) h1.textContent = data.title;
   const heroIntro = document.querySelector("[data-i18n='olive_intro'], [data-i18n='onyx_intro']");
-  if (heroIntro && (data.intro || data.olive_intro || data.onyx_intro)) {
-    heroIntro.textContent = data.intro || data.olive_intro || data.onyx_intro;
-  }
+  if (heroIntro && data.intro) heroIntro.textContent = data.intro;
 
   // ---------- DESCRIPTION ----------
   const descEl = document.getElementById("apt-desc");
@@ -77,7 +57,7 @@ async function loadApartment(slug, langOpt){
     } else {
       const descKeys = Object.keys(data)
         .filter(k => /^desc_p\d+$/i.test(k))
-        .sort((a,b) => parseInt(a.replace(/\D/g,""),10) - parseInt(b.replace(/\D/g,""),10));
+        .sort((a,b) => parseInt(a.match(/\d+/)[0],10) - parseInt(b.match(/\d+/)[0],10));
       if (descKeys.length){
         paragraphs = descKeys.map(k => data[k]);
       } else if (data.desc_p) {
@@ -122,64 +102,62 @@ async function loadApartment(slug, langOpt){
     }
   }
 
-  // ---------- INQUIRY FORM (preferirano) ----------
-  const formRendered = renderInquiryForm(slug, lang);
+  // ---------- INQUIRY FORM (Zoho) ----------
+  // Podržava:
+  //   inquiry_url_<lang>  (npr. inquiry_url_hr)
+  //   inquiry_url_en      (fallback)
+  //   inquiry_url         (krajnji fallback)
+  const iqWrap = document.getElementById("apt-inquiry-wrap");
+  const iqH    = document.getElementById("apt-inquiry-h");
+  const iqNote = document.getElementById("apt-inquiry-note");
+  const iqBox  = document.getElementById("apt-inquiry");
 
-  // ---------- (Opcionalni) FALLBACK NA KALENDAR ----------
-  // Ako ne postoji forma ni na default jeziku, a JSON ima "calendar" i u HTML-u postoji stari kalendar markup,
-  // možeš vratiti prikaz kalendara (ili ga skroz preskočiti, po želji).
-  if (!formRendered) {
-    const wrap = document.getElementById("apt-calendar-wrap");
-    const iframe = document.getElementById("apt-calendar");
-    if (iframe && data.calendar){
+  if (iqWrap && iqBox){
+    const url =
+      data[`inquiry_url_${lang}`] ||
+      data.inquiry_url_en ||
+      data.inquiry_url ||
+      null;
+
+    if (url){
+      if (data.inquiry_h && iqH)    iqH.textContent = data.inquiry_h;
+      if (data.inquiry_note && iqNote) iqNote.textContent = data.inquiry_note;
+
+      iqWrap.style.display = "";
+      iqBox.innerHTML = "";
+      const iframe = document.createElement("iframe");
+      iframe.setAttribute("aria-label", `${(data.title || slug)} Inquiry`);
+      iframe.src = url;
+      iframe.loading = "lazy";
+      iframe.style.width  = "100%";
+      iframe.style.height = "650px";
+      iframe.style.border = "none";
+      iqBox.appendChild(iframe);
+    } else {
+      iqWrap.style.display = "none";
+      iqBox.innerHTML = "";
+    }
+  }
+
+  // ---------- CALENDAR (ostavljen kao fallback; sakrit će se ako nema URL-a) ----------
+  const wrap = document.getElementById("apt-calendar-wrap");
+  const iframe = document.getElementById("apt-calendar");
+  if (iframe){
+    if (data.calendar){
       iframe.src = data.calendar;
       if (wrap) wrap.style.display = "";
-    } else if (wrap) {
-      wrap.style.display = "none";
-      if (iframe) iframe.removeAttribute("src");
+    } else {
+      if (wrap) wrap.style.display = "none";
+      iframe.removeAttribute("src");
     }
   }
 }
 
-/** Render Zoho formu prema jeziku; vraća true ako je forma prikazana */
-function renderInquiryForm(slug, lang){
-  const container = document.getElementById('apt-inquiry');
-  if(!container) return false;
-
-  const urls = FORM_URLS[slug] || {};
-  const src  = urls[lang] || urls[APT_DEFAULT_LANG] || null;
-
-  container.innerHTML = "";
-  if (!src){
-    // nema forme – vrati false da fallback (kalendar) odluči što dalje
-    return false;
-  }
-
-  const iframe = document.createElement("iframe");
-  iframe.title = `${slug.charAt(0).toUpperCase()+slug.slice(1)} Inquiry`;
-  iframe.setAttribute("aria-label", iframe.title);
-  iframe.loading = "lazy";
-  iframe.style.width = "100%";
-  iframe.style.height = "740px"; // fiksna visina
-  iframe.style.border = "none";
-  iframe.src = src;
-
-  container.appendChild(iframe);
-
-  // NoScript fallback link
-  const ns = document.createElement("div");
-  ns.innerHTML = `<noscript><p><a href="${src}" target="_blank" rel="noopener">Open inquiry form</a></p></noscript>`;
-  container.appendChild(ns);
-
-  return true;
-}
-
-// izvoz funkcije
+// Globalno:
 window.loadApartment = loadApartment;
 
-// auto init po slug-u na <body>
+// Auto init po slug-u
 document.addEventListener("DOMContentLoaded", ()=>{
   const slug = document.body?.getAttribute("data-apt-slug");
-  const lang = (localStorage.getItem("lang") || APT_DEFAULT_LANG).toLowerCase();
-  if (slug) loadApartment(slug, lang);
+  if (slug) loadApartment(slug);
 });
