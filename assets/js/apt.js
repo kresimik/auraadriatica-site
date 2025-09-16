@@ -156,8 +156,26 @@ async function loadApartment(slug, langOpt){
 // Globalno:
 window.loadApartment = loadApartment;
 
-// Auto init po slug-u
 document.addEventListener("DOMContentLoaded", ()=>{
   const slug = document.body?.getAttribute("data-apt-slug");
   if (slug) loadApartment(slug);
+});
+
+// === Auto-resize Zoho iframes ===
+window.addEventListener("message", function (event) {
+  if (event.data && typeof event.data === "string" && event.data.indexOf("zf_height") > -1) {
+    try {
+      const parts = event.data.split("&");
+      const heightPart = parts.find(p => p.indexOf("zf_height") > -1);
+      if (heightPart) {
+        const newHeight = heightPart.split("=")[1];
+        const iframes = document.querySelectorAll("iframe[src*='zohopublic']");
+        iframes && iframes.forEach(frame => {
+          frame.style.height = newHeight + "px";
+        });
+      }
+    } catch (e) {
+      console.warn("Zoho resize error:", e);
+    }
+  }
 });
