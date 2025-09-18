@@ -1,19 +1,24 @@
 {
-  "title": "Apartma Olive",
-  "intro": "Pogled na morje, balkon, klima, Wi-Fi — idealno za 2–4 osebe.",
-  "description": "Olive je svetel, moderen apartma s prostornim balkonom in razgledom na Jadran. Popolnoma opremljena kuhinja, klima, hiter Wi-Fi in zasebno parkirišče so vključeni.",
-  "features": [
-    "Balkon s pogledom na morje",
-    "Klimatska naprava",
-    "Hiter Wi-Fi",
-    "Popolnoma opremljena kuhinja",
-    "Zasebno parkirišče"
-  ],
+  "page_title": "Apartma Olive — Aura Adriatica",
+  "inquiry_note": "Pošljite nam želene datume in odgovorili vam bomo z razpoložljivostjo in cenami.",
+  "meta_desc": "Apartma Olive — svetel dvoetažni apartma z zasebnim bazenom, teraso z vrtom in pogledom na morje, žarom, popolnoma opremljeno kuhinjo, klimatsko napravo v vseh prostorih in zasebnim parkiriščem v Lovranu pri Opatiji.",
+  "intro": "Svetel dvoetažni apartma z zasebnim bazenom, teraso, vrtom in pogledom na morje.",
+  "inquiry_h": "Razpoložljivost & Povpraševanje",
+  "inquiry_url_sl": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
   "gallery": [
-    "/assets/img/sample1.jpg",
-    "/assets/img/sample2.jpg",
-    "/assets/img/sample3.jpg",
-    "/assets/img/sample4.jpg"
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg"
   ],
-  "calendar": ""
+  "title": "Apartma Olive",
+  "description": "Apartma Olive ponuja svetel in prostoren oddih v mirnem delu Lovrana, le 10 minut od centra in znamenite promenade Lungomare. S sončno teraso in zasebnim bazenom s pogledom na Kvarnerski zaliv nudi sodoben udobje, veliko naravne svetlobe in nastanitev za do 6 gostov.\nLe 100 metrov od plaže, z žarom in zasebnim parkiriščem, je Olive idealen tako za sproščujoče počitnice kot tudi za delo na daljavo ob morju.",
+  "features": [
+    "🏊 Zaseben bazen",
+    "🌅 Terasa z vrtom in pogledom na morje",
+    "🔥 Zunanji žar",
+    "🚗 Zasebno parkirišče",
+    "🍳 Popolnoma opremljena kuhinja",
+    "❄️ Klima v vseh prostorih"
+  ]
 }
