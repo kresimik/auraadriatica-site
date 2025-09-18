@@ -1,18 +1,11 @@
 {
   "page_title": "Onyx Apartment — Aura Adriatica",
-  "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates.",
   "meta_desc": "Apartment Onyx — modern duplex close to the sea with private pool, terrace with garden and sea view, BBQ, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
-  "intro": "Modern duplex near the sea with private pool, terrace, garden, and sea view.",
-  "inquiry_h": "Availability & Inquiry",
-  "inquiry_url_en": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
-  "gallery": [
-    "/assets/img/onyx1.jpg",
-    "/assets/img/onyx2.jpg",
-    "/assets/img/onyx3.jpg",
-    "/assets/img/onyx4.jpg"
-  ],
   "title": "Onyx Apartment",
+  "intro": "Modern duplex near the sea with private pool, terrace, garden, and sea view.",
+
   "description": "Apartment Onyx combines modern design with the charm of Lovran’s peaceful surroundings. Situated next to Apartment Olive, it is only 10 minutes from the old town and the famous Lungomare promenade. With its private pool, sun-kissed terrace, and panoramic views of Kvarner Bay, Onyx offers plenty of space, natural light, and accommodation for up to 6 guests.\nPerfect for couples, families, or business travelers, Onyx provides a relaxing yet modern atmosphere for your stay. Just 100 meters from the beach and featuring a private garden, BBQ area, and secure parking, it is a perfect choice for a relaxing stay or working remotely by the sea.",
+
   "features": [
     "🏊 Private pool",
     "🌅 Terrace with garden and sea view",
@@ -20,5 +13,20 @@
     "🚗 Private parking",
     "🍳 Fully equipped kitchen",
     "❄️ Air conditioning in all rooms"
-  ]
+  ],
+
+  "gallery": [
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg"
+  ],
+
+  "inquiry_h": "Availability & Inquiry",
+  "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates.",
+  "inquiry_url_en": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+
+  "contact_h": "Contact",
+  "contact_note_en": "Interested in Apartment Onyx? Send us your inquiry directly:",
+  "contact_email": "info@auraadriatica.com"
 }
