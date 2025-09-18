@@ -1,37 +1,24 @@
 {
   "page_title": "Apartman Olive — Aura Adriatica",
-  "meta_desc": "Apartman Olive — svijetli dvoetažni apartman s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimatizacijom u svim prostorijama i privatnim parkiralištem u Lovranu pokraj Opatije.",
-
-  "olive_h": "Apartman Olive",
-  "olive_intro": "Sunčani dvoetažni apartman s privatnim bazenom, terasom, vrtom i pogledom na more.",
-
-  "desc_h": "Opis",
-  "desc_p1": "Apartman Olive pruža svijetli i prostrani boravak s terasom koja gleda na Jadran. Idealan za 2–4 gosta, nudi moderan interijer, puno prirodnog svjetla i brzi pristup plažama i Opatijskoj rivijeri.",
-  "desc_p2": "Bilo da planirate opuštajući odmor ili rad na daljinu uz more, Olive je opremljen da vaš boravak učini ugodnim i nezaboravnim.",
-
-  "highlights_h": "Posebnosti",
-  "highlights": [
+  "inquiry_note": "Pošaljite nam željene datume i odgovorit ćemo vam s dostupnošću i cijenama.",
+  "meta_desc": "Apartman Olive — svijetli dvoetažni apartman s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimom u svim prostorijama i privatnim parkingom u Lovranu kraj Opatije.",
+  "intro": "Sunčani dvoetažni apartman s privatnim bazenom, terasom, vrtom i pogledom na more.",
+  "inquiry_h": "Dostupnost & Upit",
+  "inquiry_url_hr": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "gallery": [
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg"
+  ],
+  "title": "Apartman Olive",
+  "description": "Apartman Olive nudi svijetao i prostran odmor u mirnom dijelu Lovrana, samo 10 minuta od centra i poznate šetnice Lungomare. Sa sunčanom terasom i privatnim bazenom s pogledom na Kvarnerski zaljev pruža moderan komfor, obilje prirodnog svjetla i smještaj za do 6 gostiju.\nUdaljen je svega 100 metara od plaže, a opremljen je roštiljem i privatnim parkingom — idealan za opuštajući odmor ili rad na daljinu uz more.",
+  "features": [
     "🏊 Privatni bazen",
     "🌅 Terasa s vrtom i pogledom na more",
-    "🔥 Roštilj",
-    "🚗 Privatno parkiralište",
+    "🔥 Vanjski roštilj",
+    "🚗 Privatni parking",
     "🍳 Potpuno opremljena kuhinja",
-    "❄️ Klimatizirane sve prostorije"
-  ],
-
-  "gallery_h": "Galerija",
-  "gallery": [
-    "/assets/img/olive-1.jpg",
-    "/assets/img/olive-2.jpg",
-    "/assets/img/olive-3.jpg",
-    "/assets/img/olive-4.jpg"
-  ],
-
-  "avail_h": "Dostupnost",
-  "avail_note": "Odaberite datume kako biste provjerili dostupnost.",
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=hr&timezone=Europe%2FBelgrade",
-
-  "contact_h": "Kontakt",
-  "contact_p": "Zainteresirani ste za Apartman Olive? Pošaljite nam svoj upit:",
-  "back_home": "Povratak na početnu"
+    "❄️ Klima uređaj u svim prostorijama"
+  ]
 }
