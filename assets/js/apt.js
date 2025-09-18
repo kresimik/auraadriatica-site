@@ -130,7 +130,7 @@ async function loadApartment(slug, langOpt){
       iframe.src = url;
       iframe.loading = "lazy";
       iframe.style.width  = "100%";
-      iframe.style.height = "650px";
+      iframe.style.minHeight = "500px";  // fallback height; autoresize will adjust
       iframe.style.border = "none";
       iqBox.appendChild(iframe);
     } else {
@@ -156,10 +156,12 @@ async function loadApartment(slug, langOpt){
 // Globalno:
 window.loadApartment = loadApartment;
 
+// Auto init po slug-u
 document.addEventListener("DOMContentLoaded", ()=>{
   const slug = document.body?.getAttribute("data-apt-slug");
   if (slug) loadApartment(slug);
 });
+
 
 // === Auto-resize Zoho iframes ===
 window.addEventListener("message", function (event) {
