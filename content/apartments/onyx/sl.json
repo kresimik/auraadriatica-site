@@ -1,19 +1,24 @@
 {
-  "title": "Apartma Onyx",
-  "intro": "Terasa, dostop do vrta, klima, Wi-Fi — idealno za 2–4 osebe.",
-  "description": "Onyx ima zasebno teraso z dostopom do vrta — popolno za jutranjo kavo. Popolnoma opremljena kuhinja, klima, hiter Wi-Fi in zasebno parkirišče so vključeni.",
-  "features": [
-    "Zasebna terasa",
-    "Dostop do vrta",
-    "Klimatska naprava",
-    "Hiter Wi-Fi",
-    "Zasebno parkirišče"
-  ],
+  "page_title": "Apartma Onyx — Aura Adriatica",
+  "inquiry_note": "Pošljite nam želene datume in odgovorili vam bomo z razpoložljivostjo in cenami.",
+  "meta_desc": "Apartma Onyx — moderan dvoetažni apartma blizu morja z zasebnim bazenom, teraso z vrtom in pogledom na morje, žarom, popolnoma opremljeno kuhinjo, klimatsko napravo v vseh prostorih in zasebnim parkiriščem v Lovranu pri Opatiji.",
+  "intro": "Moderan dvoetažni apartma blizu morja z zasebnim bazenom, teraso, vrtom in pogledom na morje.",
+  "inquiry_h": "Razpoložljivost & Povpraševanje",
+  "inquiry_url_sl": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
   "gallery": [
-    "/assets/img/sample1.jpg",
-    "/assets/img/sample2.jpg",
-    "/assets/img/sample3.jpg",
-    "/assets/img/sample4.jpg"
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg"
   ],
-  "calendar": ""
+  "title": "Apartma Onyx",
+  "description": "Apartma Onyx združuje sodoben dizajn s čarom mirnega okolja Lovrana. Nahaja se tik ob apartmaju Olive, le 10 minut od starega mestnega jedra in znamenite promenade Lungomare. Z zasebnim bazenom, sončno teraso in panoramskim razgledom na Kvarnerski zaliv Onyx ponuja veliko prostora, naravne svetlobe in nastanitev za do 6 gostov.\nPopoln za pare, družine ali poslovne popotnike, Onyx nudi sproščeno, a sodobno vzdušje. Le 100 metrov od plaže, z zasebnim vrtom, žarom in varnim parkiriščem, je idealna izbira za sproščujoče počitnice ali delo na daljavo ob morju.",
+  "features": [
+    "🏊 Zaseben bazen",
+    "🌅 Terasa z vrtom in pogledom na morje",
+    "🔥 Zunanji žar",
+    "🚗 Zasebno parkirišče",
+    "🍳 Popolnoma opremljena kuhinja",
+    "❄️ Klima v vseh prostorih"
+  ]
 }
