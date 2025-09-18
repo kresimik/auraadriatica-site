@@ -1,37 +1,24 @@
 {
   "page_title": "Appartamento Olive — Aura Adriatica",
+  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e tariffe.",
   "meta_desc": "Appartamento Olive — luminoso duplex con piscina privata, terrazza con giardino e vista mare, barbecue, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
-
-  "olive_h": "Appartamento Olive",
-  "olive_intro": "Luminoso duplex con piscina privata, terrazza, giardino e vista mare.",
-
-  "desc_h": "Descrizione",
-  "desc_p1": "L'Appartamento Olive offre un soggiorno luminoso e spazioso con terrazza che si affaccia sull'Adriatico. Ideale per 2–4 ospiti, dispone di interni moderni, molta luce naturale e rapido accesso alle spiagge e alla Riviera di Opatija.",
-  "desc_p2": "Che si tratti di una vacanza rilassante o di lavoro a distanza sul mare, Olive è attrezzato per rendere il vostro soggiorno confortevole e indimenticabile.",
-
-  "highlights_h": "Caratteristiche",
-  "highlights": [
+  "intro": "Luminoso duplex con piscina privata, terrazza, giardino e vista mare.",
+  "inquiry_h": "Disponibilità & Richiesta",
+  "inquiry_url_it": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "gallery": [
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg"
+  ],
+  "title": "Appartamento Olive",
+  "description": "L’Appartamento Olive offre un rifugio luminoso e spazioso in una zona tranquilla di Lovran, a soli 10 minuti dal centro e dalla famosa passeggiata Lungomare. Con terrazza soleggiata e piscina privata con vista sulla baia del Quarnero, offre comfort moderno, tanta luce naturale e sistemazioni per un massimo di 6 ospiti.\nSituato a soli 100 metri dalla spiaggia e dotato di area barbecue e parcheggio privato, Olive è perfetto sia per vacanze rilassanti che per lavoro da remoto sul mare.",
+  "features": [
     "🏊 Piscina privata",
     "🌅 Terrazza con giardino e vista mare",
-    "🔥 Barbecue",
+    "🔥 Barbecue esterno",
     "🚗 Parcheggio privato",
     "🍳 Cucina completamente attrezzata",
     "❄️ Aria condizionata in tutte le stanze"
-  ],
-
-  "gallery_h": "Galleria",
-  "gallery": [
-    "/assets/img/olive-1.jpg",
-    "/assets/img/olive-2.jpg",
-    "/assets/img/olive-3.jpg",
-    "/assets/img/olive-4.jpg"
-  ],
-
-  "avail_h": "Disponibilità",
-  "avail_note": "Seleziona le date per verificare la disponibilità.",
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Olive&type=1&language=it&timezone=Europe%2FBelgrade",
-
-  "contact_h": "Contatti",
-  "contact_p": "Interessati all’Appartamento Olive? Inviateci la vostra richiesta:",
-  "back_home": "Torna alla Home"
+  ]
 }
