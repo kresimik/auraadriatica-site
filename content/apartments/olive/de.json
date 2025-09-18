@@ -1,18 +1,9 @@
 {
   "page_title": "Apartment Olive — Aura Adriatica",
-  "inquiry_note": "Senden Sie uns Ihre gewünschten Daten und wir antworten mit Verfügbarkeit und Preisen.",
-  "meta_desc": "Apartment Olive — helles Maisonette mit privatem Pool, Terrasse mit Garten und Meerblick, Grill, voll ausgestatteter Küche, Klimaanlage in allen Räumen und Privatparkplatz in Lovran bei Opatija.",
-  "intro": "Helle Maisonette mit privatem Pool, Terrasse, Garten und Meerblick.",
-  "inquiry_h": "Verfügbarkeit & Anfrage",
-  "inquiry_url_de": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
-  "gallery": [
-    "/assets/img/olive1.jpg",
-    "/assets/img/olive2.jpg",
-    "/assets/img/olive3.jpg",
-    "/assets/img/olive4.jpg"
-  ],
+  "meta_desc": "Apartment Olive — helle Maisonette mit privatem Pool, Terrasse mit Garten und Meerblick, Grill, voll ausgestatteter Küche, Klimaanlage in allen Räumen und Privatparkplatz in Lovran bei Opatija.",
   "title": "Apartment Olive",
-  "description": "Das Apartment Olive bietet einen hellen und großzügigen Rückzugsort in einem ruhigen Teil von Lovran, nur 10 Minuten vom Stadtzentrum und der berühmten Lungomare-Promenade entfernt. Mit sonniger Terrasse und privatem Pool mit Blick auf die Kvarner-Bucht bietet es modernen Komfort, viel Tageslicht und Platz für bis zu 6 Gäste.\nNur 100 Meter vom Strand entfernt und ausgestattet mit Grillbereich und Privatparkplatz, ist Olive perfekt für erholsame Ferien oder Homeoffice am Meer.",
+  "intro": "Helle Maisonette mit privatem Pool, Terrasse, Garten und Meerblick.",
+  "description": "Das Apartment Olive bietet einen hellen und großzügigen Rückzugsort in einem ruhigen Teil von Lovran, nur 10 Minuten vom Stadtzentrum und der berühmten Lungomare-Promenade entfernt. Mit sonniger Terrasse und privatem Pool mit Blick auf die Kvarner-Bucht bietet es modernen Komfort, viel Tageslicht und Platz für bis zu 6 Gäste.\nNur 100 Meter vom Strand entfernt und mit Grillbereich und Privatparkplatz ausgestattet, ist Olive perfekt für einen erholsamen Urlaub oder Homeoffice am Meer.",
   "features": [
     "🏊 Privater Pool",
     "🌅 Terrasse mit Garten und Meerblick",
@@ -20,5 +11,17 @@
     "🚗 Privatparkplatz",
     "🍳 Voll ausgestattete Küche",
     "❄️ Klimaanlage in allen Räumen"
-  ]
+  ],
+  "gallery": [
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg"
+  ],
+  "inquiry_h": "Verfügbarkeit & Anfrage",
+  "inquiry_note": "Senden Sie uns Ihre gewünschten Daten und wir antworten mit Verfügbarkeit und Preisen.",
+  "inquiry_url_de": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "contact_h": "Kontakt",
+  "contact_note_de": "Interessiert an Apartment Olive? Senden Sie uns Ihre Anfrage direkt:",
+  "contact_email": "info@auraadriatica.com"
 }
