@@ -1,37 +1,24 @@
 {
   "page_title": "Appartamento Onyx — Aura Adriatica",
-  "meta_desc": "Appartamento Onyx — moderno duplex con piscina privata, terrazza con giardino e vista mare, barbecue, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
-
-  "onyx_h": "Appartamento Onyx",
-  "onyx_intro": "Moderno duplex con piscina privata, terrazza, giardino e vista mare.",
-
-  "desc_h": "Descrizione",
-  "desc_p1": "L'Appartamento Onyx combina design contemporaneo e comfort, a pochi passi dalla costa adriatica. Ideale per 2–4 ospiti, dispone di interni eleganti, molta luce naturale e facile accesso ai punti salienti della Riviera di Opatija.",
-  "desc_p2": "Perfetto per coppie, famiglie o viaggiatori d'affari, Onyx offre un'atmosfera rilassante ma moderna per il vostro soggiorno.",
-
-  "highlights_h": "Caratteristiche",
-  "highlights": [
+  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e tariffe.",
+  "meta_desc": "Appartamento Onyx — moderno duplex vicino al mare con piscina privata, terrazza con giardino e vista mare, barbecue, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
+  "intro": "Moderno duplex vicino al mare con piscina privata, terrazza, giardino e vista mare.",
+  "inquiry_h": "Disponibilità & Richiesta",
+  "inquiry_url_it": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+  "gallery": [
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg"
+  ],
+  "title": "Appartamento Onyx",
+  "description": "L’Appartamento Onyx unisce il design moderno al fascino della tranquilla cornice di Lovran. Situato accanto all’Appartamento Olive, dista solo 10 minuti dal centro storico e dalla famosa passeggiata Lungomare. Con piscina privata, terrazza soleggiata e vista panoramica sulla baia del Quarnero, Onyx offre ampi spazi, tanta luce naturale e sistemazioni per un massimo di 6 ospiti.\nPerfetto per coppie, famiglie o viaggiatori d’affari, Onyx garantisce un’atmosfera rilassante e moderna. A soli 100 metri dalla spiaggia, con giardino privato, area barbecue e parcheggio sicuro, è una scelta ideale per una vacanza rilassante o per lavorare da remoto sul mare.",
+  "features": [
     "🏊 Piscina privata",
     "🌅 Terrazza con giardino e vista mare",
-    "🔥 Barbecue",
+    "🔥 Barbecue esterno",
     "🚗 Parcheggio privato",
     "🍳 Cucina completamente attrezzata",
     "❄️ Aria condizionata in tutte le stanze"
-  ],
-
-  "gallery_h": "Galleria",
-  "gallery": [
-    "/assets/img/onyx-1.jpg",
-    "/assets/img/onyx-2.jpg",
-    "/assets/img/onyx-3.jpg",
-    "/assets/img/onyx-4.jpg"
-  ],
-
-  "avail_h": "Disponibilità",
-  "avail_note": "Seleziona le date per verificare la disponibilità.",
-  "calendar": "https://calendar.zoho.eu/zc/ui/embed/#calendar=zz08011230aa878e7a0b8b38fc2024eb2798859cbaac0b0c318f78187bf6e1e990133f2d402b96710160238a671b1f97f51a518fa4&title=Onyx&type=1&language=it&timezone=Europe%2FBelgrade",
-
-  "contact_h": "Contatti",
-  "contact_p": "Interessati all’Appartamento Onyx? Inviateci la vostra richiesta:",
-  "back_home": "Torna alla Home"
+  ]
 }
