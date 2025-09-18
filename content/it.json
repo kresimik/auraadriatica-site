@@ -1,35 +1,27 @@
 {
-  "avail_note": "Seleziona le date per verificare la disponibilità.",
-  "olive_h": "Olive",
-  "onyx_h": "Onyx",
-  "brand": "Aura Adriatica Apartments",
-  "olive_intro": "Duplex soleggiato con piscina privata, terrazza, vista mare, parcheggio e Wi-Fi veloce.",
-  "contact_h": "Contatti",
-  "loc_h": "Posizione",
-  "onyx_intro": "Duplex moderno vicino al mare — piscina privata, terrazza, vista mare, parcheggio e Wi-Fi.",
-  "meta_desc": "Aura Adriatica — appartamenti boutique duplex Olive & Onyx a Lovran sulla Riviera di Opatija. Piscine private, vista mare, aria condizionata, Wi-Fi veloce, parcheggio privato.",
-  "tagline": "Due appartamenti duplex a Lovran — ciascuno con piscina privata, terrazza solarium, giardino e vista mare.",
-  "info_list": [
+  "page_title": "Appartamento Onyx — Aura Adriatica",
+  "meta_desc": "Appartamento Onyx — moderno duplex vicino al mare con piscina privata, terrazza con giardino e vista mare, barbecue, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
+  "title": "Appartamento Onyx",
+  "intro": "Moderno duplex vicino al mare con piscina privata, terrazza, giardino e vista mare.",
+  "description": "L’Appartamento Onyx unisce il design moderno al fascino della tranquilla cornice di Lovran. Situato accanto all’Appartamento Olive, dista solo 10 minuti dal centro storico e dalla famosa passeggiata Lungomare. Con piscina privata, terrazza soleggiata e vista panoramica sulla baia del Quarnero, Onyx offre ampi spazi, tanta luce naturale e sistemazioni per un massimo di 6 ospiti.\nPerfetto per coppie, famiglie o viaggiatori d’affari, Onyx garantisce un’atmosfera rilassante e moderna. A soli 100 metri dalla spiaggia, con giardino privato, area barbecue e parcheggio sicuro, è una scelta ideale per una vacanza rilassante o per lavorare da remoto sul mare.",
+  "features": [
     "🏊 Piscina privata",
-    "🌅 Terrazza & giardino con vista mare",
-    "📶 Wi-Fi veloce",
-    "❄️ Aria condizionata in tutte le stanze",
-    "🍳 Cucina completamente attrezzata",
+    "🌅 Terrazza con giardino e vista mare",
+    "🔥 Barbecue esterno",
     "🚗 Parcheggio privato",
-    "🚶 10 minuti a piedi dal centro di Lovran & Lungomare"
+    "🍳 Cucina completamente attrezzata",
+    "❄️ Aria condizionata in tutte le stanze"
   ],
-  "loc_p": "Siamo a Lovran, pittoresca cittadina ai piedi del monte Učka, nel cuore della baia del Quarnero sulla Riviera di Opatija. Questa posizione unica unisce il fascino di un borgo marinaro storico alla bellezza naturale di foreste rigogliose e sentieri di montagna.\nA pochi passi dalla spiaggia, dal centro storico e dalla famosa passeggiata Lungomare, gli appartamenti offrono il perfetto equilibrio tra relax e attività.\nEntrambi sono duplex con due bagni, pensati per il comfort moderno e tanta luce naturale. Ogni unità dispone di piscina privata, terrazza soleggiata con barbecue e spazio esterno con splendida vista mare o giardino. All’interno troverete ambienti luminosi e spaziosi, cucine completamente attrezzate e soggiorni confortevoli — tutto ciò che serve per un soggiorno indimenticabile.",
-  "gallery": "Galleria",
-  "explore": "Esplora",
-  "about_h": "Chi siamo",
-  "info_h": "Informazioni",
-  "back_home": "Torna alla Home",
-  "apts_h": "Dettagli dell’appartamento",
-  "avail_h": "Disponibilità",
-  "reviews": "Recensioni",
-  "weather_note": "Meteo a Lovran — aggiornato quotidianamente.",
-  "contact_email": "info@auraadriatica.com",
-  "weather_h": "Previsioni 7 giorni",
-  "about_p": "Benvenuti nei nostri appartamenti boutique duplex a Lovran.\nDa viaggiatori appassionati, abbiamo creato un luogo che offra il comfort e l’ispirazione che cerchiamo nei nostri viaggi.\nCiascuno dei nostri due appartamenti è pensato per un relax totale: piscina privata, ampia terrazza, giardino e splendida vista mare — la cornice ideale per un soggiorno indimenticabile sulla Riviera di Opatija.\nLa nostra filosofia è semplice: comfort moderno unito al fascino della storia e della natura di Lovran, con un’accoglienza calorosa e personale per ogni ospite.\nNon vediamo l’ora di ospitarvi e condividere con voi la bellezza di Lovran.",
-  "gallery_intro": "Scopri Olive & Onyx e la bellezza della Riviera di Opatija."
+  "gallery": [
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg"
+  ],
+  "inquiry_h": "Disponibilità & Richiesta",
+  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e tariffe.",
+  "inquiry_url_it": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+  "contact_h": "Contatti",
+  "contact_note_it": "Interessati all’Appartamento Onyx? Inviaci direttamente la tua richiesta:",
+  "contact_email": "info@auraadriatica.com"
 }
