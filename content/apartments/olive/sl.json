@@ -1,18 +1,9 @@
 {
   "page_title": "Apartma Olive — Aura Adriatica",
-  "inquiry_note": "Pošljite nam želene datume in odgovorili vam bomo z razpoložljivostjo in cenami.",
   "meta_desc": "Apartma Olive — svetel dvoetažni apartma z zasebnim bazenom, teraso z vrtom in pogledom na morje, žarom, popolnoma opremljeno kuhinjo, klimatsko napravo v vseh prostorih in zasebnim parkiriščem v Lovranu pri Opatiji.",
-  "intro": "Svetel dvoetažni apartma z zasebnim bazenom, teraso, vrtom in pogledom na morje.",
-  "inquiry_h": "Razpoložljivost & Povpraševanje",
-  "inquiry_url_sl": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
-  "gallery": [
-    "/assets/img/olive1.jpg",
-    "/assets/img/olive2.jpg",
-    "/assets/img/olive3.jpg",
-    "/assets/img/olive4.jpg"
-  ],
   "title": "Apartma Olive",
-  "description": "Apartma Olive ponuja svetel in prostoren oddih v mirnem delu Lovrana, le 10 minut od centra in znamenite promenade Lungomare. S sončno teraso in zasebnim bazenom s pogledom na Kvarnerski zaliv nudi sodoben udobje, veliko naravne svetlobe in nastanitev za do 6 gostov.\nLe 100 metrov od plaže, z žarom in zasebnim parkiriščem, je Olive idealen tako za sproščujoče počitnice kot tudi za delo na daljavo ob morju.",
+  "intro": "Svetel dvoetažni apartma z zasebnim bazenom, teraso, vrtom in pogledom na morje.",
+  "description": "Apartma Olive ponuja svetel in prostoren oddih v mirnem delu Lovrana, le 10 minut od središča mesta in znamenite promenade Lungomare. S sončno teraso in zasebnim bazenom s pogledom na Kvarnerski zaliv ponuja sodoben udobje, veliko naravne svetlobe in nastanitev za do 6 gostov.\nLe 100 metrov od plaže, z žarom in zasebnim parkiriščem, je Olive idealen za sproščujoče počitnice ali delo na daljavo ob morju.",
   "features": [
     "🏊 Zaseben bazen",
     "🌅 Terasa z vrtom in pogledom na morje",
@@ -20,5 +11,17 @@
     "🚗 Zasebno parkirišče",
     "🍳 Popolnoma opremljena kuhinja",
     "❄️ Klima v vseh prostorih"
-  ]
+  ],
+  "gallery": [
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg"
+  ],
+  "inquiry_h": "Razpoložljivost & Povpraševanje",
+  "inquiry_note": "Pošljite nam želene datume in odgovorili vam bomo z razpoložljivostjo in cenami.",
+  "inquiry_url_sl": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "contact_h": "Kontakt",
+  "contact_note_sl": "Vas zanima Apartma Olive? Pošljite nam svoje povpraševanje neposredno:",
+  "contact_email": "info@auraadriatica.com"
 }
