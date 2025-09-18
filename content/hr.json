@@ -1,42 +1,35 @@
 {
-  "brand": "Apartmani Aura Adriatica",
-  "tagline": "Dva dvoetažna apartmana u Lovranu, svaki s privatnim bazenom, prostranom terasom, vrtom i prekrasnim pogledom na more.",
-
-  "meta_desc": "Butik apartmani Olive & Onyx u Ičićima kraj Opatije. Pogled na more, terasa, klima, brzi Wi-Fi, privatni parking.",
-
-  "about_h": "O nama",
-  "about_p": "Dobrodošli u naše boutique dvoetažne apartmane u Lovranu.\nKao strastveni putnici željeli smo stvoriti mjesto gdje će se gosti osjećati kao mi kad putujemo – udobno i inspirirano.\nNaša dva apartmana osmišljena su za opuštanje i uživanje: privatni bazeni, prostrane terase, vrt i prekrasan pogled na more čine savršenu kulisu za nezaborodan odmor na Opatijskoj rivijeri.\nNaša je filozofija jednostavna: spojiti moderan komfor s čarolijom lovranske povijesti i prirode te svakom gostu pružiti topao, osoban doček.\n\nVeselimo se vašem dolasku i zajedničkom otkrivanju ljepota Lovrana.",
-
-  "loc_h": "Lokacija",
-  "loc_p": "Naši se apartmani nalaze u Lovranu, slikovitom obalnom mjestu na Opatijskoj rivijeri. U samo nekoliko minuta hoda nalaze se plaža i šarmantna stara jezgra – idealan spoj opuštanja, tradicije i modernog komfora.\nGosti uživaju u prostranim, svijetlim interijerima opremljenima za bezbrižan odmor – od potpuno opremljene kuhinje i udobnih dnevnih prostora do privatnih balkona s pogledom na more ili vrt.",
-
+  "avail_note": "Odaberite datume kako biste provjerili dostupnost.",
+  "olive_h": "Olive",
+  "onyx_h": "Onyx",
+  "brand": "Aura Adriatica Apartments",
+  "olive_intro": "Sunčani dvoetažni apartman s privatnim bazenom, terasom, pogledom na more, parkingom i brzim Wi-Fi-jem.",
   "contact_h": "Kontakt",
-  "contact_email": "info@auraadriatica.com",
-
-  "weather_h": "Vrijeme",
-  "weather_note": "Sedmodnevna prognoza za Lovran (osvježava se svaki sat).",
-
+  "loc_h": "Lokacija",
+  "onyx_intro": "Moderan dvoetažni apartman blizu mora — privatni bazen, terasa, pogled na more, parking i Wi-Fi.",
+  "meta_desc": "Aura Adriatica — boutique dvoetažni apartmani Olive & Onyx u Lovranu na Opatijskoj rivijeri. Privatni bazeni, pogled na more, klima uređaj, brzi Wi-Fi, privatni parking.",
+  "tagline": "Dva dvoetažna apartmana u Lovranu — svaki s privatnim bazenom, sunčanom terasom, vrtom i pogledom na more.",
   "info_list": [
-    "Privatni bazen",
-    "Wi-Fi",
-    "Klima u svim prostorijama",
-    "Potpuno opremljena kuhinja",
-    "Blizina plaže i restorana"
+    "🏊 Privatni bazen",
+    "🌅 Terasa i vrt s pogledom na more",
+    "📶 Brzi Wi-Fi",
+    "❄️ Klima uređaj u svim prostorijama",
+    "🍳 Potpuno opremljena kuhinja",
+    "🚗 Privatni parking",
+    "🚶 10 minuta hoda do centra Lovrana i Lungomara"
   ],
-
-  "olive_h": "Apartman Olive",
-  "olive_intro": "Sunčani balkon s pogledom na more, parking, brzi Wi-Fi.",
-
-  "onyx_h": "Apartman Onyx",
-  "onyx_intro": "Moderndan dizajn, blizina mora, parking, Wi-Fi.",
-
-  "explore": "Istraži",
+  "loc_p": "Nalazimo se u Lovranu, slikovitom primorskom mjestu podno Učke, u srcu Kvarnerskog zaljeva na Opatijskoj rivijeri. Ova jedinstvena lokacija spaja šarm povijesnog gradića s prirodnim ljepotama šuma i planinskih staza iznad.\nSamo nekoliko minuta hoda do plaže, stare gradske jezgre i poznate šetnice Lungomare, apartmani nude savršenu ravnotežu opuštanja i aktivnosti.\nOba su dvoetažna apartmana s dvije kupaonice, osmišljena za moderan komfor i obilje prirodnog svjetla. Svaka jedinica ima privatni bazen, sunčanu terasu s roštiljem i privatni vanjski prostor s prekrasnim pogledom na more ili vrt. Unutra vas očekuju svijetli i prostrani interijeri, potpuno opremljene kuhinje i udobni dnevni boravci — sve što trebate za nezaboravan boravak.",
   "gallery": "Galerija",
-  "gallery_intro": "Upoznajte Olive i Onyx te ljepote Opatijske rivijere.",
-  "reviews": "Recenzije",
-
+  "explore": "Istražite",
+  "about_h": "O nama",
+  "info_h": "Informacije",
+  "back_home": "Natrag na početnu",
   "apts_h": "Detalji apartmana",
   "avail_h": "Dostupnost",
-  "avail_note": "Odaberite datume i provjerite dostupnost.",
-  "back_home": "Povratak na početnu"
+  "reviews": "Recenzije",
+  "weather_note": "Vrijeme u Lovranu — dnevno ažurirano.",
+  "contact_email": "info@auraadriatica.com",
+  "weather_h": "Prognoza za 7 dana",
+  "about_p": "Dobrodošli u naše boutique dvoetažne apartmane u Lovranu.\nKao strastveni putnici, željeli smo stvoriti mjesto koje pruža udobnost i inspiraciju kakvu i sami tražimo na putovanjima.\nSvaki od naša dva apartmana osmišljen je za potpuni odmor: privatni bazen, prostrana terasa, vrt i prekrasan pogled na more — savršena kulisa za nezaboravan boravak na Opatijskoj rivijeri.\nNaša filozofija je jednostavna: moderan komfor povezan s ljepotom povijesti i prirode Lovrana, uz topao i osoban doček svakog gosta.\nVeselimo se što ćemo vas ugostiti i podijeliti s vama ljepotu Lovrana.",
+  "gallery_intro": "Otkrijte Olive & Onyx i ljepotu Opatijske rivijere."
 }
