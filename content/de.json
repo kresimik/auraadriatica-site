@@ -1,42 +1,35 @@
 {
+  "avail_note": "Wählen Sie Ihre Daten, um die Verfügbarkeit zu prüfen.",
+  "olive_h": "Olive",
+  "onyx_h": "Onyx",
   "brand": "Aura Adriatica Apartments",
-  "tagline": "Zwei Maisonette-Apartments in Lovran, jeweils mit privatem Pool, großer Terrasse, Garten und herrlichem Meerblick.",
-
-  "meta_desc": "Boutique-Apartments Olive & Onyx in Ičići bei Opatija. Meerblick, Terrasse, Klimaanlage, schnelles WLAN, Privatparkplatz.",
-
-  "about_h": "Über uns",
-  "about_p": "Willkommen in unseren Boutique-Maisonette-Apartments in Lovran.\nAls leidenschaftliche Reisende wollten wir einen Ort schaffen, an dem sich Gäste genauso wohl und inspiriert fühlen wie wir unterwegs.\nBeide Apartments sind auf Entspannung ausgelegt: private Pools, großzügige Terrassen, Garten und fantastischer Meerblick – die perfekte Kulisse für unvergessliche Urlaubstage an der Opatija-Riviera.\nUnsere Philosophie: moderner Komfort trifft auf den Charme von Lovrans Geschichte und Natur – mit herzlicher, persönlicher Gastfreundschaft.\n\nWir freuen uns darauf, Sie zu beherbergen und Ihnen die Schönheiten Lovrans zu zeigen.",
-
-  "loc_h": "Lage",
-  "loc_p": "Unsere Apartments liegen in Lovran, einer malerischen Küstenstadt an der Opatija-Riviera in Kroatien. Strand und die charmante Altstadt sind nur wenige Gehminuten entfernt – ideal für Entspannung, Tradition und modernen Komfort.\nDie großzügigen, hellen Innenräume sind vollständig ausgestattet – von der Küche über gemütliche Wohnbereiche bis zu privaten Balkonen mit Blick auf Meer oder Garten.",
-
+  "olive_intro": "Sonnige Maisonette mit privatem Pool, Terrasse, Meerblick, Parkplatz und schnellem WLAN.",
   "contact_h": "Kontakt",
-  "contact_email": "info@auraadriatica.com",
-
-  "weather_h": "Wetter",
-  "weather_note": "7-Tage-Vorhersage für Lovran (stündlich aktualisiert).",
-
+  "loc_h": "Lage",
+  "onyx_intro": "Moderne Maisonette nahe dem Meer — privater Pool, Terrasse, Meerblick, Parkplatz und WLAN.",
+  "meta_desc": "Aura Adriatica — Boutique-Maisonette-Apartments Olive & Onyx in Lovran an der Riviera von Opatija. Private Pools, Meerblick, Klimaanlage, schnelles WLAN, Privatparkplatz.",
+  "tagline": "Zwei Maisonette-Apartments in Lovran — jeweils mit privatem Pool, Sonnenterrasse, Garten und Meerblick.",
   "info_list": [
-    "Privater Pool",
-    "WLAN",
-    "Klimaanlage in allen Räumen",
-    "Voll ausgestattete Küche",
-    "Strand und Restaurants in der Nähe"
+    "🏊 Privater Pool",
+    "🌅 Terrasse & Garten mit Meerblick",
+    "📶 Schnelles WLAN",
+    "❄️ Klimaanlage in allen Räumen",
+    "🍳 Voll ausgestattete Küche",
+    "🚗 Privatparkplatz",
+    "🚶 10 Minuten zu Fuß ins Zentrum von Lovran & zum Lungomare"
   ],
-
-  "olive_h": "Apartment Olive",
-  "olive_intro": "Sonniger Balkon mit Meerblick, Parkplatz, schnelles WLAN.",
-
-  "onyx_h": "Apartment Onyx",
-  "onyx_intro": "Modernes Design, nah am Meer, Parkplatz, WLAN.",
-
-  "explore": "Entdecken",
+  "loc_p": "Wir befinden uns in Lovran, einem malerischen Küstenstädtchen am Fuße des Učka-Gebirges, mitten in der Kvarner-Bucht an der kroatischen Riviera von Opatija. Diese einzigartige Lage verbindet den Charme einer historischen Küstenstadt mit der Naturkulisse von Wäldern und Bergpfaden.\nNur wenige Gehminuten zum Strand, zur Altstadt und zur berühmten Lungomare-Promenade bieten die Apartments die perfekte Mischung aus Entspannung und Aktivität.\nBeide sind Maisonette-Wohnungen mit zwei Bädern, modernem Komfort und viel Tageslicht. Jede Einheit verfügt über einen privaten Pool, eine sonnige Terrasse mit Grill und einen privaten Außenbereich mit atemberaubendem Meer- oder Gartenblick. Innen erwarten Sie helle, großzügige Räume, voll ausgestattete Küchen und komfortable Wohnbereiche — alles für einen unvergesslichen Aufenthalt.",
   "gallery": "Galerie",
-  "gallery_intro": "Entdecken Sie Olive & Onyx und die Schönheit der Opatija-Riviera.",
-  "reviews": "Bewertungen",
-
+  "explore": "Entdecken",
+  "about_h": "Über uns",
+  "info_h": "Informationen",
+  "back_home": "Zurück zur Startseite",
   "apts_h": "Apartmentdetails",
   "avail_h": "Verfügbarkeit",
-  "avail_note": "Wählen Sie Ihre Daten, um die Verfügbarkeit zu prüfen.",
-  "back_home": "Zur Startseite"
+  "reviews": "Bewertungen",
+  "weather_note": "Wetter in Lovran — täglich aktualisiert.",
+  "contact_email": "info@auraadriatica.com",
+  "weather_h": "7-Tage-Vorhersage",
+  "about_p": "Willkommen in unseren Boutique-Maisonette-Apartments in Lovran.\nAls leidenschaftliche Reisende haben wir einen Ort geschaffen, der den Komfort und die Inspiration bietet, die wir auf Reisen suchen.\nJedes unserer beiden Apartments ist für entspannte Erholung ausgelegt: privater Pool, großzügige Terrasse, Garten und weiter Meerblick — die perfekte Kulisse für einen unvergesslichen Aufenthalt an der Riviera von Opatija.\nUnsere Philosophie ist einfach: moderner Komfort kombiniert mit dem Charme von Lovrans Geschichte und Natur, dazu ein herzlicher Empfang für jeden Gast.\nWir freuen uns darauf, Sie zu beherbergen und Ihnen die Schönheit von Lovran zu zeigen.",
+  "gallery_intro": "Entdecken Sie Olive & Onyx und die Schönheit der Riviera von Opatija."
 }
