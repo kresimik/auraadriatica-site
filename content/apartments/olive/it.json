@@ -1,18 +1,9 @@
 {
   "page_title": "Appartamento Olive — Aura Adriatica",
-  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e tariffe.",
   "meta_desc": "Appartamento Olive — luminoso duplex con piscina privata, terrazza con giardino e vista mare, barbecue, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
-  "intro": "Luminoso duplex con piscina privata, terrazza, giardino e vista mare.",
-  "inquiry_h": "Disponibilità & Richiesta",
-  "inquiry_url_it": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
-  "gallery": [
-    "/assets/img/olive1.jpg",
-    "/assets/img/olive2.jpg",
-    "/assets/img/olive3.jpg",
-    "/assets/img/olive4.jpg"
-  ],
   "title": "Appartamento Olive",
-  "description": "L’Appartamento Olive offre un rifugio luminoso e spazioso in una zona tranquilla di Lovran, a soli 10 minuti dal centro e dalla famosa passeggiata Lungomare. Con terrazza soleggiata e piscina privata con vista sulla baia del Quarnero, offre comfort moderno, tanta luce naturale e sistemazioni per un massimo di 6 ospiti.\nSituato a soli 100 metri dalla spiaggia e dotato di area barbecue e parcheggio privato, Olive è perfetto sia per vacanze rilassanti che per lavoro da remoto sul mare.",
+  "intro": "Luminoso duplex con piscina privata, terrazza, giardino e vista mare.",
+  "description": "L’Appartamento Olive offre un rifugio luminoso e spazioso in una zona tranquilla di Lovran, a soli 10 minuti dal centro e dalla famosa passeggiata Lungomare. Con terrazza soleggiata e piscina privata con vista sul Quarnero, offre comfort moderni, molta luce naturale e alloggio per un massimo di 6 persone.\nSituato a soli 100 metri dalla spiaggia e dotato di area barbecue e parcheggio privato, Olive è perfetto sia per vacanze rilassanti che per lavorare da remoto sul mare.",
   "features": [
     "🏊 Piscina privata",
     "🌅 Terrazza con giardino e vista mare",
@@ -20,5 +11,17 @@
     "🚗 Parcheggio privato",
     "🍳 Cucina completamente attrezzata",
     "❄️ Aria condizionata in tutte le stanze"
-  ]
+  ],
+  "gallery": [
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg"
+  ],
+  "inquiry_h": "Disponibilità & Richiesta",
+  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e tariffe.",
+  "inquiry_url_it": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "contact_h": "Contatti",
+  "contact_note_it": "Interessati all’Appartamento Olive? Inviaci direttamente la tua richiesta:",
+  "contact_email": "info@auraadriatica.com"
 }
