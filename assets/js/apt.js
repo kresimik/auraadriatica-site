@@ -139,6 +139,40 @@ async function loadApartment(slug, langOpt){
     }
   }
 
+    // ---------- CONTACT (CMS-driven) ----------
+  (function(){
+    const wrap   = document.getElementById("apt-contact-wrap");
+    const textEl = document.getElementById("apt-contact-text");
+    const mailEl = document.getElementById("apt-contact-email");
+    if (!wrap || !textEl) return; // nema sekcije u HTML-u
+
+    try {
+      // e-mail: prvo tražimo lokalizirani iz apartmanskog JSON-a, pa generički
+      const email =
+        data[`contact_email_${lang}`] ||
+        data.contact_email ||
+        (mailEl && mailEl.textContent && mailEl.textContent.trim()) ||
+        "info@auraadriatica.com";
+
+      // poruka: lokalizirani ključ → generički → fallback templata
+      let note =
+        data[`contact_note_${lang}`] ||
+        data.contact_note ||
+        null;
+
+      if (!note) {
+        const aptName = (data.title || slug || "Apartment");
+        note = `Interested in ${aptName}? Send us your inquiry directly:`;
+      }
+
+      // ispis
+      textEl.innerHTML = `${note} <a id="apt-contact-email" href="mailto:${email}">${email}</a>`;
+      wrap.style.display = ""; // osiguraj da je vidljivo
+    } catch (e) {
+      console.warn("[apt] contact fill error", e);
+    }
+  })();
+
   // ---------- CALENDAR (ostavljen kao fallback; sakrit će se ako nema URL-a) ----------
   const wrap = document.getElementById("apt-calendar-wrap");
   const iframe = document.getElementById("apt-calendar");
