@@ -161,5 +161,23 @@
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+  // Kad korisnik promijeni jezik u dropdownu:
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.lang-menu button[data-lang]');
+    if (!btn) return;
+    const lang = btn.dataset.lang;
+
+    // Prevedi statičke label-e (header/nav) preko i18n.js
+    if (typeof window.setLang === 'function') {
+      await window.setLang(lang);
+    }
+
+    // Učitaj dinamiku (sadržaj stranice) iz /content/guest/{lang}.json
+    if (typeof window.loadGuestUnified === 'function') {
+      await window.loadGuestUnified(lang);
+    }
+  });
+</script>
 </body>
 </html>
