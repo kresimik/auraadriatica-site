@@ -1,103 +1,56 @@
 {
-  "hero_title": "Guest & Local Information",
-  "hero_sub": "Practical tips and insider information for your stay at Aura Adriatica.",
+  "guest_h1": "Guest & Local Information",
+  "guest_sub": "Practical details, Wi-Fi, arrival info, and local tips for your stay.",
 
-  "sections": {
-    "addresses": {
-      "title": "Apartment Addresses",
-      "items": [
-        "Onyx Apartment: Rezine 7H, Lovran – [Map](https://www.google.com/maps/place/Rezine+7H,+Lovran)",
-        "Olive Apartment: Rezine 7G, Lovran – [Map](https://www.google.com/maps/place/Rezine+7G,+Lovran)"
-      ],
-      "note": "We recommend using Google Maps for accurate directions. Don't be confused by Google Maps 'street view' images – they were taken before the apartments were built."
-    },
+  "addr_h": "Apartment Addresses",
+  "parking_h": "Parking",
+  "lock_h": "Secure Digital Key",
+  "wifi_h": "Wi-Fi Information",
+  "registration_h": "Guest Registration",
+  "waste_h": "Waste Disposal",
+  "groceries_h": "Groceries",
+  "restaurants_h": "Recommended Restaurants",
+  "beaches_h": "Nearby Beaches",
+  "market_h": "Food Market & Tourist Info",
+  "footer_note": "We look forward to hosting you — enjoy your stay!",
 
-    "parking": {
-      "title": "Parking",
-      "text": "There are three private parking spaces in front of each apartment, all available and reserved for you."
-    },
-
-    "keys": {
-      "title": "Secure Digital Key",
-      "text": "The apartments have a secure digital lock with a PIN. Before arrival, we will send you the PIN via WhatsApp, SMS, or email."
-    },
-
-    "wifi": {
-      "title": "Wi-Fi Information",
-      "ssid": "AuraAdriatica_Guest",
-      "password": "AuraA20&24!",
-      "qr": "/assets/img/wifi-qr.png",
-      "note": "Scan the QR code to connect automatically."
-    },
-
-    "registration": {
-      "title": "Guest Registration",
-      "text": "Following the legal requirements of the Republic of Croatia, all guests staying in commercial accommodation must be registered. To speed up the check-in process, we're sending you a link where you can fill in the necessary details for each guest:",
-      "link": "https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c"
-    },
-
-    "waste": {
-      "title": "Waste Disposal",
-      "text": "Two waste bins are available: one for mixed waste and one for plastic. These bins are located in the parking lot. To access the mixed waste bin, you will need a key. In the Onyx apartment, the key is on the shelf to the right of the entrance door. In the Olive apartment, the key is in the rightmost drawer of the kitchen island, attached to a keychain labeled 'Lovran'."
-    },
-
-    "check": {
-      "title": "Check-in & Check-Out",
-      "text": "Check-in from 15:00; check-out by 11:00."
-    },
-
-    "groceries": {
-      "title": "Groceries",
-      "items": [
-        "Konzum (500m) – [Map](https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA)",
-        "Plodine (3km) – [Map](https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9)"
-      ]
-    },
-
-    "market": {
-      "title": "Food Market",
-      "text": "[View on map](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)"
-    },
-
-    "delicacies": {
-      "title": "Local Delicacies",
-      "text": "Peperoncino Lovran – [Map](https://maps.app.goo.gl/5a6xNydsCUEih4jt5)"
-    },
-
-    "restaurants": {
-      "title": "Recommended Restaurants",
-      "items": [
-        "Ganeum, Lovran – [Map](https://maps.app.goo.gl/yUTKW83KbX3xhhYV9)",
-        "Najade, Lovran – [Map](https://maps.app.goo.gl/VXj3Le13ZaP5uZR27)",
-        "Draga di Lovrana, Lovranska Draga – [Map](https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6)",
-        "Plavi podrum, Volosko – [Map](https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7)",
-        "Valle Losca, Opatija – [Map](https://maps.app.goo.gl/4Kyh5pqQoDDbubow7)",
-        "Zijavica, Mošćenička Draga – [Map](https://maps.app.goo.gl/aqptnU64dprdEro19)",
-        "Ružmarin, Opatija – [Map](https://maps.app.goo.gl/cPMscVMU4gnontM97)",
-        "Johnson Restaurant, Mošćenička Draga – [Map](https://maps.app.goo.gl/aobtvfK67GLamKRC8)",
-        "Bistro Fortica, Kastav – [Map](https://maps.app.goo.gl/1gJWz9zBvvuKYdju5)",
-        "Istranka, Opatija – [Map](https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78)"
-      ]
-    },
-
-    "beaches": {
-      "title": "Nearby Beaches",
-      "items": [
-        "Peharovo – [Map](https://maps.app.goo.gl/jnKYDnaNymPPRa1K8)",
-        "Cipera – [Map](https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7)",
-        "Kvarner – [Map](https://maps.app.goo.gl/y1teyu9YMguTyPXF7)",
-        "Medveja – [Map](https://maps.app.goo.gl/gzheik8unN1ocQLx9)",
-        "Mošćenička Draga – [Map](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
-        "Ičići – [Map](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
-        "Opatija – [Map](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
-      ]
-    },
-
-    "tourist": {
-      "title": "Tourist Info",
-      "text": "For more information about Lovran and surroundings, please visit [visitlovran.com](https://visitlovran.com/destinacija/lovran/)."
-    }
+  "addresses": [
+    "Onyx Apartment: Rezine 7H, Lovran (Google Maps)",
+    "Olive Apartment: Rezine 7G, Lovran (Google Maps)"
+  ],
+  "parking": "There are three private parking spaces in front of each apartment, all available and reserved for you.",
+  "lock": "The apartments have a secure digital lock with a PIN. Before arrival, we will send you the PIN via WhatsApp, SMS, or email.",
+  "wifi": {
+    "text": "The Wi-Fi network name is AuraAdriatica_Guest and the password is AuraA20&24!. You can also scan the QR code to connect automatically.",
+    "qr": "/assets/img/wifi-qr.png"
   },
-
-  "footer_note": "We look forward to hosting you — have a pleasant stay!"
+  "registration": "Following Croatian law, all guests must be registered. To speed up check-in, please fill in details for each guest: https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c",
+  "waste": "Two waste bins are available: one for mixed waste and one for plastic. These bins are located in the parking lot. To access the mixed waste bin, you will need a key. In the Onyx apartment, the key is on the shelf to the right of the entrance door. In the Olive apartment, the key is in the rightmost drawer of the kitchen island, attached to a keychain labeled 'Lovran'.",
+  "groceries": [
+    "Konzum (500m) — https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA",
+    "Plodine (3km) — https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9"
+  ],
+  "restaurants": [
+    "Ganeum, Lovran — https://maps.app.goo.gl/yUTKW83KbX3xhhYV9",
+    "Najade, Lovran — https://maps.app.goo.gl/VXj3Le13ZaP5uZR27",
+    "Draga di Lovrana, Lovranska Draga — https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6",
+    "Plavi podrum, Volosko — https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7",
+    "Valle Losca, Opatija — https://maps.app.goo.gl/4Kyh5pqQoDDbubow7",
+    "Zijavica, Mošćenička Draga — https://maps.app.goo.gl/aqptnU64dprdEro19",
+    "Ružmarin, Opatija — https://maps.app.goo.gl/cPMscVMU4gnontM97",
+    "Johnson Restaurant, Mošćenička Draga — https://maps.app.goo.gl/aobtvfK67GLamKRC8",
+    "Bistro Fortica, Kastav — https://maps.app.goo.gl/1gJWz9zBvvuKYdju5",
+    "Istranka, Opatija — https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78"
+  ],
+  "beaches": [
+    "Peharovo — https://maps.app.goo.gl/jnKYDnaNymPPRa1K8",
+    "Cipera — https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7",
+    "Kvarner — https://maps.app.goo.gl/y1teyu9YMguTyPXF7",
+    "Medveja — https://maps.app.goo.gl/gzheik8unN1ocQLx9",
+    "Mošćenička Draga — https://maps.app.goo.gl/JxDdQnYAmVADEnfF8",
+    "Ičići — https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9",
+    "Opatija — https://maps.app.goo.gl/djPMCyABH8tkoKe5A"
+  ],
+  "market": "Food Market in Lovran: https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8",
+  "tourist": "More about Lovran: https://visitlovran.com/destinacija/lovran/"
 }
