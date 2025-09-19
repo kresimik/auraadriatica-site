@@ -24,7 +24,9 @@
     {
       "title": "Wi-Fi Information",
       "type": "html",
-      "content": "Wi-Fi network: <strong>AuraAdriatica_Guest</strong>, password: <strong>AuraA20&24!</strong><br>Or scan the QR code:<br><img src='/assets/img/wifi-qr.png' alt='Wi-Fi QR' style='max-width:120px'>"
+      "html_kind": "wifi",
+      "content": "Wi-Fi network: <strong>AuraAdriatica_Guest</strong>, password: <strong>AuraA20&24!</strong><br>Or scan the QR code:",
+      "qr": "/assets/img/wifi-qr.png"
     },
     {
       "title": "Guest Registration",
@@ -34,7 +36,7 @@
     {
       "title": "Waste Disposal",
       "type": "html",
-      "content": "Two bins: one for mixed waste and one for plastic, located in the parking lot.<br>Key location: Onyx – shelf by the entrance door; Olive – right drawer in the kitchen island."
+      "content": "Two bins: one for mixed waste and one for plastic (in the parking area).<br>Key: Onyx — shelf to the right of the entrance door; Olive — rightmost drawer in the kitchen island."
     },
     {
       "title": "Groceries",
@@ -50,14 +52,7 @@
       "items": [
         "Ganeum, Lovran — https://maps.app.goo.gl/yUTKW83KbX3xhYV9",
         "Najade, Lovran — https://maps.app.goo.gl/VXj3Le13ZaP5uZR27",
-        "Draga di Lovrana, Lovranska Draga — https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6",
-        "Plavi podrum, Volosko — https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7",
-        "Valle Losca, Opatija — https://maps.app.goo.gl/4Kyh5pqQoDDbubow7",
-        "Zijavica, Mošćenička Draga — https://maps.app.goo.gl/aqptnU64dpdrEro19",
-        "Ružmarin, Opatija — https://maps.app.goo.gl/cPMscVMU4gnontM97",
-        "Johnson Restaurant, Mošćenička Draga — https://maps.app.goo.gl/aobtvfK67GLamKRC8",
-        "Bistro Fortica, Kastav — https://maps.app.goo.gl/1gJWz9zBvvuKYdju5",
-        "Istranka, Opatija — https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78"
+        "Draga di Lovrana, Lovranska Draga — https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6"
       ]
     },
     {
@@ -66,11 +61,7 @@
       "items": [
         "Peharovo — https://maps.app.goo.gl/jnKYDnaNymPPRa1K8",
         "Cipera — https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7",
-        "Kvarner — https://maps.app.goo.gl/y1teyu9YMguTyPXF7",
-        "Medveja — https://maps.app.goo.gl/gzheik8unN1ocQLx9",
-        "Mošćenička Draga — https://maps.app.goo.gl/JxDdQnYAmVADEnfF8",
-        "Ičići — https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9",
-        "Opatija — https://maps.app.goo.gl/djPMCyABH8tkoKe5A"
+        "Kvarner — https://maps.app.goo.gl/y1teyu9YMguTyPXF7"
       ]
     },
     {
