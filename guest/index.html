@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=guest4">
+  <link rel="stylesheet" href="/assets/css/style.css?v=guest5">
 
   <style>
     .info-grid {
@@ -63,7 +63,7 @@
 
   <!-- JS -->
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/guest.js?v=4" defer></script>
+  <script src="/assets/js/guest.js?v=5" defer></script>
 </head>
 <body class="guest">
 
@@ -106,8 +106,10 @@
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
       url('/assets/img/guest-hero.jpg');">
     <div class="container hero-center">
-      <h1 id="guest-h1">Guest & Local Information</h1>
-      <p id="guest-sub" class="muted">Practical details, Wi-Fi, arrival info, and local tips for your stay.</p>
+      <h1 id="guest-h1" data-i18n="guest_h1">Guest & Local Information</h1>
+      <p id="guest-sub" data-i18n="guest_sub" class="muted">
+        Practical details, Wi-Fi, arrival info, and local tips for your stay.
+      </p>
     </div>
   </section>
 
@@ -117,27 +119,33 @@
 
       <!-- Block 1: Arrival & Basics -->
       <div class="info-grid">
-        <div class="info-section"><h2>Addresses</h2><div id="addresses"></div></div>
-        <div class="info-section"><h2>Parking</h2><div id="parking"></div></div>
-        <div class="info-section"><h2>Digital Key</h2><div id="lock"></div></div>
+        <div class="info-section"><h2 data-i18n="addr_h">Apartment Addresses</h2><div id="addresses"></div></div>
+        <div class="info-section"><h2 data-i18n="parking_h">Parking</h2><div id="parking"></div></div>
+        <div class="info-section"><h2 data-i18n="lock_h">Secure Digital Key</h2><div id="lock"></div></div>
       </div>
 
       <!-- Block 2: Internet, Registration, Waste -->
       <div class="info-grid">
-        <div class="info-section"><h2>Wi-Fi</h2><div id="wifi"></div></div>
-        <div class="info-section"><h2>Guest Registration</h2><div id="registration"></div></div>
-        <div class="info-section"><h2>Waste Disposal</h2><div id="waste"></div></div>
+        <div class="info-section"><h2 data-i18n="wifi_h">Wi-Fi Information</h2><div id="wifi"></div></div>
+        <div class="info-section"><h2 data-i18n="registration_h">Guest Registration</h2><div id="registration"></div></div>
+        <div class="info-section"><h2 data-i18n="waste_h">Waste Disposal</h2><div id="waste"></div></div>
       </div>
 
       <!-- Block 3: Local Tips -->
       <div class="info-grid">
-        <div class="info-section"><h2>Groceries</h2><div id="groceries"></div></div>
-        <div class="info-section"><h2>Restaurants</h2><div id="restaurants"></div></div>
-        <div class="info-section"><h2>Beaches</h2><div id="beaches"></div></div>
-        <div class="info-section" style="grid-column:1/-1"><h2>Food Market & Tourist Info</h2><div id="market"></div><div id="tourist" style="margin-top:.5rem"></div></div>
+        <div class="info-section"><h2 data-i18n="groceries_h">Groceries</h2><div id="groceries"></div></div>
+        <div class="info-section"><h2 data-i18n="restaurants_h">Recommended Restaurants</h2><div id="restaurants"></div></div>
+        <div class="info-section"><h2 data-i18n="beaches_h">Nearby Beaches</h2><div id="beaches"></div></div>
+        <div class="info-section" style="grid-column:1/-1">
+          <h2 data-i18n="market_h">Food Market & Tourist Info</h2>
+          <div id="market"></div>
+          <div id="tourist" style="margin-top:.5rem"></div>
+        </div>
       </div>
 
-      <p class="footer-note" id="footer_note">We look forward to hosting you — enjoy your stay!</p>
+      <p class="footer-note" id="footer_note" data-i18n="footer_note">
+        We look forward to hosting you — enjoy your stay!
+      </p>
     </div>
   </section>
 
@@ -161,23 +169,21 @@
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- HOOK language change → reload guest content -->
   <script>
-  // Kad korisnik promijeni jezik u dropdownu:
-  document.addEventListener('click', async (e) => {
-    const btn = e.target.closest('.lang-menu button[data-lang]');
-    if (!btn) return;
-    const lang = btn.dataset.lang;
+    document.addEventListener('click', async (e) => {
+      const btn = e.target.closest('.lang-menu button[data-lang]');
+      if (!btn) return;
+      const lang = btn.dataset.lang;
 
-    // Prevedi statičke label-e (header/nav) preko i18n.js
-    if (typeof window.setLang === 'function') {
-      await window.setLang(lang);
-    }
-
-    // Učitaj dinamiku (sadržaj stranice) iz /content/guest/{lang}.json
-    if (typeof window.loadGuestUnified === 'function') {
-      await window.loadGuestUnified(lang);
-    }
-  });
-</script>
+      if (typeof window.setLang === 'function') {
+        await window.setLang(lang);
+      }
+      if (typeof window.loadGuestUnified === 'function') {
+        await window.loadGuestUnified(lang);
+      }
+    });
+  </script>
 </body>
 </html>
