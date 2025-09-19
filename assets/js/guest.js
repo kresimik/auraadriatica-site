@@ -1,10 +1,12 @@
-// guest.js (final)
+// guest.js (final2)
 
 const GUEST_DEFAULT_LANG = 'en';
 
-// ---------- Link helperi ----------
+/* ---------- Link helpers ---------- */
+
+// For LIST items: supports Markdown [Text](URL) and " — URL" -> " — Map".
+// Does NOT auto-link bare URLs.
 function listItemHTML(raw) {
-  // Za LISTE: podržava [Text](URL) i " — URL" -> " — Map". Ne autolinka gole URL-ove.
   let s = String(raw);
   s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener">$1</a>');
@@ -12,21 +14,19 @@ function listItemHTML(raw) {
     ' — <a href="$1" target="_blank" rel="noopener">Map</a>');
   return s;
 }
+
+// For PARAGRAPHS: Markdown ONLY (no autolink of bare URLs).
+// This avoids the broken "target=_blank rel=noopener" text you saw.
 function paragraphHTML(raw) {
-  // Za PARAGRAFE: smije autolinkati gole URL-ove + podržava Markdown.
-  let s = String(raw);
-  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+  return String(raw).replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener">$1</a>');
-  s = s.replace(/(https?:\/\/[^\s<]+)/g,
-    '<a href="$1" target="_blank" rel="noopener">$1</a>');
-  return s;
 }
+
 function makeUL(items) {
   const ul = document.createElement('ul');
   (items || []).forEach(item => {
     const li = document.createElement('li');
     if (item && typeof item === 'object' && item.name) {
-      // podrška i za objektni format {name, url}
       li.textContent = item.name + (item.url ? ' — ' : '');
       if (item.url) {
         const a = document.createElement('a');
@@ -42,7 +42,7 @@ function makeUL(items) {
   return ul;
 }
 
-// ---------- Loader ----------
+/* ---------- Loader ---------- */
 async function loadGuest(langOpt){
   const lang = (langOpt || localStorage.getItem('lang') || GUEST_DEFAULT_LANG).toLowerCase();
   const fall = GUEST_DEFAULT_LANG;
@@ -60,14 +60,14 @@ async function loadGuest(langOpt){
   }
   if (!data) return;
 
-  // Hero iz JSON-a
+  // Hero
+  if (data.page_title) document.title = data.page_title;
   const h1 = document.getElementById('guest-h1');
   const sub = document.getElementById('guest-sub');
   if (h1 && data.hero_h) h1.textContent = data.hero_h;
   if (sub && data.hero_p) sub.textContent = data.hero_p;
-  if (data.page_title) document.title = data.page_title;
 
-  // Sekcije
+  // Sections
   const grid = document.getElementById('guest-sections');
   grid.innerHTML = '';
   (data.sections || []).forEach(sec => {
@@ -81,7 +81,6 @@ async function loadGuest(langOpt){
     if (sec.type === 'list') {
       card.appendChild(makeUL(sec.items || []));
     } else if (sec.type === 'html') {
-      // posebni slučaj: Wi-Fi s QR-om — ako želiš layoute
       if (sec.html_kind === 'wifi') {
         const wrap = document.createElement('div'); wrap.className = 'wifi-flex';
         const left = document.createElement('div'); left.className = 'wifi-text';
@@ -98,6 +97,10 @@ async function loadGuest(langOpt){
         div.innerHTML = paragraphHTML(sec.content || '');
         card.appendChild(div);
       }
+    } else if (sec.type === 'text') {
+      const p = document.createElement('p');
+      p.textContent = String(sec.content || '');
+      card.appendChild(p);
     }
     grid.appendChild(card);
   });
