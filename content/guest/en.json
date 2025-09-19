@@ -1,56 +1,82 @@
 {
-  "guest_h1": "Guest & Local Information",
-  "guest_sub": "Practical details, Wi-Fi, arrival info, and local tips for your stay.",
-
-  "addr_h": "Apartment Addresses",
-  "parking_h": "Parking",
-  "lock_h": "Secure Digital Key",
-  "wifi_h": "Wi-Fi Information",
-  "registration_h": "Guest Registration",
-  "waste_h": "Waste Disposal",
-  "groceries_h": "Groceries",
-  "restaurants_h": "Recommended Restaurants",
-  "beaches_h": "Nearby Beaches",
-  "market_h": "Food Market & Tourist Info",
-  "footer_note": "We look forward to hosting you — enjoy your stay!",
-
-  "addresses": [
-    "Onyx Apartment: Rezine 7H, Lovran (Google Maps)",
-    "Olive Apartment: Rezine 7G, Lovran (Google Maps)"
-  ],
-  "parking": "There are three private parking spaces in front of each apartment, all available and reserved for you.",
-  "lock": "The apartments have a secure digital lock with a PIN. Before arrival, we will send you the PIN via WhatsApp, SMS, or email.",
-  "wifi": {
-    "text": "The Wi-Fi network name is AuraAdriatica_Guest and the password is AuraA20&24!. You can also scan the QR code to connect automatically.",
-    "qr": "/assets/img/wifi-qr.png"
-  },
-  "registration": "Following Croatian law, all guests must be registered. To speed up check-in, please fill in details for each guest: https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c",
-  "waste": "Two waste bins are available: one for mixed waste and one for plastic. These bins are located in the parking lot. To access the mixed waste bin, you will need a key. In the Onyx apartment, the key is on the shelf to the right of the entrance door. In the Olive apartment, the key is in the rightmost drawer of the kitchen island, attached to a keychain labeled 'Lovran'.",
-  "groceries": [
-    "Konzum (500m) — https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA",
-    "Plodine (3km) — https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9"
-  ],
-  "restaurants": [
-    "Ganeum, Lovran — https://maps.app.goo.gl/yUTKW83KbX3xhhYV9",
-    "Najade, Lovran — https://maps.app.goo.gl/VXj3Le13ZaP5uZR27",
-    "Draga di Lovrana, Lovranska Draga — https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6",
-    "Plavi podrum, Volosko — https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7",
-    "Valle Losca, Opatija — https://maps.app.goo.gl/4Kyh5pqQoDDbubow7",
-    "Zijavica, Mošćenička Draga — https://maps.app.goo.gl/aqptnU64dprdEro19",
-    "Ružmarin, Opatija — https://maps.app.goo.gl/cPMscVMU4gnontM97",
-    "Johnson Restaurant, Mošćenička Draga — https://maps.app.goo.gl/aobtvfK67GLamKRC8",
-    "Bistro Fortica, Kastav — https://maps.app.goo.gl/1gJWz9zBvvuKYdju5",
-    "Istranka, Opatija — https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78"
-  ],
-  "beaches": [
-    "Peharovo — https://maps.app.goo.gl/jnKYDnaNymPPRa1K8",
-    "Cipera — https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7",
-    "Kvarner — https://maps.app.goo.gl/y1teyu9YMguTyPXF7",
-    "Medveja — https://maps.app.goo.gl/gzheik8unN1ocQLx9",
-    "Mošćenička Draga — https://maps.app.goo.gl/JxDdQnYAmVADEnfF8",
-    "Ičići — https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9",
-    "Opatija — https://maps.app.goo.gl/djPMCyABH8tkoKe5A"
-  ],
-  "market": "Food Market in Lovran: https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8",
-  "tourist": "More about Lovran: https://visitlovran.com/destinacija/lovran/"
+  "page_title": "Guest Information — Aura Adriatica",
+  "hero_h": "Welcome dear guests",
+  "hero_p": "Useful insider information for your stay at Aura Adriatica Apartments.",
+  "sections": [
+    {
+      "title": "Apartment Addresses",
+      "type": "list",
+      "items": [
+        "Onyx Apartment: Rezine 7H, Lovran — https://www.google.com/maps/place/Rezine+7H,+Lovran",
+        "Olive Apartment: Rezine 7G, Lovran — https://www.google.com/maps/place/Rezine+7G,+Lovran"
+      ]
+    },
+    {
+      "title": "Parking",
+      "type": "html",
+      "content": "There are three private parking spaces in front of each apartment, all available and reserved for you."
+    },
+    {
+      "title": "Secure Digital Key",
+      "type": "html",
+      "content": "The apartments have a secure digital lock with a PIN. Before arrival, we will send you the PIN via WhatsApp, SMS, or email."
+    },
+    {
+      "title": "Wi-Fi Information",
+      "type": "html",
+      "content": "Wi-Fi network: <strong>AuraAdriatica_Guest</strong>, password: <strong>AuraA20&24!</strong><br>Or scan the QR code:<br><img src='/assets/img/wifi-qr.png' alt='Wi-Fi QR' style='max-width:120px'>"
+    },
+    {
+      "title": "Guest Registration",
+      "type": "html",
+      "content": "All guests must be registered according to Croatian law. Please fill in details via <a href='https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c' target='_blank' rel='noopener'>Guest Registration Form</a>."
+    },
+    {
+      "title": "Waste Disposal",
+      "type": "html",
+      "content": "Two bins: one for mixed waste and one for plastic, located in the parking lot.<br>Key location: Onyx – shelf by the entrance door; Olive – right drawer in kitchen island."
+    },
+    {
+      "title": "Groceries",
+      "type": "list",
+      "items": [
+        "Konzum (500m) — https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA",
+        "Plodine (3km) — https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9"
+      ]
+    },
+    {
+      "title": "Recommended Restaurants",
+      "type": "list",
+      "items": [
+        "Ganeum, Lovran — https://maps.app.goo.gl/yUTKW83KbX3xhYV9",
+        "Najade, Lovran — https://maps.app.goo.gl/VXj3Le13ZaP5uZR27",
+        "Draga di Lovrana, Lovranska Draga — https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6",
+        "Plavi podrum, Volosko — https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7",
+        "Valle Losca, Opatija — https://maps.app.goo.gl/4Kyh5pqQoDDbubow7",
+        "Zijavica, Mošćenička Draga — https://maps.app.goo.gl/aqptnU64dpdrEro19",
+        "Ružmarin, Opatija — https://maps.app.goo.gl/cPMscVMU4gnontM97",
+        "Johnson Restaurant, Mošćenička Draga — https://maps.app.goo.gl/aobtvfK67GLamKRC8",
+        "Bistro Fortica, Kastav — https://maps.app.goo.gl/1gJWz9zBvvuKYdju5",
+        "Istranka, Opatija — https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78"
+      ]
+    },
+    {
+      "title": "Nearby Beaches",
+      "type": "list",
+      "items": [
+        "Peharovo — https://maps.app.goo.gl/jnKYDnaNymPPRa1K8",
+        "Cipera — https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7",
+        "Kvarner — https://maps.app.goo.gl/y1teyu9YMguTyPXF7",
+        "Medveja — https://maps.app.goo.gl/gzheik8unN1ocQLx9",
+        "Mošćenička Draga — https://maps.app.goo.gl/JxDdQnYAmVADEnfF8",
+        "Ičići — https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9",
+        "Opatija — https://maps.app.goo.gl/djPMCyABH8tkoKe5A"
+      ]
+    },
+    {
+      "title": "Food Market & Tourist Info",
+      "type": "html",
+      "content": "<a href='https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8' target='_blank'>Food Market</a><br>More info: <a href='https://visitlovran.com/destinacija/lovran/' target='_blank'>visitlovran.com</a>"
+    }
+  ]
 }
