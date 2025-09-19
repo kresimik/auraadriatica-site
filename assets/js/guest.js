@@ -1,7 +1,10 @@
-const GUEST_DEFAULT_LANG = "en";
+// guest.js (final)
 
-// === HELPERI ===
+const GUEST_DEFAULT_LANG = 'en';
+
+// ---------- Link helperi ----------
 function listItemHTML(raw) {
+  // Za LISTE: podržava [Text](URL) i " — URL" -> " — Map". Ne autolinka gole URL-ove.
   let s = String(raw);
   s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener">$1</a>');
@@ -9,8 +12,8 @@ function listItemHTML(raw) {
     ' — <a href="$1" target="_blank" rel="noopener">Map</a>');
   return s;
 }
-
 function paragraphHTML(raw) {
+  // Za PARAGRAFE: smije autolinkati gole URL-ove + podržava Markdown.
   let s = String(raw);
   s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener">$1</a>');
@@ -18,17 +21,17 @@ function paragraphHTML(raw) {
     '<a href="$1" target="_blank" rel="noopener">$1</a>');
   return s;
 }
-
-function ul(items) {
-  const ul = document.createElement("ul");
+function makeUL(items) {
+  const ul = document.createElement('ul');
   (items || []).forEach(item => {
-    const li = document.createElement("li");
-    if (item && typeof item === "object" && item.name) {
-      li.textContent = item.name + (item.url ? " — " : "");
+    const li = document.createElement('li');
+    if (item && typeof item === 'object' && item.name) {
+      // podrška i za objektni format {name, url}
+      li.textContent = item.name + (item.url ? ' — ' : '');
       if (item.url) {
-        const a = document.createElement("a");
-        a.href = item.url; a.textContent = "Map";
-        a.target = "_blank"; a.rel = "noopener";
+        const a = document.createElement('a');
+        a.href = item.url; a.textContent = 'Map';
+        a.target = '_blank'; a.rel = 'noopener';
         li.appendChild(a);
       }
     } else {
@@ -39,59 +42,67 @@ function ul(items) {
   return ul;
 }
 
-// === LOADER ===
+// ---------- Loader ----------
 async function loadGuest(langOpt){
-  const lang = (langOpt || localStorage.getItem("lang") || GUEST_DEFAULT_LANG).toLowerCase();
+  const lang = (langOpt || localStorage.getItem('lang') || GUEST_DEFAULT_LANG).toLowerCase();
   const fall = GUEST_DEFAULT_LANG;
-
-  const tryUrls = [
+  const urls = [
     `/content/guest/${lang}.json`,
     lang !== fall ? `/content/guest/${fall}.json` : null
   ].filter(Boolean);
 
-  let data=null;
-  for (const url of tryUrls){
-    try{
-      const res=await fetch(url,{cache:"no-store"});
-      if(res.ok){ data=await res.json(); break; }
-    }catch(e){ console.warn("[guest] fetch error", e); }
+  let data = null;
+  for (const u of urls) {
+    try {
+      const res = await fetch(u, { cache: 'no-store' });
+      if (res.ok) { data = await res.json(); break; }
+    } catch (e) { console.warn('[guest] fetch error', u, e); }
   }
-  if(!data){ console.warn("[guest] no data"); return; }
+  if (!data) return;
 
-  // hero texts
-  const h=document.querySelector("h1[data-i18n='hero_h']");
-  if(h) h.textContent=data.hero_h;
-  const p=document.querySelector("p[data-i18n='hero_p']");
-  if(p) p.textContent=data.hero_p;
+  // Hero iz JSON-a
+  const h1 = document.getElementById('guest-h1');
+  const sub = document.getElementById('guest-sub');
+  if (h1 && data.hero_h) h1.textContent = data.hero_h;
+  if (sub && data.hero_p) sub.textContent = data.hero_p;
+  if (data.page_title) document.title = data.page_title;
 
-  const cont=document.getElementById("guest-sections");
-  cont.innerHTML="";
+  // Sekcije
+  const grid = document.getElementById('guest-sections');
+  grid.innerHTML = '';
+  (data.sections || []).forEach(sec => {
+    const card = document.createElement('div');
+    card.className = 'info-section';
 
-  data.sections.forEach(sec=>{
-    const box=document.createElement("div");
-    box.className="info-section";
-    const h2=document.createElement("h2");
-    h2.textContent=sec.title;
-    box.appendChild(h2);
+    const h3 = document.createElement('h3');
+    h3.textContent = sec.title || '';
+    card.appendChild(h3);
 
-    if(sec.type==="list") box.appendChild(ul(sec.items));
-    else if(sec.type==="html") {
-      const div=document.createElement("div");
-      div.innerHTML=paragraphHTML(sec.content);
-      box.appendChild(div);
+    if (sec.type === 'list') {
+      card.appendChild(makeUL(sec.items || []));
+    } else if (sec.type === 'html') {
+      // posebni slučaj: Wi-Fi s QR-om — ako želiš layoute
+      if (sec.html_kind === 'wifi') {
+        const wrap = document.createElement('div'); wrap.className = 'wifi-flex';
+        const left = document.createElement('div'); left.className = 'wifi-text';
+        left.innerHTML = paragraphHTML(sec.content || '');
+        wrap.appendChild(left);
+        if (sec.qr) {
+          const right = document.createElement('div'); right.className = 'wifi-qr';
+          right.innerHTML = `<img src="${sec.qr}" alt="Wi-Fi QR">`;
+          wrap.appendChild(right);
+        }
+        card.appendChild(wrap);
+      } else {
+        const div = document.createElement('div');
+        div.innerHTML = paragraphHTML(sec.content || '');
+        card.appendChild(div);
+      }
     }
-    cont.appendChild(box);
+    grid.appendChild(card);
   });
 }
 
-window.loadGuest=loadGuest;
-
-document.addEventListener("DOMContentLoaded", ()=>{
-  loadGuest();
-  document.querySelectorAll(".lang-menu button[data-lang]").forEach(btn=>{
-    btn.addEventListener("click",async()=>{
-      localStorage.setItem("lang",btn.dataset.lang);
-      await loadGuest(btn.dataset.lang);
-    });
-  });
-});
+// global & init
+window.loadGuest = loadGuest;
+document.addEventListener('DOMContentLoaded', () => loadGuest());
