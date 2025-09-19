@@ -1,0 +1,84 @@
+{
+  "page_title": "Informacije za goste — Aura Adriatica",
+  "hero_h": "Dobrodošli dragi gosti",
+  "hero_p": "Korisne informacije za vaš boravak u apartmanima Aura Adriatica.",
+  "sections": [
+    {
+      "title": "Adrese apartmana",
+      "type": "list",
+      "items": [
+        "Apartman Onyx: Rezine 7H, Lovran — [Karta](https://www.google.com/maps/place/Rezine+7H,+Lovran)",
+        "Apartman Olive: Rezine 7G, Lovran — [Karta](https://www.google.com/maps/place/Rezine+7G,+Lovran)"
+      ]
+    },
+    {
+      "title": "Parkiralište",
+      "type": "text",
+      "content": "Tri privatna parkirna mjesta ispred svakog apartmana, sva su vam na raspolaganju i rezervirana za vas."
+    },
+    {
+      "title": "Digitalni ključ",
+      "type": "text",
+      "content": "Apartmani imaju sigurne digitalne brave s PIN-om. Prije dolaska poslat ćemo vam PIN putem WhatsAppa, SMS-a ili e-maila."
+    },
+    {
+      "title": "Wi-Fi informacije",
+      "type": "html",
+      "html_kind": "wifi",
+      "content": "Wi-Fi mreža: **AuraAdriatica_Guest**, lozinka: **AuraA20&24!**<br>Skenirajte QR kod:",
+      "qr": "/assets/img/wifi-qr.png"
+    },
+    {
+      "title": "Prijava gostiju",
+      "type": "html",
+      "content": "Svi gosti moraju biti prijavljeni prema zakonu RH. Molimo ispunite podatke putem [Prijavnog obrasca](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."
+    },
+    {
+      "title": "Odlaganje otpada",
+      "type": "text",
+      "content": "Dva spremnika: jedan za miješani otpad i jedan za plastiku (nalaze se na parkiralištu). Ključ: Onyx — polica desno od ulaznih vrata; Olive — krajnja desna ladica u kuhinjskom otoku."
+    },
+    {
+      "title": "Trgovine",
+      "type": "list",
+      "items": [
+        "Konzum (500m) — [Karta](https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA)",
+        "Plodine (3km) — [Karta](https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9)"
+      ]
+    },
+    {
+      "title": "Preporučeni restorani",
+      "type": "list",
+      "items": [
+        "Ganeum, Lovran — [Karta](https://maps.app.goo.gl/E3uFaZdf27YiXXUt5)",
+        "Najade, Lovran — [Karta](https://maps.app.goo.gl/VXj3Le13ZaP5uZR27)",
+        "Draga di Lovrana, Lovranska Draga — [Karta](https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6)",
+        "Plavi podrum, Volosko — [Karta](https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7)",
+        "Valle Losca, Opatija — [Karta](https://maps.app.goo.gl/4Kyh5pqQoDDbubow7)",
+        "Zijavica, Mošćenička Draga — [Karta](https://maps.app.goo.gl/aqptnU64dpdrEro19)",
+        "Ružmarin, Opatija — [Karta](https://maps.app.goo.gl/cPMscVMU4gnontM97)",
+        "Johnson, Mošćenička Draga — [Karta](https://maps.app.goo.gl/aobtvfK67GLamKRC8)",
+        "Bistro Fortica, Kastav — [Karta](https://maps.app.goo.gl/1gJWz9zBvvuKYdju5)",
+        "Istranka, Opatija — [Karta](https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78)"
+      ]
+    },
+    {
+      "title": "Plaže u blizini",
+      "type": "list",
+      "items": [
+        "Peharovo — [Karta](https://maps.app.goo.gl/jnKYDnaNymPPRa1K8)",
+        "Cipera — [Karta](https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7)",
+        "Kvarner — [Karta](https://maps.app.goo.gl/y1teyu9YMguTyPXF7)",
+        "Medveja — [Karta](https://maps.app.goo.gl/gzheik8unN1ocQLx9)",
+        "Mošćenička Draga — [Karta](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
+        "Ičići — [Karta](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
+        "Opatija — [Karta](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
+      ]
+    },
+    {
+      "title": "Tržnica i turističke informacije",
+      "type": "html",
+      "content": "[Tržnica](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>Više informacija: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+    }
+  ]
+}

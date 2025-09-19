@@ -1,0 +1,84 @@
+{
+  "page_title": "Informazioni per gli ospiti — Aura Adriatica",
+  "hero_h": "Benvenuti cari ospiti",
+  "hero_p": "Informazioni utili per il vostro soggiorno negli appartamenti Aura Adriatica.",
+  "sections": [
+    {
+      "title": "Indirizzi degli appartamenti",
+      "type": "list",
+      "items": [
+        "Appartamento Onyx: Rezine 7H, Lovran — [Mappa](https://www.google.com/maps/place/Rezine+7H,+Lovran)",
+        "Appartamento Olive: Rezine 7G, Lovran — [Mappa](https://www.google.com/maps/place/Rezine+7G,+Lovran)"
+      ]
+    },
+    {
+      "title": "Parcheggio",
+      "type": "text",
+      "content": "Tre posti auto privati davanti a ciascun appartamento, tutti disponibili e riservati per voi."
+    },
+    {
+      "title": "Chiave digitale",
+      "type": "text",
+      "content": "Gli appartamenti dispongono di serrature digitali sicure con PIN. Prima dell'arrivo vi invieremo il PIN tramite WhatsApp, SMS o e-mail."
+    },
+    {
+      "title": "Informazioni Wi-Fi",
+      "type": "html",
+      "html_kind": "wifi",
+      "content": "Rete Wi-Fi: **AuraAdriatica_Guest**, password: **AuraA20&24!**<br>Scansiona il QR code:",
+      "qr": "/assets/img/wifi-qr.png"
+    },
+    {
+      "title": "Registrazione degli ospiti",
+      "type": "html",
+      "content": "Tutti gli ospiti devono essere registrati secondo la legge croata. Compilate i dati tramite il [Modulo di registrazione](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."
+    },
+    {
+      "title": "Smaltimento rifiuti",
+      "type": "text",
+      "content": "Due contenitori: uno per i rifiuti misti e uno per la plastica (nell'area parcheggio). Chiave: Onyx — scaffale a destra della porta d'ingresso; Olive — cassetto più a destra dell'isola della cucina."
+    },
+    {
+      "title": "Supermercati",
+      "type": "list",
+      "items": [
+        "Konzum (500m) — [Mappa](https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA)",
+        "Plodine (3km) — [Mappa](https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9)"
+      ]
+    },
+    {
+      "title": "Ristoranti consigliati",
+      "type": "list",
+      "items": [
+        "Ganeum, Lovran — [Mappa](https://maps.app.goo.gl/E3uFaZdf27YiXXUt5)",
+        "Najade, Lovran — [Mappa](https://maps.app.goo.gl/VXj3Le13ZaP5uZR27)",
+        "Draga di Lovrana, Lovranska Draga — [Mappa](https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6)",
+        "Plavi podrum, Volosko — [Mappa](https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7)",
+        "Valle Losca, Opatija — [Mappa](https://maps.app.goo.gl/4Kyh5pqQoDDbubow7)",
+        "Zijavica, Mošćenička Draga — [Mappa](https://maps.app.goo.gl/aqptnU64dpdrEro19)",
+        "Ružmarin, Opatija — [Mappa](https://maps.app.goo.gl/cPMscVMU4gnontM97)",
+        "Johnson, Mošćenička Draga — [Mappa](https://maps.app.goo.gl/aobtvfK67GLamKRC8)",
+        "Bistro Fortica, Kastav — [Mappa](https://maps.app.goo.gl/1gJWz9zBvvuKYdju5)",
+        "Istranka, Opatija — [Mappa](https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78)"
+      ]
+    },
+    {
+      "title": "Spiagge vicine",
+      "type": "list",
+      "items": [
+        "Peharovo — [Mappa](https://maps.app.goo.gl/jnKYDnaNymPPRa1K8)",
+        "Cipera — [Mappa](https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7)",
+        "Kvarner — [Mappa](https://maps.app.goo.gl/y1teyu9YMguTyPXF7)",
+        "Medveja — [Mappa](https://maps.app.goo.gl/gzheik8unN1ocQLx9)",
+        "Mošćenička Draga — [Mappa](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
+        "Ičići — [Mappa](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
+        "Opatija — [Mappa](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
+      ]
+    },
+    {
+      "title": "Mercato e informazioni turistiche",
+      "type": "html",
+      "content": "[Mercato alimentare](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>Ulteriori informazioni: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+    }
+  ]
+}
