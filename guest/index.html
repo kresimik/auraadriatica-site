@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guest & Local Information — Aura Adriatica</title>
-  <meta name="description" content="Private guest and local information for your stay at Aura Adriatica." />
-  <!-- Keep private / not indexed -->
-  <meta name="robots" content="noindex,nofollow" />
+  <title>Guest Information — Aura Adriatica</title>
+  <meta name="description" content="Guest information for Olive & Onyx Apartments in Lovran. Arrival details, Wi-Fi, parking, waste disposal, restaurants, beaches, and local tips." />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
   <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
   <meta name="theme-color" content="#4da6ff">
 
   <!-- Fonts -->
@@ -20,104 +19,164 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=guest2">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
   <style>
-    .guest .card + .card { margin-top: 1rem; }
-    .muted { opacity: .8; font-size: .95rem; }
-    .qr { max-width: 120px; border-radius: .5rem; }
-    .list-tight li { margin: .2rem 0; }
-    .section-title { margin: 0 0 .75rem 0; font-size: 1.15rem; }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .info-section {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .info-section h2 {
+      margin-top: 0;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+    }
+    .info-section h2 i {
+      margin-right: 10px;
+      color: #4da6ff;
+    }
+    .wifi-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .wifi-text { flex: 1; min-width: 200px; }
+    .wifi-qr img { max-width: 100px; }
+    .footer-note { text-align: center; margin-top: 40px; font-weight: bold; }
   </style>
-
-  <!-- JS -->
-  <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/guest.js" defer></script>
 </head>
-<body class="guest">
+<body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
       <a href="/" class="logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
-
-      <!-- LANGUAGE DROPDOWN -->
-      <div class="lang-dropdown" id="lang-dd">
-        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
-          <span class="current-lang" id="cur-lang">EN</span> ▾
-        </button>
-        <div class="lang-menu" id="lang-menu" role="menu" hidden>
-          <button type="button" data-lang="hr">HR</button>
-          <button type="button" data-lang="en" class="active">EN</button>
-          <button type="button" data-lang="de">DE</button>
-          <button type="button" data-lang="it">IT</button>
-          <button type="button" data-lang="sl">SL</button>
-        </div>
-      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/apartments/olive.html">Olive</a>
+        <a href="/apartments/onyx.html">Onyx</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
+      </nav>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero" style="background-image:
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url('/assets/img/hero.jpg');">
+      url('/assets/img/guest-hero.jpg');">
     <div class="container hero-center">
-      <h1 id="guest-h1">Guest & Local Information</h1>
-      <p id="guest-sub" class="muted">Private info for your upcoming stay. Please keep this link private.</p>
+      <h1>Welcome, dear guests</h1>
+      <p>Practical details, Wi-Fi, arrival info, and local tips for your stay.</p>
     </div>
   </section>
 
   <!-- MAIN CONTENT -->
   <section class="section">
     <div class="container">
-
-      <!-- GUEST INFO -->
-      <div class="card">
-        <div class="card-head"><h2 class="section-title" id="general_h">Guest Information</h2></div>
-        <div class="info-section"><h3 id="addresses_h">Apartment Addresses</h3><div id="addresses"></div></div>
-        <div class="info-section"><h3 id="parking_h">Parking</h3><div id="parking"></div></div>
-        <div class="info-section"><h3 id="lock_h">Secure Digital Key</h3><div id="lock"></div></div>
-        <div class="info-section"><h3 id="wifi_h">Wi-Fi</h3><div id="wifi"></div></div>
-        <div class="info-section"><h3 id="waste_h">Waste & Recycling</h3><div id="waste"></div></div>
-        <div class="info-section"><h3 id="times_h">Check-in & Check-out</h3><div id="times"></div></div>
+      <!-- Block 1: Arrival & Basics -->
+      <div class="info-grid">
+        <div class="info-section">
+          <h2><i class="fas fa-map-marker-alt"></i> Addresses</h2>
+          <p><strong>Onyx:</strong> <a href="https://www.google.com/maps/place/Rezine+7H,+Lovran" target="_blank">Rezine 7H, Lovran</a><br>
+             <strong>Olive:</strong> <a href="https://www.google.com/maps/place/Rezine+7G,+Lovran" target="_blank">Rezine 7G, Lovran</a></p>
+        </div>
+        <div class="info-section">
+          <h2><i class="fas fa-parking"></i> Parking</h2>
+          <p>Three private parking spaces per apartment are reserved for you.</p>
+        </div>
+        <div class="info-section">
+          <h2><i class="fas fa-key"></i> Digital Key</h2>
+          <p>Secure PIN code lock. We’ll send you your PIN via WhatsApp, SMS, or email before arrival.</p>
+        </div>
       </div>
 
-      <!-- LOCAL INFO -->
-      <div class="card" style="margin-top:1.25rem;">
-        <div class="card-head"><h2 class="section-title" id="local_h">Local Information</h2></div>
-        <div class="info-section"><h3 id="registration_h">Guest Registration</h3><div id="registration"></div></div>
-        <div class="info-section"><h3 id="groceries_h">Grocery Stores</h3><div id="groceries"></div></div>
-        <div class="info-section"><h3 id="market_h">Food Market</h3><div id="market"></div></div>
-        <div class="info-section"><h3 id="delicacies_h">Local Delicacies</h3><div id="delicacies"></div></div>
-        <div class="info-section"><h3 id="restaurants_h">Recommended Restaurants</h3><div id="restaurants"></div></div>
-        <div class="info-section"><h3 id="beaches_h">Nearby Beaches</h3><div id="beaches"></div></div>
-        <div class="info-section"><h3 id="tourist_h">Tourist Info</h3><div id="tourist"></div></div>
+      <!-- Block 2: Internet & Registration -->
+      <div class="info-grid">
+        <div class="info-section">
+          <h2><i class="fas fa-wifi"></i> Wi-Fi</h2>
+          <div class="wifi-flex">
+            <div class="wifi-text">
+              <p>Network: <strong>AuraAdriatica_Guest</strong><br>
+                 Password: <strong>AuraA20&24!</strong></p>
+              <p>Or scan QR code:</p>
+            </div>
+            <div class="wifi-qr">
+              <img src="/assets/img/wifi-qr.png" alt="Wi-Fi QR Code">
+            </div>
+          </div>
+        </div>
+        <div class="info-section">
+          <h2><i class="fas fa-user-check"></i> Guest Registration</h2>
+          <p>Fill in required guest details here:<br>
+            <a href="https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c" target="_blank">Registration Form</a></p>
+        </div>
+        <div class="info-section">
+          <h2><i class="fas fa-trash-alt"></i> Waste Disposal</h2>
+          <p>Mixed & plastic bins in parking lot.<br>
+             Keys: Onyx → shelf right of entrance; Olive → kitchen island drawer (marked “Lovran”).</p>
+        </div>
       </div>
 
-      <p class="muted" id="footer_note" style="margin-top:1rem;">Have a nice and pleasant stay!</p>
+      <!-- Block 3: Local Tips -->
+      <div class="info-grid">
+        <div class="info-section">
+          <h2><i class="fas fa-shopping-cart"></i> Groceries</h2>
+          <ul>
+            <li>Konzum (500m) – <a href="https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA">Map</a></li>
+            <li>Plodine (3km) – <a href="https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9">Map</a></li>
+          </ul>
+        </div>
+        <div class="info-section">
+          <h2><i class="fas fa-utensils"></i> Restaurants</h2>
+          <ul>
+            <li>Ganeum (Lovran) – <a href="https://maps.app.goo.gl/yUTKW83KbX3xhhYV9">Map</a></li>
+            <li>Najade (Lovran) – <a href="https://maps.app.goo.gl/VXj3Le13ZaP5uZR27">Map</a></li>
+            <li>Plavi podrum (Volosko) – <a href="https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7">Map</a></li>
+          </ul>
+        </div>
+        <div class="info-section">
+          <h2><i class="fas fa-water"></i> Beaches</h2>
+          <ul>
+            <li>Peharovo – <a href="https://maps.app.goo.gl/jnKYDnaNymPPRa1K8">Map</a></li>
+            <li>Medveja – <a href="https://maps.app.goo.gl/gzheik8unN1ocQLx9">Map</a></li>
+            <li>Mošćenička Draga – <a href="https://maps.app.goo.gl/JxDdQnYAmVADEnfF8">Map</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-note">We look forward to hosting you — enjoy your stay!</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-      </a>
+      <a href="/" class="footer-logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo" /></a>
+      <nav class="footer-nav">
+        <a href="/apartments/olive.html">Olive</a>
+        <a href="/apartments/onyx.html">Onyx</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
+      </nav>
       <div class="footer-contact">
+        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
         <p>&copy; <span id="year"></span> Aura Adriatica</p>
       </div>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-  <!-- Hook for language change -->
-  <script>
-    document.addEventListener('click', async (e)=>{
-      const btn = e.target.closest('.lang-menu button[data-lang]');
-      if(!btn) return;
-      if (typeof window.setLang === 'function') await window.setLang(btn.dataset.lang);
-      if (typeof window.loadGuestUnified === 'function') await window.loadGuestUnified(btn.dataset.lang);
-    });
-  </script>
 </body>
 </html>
