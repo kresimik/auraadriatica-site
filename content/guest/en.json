@@ -1,0 +1,157 @@
+{
+  "page_title": "Guest & Local Information — Aura Adriatica",
+  "h1": "Useful Information for Your Stay",
+  "sub": "Private info for your upcoming stay. Please keep this link private.",
+
+  "labels": {
+    "general_h": "Guest Information",
+    "addresses_h": "Apartment Addresses",
+    "parking_h": "Parking",
+    "lock_h": "Secure Digital Key",
+    "wifi_h": "Wi-Fi",
+    "waste_h": "Waste & Recycling",
+    "times_h": "Check-in & Check-out",
+    "local_h": "Local Information",
+    "registration_h": "Guest Registration",
+    "groceries_h": "Grocery Stores",
+    "market_h": "Food Market",
+    "delicacies_h": "Local Delicacies",
+    "restaurants_h": "Recommended Restaurants",
+    "beaches_h": "Nearby Beaches",
+    "tourist_h": "Tourist Info"
+  },
+
+  "general": {
+    "addresses": [
+      {
+        "label": "Onyx Apartment",
+        "text": "Rezine 7H, Lovran",
+        "maps": "https://www.google.com/maps/place/Rezine+7H,+Lovran"
+      },
+      {
+        "label": "Olive Apartment",
+        "text": "Rezine 7G, Lovran",
+        "maps": "https://www.google.com/maps/place/Rezine+7G,+Lovran"
+      }
+    ],
+    "address_note": "We recommend using Google Maps for accurate directions. Street View images are older, from before construction.",
+    "parking": "There are three private parking spaces in front of each apartment, all reserved for you.",
+    "lock": "Secure digital lock with PIN. Before arrival, we will send you your PIN via WhatsApp, SMS, or email.",
+    "wifi": {
+      "ssid": "AuraAdriatica_Guest",
+      "password": "AuraA20&24!",
+      "qr": "/assets/img/wifi-qr.png"
+    },
+    "waste": [
+      "Two bins are available: one for mixed waste and one for plastic, located in the parking area.",
+      "Key for the mixed waste bin: In Onyx — on the shelf to the right of the entrance door. In Olive — in the rightmost drawer of the kitchen island (keychain “Lovran”)."
+    ],
+    "times": "Check-in from 15:00; check-out by 11:00."
+  },
+
+  "local": {
+    "registration": {
+      "text": "Following Croatian law, all guests in commercial accommodation must be registered. To speed up check-in, please fill the form for each guest:",
+      "url": "https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c",
+      "label": "Guest Registration Form"
+    },
+    "groceries": [
+      {
+        "name": "Konzum (500m)",
+        "map": "https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA"
+      },
+      {
+        "name": "Plodine (3km)",
+        "map": "https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9"
+      }
+    ],
+    "market": {
+      "name": "Lovran Food Market — View on map",
+      "map": "https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8"
+    },
+    "delicacies": [
+      {
+        "name": "Peperoncino Lovran — View on map",
+        "map": "https://maps.app.goo.gl/5a6xNydsCUEih4jt5"
+      }
+    ],
+    "restaurants": [
+      {
+        "name": "Ganeum, Lovran",
+        "map": "https://maps.app.goo.gl/yUTKW83KbX3xhhYV9"
+      },
+      {
+        "name": "Najade, Lovran",
+        "map": "https://maps.app.goo.gl/VXj3Le13ZaP5uZR27"
+      },
+      {
+        "name": "Draga di Lovrana, Lovranska Draga",
+        "map": "https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6"
+      },
+      {
+        "name": "Plavi podrum, Volosko",
+        "map": "https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7"
+      },
+      {
+        "name": "Valle Losca, Opatija",
+        "map": "https://maps.app.goo.gl/4Kyh5pqQoDDbubow7"
+      },
+      {
+        "name": "Zijavica, Mošćenička Draga",
+        "map": "https://maps.app.goo.gl/aqptnU64dprdEro19"
+      },
+      {
+        "name": "Ružmarin, Opatija",
+        "map": "https://maps.app.goo.gl/cPMscVMU4gnontM97"
+      },
+      {
+        "name": "Johnson Restaurant, Mošćenička Draga",
+        "map": "https://maps.app.goo.gl/aobtvfK67GLamKRC8"
+      },
+      {
+        "name": "Bistro Fortica, Kastav",
+        "map": "https://maps.app.goo.gl/1gJWz9zBvvuKYdju5"
+      },
+      {
+        "name": "Istranka, Opatija",
+        "map": "https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78"
+      }
+    ],
+    "beaches": [
+      {
+        "name": "Peharovo",
+        "map": "https://maps.app.goo.gl/jnKYDnaNymPPRa1K8"
+      },
+      {
+        "name": "Cipera",
+        "map": "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7"
+      },
+      {
+        "name": "Kvarner",
+        "map": "https://maps.app.goo.gl/y1teyu9YMguTyPXF7"
+      },
+      {
+        "name": "Medveja",
+        "map": "https://maps.app.goo.gl/gzheik8unN1ocQLx9"
+      },
+      {
+        "name": "Mošćenička Draga",
+        "map": "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8"
+      },
+      {
+        "name": "Ičići",
+        "map": "https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9"
+      },
+      {
+        "name": "Opatija",
+        "map": "https://maps.app.goo.gl/djPMCyABH8tkoKe5A"
+      }
+    ],
+    "tourist_info": {
+      "text": "For more information about Lovran and surroundings, visit the official site:",
+      "url": "https://visitlovran.com/destinacija/lovran/"
+    }
+  },
+
+  "footer_note": "Have a nice and pleasant stay!"
+}
