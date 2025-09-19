@@ -1,32 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="page_title">Guest Information</title>
-  <meta name="description" content="Useful guest information for Aura Adriatica Apartments in Lovran." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guest Information — Aura Adriatica</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Useful insider information for your stay at Aura Adriatica Apartments." />
 
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250919">
+  <!-- Base CSS + lokalni touch-up -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=guest-final">
+  <style>
+    /* HERO i razmaci */
+    .hero { min-height: 280px; }
+    .hero .hero-center { padding: 64px 0; }
+    /* GRID 3 u redu */
+    .info-grid{
+      display:grid; gap:22px; margin-top:24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    }
+    .info-section{
+      background:#fff; border-radius:14px;
+      padding:18px 18px 16px; box-shadow:0 8px 24px rgba(0,0,0,.06);
+    }
+    .info-section h3{
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-weight:700; font-size:1.05rem; line-height:1.2;
+      color:#2a7be4; margin:0 0 .75rem;
+    }
+    .info-section p{ margin:.45rem 0; }
+    .info-section ul{ margin:.25rem 0; padding-left:1.15rem; }
+    /* Wi-Fi blok */
+    .wifi-flex{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+    .wifi-text{ flex:1 1 240px; }
+    .wifi-qr img{ max-width:120px; border-radius:8px; display:block; }
+    /* sitni utility */
+    .muted{ opacity:.86; }
+  </style>
+
+  <!-- I18N + guest loader -->
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/guest.js" defer></script>
+  <script src="/assets/js/guest.js?v=final" defer></script>
 </head>
 
-<body data-page="guest">
-
+<body class="guest">
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
-      <a href="/" class="logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo"></a>
-      <nav class="main-nav">
+      <a href="/" class="logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo">
+      </a>
+      <nav class="main-nav" aria-label="Primary">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
+
+      <!-- JEZICI -->
       <div class="lang-dropdown" id="lang-dd">
-        <button class="lang-toggle" type="button"><span id="cur-lang">EN</span> ▾</button>
-        <div class="lang-menu" id="lang-menu" hidden>
+        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
+          <span id="cur-lang">EN</span> ▾
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
           <button data-lang="hr">HR</button>
           <button data-lang="en" class="active">EN</button>
           <button data-lang="de">DE</button>
@@ -41,27 +77,30 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" style="background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('/assets/img/guest-hero.jpg');">
+  <!-- HERO (lokalna slika) -->
+  <section class="hero" style="
+    background-image:
+      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+      url('/assets/img/guest-hero.jpg');">
     <div class="container hero-center">
-      <h1 data-i18n="hero_h">Welcome dear guests</h1>
-      <p data-i18n="hero_p">Useful insider information for your stay at Aura Adriatica Apartments.</p>
+      <h1 id="guest-h1">Guest & Local Information</h1>
+      <p id="guest-sub" class="muted">Practical details, Wi-Fi, arrival info, and local tips for your stay.</p>
     </div>
   </section>
 
-  <!-- INFO GRID -->
+  <!-- SADRŽAJ (JS puni) -->
   <section class="section">
-    <div class="container info-grid" id="guest-sections">
-      <!-- JS fills sections here -->
+    <div class="container">
+      <div id="guest-sections" class="info-grid"></div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <a href="/" class="footer-logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo"></a>
+      <a href="/" class="footer-logo">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo">
+      </a>
       <nav class="footer-nav">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
@@ -75,7 +114,18 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
+  <!-- Hook za promjenu jezika -->
+  <script>
+    document.addEventListener('click', async (e)=>{
+      const btn = e.target.closest('.lang-menu button[data-lang]');
+      if(!btn) return;
+      const lang = btn.dataset.lang;
+      localStorage.setItem('lang', lang);
+      if (typeof window.setLang === 'function') await window.setLang(lang); // prevede header/footer
+      if (typeof window.loadGuest === 'function') await window.loadGuest(lang); // učita guest JSON
+    });
+  </script>
 </body>
 </html>
