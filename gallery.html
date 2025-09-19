@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="gallery">Gallery — Aura Adriatica</title>
+  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+  <meta name="theme-color" content="#4da6ff">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <script src="/assets/js/i18n.js" defer></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-flex">
+    <a href="/" class="logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" class="active" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+
+    <!-- LANGUAGE DROPDOWN (handled globally by i18n.js) -->
+    <div class="lang-dropdown" id="lang-dd">
+      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+        <span class="current-lang" id="cur-lang">EN</span> ▾
+      </button>
+      <div class="lang-menu" id="lang-menu" role="menu" hidden>
+        <button type="button" data-lang="hr">HR</button>
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="sl">SL</button>
+        <button type="button" data-lang="hu">HU</button>
+        <button type="button" data-lang="cs">CS</button>
+        <button type="button" data-lang="sk">SK</button>
+        <button type="button" data-lang="uk">UK</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('/assets/img/gallery-hero.jpg');">
+  <div class="container hero-center">
+    <h1 data-i18n="gallery">Gallery</h1>
+    <p data-i18n="gallery_intro">Discover Olive &amp; Onyx and the beauty of the Opatija Riviera.</p>
+    <div class="cta">
+      <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+      <a class="button onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY GRID -->
+<section class="section" aria-labelledby="photos">
+  <div class="container">
+    <h2 id="photos" data-i18n="gallery">Photo Gallery</h2>
+    <div class="gallery">
+      <img src="/assets/img/gallery1.jpg" alt="Sea view from Aura Adriatica">
+      <img src="/assets/img/gallery2.jpg" alt="Olive apartment interior">
+      <img src="/assets/img/gallery3.jpg" alt="Onyx apartment terrace">
+      <img src="/assets/img/gallery4.jpg" alt="Olive living room">
+      <img src="/assets/img/gallery5.jpg" alt="Onyx bedroom">
+      <img src="/assets/img/gallery6.jpg" alt="Balcony with sea view">
+      <img src="/assets/img/gallery7.jpg" alt="Olive kitchen">
+      <img src="/assets/img/gallery8.jpg" alt="Onyx bathroom">
+      <img src="/assets/img/gallery9.jpg" alt="Lovran beach nearby">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-flex">
+    <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+    </a>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" class="active" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

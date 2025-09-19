@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore — Aura Adriatica</title>
+  <meta name="description" content="What to do in Lovran and the Opatija Riviera — beaches, walks, Učka trails, gastronomy, day trips." />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+  <meta name="theme-color" content="#4da6ff">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <!-- i18n must load first so it can translate on DOMContentLoaded -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/explore.js" defer></script>
+
+  <!-- Bridge: after i18n.js is ready, also refresh Explore content on language change -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof window.setLang === 'function') {
+        const _setLang = window.setLang;
+        window.setLang = async (lang) => {
+          await _setLang(lang);                 // i18n: translate all [data-i18n]
+          if (typeof window.loadExplore === 'function') {
+            await window.loadExplore(lang);     // refresh Explore dynamic content
+          }
+        };
+      }
+    });
+  </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-flex">
+    <a href="/" class="logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" class="active" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+    <!-- LANGUAGE DROPDOWN (handled globally by i18n.js: no inline handler here) -->
+    <div class="lang-dropdown" id="lang-dd">
+      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
+        <span class="current-lang" id="cur-lang">EN</span> ▾
+      </button>
+      <div class="lang-menu" id="lang-menu" role="menu" hidden>
+        <button type="button" data-lang="hr">HR</button>
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="sl">SL</button>
+        <button type="button" data-lang="hu">HU</button>
+        <button type="button" data-lang="cs">CS</button>
+        <button type="button" data-lang="sk">SK</button>
+        <button type="button" data-lang="uk">UK</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO (Explore.js fills these) -->
+<section class="hero" style="background-image:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('/assets/img/explore-hero.jpg');">
+  <div class="container hero-center">
+    <h1 id="ex-hero-title">Explore Lovran &amp; Opatija Riviera</h1>
+    <p  id="ex-hero-sub">Beaches, Lungomare, Učka trails, gastronomy &amp; day trips.</p>
+  </div>
+</section>
+
+<!-- ABOUT + THINGS TO DO (two-col) -->
+<section class="section">
+  <div class="container two-col two-col--boxed">
+    <div class="col">
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-about">About Lovran</h2>
+        </div>
+        <p id="ex-intro">
+          A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.
+        </p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-do">Things to do</h2>
+        </div>
+        <ul id="ex-do-list"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEACHES + DAY TRIPS (two-col) -->
+<section class="section">
+  <div class="container two-col two-col--boxed">
+    <div class="col">
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-beaches">Beaches &amp; Seaside</h2>
+        </div>
+        <ul id="ex-beaches-list"></ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-head">
+          <h2 id="ex-trips">Day trips</h2>
+        </div>
+        <ul id="ex-trips-list"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMY (full-width card) -->
+<section class="section">
+  <div class="container">
+    <div class="card">
+      <div class="card-head">
+        <h2 id="ex-food">Gastronomy</h2>
+      </div>
+      <ul id="ex-food-list"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-flex">
+    <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" class="active" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+      <p>&copy; <span id="year"></span> Aura Adriatica</p>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "food_h": "Gastronomija",
+  "do": [
+    "Planinarenje i biciklizam – Istražite staze kroz šume, doline i grebene Učke.",
+    "Šetnica Lungomare – Prošećite, trčite ili vozite bicikl poznatom 10 km dugom obalnom stazom koja povezuje Lovran, Opatiju i Volosko.",
+    "Vodni sportovi – Unajmite kajak, SUP dasku ili zaronite u kristalno čisto more.",
+    "Kultura i događanja – Uživajte u koncertima, festivalima na otvorenom, izložbama umjetnosti i lokalnim tradicijama poput Dana trešanja (lipanj) ili Marunade (listopad) u Lovranu."
+  ],
+  "trips": [
+    "Opatija – Prošećite elegantnim parkovima, razgledajte povijesne vile ili provedite večer uz more.",
+    "Rijeka – Živahni lučki grad s tržnicama, muzejima i bogatom kafić kulturom.",
+    "Istra – Posjetite srednjovjekovne gradiće poput Motovuna i Grožnjana, poznate po tartufima, vinu i umjetnosti.",
+    "Kvarnerski otoci – Uputite se brodom na Cres, Krk ili Lošinj s netaknutim plažama i šarmantnim mjestima.",
+    "Gorski kotar – Na sat vremena vožnje otkrijte šume, planinske potoke i mirna jezera – idealno za planinarenje i bijeg u prirodu."
+  ],
+  "beaches": [
+    "Od obiteljskih šljunčanih plaža do skrivenih stjenovitih uvala, Lovran nudi za svakoga ponešto. Najbliža plaža udaljena je samo 100 metara. Slijedite Lungomare i pronaći ćete:",
+    "zaštićene uvale s mirnim morem,",
+    "žive gradske plaže s kafićima i beach barovima,",
+    "mirna mjesta idealna za kupanje, ronjenje ili sunčanje."
+  ],
+  "hero_title": "Istražite Lovran i Opatijsku rivijeru",
+  "do_h": "Aktivnosti",
+  "about_h": "Doživite više",
+  "trips_h": "Izleti",
+  "beaches_h": "Plaže i obala",
+  "hero_sub": "Otkrijte plaže, planinarenje, gastronomiju i izlete u blizini.",
+  "about_p": "Lovran je više od primorskog gradića – to je mjesto gdje se susreću povijest, kultura i priroda. Prošetajte starim gradom čije uske kamene ulice, šarene fasade i skrivene okućnice pričaju priče trgovaca, pomoraca i obrtnika.\nUz obalu se proteže poznata šetnica Lungomare duga više od 10 kilometara, povezujući Lovran s Opatijom i drugim mjestima – idealno za šetnje, jutarnje trčanje ili romantične zalaske sunca.\nIznad grada uzdiže se Park prirode Učka, zaštićen planinski krajolik koji nudi bezbroj mogućnosti za planinarenje, vožnju biciklom i istraživanje netaknute prirode. S vrha Vojaka pruža se spektakularan pogled: s jedne strane modri kvarnerski otoci, a s druge zeleni brežuljci Istre.\nOvdje svaki trenutak poziva da usporite, istražujete i doživite više – u vlastitom ritmu.",
+  "food": [
+    "Opatijska rivijera spaja mediteranske okuse s tradicijama Srednje Europe. Lovran je posebno poznat po trešnjama (lipanj) i marunima (listopad), koji se slave lokalnim manifestacijama. Naći ćete:",
+    "Tradicionalne konobe s ribom, morskim plodovima i domaćom tjesteninom, tartufima i maslinovim uljem,",
+    "Elegantne restorane s modernim interpretacijama mediteranske kuhinje,",
+    "Ugodne kafiće i wine barove s lokalnim vinima, maslinovim uljima i aperitivima uz more."
+  ]
+}

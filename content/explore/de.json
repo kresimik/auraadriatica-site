@@ -1,0 +1,35 @@
+{
+  "food_h": "Gastronomie",
+  "do": [
+    "Wandern & Radfahren – Entdecken Sie Wege durch die Wälder, Täler und Kämme des Učka-Gebirges.",
+    "Lungomare-Promenade – Spazieren, joggen oder radeln Sie entlang des berühmten 10 km langen Küstenwegs, der Lovran, Opatija und Volosko verbindet.",
+    "Wassersport – Mieten Sie ein Kajak, ein SUP-Board oder gehen Sie tauchen im kristallklaren Wasser.",
+    "Kultur & Veranstaltungen – Genießen Sie Konzerte, Open-Air-Festivals, Kunstausstellungen und lokale Traditionen wie das Kirschfest (Juni) oder das Kastanienfest (Oktober) in Lovran."
+  ],
+  "trips": [
+    "Opatija – Flanieren Sie durch elegante Parks, besichtigen Sie historische Villen oder genießen Sie einen stilvollen Abend am Meer.",
+    "Rijeka – Die lebendige Hafenstadt Kroatiens mit Märkten, Museen und einer lebhaften Café-Kultur.",
+    "Istrien – Besuchen Sie mittelalterliche Hügelstädte wie Motovun und Grožnjan, berühmt für Trüffel, Wein und Kunst.",
+    "Inseln der Kvarner-Bucht – Unternehmen Sie einen Bootsausflug nach Cres, Krk oder Lošinj mit unberührten Stränden und charmanten Städtchen.",
+    "Gorski kotar – Nur eine Stunde Fahrt entfernt: Wälder, Bergbäche und stille Seen – perfekt zum Wandern und Entspannen."
+  ],
+  "beaches": [
+    "Von familienfreundlichen Kiesstränden bis zu versteckten Felsbuchten hat Lovran für jeden etwas. Der nächste Strand liegt nur 100 Meter von Ihrer Unterkunft entfernt. Folgen Sie dem Lungomare und entdecken Sie:",
+    "geschützte Buchten mit ruhigem Wasser,",
+    "lebendige Stadtstrände mit Cafés und Strandbars,",
+    "ruhige Plätze zum Schwimmen, Schnorcheln oder einfach Sonne tanken."
+  ],
+  "hero_title": "Entdecken Sie Lovran & die Riviera von Opatija",
+  "do_h": "Aktivitäten",
+  "about_h": "Mehr erleben",
+  "trips_h": "Tagesausflüge",
+  "beaches_h": "Strände & Küste",
+  "hero_sub": "Entdecken Sie Strände, Wanderungen, Gastronomie und Ausflüge in der Umgebung.",
+  "about_p": "Lovran ist mehr als nur eine Küstenstadt – es ist ein Ort, an dem sich Geschichte, Kultur und Natur begegnen. Spazieren Sie durch die Altstadt mit ihren engen Gassen, bunten Fassaden und versteckten Höfen voller Geschichten von Händlern, Seeleuten und Handwerkern.\nEntlang der Küste erstreckt sich die berühmte Lungomare-Promenade über mehr als 10 Kilometer und verbindet Lovran mit Opatija und weiteren charmanten Orten – ideal für Spaziergänge, Morgenläufe oder romantische Sonnenuntergänge.\nOberhalb der Stadt erhebt sich der Naturpark Učka – ein geschütztes Gebirge, das unendliche Möglichkeiten zum Wandern, Radfahren und Erkunden unberührter Natur bietet. Vom Gipfel des Vojak genießen Sie atemberaubende Ausblicke: auf der einen Seite die blauen Inseln der Kvarner-Bucht, auf der anderen die grünen Hügel Istriens.\nHier lädt jeder Moment dazu ein, langsamer zu werden, zu entdecken und mehr zu erleben – im eigenen Rhythmus.",
+  "food": [
+    "Die Riviera von Opatija verbindet mediterrane Aromen mit mitteleuropäischen Traditionen. Lovran ist besonders bekannt für seine Kirschen (Juni) und Kastanien (Oktober), die mit lokalen Festen gefeiert werden. Sie finden hier:",
+    "Traditionelle Konobas mit frischem Fisch, Meeresfrüchten und hausgemachter Pasta, Trüffeln und Olivenöl,",
+    "Elegante Restaurants mit moderner mediterraner Küche,",
+    "Gemütliche Cafés und Weinbars mit lokalen Weinen, Olivenölen und Aperitifs am Meer."
+  ]
+}

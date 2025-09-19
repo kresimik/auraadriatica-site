@@ -1,163 +1,207 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aura Adriatica Apartments</title>
-<style>
-:root { --brand:#0f766e; --ink:#1f2937; --bg:#ffffff; --muted:#64748b; }
-*{box-sizing:border-box} body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial; margin:0; color:var(--ink); background:var(--bg)}
-header{height:70vh; display:grid; place-items:center; background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15)),url('assets/uploads/hero.jpg') center/cover no-repeat; color:#fff; text-align:center}
-header h1{font-size:clamp(32px,5vw,56px); margin:0 0 .25em}
-header p{max-width:900px; margin:0 auto; font-size:clamp(16px,2.2vw,20px)}
-nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(150%) blur(6px); background:rgba(255,255,255,.9); box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.nav-inner{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem 8%}
-.links a{margin:0 .6rem; text-decoration:none; font-weight:600; color:var(--ink)}
-.links a:hover{color:var(--brand)} .lang{display:flex; gap:.4rem}
-.lang button{border:1px solid #e5e7eb; background:#fff; padding:.4rem .6rem; border-radius:8px; cursor:pointer; font-weight:600}
-.lang button.active, .cta{background:var(--brand); color:#fff; border-color:var(--brand)}
-section{padding:4rem 8%} .muted{color:var(--muted)} .grid{display:grid; gap:1.4rem}
-.apts{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.card{background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 8px 24px rgba(2,8,23,.06)}
-.card img{width:100%; height:200px; object-fit:cover} .card .pad{padding:1rem}
-footer{background:#0b1220; color:#e5e7eb; text-align:center; padding:2rem;}
-.calendar-wrap{background:#fff; border-radius:14px; box-shadow:0 8px 24px rgba(2,8,23,.06); padding:1rem}
-</style>
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@6.1.10/index.global.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aura Adriatica</title>
+  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+  <meta name="theme-color" content="#4da6ff">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <!-- i18n FIRST so it can translate on DOMContentLoaded -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/weather.js?v=20250907" defer></script>
 </head>
 <body>
-<header>
-  <div>
-    <h1 data-i18n="title">Aura Adriatica Apartments</h1>
-    <p data-i18n="subtitle">Modern, comfortable apartments between the Adriatic Sea and Mount Učka — perfect for relaxing coastal days and scenic hikes.</p>
-    <p style="margin-top:1rem"><a class="cta" href="#contact" style="padding:.7rem 1rem; border-radius:10px; text-decoration:none" data-i18n="cta_contact">Contact us</a></p>
-  </div>
-</header>
 
-<nav>
-  <div class="nav-inner">
-    <div class="links">
-      <a href="#about" data-i18n="nav_about">About</a>
-      <a href="#apartments" data-i18n="nav_apartments">Apartments</a>
-      <a href="#availability" data-i18n="nav_availability">Availability</a>
-      <a href="#location" data-i18n="nav_location">Location</a>
-      <a href="#info" data-i18n="nav_info">Guest Info</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
-    </div>
-    <div class="lang">
-      <button data-lang="hr">HR</button>
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="de">DE</button>
-    </div>
-  </div>
-</nav>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-flex">
+      <a href="/" class="logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </a>
 
-<section id="about">
-  <h2 data-i18n="about_h">Welcome</h2>
-  <p class="muted" data-i18n="about_p">Enjoy your stay in our modern and comfortable apartments, located between the Adriatic Sea and the stunning mountain of Učka. Ideal for families, couples, and friends.</p>
-</section>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
 
-<section id="apartments">
-  <h2 data-i18n="apts_h">Our Apartments</h2>
-  <div class="grid apts">
-    <article class="card">
-      <img src="assets/uploads/olive.jpg" alt="Apartment Olive" />
-      <div class="pad">
-        <h3>Olive</h3>
-        <p data-i18n="olive_meta">2 bedrooms • up to 5 guests • Sea view</p>
+      <!-- LANGUAGE DROPDOWN (i18n.js + small hook below) -->
+      <div class="lang-dropdown" id="lang-dd">
+        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+          <span class="current-lang" id="cur-lang">EN</span> ▾
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
+          <button type="button" data-lang="hr">HR</button>
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="de">DE</button>
+          <button type="button" data-lang="it">IT</button>
+          <button type="button" data-lang="sl">SL</button>
+          <button type="button" data-lang="hu">HU</button>
+          <button type="button" data-lang="cs">CS</button>
+          <button type="button" data-lang="sk">SK</button>
+          <button type="button" data-lang="uk">UK</button>
+        </div>
       </div>
-    </article>
-    <article class="card">
-      <img src="assets/uploads/onyx.jpg" alt="Apartment Onyx" />
-      <div class="pad">
-        <h3>Onyx</h3>
-        <p data-i18n="onyx_meta">2 bedrooms • up to 4 guests • Pool access</p>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Intro" style="background-image:
+      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+      url('/assets/img/hero.jpg');">
+    <div class="container hero-center">
+      <h1 data-i18n="brand">Aura Adriatica</h1>
+      <p data-i18n="tagline">Two boutique apartments on the Opatija Riviera</p>
+      <div class="cta">
+        <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+        <a class="button onyx"  href="/apartments/onyx.html"  data-i18n="onyx_h">Onyx Apartment</a>
       </div>
-    </article>
-  </div>
-</section>
+    </div>
+  </section>
 
-<section id="availability">
-  <h2 data-i18n="avail_h">Availability</h2>
-  <p class="muted" data-i18n="avail_note">This calendar shows general availability. For exact dates and booking, please contact us directly.</p>
-  <div class="calendar-wrap"><div id="calendar"></div></div>
-  <noscript><iframe style="border:0" width="100%" height="600" loading="lazy" referrerpolicy="no-referrer" src=""></iframe></noscript>
-</section>
+  <!-- ROW 1: About + Location -->
+  <section class="section" aria-labelledby="about location">
+    <div class="container two-col two-col--boxed">
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="about" data-i18n="about_h">About us</h2>
+          </div>
+          <p data-i18n="about_p">
+            Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera.
+            Enjoy comfort, modern design, and stunning views of the Adriatic Sea.
+          </p>
+        </div>
+      </div>
 
-<section id="location">
-  <h2 data-i18n="loc_h">Location</h2>
-  <p data-i18n="loc_p">We are in Lovran — beaches, a charming old town, and quick access to Učka Nature Park for panoramic hikes.</p>
-</section>
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="location" data-i18n="loc_h">Location</h2>
+          </div>
+          <p data-i18n="loc_p">
+            We are located in Ičići, a charming coastal town near Opatija, Croatia.
+            The beach, marina, and Učka mountain trails are all within walking distance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="info">
-  <h2 data-i18n="info_h">Guest Information</h2>
-  <ul>
-    <li data-i18n="info_1">Check-in from 14:00 • Check-out until 10:00</li>
-    <li data-i18n="info_2">Free Wi-Fi, Parking, Air conditioning</li>
-    <li data-i18n="info_3">PIN access for easy self check-in</li>
-    <li data-i18n="info_4">Local tips and useful links provided after booking</li>
-  </ul>
-</section>
+  <!-- WEATHER -->
+  <section class="section" aria-labelledby="weather">
+    <div class="container">
+      <div class="card">
+        <div class="card-head">
+          <h2 id="weather" data-i18n="weather_h">7-day Forecast</h2>
+        </div>
+        <p data-i18n="weather_note">Weather in Lovran — updated daily</p>
+        <div id="weather-widget" class="weather"></div>
+      </div>
+    </div>
+  </section>
 
-<section id="contact">
-  <h2 data-i18n="contact_h">Contact</h2>
-  <p><strong>Email:</strong> <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
-  <p><strong>WhatsApp:</strong> <a href="https://wa.me/385991234567" target="_blank" rel="noopener">+385 99 123 4567</a></p>
-</section>
+  <!-- ROW 2: Info + Contact -->
+  <section class="section" aria-labelledby="info contact">
+    <div class="container two-col two-col--boxed">
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="info" data-i18n="info_h">Information</h2>
+          </div>
+          <ul id="info-list"></ul>
+        </div>
+      </div>
 
-<footer><p>&copy; 2025 Aura Adriatica Apartments • Lovran, Croatia</p></footer>
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="contact" data-i18n="contact_h">Contact</h2>
+          </div>
+          <p>
+           <a id="apt-contact-email" href="mailto:info@auraadriatica.com">info@auraadriatica.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-const I18N = {
-  hr: {title:'Aura Adriatica Apartmani', subtitle:'Moderni i udobni apartmani između Jadranskog mora i Učke — idealni za opuštanje i šetnje.', cta_contact:'Kontakt',
-       nav_about:'O nama', nav_apartments:'Apartmani', nav_availability:'Kalendar', nav_location:'Lokacija', nav_info:'Info za goste', nav_contact:'Kontakt',
-       about_h:'Dobrodošli', about_p:'Uživajte u boravku u našim modernim i udobnim apartmanima, smještenima između mora i Učke. Idealno za obitelji, parove i prijatelje.',
-       apts_h:'Naši apartmani', olive_meta:'2 spavaće • do 5 gostiju • Pogled na more', onyx_meta:'2 spavaće • do 4 gostiju • Pristup bazenu',
-       avail_h:'Kalendar dostupnosti', avail_note:'Ovdje je prikazana opća dostupnost. Za točne datume i rezervaciju, kontaktirajte nas direktno.',
-       loc_h:'Lokacija', loc_p:'Nalazimo se u Lovranu — plaže, stari grad i brzi pristup Parku prirode Učka.',
-       info_h:'Informacije za goste', info_1:'Check-in od 14:00 • Check-out do 10:00', info_2:'Besplatan Wi-Fi, Parking, Klima', info_3:'PIN pristup za lakši samostalni dolazak', info_4:'Lokalni savjeti i korisni linkovi nakon rezervacije',
-       contact_h:'Kontakt'},
-  en: {title:'Aura Adriatica Apartments', subtitle:'Modern, comfortable apartments between the Adriatic Sea and Mount Učka — perfect for relaxing coastal days and scenic hikes.', cta_contact:'Contact us',
-       nav_about:'About', nav_apartments:'Apartments', nav_availability:'Availability', nav_location:'Location', nav_info:'Guest Info', nav_contact:'Contact',
-       about_h:'Welcome', about_p:'Enjoy your stay in our modern and comfortable apartments, located between the Adriatic Sea and the stunning mountain of Učka. Ideal for families, couples, and friends.',
-       apts_h:'Our Apartments', olive_meta:'2 bedrooms • up to 5 guests • Sea view', onyx_meta:'2 bedrooms • up to 4 guests • Pool access',
-       avail_h:'Availability', avail_note:'This calendar shows general availability. For exact dates and booking, please contact us directly.',
-       loc_h:'Location', loc_p:'We are in Lovran — beaches, a charming old town, and quick access to Učka Nature Park for panoramic hikes.',
-       info_h:'Guest Information', info_1:'Check-in from 14:00 • Check-out until 10:00', info_2:'Free Wi-Fi, Parking, Air conditioning', info_3:'PIN access for easy self check-in', info_4:'Local tips and useful links provided after booking',
-       contact_h:'Contact'},
-  de: {title:'Aura Adriatica Apartments', subtitle:'Moderne, komfortable Apartments zwischen Adria und dem Berg Učka — ideal für Erholung und Wanderungen.', cta_contact:'Kontakt',
-       nav_about:'Über uns', nav_apartments:'Apartments', nav_availability:'Verfügbarkeit', nav_location:'Lage', nav_info:'Gästeinfo', nav_contact:'Kontakt',
-       about_h:'Willkommen', about_p:'Genießen Sie Ihren Aufenthalt in unseren modernen, komfortablen Apartments zwischen der Adria und dem beeindruckenden Berg Učka. Ideal für Familien, Paare und Freunde.',
-       apts_h:'Unsere Apartments', olive_meta:'2 Schlafzimmer • bis 5 Gäste • Meerblick', onyx_meta:'2 Schlafzimmer • bis 4 Gäste • Poolzugang',
-       avail_h:'Verfügbarkeit', avail_note:'Dieser Kalender zeigt die allgemeine Verfügbarkeit. Für genaue Daten und Buchung kontaktieren Sie uns bitte direkt.',
-       loc_h:'Lage', loc_p:'Wir befinden uns in Lovran — Strände, Altstadt und schneller Zugang zum Naturpark Učka.',
-       info_h:'Gästeinformationen', info_1:'Check-in ab 14:00 • Check-out bis 10:00', info_2:'Kostenloses WLAN, Parkplatz, Klimaanlage', info_3:'PIN-Zugang für bequemen Self-Check-in', info_4:'Lokale Tipps und nützliche Links nach der Buchung',
-       contact_h:'Kontakt'}
-};
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      </nav>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+        <p>&copy; <span id="year"></span> Aura Adriatica</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-function applyLang(lang){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    if(I18N[lang] && I18N[lang][key]) el.textContent = I18N[lang][key];
-  });
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
-  document.documentElement.lang = lang;
-}
-document.querySelectorAll('.lang button').forEach(btn=>btn.addEventListener('click',()=>applyLang(btn.dataset.lang)));
-applyLang('en');
+  <!-- INFO LIST + LANGUAGE HOOK (no reload) -->
+  <script>
+    // Fill the info list from the current language JSON
+    async function reloadInfoList(lang) {
+      try {
+        const res = await fetch(`/content/${(lang || localStorage.getItem('lang') || 'en').toLowerCase()}.json`, { cache: 'no-store' });
+        if (!res.ok) return;
+        const data = await res.json();
+        const list = document.getElementById('info-list');
+        if (!list) return;
+        list.innerHTML = '';
+        if (Array.isArray(data.info_list)) {
+          data.info_list.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            list.appendChild(li);
+          });
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+    }
 
-// Calendar (replace ICS URL below)
-document.addEventListener('DOMContentLoaded', function(){
-  const el = document.getElementById('calendar'); if(!el) return;
-  const cal = new FullCalendar.Calendar(el, {
-    height:650, initialView:'dayGridMonth',
-    headerToolbar:{left:'title',center:'',right:'prev,next today'},
-    events:{ url:'REPLACE_WITH_PUBLIC_ICS_URL', format:'ics' }
-  });
-  cal.render();
-});
-</script>
+    document.addEventListener('DOMContentLoaded', () => {
+      reloadInfoList(); // initial fill
+
+      // When a language is chosen in the dropdown, let i18n.js translate,
+      // then re-fetch the info list in that language.
+      document.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.lang-menu button[data-lang]');
+        if (!btn) return;
+        const lang = btn.dataset.lang;
+        if (typeof window.setLang === 'function') {
+          await window.setLang(lang);   // translates all [data-i18n]
+        }
+        await reloadInfoList(lang);     // refresh the list items
+      });
+    });
+  </script>
+
 </body>
 </html>
