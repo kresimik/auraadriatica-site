@@ -7,13 +7,13 @@
   <meta name="robots" content="noindex,nofollow" />
   <meta name="description" content="Useful insider information for your stay at Aura Adriatica Apartments." />
 
-  <!-- Base CSS + lokalni touch-up -->
+  <!-- Base CSS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=guest-final">
   <style>
-    /* HERO i razmaci */
+    /* HERO & spacing */
     .hero { min-height: 280px; }
     .hero .hero-center { padding: 64px 0; }
-    /* GRID 3 u redu */
+    /* GRID 3-up */
     .info-grid{
       display:grid; gap:22px; margin-top:24px;
       grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
@@ -29,17 +29,15 @@
     }
     .info-section p{ margin:.45rem 0; }
     .info-section ul{ margin:.25rem 0; padding-left:1.15rem; }
-    /* Wi-Fi blok */
+    /* Wi-Fi block */
     .wifi-flex{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
     .wifi-text{ flex:1 1 240px; }
     .wifi-qr img{ max-width:120px; border-radius:8px; display:block; }
-    /* sitni utility */
     .muted{ opacity:.86; }
   </style>
 
-  <!-- I18N + guest loader -->
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/guest.js?v=final" defer></script>
+  <script src="/assets/js/guest.js?v=final2" defer></script>
 </head>
 
 <body class="guest">
@@ -57,7 +55,7 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- JEZICI -->
+      <!-- LANGUAGE -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
           <span id="cur-lang">EN</span> ▾
@@ -77,7 +75,7 @@
     </div>
   </header>
 
-  <!-- HERO (lokalna slika) -->
+  <!-- HERO (local image) -->
   <section class="hero" style="
     background-image:
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
@@ -88,7 +86,7 @@
     </div>
   </section>
 
-  <!-- SADRŽAJ (JS puni) -->
+  <!-- CONTENT -->
   <section class="section">
     <div class="container">
       <div id="guest-sections" class="info-grid"></div>
@@ -116,15 +114,15 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Hook za promjenu jezika -->
+  <!-- Language → translate UI + reload guest JSON -->
   <script>
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
       if(!btn) return;
       const lang = btn.dataset.lang;
       localStorage.setItem('lang', lang);
-      if (typeof window.setLang === 'function') await window.setLang(lang); // prevede header/footer
-      if (typeof window.loadGuest === 'function') await window.loadGuest(lang); // učita guest JSON
+      if (typeof window.setLang === 'function') await window.setLang(lang);
+      if (typeof window.loadGuest === 'function') await window.loadGuest(lang);
     });
   </script>
 </body>
