@@ -1,5 +1,7 @@
 {
-  "hero_title": "Guest Information",
+  "page_title": "Guest Information — Aura Adriatica",
+  "hero_h": "Welcome dear guests",
+  "hero_p": "Useful insider information for your stay at Aura Adriatica Apartments.",
   "sections": [
     {
       "title": "Apartment Addresses",
@@ -22,7 +24,9 @@
     {
       "title": "Wi-Fi Information",
       "type": "html",
-      "content": "Wi-Fi network: **AuraAdriatica_Guest**, password: **AuraA20&24!**<br>Or scan the QR code below:<br><img src='/assets/img/qr-wifi.png' alt='Wi-Fi QR Code' style='max-width:120px;'>"
+      "html_kind": "wifi",
+      "content": "Wi-Fi network: **AuraAdriatica_Guest**, password: **AuraA20&24!**<br>Or scan the QR code:",
+      "qr": "/assets/img/wifi-qr.png"
     },
     {
       "title": "Guest Registration",
@@ -32,7 +36,7 @@
     {
       "title": "Waste Disposal",
       "type": "text",
-      "content": "Two bins: one for mixed waste and one for plastic (in the parking area).\nKey: Onyx — shelf to the right of the entrance door; Olive — rightmost drawer in the kitchen island."
+      "content": "Two bins: one for mixed waste and one for plastic (in the parking area). Key: Onyx — shelf to the right of the entrance door; Olive — rightmost drawer in the kitchen island."
     },
     {
       "title": "Groceries",
@@ -46,12 +50,12 @@
       "title": "Recommended Restaurants",
       "type": "list",
       "items": [
-        "Ganeum, Lovran — [Map](https://maps.app.goo.gl/yUTKW83KbX3xhhYV9)",
+        "Ganeum, Lovran — [Map](https://maps.app.goo.gl/yUTKW83KbX3xhYV9)",
         "Najade, Lovran — [Map](https://maps.app.goo.gl/VXj3Le13ZaP5uZR27)",
         "Draga di Lovrana, Lovranska Draga — [Map](https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6)",
         "Plavi podrum, Volosko — [Map](https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7)",
         "Valle Losca, Opatija — [Map](https://maps.app.goo.gl/4Kyh5pqQoDDbubow7)",
-        "Zijavica, Mošćenička Draga — [Map](https://maps.app.goo.gl/aqptnU64dpdEro19)",
+        "Zijavica, Mošćenička Draga — [Map](https://maps.app.goo.gl/aqptnU64dpdrEro19)",
         "Ružmarin, Opatija — [Map](https://maps.app.goo.gl/cPMscVMU4gnontM97)",
         "Johnson Restaurant, Mošćenička Draga — [Map](https://maps.app.goo.gl/aobtvfK67GLamKRC8)",
         "Bistro Fortica, Kastav — [Map](https://maps.app.goo.gl/1gJWz9zBvvuKYdju5)",
