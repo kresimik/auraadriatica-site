@@ -1,109 +1,183 @@
 // /assets/js/guest.js
 const GUEST_DEFAULT_LANG = 'en';
 
-function link(href, text){
-  const a = document.createElement('a');
-  a.href = href; a.textContent = text || href; a.target = '_blank'; a.rel = 'noopener';
-  return a;
-}
-function ulFromMarkdownLinks(lines){
-  // lines su stringovi tipa "Ganeum – [Map](https://...)"
+// helper: napravi <ul> iz polja stringova
+function ul(list) {
   const ul = document.createElement('ul');
-  lines.forEach(s=>{
+  list.forEach(item => {
     const li = document.createElement('li');
-    // jednostavan parser za [Text](URL)
-    li.innerHTML = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    // pretvori "— URL" u link, ili [Text](URL)
+    li.innerHTML = String(item)
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+      .replace(/—\s*(https?:\/\/\S+)/g, '— <a href="$1" target="_blank" rel="noopener">Map</a>');
     ul.appendChild(li);
   });
   return ul;
 }
 
-async function loadGuestUnified(langOpt){
+// cache-buster (minutni) da probije CDN/browser cache
+function bustUrl(url) {
+  const v = Math.floor(Date.now() / 60000);
+  return url + (url.includes('?') ? '&' : '?') + 'v=' + v;
+}
+
+async function loadGuestUnified(langOpt) {
   const lang = (langOpt || localStorage.getItem('lang') || GUEST_DEFAULT_LANG).toLowerCase();
-  const bust = `v=${Math.floor(Date.now()/60000)}`; // cache-bust ~1min
-  const tryUrls = [
-    `/content/guest/${lang}.json?${bust}`,
-    `/content/guest/en.json?${bust}`
+
+  // probaj traženi jezik → fallback EN
+  const urls = [
+    bustUrl(`/content/guest/${lang}.json`),
+    bustUrl(`/content/guest/en.json`)
   ];
 
   let data = null;
-  for (const url of tryUrls){
-    try{
-      const res = await fetch(url, { cache: 'no-store' });
-      if (res.ok){ data = await res.json(); break; }
-    }catch(e){ console.warn('[guest] fetch error', e); }
-  }
-  if (!data){ console.warn('[guest] missing JSON'); return; }
-
-  // HERO
-  document.title = data.page_title || 'Guest & Local Information — Aura Adriatica';
-  if (data.hero_title) document.getElementById('guest-h1').textContent = data.hero_title;
-  if (data.hero_sub)   document.getElementById('guest-sub').textContent = data.hero_sub;
-
-  // ======= GENERAL =======
-  const addrBox = document.getElementById('addresses'); addrBox.innerHTML='';
-  if (data.sections?.addresses){
-    const s = data.sections.addresses;
-    if (Array.isArray(s.items)) addrBox.appendChild(ulFromMarkdownLinks(s.items));
-    if (s.note){ const p=document.createElement('p'); p.textContent=s.note; addrBox.appendChild(p); }
-  }
-
-  const parking = document.getElementById('parking'); parking.innerHTML='';
-  if (data.sections?.parking?.text){ parking.textContent = data.sections.parking.text; }
-
-  const lock = document.getElementById('lock'); lock.innerHTML='';
-  if (data.sections?.keys?.text){ lock.textContent = data.sections.keys.text; }
-
-  const wifi = document.getElementById('wifi'); wifi.innerHTML='';
-  if (data.sections?.wifi){
-    const w = data.sections.wifi;
-    const text = document.createElement('div');
-    text.className = 'wifi-text';
-    text.innerHTML = `Network: <strong>${w.ssid}</strong><br>Password: <strong>${w.password}</strong>${w.note?`<p>${w.note}</p>`:''}`;
-    const box = document.createElement('div'); box.className='wifi-flex'; box.appendChild(text);
-    if (w.qr){
-      const qrWrap = document.createElement('div'); qrWrap.className='wifi-qr';
-      const img = document.createElement('img'); img.src = w.qr; img.alt = 'Wi-Fi QR Code';
-      qrWrap.appendChild(img); box.appendChild(qrWrap);
+  for (const u of urls) {
+    try {
+      const res = await fetch(u, { cache: 'no-store' });
+      if (res.ok) { data = await res.json(); break; }
+    } catch (e) {
+      console.warn('[guest] fetch error for', u, e);
     }
-    wifi.appendChild(box);
+  }
+  if (!data) return;
+
+  // HERO tekst (iz JSON-a)
+  if (data.guest_h1) {
+    const h1 = document.getElementById('guest-h1');
+    if (h1) h1.textContent = data.guest_h1;
+  }
+  if (data.guest_sub) {
+    const sub = document.getElementById('guest-sub');
+    if (sub) sub.textContent = data.guest_sub;
   }
 
-  const waste = document.getElementById('waste'); waste.innerHTML='';
-  if (data.sections?.waste?.text){ const p=document.createElement('p'); p.textContent=data.sections.waste.text; waste.appendChild(p); }
-
-  const reg = document.getElementById('registration'); reg.innerHTML='';
-  if (data.sections?.registration){
-    const r = data.sections.registration;
-    const p = document.createElement('p'); p.textContent = r.text || ''; reg.appendChild(p);
-    if (r.link) reg.appendChild(link(r.link, 'Guest Registration Form'));
+  // ====== PUNJENJE SEKCIJA ======
+  // Addresses
+  const elAddr = document.getElementById('addresses');
+  if (elAddr) {
+    elAddr.innerHTML = '';
+    if (Array.isArray(data.addresses)) elAddr.appendChild(ul(data.addresses));
   }
 
-  // ======= LOCAL =======
-  const groceries = document.getElementById('groceries'); groceries.innerHTML='';
-  if (data.sections?.groceries?.items){ groceries.appendChild(ulFromMarkdownLinks(data.sections.groceries.items)); }
-
-  const restaurants = document.getElementById('restaurants'); restaurants.innerHTML='';
-  if (data.sections?.restaurants?.items){ restaurants.appendChild(ulFromMarkdownLinks(data.sections.restaurants.items)); }
-
-  const beaches = document.getElementById('beaches'); beaches.innerHTML='';
-  if (data.sections?.beaches?.items){ beaches.appendChild(ulFromMarkdownLinks(data.sections.beaches.items)); }
-
-  const market = document.getElementById('market'); market.innerHTML='';
-  if (data.sections?.market?.text){
-    market.innerHTML = data.sections.market.text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  // Parking
+  const elParking = document.getElementById('parking');
+  if (elParking) {
+    elParking.innerHTML = '';
+    if (data.parking) {
+      const p = document.createElement('p');
+      p.textContent = data.parking;
+      elParking.appendChild(p);
+    }
   }
 
-  const tourist = document.getElementById('tourist'); tourist.innerHTML='';
-  if (data.sections?.tourist?.text){
-    tourist.innerHTML = data.sections.tourist.text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  // Digital key / Lock
+  const elLock = document.getElementById('lock');
+  if (elLock) {
+    elLock.innerHTML = '';
+    if (data.lock) {
+      const p = document.createElement('p');
+      p.textContent = data.lock;
+      elLock.appendChild(p);
+    }
   }
 
-  if (data.footer_note){
-    const foot = document.getElementById('footer_note');
-    if (foot) foot.textContent = data.footer_note;
+  // Wi-Fi
+  const elWifi = document.getElementById('wifi');
+  if (elWifi) {
+    elWifi.innerHTML = '';
+    if (data.wifi && (data.wifi.text || data.wifi.qr)) {
+      const box = document.createElement('div');
+      box.className = 'wifi-flex';
+
+      const txt = document.createElement('div');
+      txt.className = 'wifi-text';
+      txt.innerHTML = data.wifi.text
+        ? data.wifi.text.replace(/\n/g, '<br>')
+        : '';
+      box.appendChild(txt);
+
+      if (data.wifi.qr) {
+        const qr = document.createElement('div');
+        qr.className = 'wifi-qr';
+        const img = document.createElement('img');
+        img.src = data.wifi.qr;
+        img.alt = 'Wi-Fi QR';
+        qr.appendChild(img);
+        box.appendChild(qr);
+      }
+      elWifi.appendChild(box);
+    }
   }
+
+  // Registration (može biti plain tekst sa linkom)
+  const elReg = document.getElementById('registration');
+  if (elReg) {
+    elReg.innerHTML = '';
+    if (data.registration) {
+      const p = document.createElement('p');
+      p.innerHTML = String(data.registration)
+        .replace(/\b(https?:\/\/\S+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+      elReg.appendChild(p);
+    }
+  }
+
+  // Waste
+  const elWaste = document.getElementById('waste');
+  if (elWaste) {
+    elWaste.innerHTML = '';
+    if (data.waste) {
+      const p = document.createElement('p');
+      p.textContent = data.waste;
+      elWaste.appendChild(p);
+    }
+  }
+
+  // Groceries
+  const elGro = document.getElementById('groceries');
+  if (elGro) {
+    elGro.innerHTML = '';
+    if (Array.isArray(data.groceries)) elGro.appendChild(ul(data.groceries));
+  }
+
+  // Restaurants
+  const elRest = document.getElementById('restaurants');
+  if (elRest) {
+    elRest.innerHTML = '';
+    if (Array.isArray(data.restaurants)) elRest.appendChild(ul(data.restaurants));
+  }
+
+  // Beaches
+  const elBea = document.getElementById('beaches');
+  if (elBea) {
+    elBea.innerHTML = '';
+    if (Array.isArray(data.beaches)) elBea.appendChild(ul(data.beaches));
+  }
+
+  // Market & Tourist
+  const elMarket = document.getElementById('market');
+  if (elMarket) {
+    elMarket.innerHTML = '';
+    if (data.market) {
+      elMarket.innerHTML = String(data.market)
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/\b(https?:\/\/\S+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    }
+  }
+  const elTour = document.getElementById('tourist');
+  if (elTour) {
+    elTour.innerHTML = '';
+    if (data.tourist) {
+      elTour.innerHTML = String(data.tourist)
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/\b(https?:\/\/\S+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    }
+  }
+
+  // Footer note (iz JSON-a ili ostavi i18n default)
+  const foot = document.getElementById('footer_note');
+  if (foot && data.footer_note) foot.textContent = data.footer_note;
 }
 
+// init
 window.loadGuestUnified = loadGuestUnified;
-document.addEventListener('DOMContentLoaded', ()=> loadGuestUnified());
+document.addEventListener('DOMContentLoaded', () => loadGuestUnified());
