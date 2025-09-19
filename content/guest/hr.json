@@ -1,1 +1,103 @@
+{
+  "hero_title": "Informacije za goste i lokalne preporuke",
+  "hero_sub": "Praktični savjeti i insajderske informacije za vaš boravak u Auri Adriatici.",
 
+  "sections": {
+    "addresses": {
+      "title": "Adrese apartmana",
+      "items": [
+        "Apartman Onyx: Rezine 7H, Lovran – [Karta](https://www.google.com/maps/place/Rezine+7H,+Lovran)",
+        "Apartman Olive: Rezine 7G, Lovran – [Karta](https://www.google.com/maps/place/Rezine+7G,+Lovran)"
+      ],
+      "note": "Preporučamo Google Maps za točne upute. Street View fotografije su starije, snimljene prije izgradnje apartmana."
+    },
+
+    "parking": {
+      "title": "Parking",
+      "text": "Ispred svakog apartmana dostupna su tri privatna parkirna mjesta, rezervirana za vas."
+    },
+
+    "keys": {
+      "title": "Digitalna brava",
+      "text": "Apartmani imaju sigurnu digitalnu bravu s PIN-om. Prije dolaska poslat ćemo vam PIN putem WhatsAppa, SMS-a ili e-pošte."
+    },
+
+    "wifi": {
+      "title": "Wi-Fi",
+      "ssid": "AuraAdriatica_Guest",
+      "password": "AuraA20&24!",
+      "qr": "/assets/img/wifi-qr.png",
+      "note": "Skenirajte QR kod za automatsko spajanje."
+    },
+
+    "registration": {
+      "title": "Prijava gostiju",
+      "text": "Sukladno propisima RH, svi gosti u komercijalnom smještaju moraju biti prijavljeni. Kako bismo ubrzali check-in, molimo ispunite obrazac za svakog gosta:",
+      "link": "https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c"
+    },
+
+    "waste": {
+      "title": "Odlaganje otpada",
+      "text": "Na raspolaganju su dvije kante: miješani otpad i plastika, smještene na parkiralištu. Za kantu za miješani otpad potreban je ključ. U Onyxu se ključ nalazi na polici desno od ulaznih vrata; u Oliveu u krajnjoj desnoj ladici kuhinjskog otoka (privjesak „Lovran“)."
+    },
+
+    "check": {
+      "title": "Check-in i check-out",
+      "text": "Check-in od 15:00; check-out do 11:00."
+    },
+
+    "groceries": {
+      "title": "Trgovine",
+      "items": [
+        "Konzum (500 m) – [Karta](https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA)",
+        "Plodine (3 km) – [Karta](https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9)"
+      ]
+    },
+
+    "market": {
+      "title": "Tržnica",
+      "text": "[Prikaži na karti](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)"
+    },
+
+    "delicacies": {
+      "title": "Lokalne delicije",
+      "text": "Peperoncino Lovran – [Karta](https://maps.app.goo.gl/5a6xNydsCUEih4jt5)"
+    },
+
+    "restaurants": {
+      "title": "Preporučeni restorani",
+      "items": [
+        "Ganeum, Lovran – [Karta](https://maps.app.goo.gl/yUTKW83KbX3xhhYV9)",
+        "Najade, Lovran – [Karta](https://maps.app.goo.gl/VXj3Le13ZaP5uZR27)",
+        "Draga di Lovrana, Lovranska Draga – [Karta](https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6)",
+        "Plavi podrum, Volosko – [Karta](https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7)",
+        "Valle Losca, Opatija – [Karta](https://maps.app.goo.gl/4Kyh5pqQoDDbubow7)",
+        "Zijavica, Mošćenička Draga – [Karta](https://maps.app.goo.gl/aqptnU64dprdEro19)",
+        "Ružmarin, Opatija – [Karta](https://maps.app.goo.gl/cPMscVMU4gnontM97)",
+        "Johnson Restaurant, Mošćenička Draga – [Karta](https://maps.app.goo.gl/aobtvfK67GLamKRC8)",
+        "Bistro Fortica, Kastav – [Karta](https://maps.app.goo.gl/1gJWz9zBvvuKYdju5)",
+        "Istranka, Opatija – [Karta](https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78)"
+      ]
+    },
+
+    "beaches": {
+      "title": "Plaže u blizini",
+      "items": [
+        "Peharovo – [Karta](https://maps.app.goo.gl/jnKYDnaNymPPRa1K8)",
+        "Cipera – [Karta](https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7)",
+        "Kvarner – [Karta](https://maps.app.goo.gl/y1teyu9YMguTyPXF7)",
+        "Medveja – [Karta](https://maps.app.goo.gl/gzheik8unN1ocQLx9)",
+        "Mošćenička Draga – [Karta](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
+        "Ičići – [Karta](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
+        "Opatija – [Karta](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
+      ]
+    },
+
+    "tourist": {
+      "title": "Turističke informacije",
+      "text": "Više informacija o Lovranu i okolici pronađite na [visitlovran.com](https://visitlovran.com/destinacija/lovran/)."
+    }
+  },
+
+  "footer_note": "Veselimo se vašem dolasku — ugodan boravak!"
+}
