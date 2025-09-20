@@ -1,24 +1,33 @@
 {
   "page_title": "Apartman Onyx — Aura Adriatica",
-  "inquiry_note": "Pošaljite nam željene datume i odgovorit ćemo vam s dostupnošću i cijenama.",
-  "meta_desc": "Apartman Onyx — moderan dvoetažni apartman blizu mora s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimom u svim prostorijama i privatnim parkingom u Lovranu kraj Opatije.",
-  "intro": "Moderan dvoetažni apartman blizu mora s privatnim bazenom, terasom, vrtom i pogledom na more.",
-  "inquiry_h": "Dostupnost & Upit",
-  "inquiry_url_hr": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
-  "gallery": [
-    "/assets/img/onyx1.jpg",
-    "/assets/img/onyx2.jpg",
-    "/assets/img/onyx3.jpg",
-    "/assets/img/onyx4.jpg"
-  ],
+  "meta_desc": "Apartman Onyx — moderan dvoetažni stan uz more s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimom u svim prostorijama i privatnim parkingom u Lovranu kraj Opatije.",
   "title": "Apartman Onyx",
-  "description": "Apartman Onyx spaja moderan dizajn s čarima mirne okoline Lovrana. Smješten odmah do apartmana Olive, udaljen je samo 10 minuta od starog grada i poznate šetnice Lungomare. S privatnim bazenom, sunčanom terasom i panoramskim pogledom na Kvarnerski zaljev, Onyx nudi obilje prostora, prirodnog svjetla i smještaj za do 6 gostiju.\nSavršen za parove, obitelji ili poslovne putnike, Onyx pruža opuštenu, a modernu atmosferu. Samo 100 metara od plaže, s privatnim vrtom, roštiljem i sigurnim parkingom, idealan je izbor za opuštajući odmor ili rad na daljinu uz more.",
+  "intro": "Moderan dvoetažni apartman uz more s privatnim bazenom, terasom, vrtom i pogledom na more.",
+  "description": "Apartman Onyx spaja moderan dizajn s mirom Lovrana. Smješten pored apartmana Olive, udaljen je samo 10 minuta hoda od starog grada i poznate šetnice Lungomare. Sa svojim privatnim bazenom, sunčanom terasom i panoramskim pogledom na Kvarnerski zaljev, Onyx nudi mnogo prostora, prirodnog svjetla i smještaj za do 6 gostiju.\nSavršen za parove, obitelji ili poslovne putnike, Onyx pruža opuštenu, ali modernu atmosferu. Samo 100 metara od plaže, s privatnim vrtom, roštiljem i osiguranim parkingom, idealan je izbor za odmor ili rad na daljinu uz more.",
   "features": [
     "🏊 Privatni bazen",
     "🌅 Terasa s vrtom i pogledom na more",
     "🔥 Vanjski roštilj",
     "🚗 Privatni parking",
     "🍳 Potpuno opremljena kuhinja",
-    "❄️ Klima uređaj u svim prostorijama"
-  ]
+    "❄️ Klima u svim prostorijama"
+  ],
+  "gallery": [
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg",
+    "/assets/img/onyx5.jpg",
+    "/assets/img/onyx6.jpg"
+  ],
+  "inquiry_h": "Dostupnost i upit",
+  "inquiry_note": "Pošaljite nam željene datume, a mi ćemo vam odgovoriti s dostupnošću i cijenom.",
+  "inquiry_url_hr": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/example",
+  "contact_h": "Kontakt",
+  "contact_note_hr": "Zanima vas apartman Onyx? Pošaljite nam svoj upit izravno:",
+  "contact_email": "info@auraadriatica.com",
+
+  "desc_h": "Opis",
+  "highlights_h": "Glavne značajke",
+  "gallery_h": "Galerija"
 }

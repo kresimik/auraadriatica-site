@@ -16,12 +16,19 @@
     "/assets/img/onyx1.jpg",
     "/assets/img/onyx2.jpg",
     "/assets/img/onyx3.jpg",
-    "/assets/img/onyx4.jpg"
+    "/assets/img/onyx4.jpg",
+    "/assets/img/onyx5.jpg",
+    "/assets/img/onyx6.jpg"
   ],
   "inquiry_h": "Availability & Inquiry",
   "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates.",
   "inquiry_url_en": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
   "contact_h": "Contact",
   "contact_note_en": "Interested in Apartment Onyx? Send us your inquiry directly:",
-  "contact_email": "info@auraadriatica.com"
+  "contact_email": "info@auraadriatica.com",
+
+  "--- headings ---": "",
+  "desc_h": "Description",
+  "highlights_h": "Highlights",
+  "gallery_h": "Gallery"
 }

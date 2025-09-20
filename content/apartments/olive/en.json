@@ -1,9 +1,18 @@
 {
   "page_title": "Olive Apartment — Aura Adriatica",
   "meta_desc": "Apartment Olive — bright duplex with private pool, terrace with garden and sea view, BBQ, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
+
   "title": "Olive Apartment",
   "intro": "Sunny duplex with private pool, terrace, garden, and sea view.",
+
+  "desc_h": "Description",
+  "highlights_h": "Highlights",
+  "gallery_h": "Gallery",
+  "inquiry_h": "Availability & Inquiry",
+  "contact_h": "Contact",
+
   "description": "Apartment Olive offers a bright and spacious retreat in a quiet part of Lovran, just 10 minutes from the town center and the famous Lungomare promenade. With a sunny terrace and private pool overlooking Kvarner Bay, it provides modern comfort, plenty of natural light, and accommodation for up to 6 guests.\nLocated only 100 meters from the beach and equipped with a BBQ area and private parking, Olive is perfect for both relaxing holidays and remote work by the sea.",
+
   "features": [
     "🏊 Private pool",
     "🌅 Terrace with garden and sea view",
@@ -12,16 +21,19 @@
     "🍳 Fully equipped kitchen",
     "❄️ Air conditioning in all rooms"
   ],
+
   "gallery": [
-    "/assets/img/olive1.jpg",
-    "/assets/img/olive2.jpg",
-    "/assets/img/olive3.jpg",
-    "/assets/img/olive4.jpg"
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg",
+    "/assets/img/onyx5.jpg",
+    "/assets/img/onyx6.jpg"
   ],
-  "inquiry_h": "Availability & Inquiry",
+
   "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates.",
   "inquiry_url_en": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
-  "contact_h": "Contact",
+
   "contact_note_en": "Interested in Apartment Olive? Send us your inquiry directly:",
   "contact_email": "info@auraadriatica.com"
 }
