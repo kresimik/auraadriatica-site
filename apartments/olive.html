@@ -24,7 +24,6 @@
   <script src="/assets/js/apt.js" defer></script>
 </head>
 
-<!-- data-apt-slug tells apt.js which JSON to load -->
 <body data-apt-slug="olive">
 
   <!-- HEADER -->
@@ -42,7 +41,7 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN (i18n.js handles translation; apt.js listens to reload JSON) -->
+      <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -75,37 +74,34 @@
     </div>
   </section>
 
-  <!-- DETAILS (CMS-filled) -->
+  <!-- DETAILS -->
   <section class="section">
     <div class="container">
       <h2 data-i18n="apts_h">Apartment details</h2>
 
       <div class="two-col two-col--boxed">
         <div class="col">
-          <h3>Description</h3>
-          <!-- apt.js fills paragraphs here from description/intro -->
+          <h3 data-i18n="desc_h">Description</h3>
           <div id="apt-desc"></div>
         </div>
 
         <div class="col">
-          <h3>Highlights</h3>
-          <!-- apt.js renders LI items here -->
+          <h3 data-i18n="highlights_h">Highlights</h3>
           <ul class="highlights" id="apt-highlights"></ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY (CMS-filled) -->
+  <!-- GALLERY -->
   <section class="section alt">
     <div class="container">
-      <h2>Gallery</h2>
-      <!-- apt.js injects <img> here -->
+      <h2 data-i18n="gallery">Gallery</h2>
       <div class="gallery" id="apt-gallery"></div>
     </div>
   </section>
 
-  <!-- INQUIRY (Zoho form — JSON-driven) -->
+  <!-- INQUIRY -->
   <section class="section">
     <div class="container" id="apt-inquiry-wrap" style="display:none;">
       <h2 id="apt-inquiry-h">Availability &amp; Inquiry</h2>
@@ -114,7 +110,7 @@
     </div>
   </section>
 
-  <!-- (Optional) CALENDAR fallback — ostaje skriven ako u JSON-u nema "calendar" -->
+  <!-- CALENDAR fallback -->
   <section class="section">
     <div class="container">
       <div id="apt-calendar-wrap" style="display:none;">
@@ -125,16 +121,17 @@
     </div>
   </section>
 
-  <!-- CONTACT (now CMS-driven; apt.js fills the text & email) -->
-<section class="section alt">
-  <div class="container contact-box" id="apt-contact-wrap">
-    <h2 data-i18n="contact_h">Contact</h2>
-    <p id="apt-contact-text">
-      Interested in Apartment <span id="apt-name">Olive</span>? Send us your inquiry directly:
-      <a id="apt-contact-email" href="mailto:info@auraadriatica.com">info@auraadriatica.com</a>
-    </p>
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section class="section alt">
+    <div class="container contact-box" id="apt-contact-wrap">
+      <h2 data-i18n="contact_h">Contact</h2>
+      <p id="apt-contact-text">
+        Interested in Apartment <span id="apt-name">Olive</span>? 
+        Send us your inquiry directly:
+        <a id="apt-contact-email" href="mailto:info@auraadriatica.com">info@auraadriatica.com</a>
+      </p>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -157,7 +154,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Hook language change → reload this apartment JSON (so the form can switch too when you add HR/DE/IT) -->
+  <!-- Lang hook -->
   <script>
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
