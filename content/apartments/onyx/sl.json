@@ -1,24 +1,31 @@
 {
   "page_title": "Apartma Onyx — Aura Adriatica",
-  "inquiry_note": "Pošljite nam želene datume in odgovorili vam bomo z razpoložljivostjo in cenami.",
-  "meta_desc": "Apartma Onyx — moderan dvoetažni apartma blizu morja z zasebnim bazenom, teraso z vrtom in pogledom na morje, žarom, popolnoma opremljeno kuhinjo, klimatsko napravo v vseh prostorih in zasebnim parkiriščem v Lovranu pri Opatiji.",
-  "intro": "Moderan dvoetažni apartma blizu morja z zasebnim bazenom, teraso, vrtom in pogledom na morje.",
-  "inquiry_h": "Razpoložljivost & Povpraševanje",
-  "inquiry_url_sl": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+  "meta_desc": "Apartma Onyx — sodoben dupleks ob morju s privatnim bazenom, teraso z vrtom in pogledom na morje, žarom, popolnoma opremljeno kuhinjo, klimatsko napravo v vseh prostorih in zasebnim parkiriščem v Lovranu pri Opatiji.",
+  "title": "Apartma Onyx",
+  "intro": "Sodoben dupleks ob morju s privatnim bazenom, teraso, vrtom in pogledom na morje.",
+  "description": "Apartma Onyx združuje sodoben dizajn s čarom Lovrana. Nahaja se poleg apartmaja Olive, le 10 minut hoje od starega mestnega jedra in znamenite promenade Lungomare. S svojim privatnim bazenom, sončno teraso in panoramskim pogledom na Kvarnerski zaliv Onyx nudi veliko prostora, naravne svetlobe in nastanitev za do 6 gostov.\nPrimeren za pare, družine ali poslovne popotnike, Onyx ponuja sproščeno, a moderno vzdušje. Le 100 metrov od plaže, z zasebnim vrtom, žarom in varovanim parkiriščem je popolna izbira za počitnice ali delo na daljavo ob morju.",
+  "features": [
+    "🏊 Privatni bazen",
+    "🌅 Terasa z vrtom in pogledom na morje",
+    "🔥 Zunanji žar",
+    "🚗 Privatno parkirišče",
+    "🍳 Popolnoma opremljena kuhinja",
+    "❄️ Klima v vseh prostorih"
+  ],
   "gallery": [
     "/assets/img/onyx1.jpg",
     "/assets/img/onyx2.jpg",
     "/assets/img/onyx3.jpg",
     "/assets/img/onyx4.jpg"
   ],
-  "title": "Apartma Onyx",
-  "description": "Apartma Onyx združuje sodoben dizajn s čarom mirnega okolja Lovrana. Nahaja se tik ob apartmaju Olive, le 10 minut od starega mestnega jedra in znamenite promenade Lungomare. Z zasebnim bazenom, sončno teraso in panoramskim razgledom na Kvarnerski zaliv Onyx ponuja veliko prostora, naravne svetlobe in nastanitev za do 6 gostov.\nPopoln za pare, družine ali poslovne popotnike, Onyx nudi sproščeno, a sodobno vzdušje. Le 100 metrov od plaže, z zasebnim vrtom, žarom in varnim parkiriščem, je idealna izbira za sproščujoče počitnice ali delo na daljavo ob morju.",
-  "features": [
-    "🏊 Zaseben bazen",
-    "🌅 Terasa z vrtom in pogledom na morje",
-    "🔥 Zunanji žar",
-    "🚗 Zasebno parkirišče",
-    "🍳 Popolnoma opremljena kuhinja",
-    "❄️ Klima v vseh prostorih"
-  ]
+  "inquiry_h": "Razpoložljivost & Povpraševanje",
+  "inquiry_note": "Pošljite nam želene datume in odgovorili vam bomo z razpoložljivostjo in cenami.",
+  "inquiry_url_sl": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquirySL/formperma/example",
+  "contact_h": "Kontakt",
+  "contact_note_sl": "Vas zanima apartma Onyx? Pošljite nam svoje povpraševanje neposredno:",
+  "contact_email": "info@auraadriatica.com",
+
+  "desc_h": "Opis",
+  "highlights_h": "Prednosti",
+  "gallery_h": "Galerija"
 }
