@@ -19,8 +19,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20251011b">
   <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/gallery.js" defer></script>
 </head>
 <body>
 
@@ -39,7 +40,7 @@
       <a href="/reviews.html" data-i18n="reviews">Reviews</a>
     </nav>
 
-    <!-- LANGUAGE DROPDOWN (handled globally by i18n.js) -->
+    <!-- LANGUAGE DROPDOWN -->
     <div class="lang-dropdown" id="lang-dd">
       <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
         <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -77,19 +78,74 @@
 <section class="section" aria-labelledby="photos">
   <div class="container">
     <h2 id="photos" data-i18n="gallery">Photo Gallery</h2>
-    <div class="gallery">
-      <img src="/assets/img/gallery1.jpg" alt="Sea view from Aura Adriatica">
-      <img src="/assets/img/gallery2.jpg" alt="Olive apartment interior">
-      <img src="/assets/img/gallery3.jpg" alt="Onyx apartment terrace">
-      <img src="/assets/img/gallery4.jpg" alt="Olive living room">
-      <img src="/assets/img/gallery5.jpg" alt="Onyx bedroom">
-      <img src="/assets/img/gallery6.jpg" alt="Balcony with sea view">
-      <img src="/assets/img/gallery7.jpg" alt="Olive kitchen">
-      <img src="/assets/img/gallery8.jpg" alt="Onyx bathroom">
-      <img src="/assets/img/gallery9.jpg" alt="Lovran beach nearby">
+
+    <div class="gallery-modern" id="gallery" aria-live="polite">
+      <!-- Dodaj/ukloni koliko želiš stavki; bez altova -->
+      <a class="g-item" href="/assets/img/gallery1.jpg" data-full="/assets/img/gallery1.jpg">
+        <img src="/assets/img/gallery1.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery2.jpg" data-full="/assets/img/gallery2.jpg">
+        <img src="/assets/img/gallery2.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery3.jpg" data-full="/assets/img/gallery3.jpg">
+        <img src="/assets/img/gallery3.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery4.jpg" data-full="/assets/img/gallery4.jpg">
+        <img src="/assets/img/gallery4.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery5.jpg" data-full="/assets/img/gallery5.jpg">
+        <img src="/assets/img/gallery5.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery6.jpg" data-full="/assets/img/gallery6.jpg">
+        <img src="/assets/img/gallery6.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery7.jpg" data-full="/assets/img/gallery7.jpg">
+        <img src="/assets/img/gallery7.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery8.jpg" data-full="/assets/img/gallery8.jpg">
+        <img src="/assets/img/gallery8.jpg" loading="lazy" decoding="async">
+      </a>
+        <a class="g-item" href="/assets/img/gallery9.jpg" data-full="/assets/img/gallery9.jpg">
+        <img src="/assets/img/gallery8.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery10.jpg" data-full="/assets/img/gallery10.jpg">
+        <img src="/assets/img/gallery10.jpg" loading="lazy" decoding="async">
+      </a>
+       <a class="g-item" href="/assets/img/gallery11.jpg" data-full="/assets/img/gallery11.jpg">
+        <img src="/assets/img/gallery11.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery12.jpg" data-full="/assets/img/gallery12.jpg">
+        <img src="/assets/img/gallery12.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery13.jpg" data-full="/assets/img/gallery13.jpg">
+        <img src="/assets/img/gallery13.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery14.jpg" data-full="/assets/img/gallery14.jpg">
+        <img src="/assets/img/gallery14.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery15.jpg" data-full="/assets/img/gallery15.jpg">
+        <img src="/assets/img/gallery15.jpg" loading="lazy" decoding="async">
+      </a>
+      <a class="g-item" href="/assets/img/gallery16.jpg" data-full="/assets/img/gallery16.jpg">
+        <img src="/assets/img/gallery16.jpg" loading="lazy" decoding="async">
+      </a>
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX OVERLAY -->
+<div class="glightbox" id="glightbox" hidden aria-modal="true" role="dialog">
+  <button class="glb-close" id="glbClose" aria-label="Close">×</button>
+  <button class="glb-nav glb-prev" id="glbPrev" aria-label="Previous">‹</button>
+
+  <figure class="glb-figure">
+    <img id="glbImg">
+    <!-- brojčani indikator, bez teksta -->
+    <figcaption id="glbCap"></figcaption>
+  </figure>
+
+  <button class="glb-nav glb-next" id="glbNext" aria-label="Next">›</button>
+</div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
