@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20251018">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/apt.js" defer></script>
   <script src="/assets/js/form.js" defer></script>
@@ -101,31 +101,48 @@
     </div>
   </section>
 
-  <!-- CONTACT (Local form) -->
-  <section class="section alt">
-    <div class="container contact-box" id="apt-contact-wrap">
+  <!-- CONTACT (custom form) -->
+  <section class="section">
+    <div class="container">
       <h2 data-i18n="contact_h">Contact</h2>
 
-      <p id="apt-contact-intro">
-        <span data-i18n="contact_note_en">Interested in Apartment Onyx? Send us your inquiry directly:</span>
-      </p>
+      <form id="contact-form" class="contact-form" data-apt="Onyx" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
 
-      <form id="apt-contact-form" action="/sendmail.php" method="POST" class="contact-form" novalidate>
-        <!-- Hidden context fields (filled by /assets/js/form.js) -->
-        <input type="hidden" name="apartment" id="apt-hidden-name" value="Onyx">
-        <input type="hidden" name="lang" id="apt-hidden-lang" value="en">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-phone">Phone (optional)</label>
+            <input id="cf-phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <!-- Honeypot -->
+          <div class="form-group" id="company-field">
+            <label for="cf-company">Company</label>
+            <input id="cf-company" name="company" type="text" />
+          </div>
+        </div>
 
-        <label for="cf-name" data-i18n="form_name">Name</label>
-        <input type="text" id="cf-name" name="name" required autocomplete="name" />
+        <div class="form-group">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" required></textarea>
+        </div>
 
-        <label for="cf-email" data-i18n="form_email">Email</label>
-        <input type="email" id="cf-email" name="email" required autocomplete="email" />
+        <!-- Hidden (JS će postaviti, ovo je fallback) -->
+        <input type="hidden" name="apartment" value="Onyx" />
+        <input type="hidden" name="lang" value="EN" />
 
-        <label for="cf-message" data-i18n="form_message">Message</label>
-        <textarea id="cf-message" name="message" rows="5" required></textarea>
-
-        <button type="submit" class="button" data-i18n="form_send">Send Message</button>
-        <p id="form-status" class="status" aria-live="polite"></p>
+        <div class="form-actions">
+          <button class="button" type="submit">Send message</button>
+          <span class="form-msg" hidden data-form-msg></span>
+        </div>
       </form>
     </div>
   </section>
@@ -138,7 +155,7 @@
       </a>
       <nav class="footer-nav" aria-label="Footer">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
@@ -162,6 +179,5 @@
       }
     });
   </script>
-
 </body>
 </html>
