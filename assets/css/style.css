@@ -499,3 +499,109 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 @media (prefers-reduced-motion: reduce){
   .g-item img, .g-item::after, .glightbox, .glb-close, .glb-nav { transition:none !important; }
 }
+/* === CONTACT FORM (modern) =================================== */
+.contact-form{
+  --cf-bg: #ffffff;
+  --cf-border: #e6eef7;
+  --cf-focus: var(--brand-blue);
+  --cf-muted: #7a8aa9;
+  --cf-error: #d14a4a;
+  --cf-ok: #1ea672;
+
+  background: var(--cf-bg);
+  border: 1px solid var(--cf-border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 26px rgba(10,26,47,.06);
+}
+
+.form-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 16px 18px;
+}
+
+.form-row{ display: flex; flex-direction: column; gap: 6px; }
+.form-row--full{ grid-column: 1 / -1; }
+
+.contact-form label{
+  font: 700 0.96rem/1.2 'Poppins','Roboto',system-ui,sans-serif;
+  color: #2c4770;
+}
+.contact-form label.required:after{
+  content:" *";
+  color: var(--cf-error);
+  font-weight: 800;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width: 100%;
+  border: 1px solid var(--cf-border);
+  border-radius: 10px;
+  padding: .75rem .9rem;
+  font: 500 1rem/1.35 'Roboto',system-ui,sans-serif;
+  color: var(--text);
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.contact-form textarea{ resize: vertical; min-height: 120px; }
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{ color: #a6b4cc; }
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline: 0;
+  border-color: var(--cf-focus);
+  box-shadow: 0 0 0 3px rgba(77,166,255,.18);
+}
+
+#company-field{ /* honeypot: vizualno i za čitače */
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.err-msg{
+  min-height: 18px;
+  font-size: .85rem;
+  color: var(--cf-error);
+}
+
+.is-invalid input,
+.is-invalid textarea{
+  border-color: var(--cf-error) !important;
+  box-shadow: 0 0 0 3px rgba(209,74,74,.12) !important;
+}
+
+.form-actions{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.form-actions .button{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .85rem 1.4rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+}
+
+.form-status{
+  font: 600 .95rem/1.2 'Roboto',system-ui,sans-serif;
+  color: var(--cf-muted);
+}
+.form-status.ok{ color: var(--cf-ok); }
+.form-status.err{ color: var(--cf-error); }
+
+/* responsive */
+@media (max-width: 720px){
+  .form-grid{ grid-template-columns: 1fr; }
+}
