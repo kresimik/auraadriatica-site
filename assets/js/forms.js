@@ -1,150 +1,146 @@
 // /assets/js/form.js
+// Lightweight AJAX contact form handler for /api/send.php
+// Expects JSON response: { ok: true } or { ok: false, error: "..." }
+
 (function () {
-  const $ = (sel, root = document) => root.querySelector(sel);
+  'use strict';
 
-  function currentLang() {
-    return (localStorage.getItem('lang') || 'en').toLowerCase();
+  // Helper: create an element for status messages
+  function createStatusEl() {
+    const el = document.createElement('div');
+    el.className = 'form-status';
+    el.setAttribute('role', 'status');
+    el.style.marginTop = '0.75rem';
+    return el;
   }
 
-  // Minimalne poruke za status (po jezicima)
-  const MSG = {
-    en: {
-      sending: 'Sending…',
-      ok: 'Thanks! Your message has been sent.',
-      err: 'Sorry, something went wrong. Please try again or email us directly.',
-      invalid: 'Please fill in all required fields.'
-    },
-    hr: {
-      sending: 'Šaljem…',
-      ok: 'Hvala! Vaša poruka je poslana.',
-      err: 'Nažalost, došlo je do greške. Pokušajte ponovno ili nam pišite direktno.',
-      invalid: 'Molimo ispunite sva obvezna polja.'
-    },
-    de: {
-      sending: 'Senden…',
-      ok: 'Danke! Ihre Nachricht wurde gesendet.',
-      err: 'Entschuldigung, es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.',
-      invalid: 'Bitte füllen Sie alle Pflichtfelder aus.'
-    },
-    it: {
-      sending: 'Invio…',
-      ok: 'Grazie! Il tuo messaggio è stato inviato.',
-      err: 'Spiacenti, si è verificato un errore. Riprova o scrivici direttamente.',
-      invalid: 'Compila tutti i campi obbligatori.'
-    },
-    sl: {
-      sending: 'Pošiljam…',
-      ok: 'Hvala! Vaše sporočilo je poslano.',
-      err: 'Prišlo je do napake. Poskusite znova ali nam pišite neposredno.',
-      invalid: 'Prosimo, izpolnite vsa obvezna polja.'
-    }
-  };
-
-  function t(key) {
-    const lang = currentLang();
-    return (MSG[lang] && MSG[lang][key]) || MSG.en[key] || '';
+  // Validate basic email
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = $('#apt-contact-form');
-    if (!form) return;
+  // Finds forms to auto-wire:
+  // - any with class .js-ajax-form
+  // - or id #contact-form (backwards compat)
+  const forms = Array.from(document.querySelectorAll('.js-ajax-form'));
+  const fallback = document.getElementById('contact-form');
+  if (fallback && !forms.includes(fallback)) forms.push(fallback);
 
-    const statusEl = $('#form-status');
-    const submitBtn = form.querySelector('button[type="submit"]');
+  if (!forms.length) return; // nothing to do
 
-    const hiddenApt = $('#apt-hidden-name');
-    const hiddenLang = $('#apt-hidden-lang');
+  forms.forEach(form => {
+    // avoid double-binding
+    if (form.__ajaxBound) return;
+    form.__ajaxBound = true;
 
-    // Inicijalna vrijednost jezika
-    if (hiddenLang) hiddenLang.value = currentLang();
-
-    // Inicijalna vrijednost naziva apartmana iz <h1>
-    const h1 = document.querySelector('h1[data-i18n]');
-    const updateAptName = () => {
-      const val = (h1 && h1.textContent.trim()) || (document.body.getAttribute('data-apt-slug') || 'Apartment');
-      if (hiddenApt) hiddenApt.value = val;
-    };
-    updateAptName();
-
-    // Prati promjene naslova (npr. nakon i18n prevođenja / reload JSON-a)
-    if (h1) {
-      const mo = new MutationObserver(updateAptName);
-      mo.observe(h1, { childList: true, characterData: true, subtree: true });
+    // ensure we have a status node
+    let statusEl = form.querySelector('.form-status');
+    if (!statusEl) {
+      statusEl = createStatusEl();
+      form.appendChild(statusEl);
     }
 
-    // Reakcija na promjenu jezika iz izbornika (postoji u headeru)
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.lang-menu button[data-lang]');
-      if (!btn) return;
-      if (hiddenLang) hiddenLang.value = btn.dataset.lang.toLowerCase();
-    });
-
-    // Helper: prikaži status
-    function setStatus(msg, ok = false) {
-      if (!statusEl) return;
-      statusEl.textContent = msg;
-      statusEl.style.color = ok ? 'var(--brand-olive)' : 'var(--muted)';
-    }
-
-    // Submit handler (AJAX)
+    // Submit handler
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
+      statusEl.style.color = '';
 
-      // Basic validation
-      const name = form.name?.value?.trim();
-      const email = form.email?.value?.trim();
-      const message = form.message?.value?.trim();
+      // gather fields (flexible: will pick inputs that exist)
+      const name = (form.querySelector('[name="name"]') || {}).value || '';
+      const email = (form.querySelector('[name="email"]') || {}).value || '';
+      const subject = (form.querySelector('[name="subject"]') || {}).value || '';
+      const message = (form.querySelector('[name="message"]') || {}).value || '';
+      const apt = (form.querySelector('[name="apt"]') || {}).value || '';
+      const dates = (form.querySelector('[name="dates"]') || {}).value || '';
 
-      // Honeypot (ako postoji input name="hp", a korisnik ga je ispunio -> spam)
-      const hp = form.hp?.value?.trim();
-      if (hp) return; // tiho ignoriraj
+      // simple client-side validation
+      const errors = [];
+      if (!name.trim()) errors.push('Please enter your name.');
+      if (!email.trim() || !isValidEmail(email)) errors.push('Please enter a valid email.');
+      if (!message.trim()) errors.push('Please enter a message.');
 
-      if (!name || !email || !message) {
-        setStatus(t('invalid'));
+      if (errors.length) {
+        statusEl.style.color = '#c0392b';
+        statusEl.innerHTML = errors.map(x => `<div>${x}</div>`).join('');
         return;
       }
 
-      // Disable submit
-      submitBtn && (submitBtn.disabled = true);
-      setStatus(t('sending'));
+      // disable buttons to avoid duplicate submissions
+      const submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.origText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending…';
+      }
 
-      // Složi payload
-      const fd = new FormData(form);
-      fd.set('apartment', hiddenApt ? hiddenApt.value : (document.body.getAttribute('data-apt-slug') || 'Apartment'));
-      fd.set('lang', hiddenLang ? hiddenLang.value : currentLang());
-      fd.append('page_url', location.href);
-      fd.append('user_agent', navigator.userAgent);
-      fd.append('timestamp', new Date().toISOString());
+      // show inline spinner / pending
+      statusEl.style.color = '#1f6feb';
+      statusEl.textContent = 'Sending…';
+
+      // payload — JSON by default
+      const payload = {
+        name: name.trim(),
+        email: email.trim(),
+        subject: subject.trim(),
+        message: message.trim(),
+        apt: apt.trim(),
+        dates: dates.trim()
+      };
+
+      // primary: POST JSON to /api/send.php
+      // fallback: if 405 or non-JSON response, try FormData POST
+      const endpoint = form.dataset.endpoint || '/api/send.php';
 
       try {
-        const res = await fetch(form.action || '/sendmail.php', {
+        // Try JSON request first
+        let resp = await fetch(endpoint, {
           method: 'POST',
-          body: fd,
-          headers: { 'X-Requested-With': 'fetch' }
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+          cache: 'no-store'
         });
 
-        let ok = false;
-        const ct = res.headers.get('content-type') || '';
-        if (ct.includes('application/json')) {
-          const json = await res.json().catch(() => ({}));
-          ok = !!json.ok || res.ok;
-        } else {
-          // plain text or other → uspjeh ako je 2xx
-          ok = res.ok;
+        // If 405 Method Not Allowed or 415 etc, try a form-encoded fallback
+        if (resp.status === 405 || resp.status === 415 || resp.status === 400) {
+          // try FormData fallback
+          const fd = new FormData();
+          Object.keys(payload).forEach(k => fd.append(k, payload[k]));
+          resp = await fetch(endpoint, { method: 'POST', body: fd, cache: 'no-store' });
         }
 
-        if (ok) {
-          setStatus(t('ok'), true);
+        const text = await resp.text();
+        let data;
+        try {
+          data = text ? JSON.parse(text) : null;
+        } catch (err) {
+          // not JSON — throw to be handled below
+          throw new Error('Invalid server response');
+        }
+
+        if (data && data.ok) {
+          statusEl.style.color = '#1b7a3a';
+          statusEl.innerHTML = data.message || 'Message sent — thank you!';
+          // optional: reset form
           form.reset();
         } else {
-          setStatus(t('err'));
+          const errMsg = (data && data.error) ? data.error : 'Server error, please try again later.';
+          statusEl.style.color = '#c0392b';
+          statusEl.textContent = errMsg;
         }
       } catch (err) {
-        console.warn('[form] send error', err);
-        setStatus(t('err'));
+        console.warn('[form] submit error', err);
+        statusEl.style.color = '#c0392b';
+        // if response text was non-JSON, include a helpful hint
+        statusEl.textContent = 'Could not send message. Please try again or contact us at info@auraadriatica.com';
       } finally {
-        submitBtn && (submitBtn.disabled = false);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.origText || 'Send';
+        }
       }
     });
   });
+
 })();
