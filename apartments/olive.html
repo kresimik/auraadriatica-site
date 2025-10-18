@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/apt.js" defer></script>
+  <script src="/assets/js/form.js" defer></script>
 </head>
 
 <body data-apt-slug="olive">
@@ -96,40 +97,37 @@
   <!-- GALLERY -->
   <section class="section alt">
     <div class="container">
-      <h2 data-i18n="gallery_h">Gallery</h2>
+      <h2 data-i18n="gallery">Gallery</h2>
       <div class="gallery" id="apt-gallery"></div>
     </div>
   </section>
 
-  <!-- INQUIRY -->
-  <section class="section">
-    <div class="container" id="apt-inquiry-wrap" style="display:none;">
-      <h2 id="apt-inquiry-h" data-i18n="inquiry_h">Availability &amp; Inquiry</h2>
-      <p id="apt-inquiry-note">Send us your desired dates and we’ll reply with availability and rates.</p>
-      <div id="apt-inquiry"></div>
-    </div>
-  </section>
-
-  <!-- CALENDAR fallback -->
-  <section class="section">
-    <div class="container">
-      <div id="apt-calendar-wrap" style="display:none;">
-        <h2 data-i18n="avail_h">Availability</h2>
-        <p data-i18n="avail_note">Select your dates to check availability.</p>
-        <iframe id="apt-calendar" class="calendar-iframe" loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
+  <!-- CONTACT (Local form) -->
   <section class="section alt">
     <div class="container contact-box" id="apt-contact-wrap">
       <h2 data-i18n="contact_h">Contact</h2>
-      <p id="apt-contact-text">
-        Interested in Apartment <span id="apt-name">Olive</span>? 
-        <span data-i18n="contact_note_en">Send us your inquiry directly:</span>
-        <a id="apt-contact-email" href="mailto:info@auraadriatica.com">info@auraadriatica.com</a>
+
+      <p id="apt-contact-intro">
+        <span data-i18n="contact_note_en">Interested in Apartment Olive? Send us your inquiry directly:</span>
       </p>
+
+      <form id="apt-contact-form" action="/sendmail.php" method="POST" class="contact-form" novalidate>
+        <!-- Hidden context fields (filled by /assets/js/form.js) -->
+        <input type="hidden" name="apartment" id="apt-hidden-name" value="Olive">
+        <input type="hidden" name="lang" id="apt-hidden-lang" value="en">
+
+        <label for="cf-name" data-i18n="form_name">Name</label>
+        <input type="text" id="cf-name" name="name" required autocomplete="name" />
+
+        <label for="cf-email" data-i18n="form_email">Email</label>
+        <input type="email" id="cf-email" name="email" required autocomplete="email" />
+
+        <label for="cf-message" data-i18n="form_message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="button" data-i18n="form_send">Send Message</button>
+        <p id="form-status" class="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
