@@ -26,6 +26,9 @@
   --card-border:#e8eef6;
   --card-shadow:0 8px 24px rgba(10,26,47,.06);
 
+  --ok:#15a46c;
+  --err:#d64545;
+
   --max-width:1100px;
 }
 
@@ -234,18 +237,51 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 .highlights{ list-style:none; margin:0; padding:0; }
 .highlights li{ margin:.45rem 0; font-size:1rem; line-height:1.55; color:var(--text); }
+@media (max-width: 768px){ .two-col{ grid-template-columns:1fr; } }
+
+/* =========================
+   CONTACT BOX + FORM
+   ========================= */
 .contact-box{
   text-align:center; background:#f8f9fb; border-radius:12px; padding:2rem;
   box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 .contact-box a{ color:var(--brand-blue); font-weight:600; text-decoration:none; }
 .contact-box a:hover{ color:var(--brand-blue-hover); }
-@media (max-width: 768px){ .two-col{ grid-template-columns:1fr; } }
+
+/* Form styling (za custom formu) */
+.contact-box form{
+  display:flex; flex-direction:column; gap:.9rem;
+  max-width:520px; margin:1.2rem auto 0; text-align:left;
+}
+.contact-box input,
+.contact-box textarea{
+  width:100%; padding:.7rem 1rem; border:1px solid #ccd6e0; border-radius:10px;
+  font-size:1rem; font-family:'Roboto',sans-serif; transition:border-color .2s, box-shadow .2s;
+  background:#fff;
+}
+.contact-box input:focus,
+.contact-box textarea:focus{
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(77,166,255,.15);
+  outline:none;
+}
+.contact-box button{
+  background:var(--brand-blue); color:#fff; font-weight:700; border:none; border-radius:10px;
+  padding:.9rem 1.5rem; cursor:pointer; transition:background .25s, transform .15s, box-shadow .2s;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+.contact-box button:hover{ background:var(--brand-blue-hover); transform:translateY(-2px); }
+#form-status{ font-size:.95rem; text-align:center; margin-top:.5rem; color:var(--muted); }
+#form-status.ok{ color:var(--ok); }
+#form-status.err{ color:var(--err); }
 
 /* =========================
-   GALLERY
+   GALLERY (legacy simple grid)
    ========================= */
-.gallery{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px; }
+.gallery{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px;
+}
 .gallery img{
   width:100%; height:220px; object-fit:cover; border-radius:12px;
   box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .2s;
@@ -253,7 +289,7 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 .gallery img:hover{ transform:scale(1.02); }
 
 /* =========================
-   CALENDAR IFRAME (Zoho - legacy)
+   CALENDAR IFRAME (legacy)
    ========================= */
 .calendar-iframe{
   width:100%; max-width:700px; height:420px; border:0; border-radius:12px;
