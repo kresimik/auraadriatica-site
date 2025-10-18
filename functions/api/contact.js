@@ -1,80 +1,121 @@
-// /functions/api/contact.js
-export const onRequestPost = async ({ request, env }) => {
-  try {
-    // CORS (ako ćeš zvati s drugih domena, ovdje dodaj origin po potrebi)
-    const headers = {
-      'content-type': 'application/json',
-      'access-control-allow-origin': '*',
-      'access-control-allow-methods': 'POST, OPTIONS',
-      'access-control-allow-headers': 'content-type',
-    };
+// functions/api/contact.js
+export async function onRequestPost(context) {
+  const { request, env } = context;
 
-    // OPTIONS preflight
-    if (request.method === 'OPTIONS') {
-      return new Response(null, { headers });
-    }
+  // ----- CORS (da može iz browsera) -----
+  const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders });
+  }
 
-    const body = await request.json().catch(() => ({}));
-    const { name, email, phone, company, apt, message } = body;
-
-    if (!name || !email || !message) {
-      return new Response(JSON.stringify({ ok: false, error: 'Missing required fields.' }), {
-        status: 400,
-        headers,
-      });
-    }
-
-    // Pripremi sadržaj maila
-    const subject = `[${apt || 'Website'}] Inquiry from ${name}`;
-    const text =
-      `Name: ${name}\n` +
-      `Email: ${email}\n` +
-      (phone ? `Phone: ${phone}\n` : '') +
-      (company ? `Company: ${company}\n` : '') +
-      (apt ? `Apartment: ${apt}\n` : '') +
-      `\nMessage:\n${message}\n`;
-
-    // Slanje preko Resend REST API-ja
-    // NOTE: za produkciju koristi verificirani sender (npr. no-reply@auraadriatica.com).
-    // Dok ne verificiraš domain/sender u Resend, koristi onboarding sender:
-    // from: 'onboarding@resend.dev'
-    const fromAddress = env.RESEND_FROM || 'onboarding@resend.dev';
-    const toAddress = env.CONTACT_TO || 'info@auraadriatica.com';
-
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: fromAddress,
-        to: [toAddress],
-        reply_to: email,
-        subject,
-        text,
-      }),
-    });
-
-    if (!res.ok) {
-      const err = await res.text();
-      return new Response(JSON.stringify({ ok: false, error: err || 'Resend error' }), {
-        status: 502,
-        headers,
-      });
-    }
-
-    return new Response(JSON.stringify({ ok: true }), { headers });
-  } catch (e) {
-    return new Response(JSON.stringify({ ok: false, error: String(e) }), {
-      status: 500,
-      headers: { 'content-type': 'application/json' },
+  if (request.method !== "POST") {
+    return new Response(JSON.stringify({ ok: false, error: "Method Not Allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
     });
   }
-};
 
-// (neobvezno) GET → healthcheck
-export const onRequestGet = async () =>
-  new Response(JSON.stringify({ ok: true, route: '/api/contact' }), {
-    headers: { 'content-type': 'application/json' },
-  });
+  // ----- Parse body -----
+  let payload;
+  try {
+    payload = await request.json();
+  } catch {
+    return new Response(JSON.stringify({ ok: false, error: "Invalid JSON" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
+  const name    = (payload.name || "").toString().trim();
+  const email   = (payload.email || "").toString().trim();
+  const phone   = (payload.phone || "").toString().trim();
+  const company = (payload.company || "").toString().trim();
+  const apt     = (payload.apt || "").toString().trim();
+  const message = (payload.message || "").toString().trim();
+
+  if (!name || !email || !message) {
+    return new Response(JSON.stringify({ ok: false, error: "Missing required fields" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
+  // ----- ENV (FROM/TO/API KEY) -----
+  const FROM = (env.CONTACT_FROM || "").trim();      // npr. onboarding@resend.dev
+  const TO   = (env.CONTACT_TO   || "").trim();      // npr. info@auraadriatica.com
+  const KEY  = (env.RESEND_API_KEY || "").trim();    // re_...
+
+  if (!FROM || !TO || !KEY) {
+    return new Response(JSON.stringify({
+      ok: false,
+      error: "Missing env vars",
+      debug: { FROM, TO, HAVE_KEY: !!KEY }
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
+  const subject = `[${apt || "Apartment"}] Inquiry from ${name}`;
+  const text = `Name: ${name}
+Email: ${email}
+Phone: ${phone || "—"}
+Company: ${company || "—"}
+Apartment: ${apt || "—"}
+
+Message:
+${message}
+`;
+
+  // ----- Direct RESEND REST call -----
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        from: FROM,                // << OVDJE KORISTIMO ENV
+        to: [TO],
+        subject,
+        text,
+        reply_to: email            // da reply ide gostu
+      })
+    });
+
+    const out = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      // vratimo sve što je Resend rekao + koji FROM smo koristili
+      return new Response(JSON.stringify({
+        ok: false,
+        status: res.status,
+        error: out,
+        used: { FROM, TO }
+      }), {
+        status: 502,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    return new Response(JSON.stringify({
+      ok: true,
+      id: out.id || null,
+      used: { FROM, TO }
+    }), {
+      status: 200,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+
+  } catch (e) {
+    return new Response(JSON.stringify({ ok: false, error: String(e), used: { FROM, TO } }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+}
