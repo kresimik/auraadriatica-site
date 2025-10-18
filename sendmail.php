@@ -17,7 +17,7 @@ $from     = 'info@auraadriatica.com';   // Zoho verified sender
 $fromName = 'Aura Adriatica Web Form';
 $smtpHost = 'smtp.zoho.eu';              // ako koristiš EU Zoho račun
 $smtpUser = 'info@auraadriatica.com';
-$smtpPass = 'OVDJE_UPIŠI_APP_PASSWORD'; // app password iz Zoho Maila
+$smtpPass = 'nbEUHmacTTrX'; // app password iz Zoho Maila
 $smtpPort = 587;
 
 // === PRIKUPI PODATKE IZ FORME ===
