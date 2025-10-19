@@ -623,85 +623,103 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   .contact-form{ padding: 14px; }
 }
 
-/* === Contact form: compact centered layout === */
-.contact-form {
-  max-width: 600px;
+/* === Contact form — modern soft style (drop-in) ===================== */
+.contact-form{
+  --cf-bg:#fff;
+  --cf-fill:#f6f8fc;
+  --cf-border:#e5ebf5;
+  --cf-text:#2b3d5b;
+  --cf-muted:#7a8aa9;
+  --cf-ring: rgba(77,166,255,.22);
+  --cf-ok:#16a269;
+  --cf-err:#d14a4a;
+
+  max-width: 720px;
   margin: 0 auto;
-  background: #fff;
-  border: 1px solid #e4e8f0;
+  background: var(--cf-bg);
+  border: 1px solid var(--cf-border);
   border-radius: 16px;
-  padding: 28px 24px;
-  box-shadow: 0 10px 25px rgba(10, 26, 47, 0.06);
+  padding: 28px 26px;
+  box-shadow: 0 12px 30px rgba(10,26,47,.08);
 }
 
-.contact-form h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
+/* grid: 2 kolone na većim, 1 na mobu */
+.form-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 18px;
+}
+.form-row{ display:flex; flex-direction:column; gap:6px; }
+.form-row--full{ grid-column: 1 / -1; }
+
+.contact-form label{
+  font: 700 .95rem/1.2 'Poppins','Roboto',system-ui,sans-serif;
+  color: var(--cf-text);
 }
 
-.form-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.form-row,
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.contact-form label {
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  color: #2c4770;
-  font-size: 0.95rem;
-}
-
+/* soft-filled polja */
 .contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 1px solid #ccd6e0;
-  border-radius: 10px;
-  padding: 0.7rem 0.9rem;
-  font-size: 1rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
+.contact-form textarea{
+  width:100%;
+  appearance:none;
+  border:1px solid var(--cf-border);
+  background: var(--cf-fill);
+  border-radius:12px;
+  padding:.8rem 1rem;
+  font: 500 1rem/1.35 'Roboto',system-ui,sans-serif;
+  color:#2b3d5b;
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .05s ease;
 }
+.contact-form textarea{ resize:vertical; min-height:120px; }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{ color:#9fb0c9; }
 
+.contact-form input:hover,
+.contact-form textarea:hover{
+  border-color:#d8e2f1;
+}
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus{
+  outline:0;
+  background:#fff;
   border-color: var(--brand-blue);
-  box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.15);
-  outline: none;
+  box-shadow: 0 0 0 4px var(--cf-ring);
 }
 
-.contact-form textarea {
-  resize: vertical;
-  min-height: 110px;
+/* greške / validacija */
+.err-msg{ min-height:18px; font-size:.85rem; color:var(--cf-err); }
+.is-invalid input,
+.is-invalid textarea{
+  border-color: var(--cf-err) !important;
+  box-shadow: 0 0 0 4px rgba(209,74,74,.14) !important;
 }
 
-.form-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
+/* akcije */
+.form-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin-top: 6px;
+}
+.form-actions .button{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.9rem 1.6rem;
+  border-radius:12px;
+  box-shadow:0 12px 24px rgba(77,166,255,.22);
 }
 
-.form-actions .button {
-  padding: 0.85rem 1.8rem;
-  font-size: 1rem;
-  border-radius: 12px;
-  font-weight: 700;
+.form-status{
+  font: 600 .95rem/1.2 'Roboto',system-ui,sans-serif;
+  color: var(--cf-muted);
 }
+.form-status.ok{ color: var(--cf-ok); }
+.form-status.err{ color: var(--cf-err); }
 
-.form-status {
-  margin-left: 1rem;
-  font-size: 0.95rem;
-}
-
-@media (max-width: 720px) {
-  .contact-form {
-    padding: 22px 18px;
-  }
+/* mobitel: 1 kolona */
+@media (max-width: 760px){
+  .form-grid{ grid-template-columns: 1fr; }
+  .contact-form{ padding:22px 18px; }
 }
