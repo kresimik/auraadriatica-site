@@ -1,37 +1,42 @@
 // /functions/api/contact.js
-// Cloudflare Pages Function (route: /api/contact)
-// - Verifies Cloudflare Turnstile token (env.TURNSTILE_SECRET)
-// - Sends email via Resend (env.RESEND_API_KEY, env.CONTACT_FROM, env.CONTACT_TO)
-
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const TURNSTILE_VERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 const json = (obj, status = 200) =>
-  new Response(JSON.stringify(obj), {
-    status,
-    headers: { "Content-Type": "application/json" }
-  });
+  new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json" } });
 
 const bad = (msg, status = 400) => json({ ok: false, error: msg }, status);
 
 const emailOk = (v = "") => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
 
-/** Normalizira FROM vrijednost u format: "Name <email@domain>" */
-function normalizeFrom(input, fallbackName = "Aura Adriatica") {
-  if (!input) return `${fallbackName} <no-reply@auraadriatica.com>`;
-  const s = String(input).trim();
+/** Skida obične i “pametne” navodnike oko cijelog stringa */
+function stripOuterQuotes(s = "") {
+  let x = String(s).trim();
+  x = x.replace(/^[“”"']+/, "").replace(/[“”"']+$/, "");
+  return x.trim();
+}
 
-  // 1) Već je u formatu "Name <email@...>"
+/** Kompaktira razmake i non-breaking space u običan razmak */
+function squashSpaces(s = "") {
+  return String(s).replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
+}
+
+/** Normalizira FROM u format: "Name <email@domain>" */
+function normalizeFrom(input, fallbackName = "Aura Adriatica") {
+  let s = stripOuterQuotes(input || "");
+  s = squashSpaces(s);
+
+  // Već u ispravnom formatu?
   if (/^.+<[^<>@\s]+@[^<>@\s]+>$/.test(s)) return s;
 
-  // 2) Samo email -> umotaj s imenom
+  // Samo email?
   if (emailOk(s)) return `${fallbackName} <${s}>`;
 
-  // 3) Pokušaj izvući email iz uglatih zagrada ako postoje višak razmaka
+  // Pokušaj izvući email iz zagrada
   const m = s.match(/<\s*([^<>@\s]+@[^<>@\s]+)\s*>/);
   if (m && emailOk(m[1])) return `${fallbackName} <${m[1]}>`;
 
-  // 4) Ako ništa ne prolazi, padni na siguran fallback
+  // Ako ništa: fallback na verified no-reply
   return `${fallbackName} <no-reply@auraadriatica.com>`;
 }
 
@@ -46,23 +51,16 @@ function esc(s = "") {
 
 export async function onRequestPost({ request, env }) {
   try {
-    // 1) Body
+    // Body
     const data = await request.json().catch(() => ({}));
-    const {
-      apt = "Apartment",
-      name = "",
-      email = "",
-      phone = "",
-      message = "",
-      token = ""
-    } = data || {};
+    const { apt = "Apartment", name = "", email = "", phone = "", message = "", token = "" } = data || {};
 
-    // 2) Validacije
+    // Validacija
     if (!name.trim()) return bad("Missing name");
     if (!emailOk(email)) return bad("Invalid email");
     if (!message.trim()) return bad("Message required");
 
-    // 3) Turnstile provjera
+    // Turnstile
     if (!env.TURNSTILE_SECRET) return bad("Server misconfigured: TURNSTILE_SECRET missing", 500);
     if (!token) return bad("Missing Turnstile token", 400);
 
@@ -76,19 +74,16 @@ export async function onRequestPost({ request, env }) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" }
     });
     const tJson = await tRes.json().catch(() => ({}));
-    if (!tJson.success) {
-      return bad("Turnstile verification failed", 403);
-    }
+    if (!tJson.success) return bad("Turnstile verification failed", 403);
 
-    // 4) Resend slanje
+    // Resend
     const RESEND_API_KEY = env.RESEND_API_KEY;
     if (!RESEND_API_KEY) return bad("Server misconfigured: RESEND_API_KEY missing", 500);
 
-    const CONTACT_TO = (env.CONTACT_TO || "info@auraadriatica.com").trim();
+    const CONTACT_TO = squashSpaces(env.CONTACT_TO || "info@auraadriatica.com");
     const CONTACT_FROM_RAW = env.CONTACT_FROM || "Aura Adriatica <no-reply@auraadriatica.com>";
     const CONTACT_FROM = normalizeFrom(CONTACT_FROM_RAW, "Aura Adriatica");
 
-    // krajnji subject/text/html
     const subject = `[${apt}] Inquiry from ${name}`;
     const text = [
       `Apartment: ${apt}`,
@@ -117,30 +112,33 @@ export async function onRequestPost({ request, env }) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: CONTACT_FROM,          // npr. "Aura Adriatica <no-reply@auraadriatica.com>"
-        to: [CONTACT_TO],            // npr. "info@auraadriatica.com"
+        from: CONTACT_FROM,        // npr. Aura Adriatica <no-reply@auraadriatica.com>
+        to: [CONTACT_TO],
         subject,
         text,
         html,
-        reply_to: email              // odgovor ide direktno gostu
+        reply_to: email
       })
     });
 
     if (!r.ok) {
-      // Pokušaj izvući jasnu poruku iz Resenda
-      const errTxt = await r.text().catch(() => "");
+      const bodyText = await r.text().catch(() => "");
       let msg = "Resend error";
       try {
-        const j = JSON.parse(errTxt);
+        const j = JSON.parse(bodyText);
         if (j && (j.message || j.error)) msg = j.message || j.error;
-      } catch (_) {
-        if (errTxt) msg = errTxt;
-      }
-      return bad({ status: r.status, message: msg, hint:
-        "Check CONTACT_FROM format (e.g. 'Aura Adriatica <no-reply@auraadriatica.com>') and verify domain in Resend." }, 502);
+      } catch { if (bodyText) msg = bodyText; }
+
+      return json({
+        ok: false,
+        status: r.status,
+        error: msg,
+        used: { from: CONTACT_FROM, to: CONTACT_TO }
+      }, 502);
     }
 
     return json({ ok: true, sent: true });
+
   } catch (e) {
     return bad(`Server error: ${e?.message || String(e)}`, 500);
   }
