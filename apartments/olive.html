@@ -22,7 +22,9 @@
   <link rel="stylesheet" href="/assets/css/style.css?v=20251018">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/apt.js" defer></script>
-  <!-- Uklonjeno: /assets/js/form.js (zastarjelo) -->
+
+  <!-- Cloudflare Turnstile (invizibilni widget) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body data-apt-slug="olive">
@@ -107,7 +109,7 @@
       <h2 data-i18n="contact_h">Contact</h2>
 
       <form id="contact-form" class="contact-card" novalidate>
-        <!-- hidden apt iz body data-apt-slug -->
+        <!-- hidden apt (slug) -->
         <input type="hidden" id="cf-apt" name="apt" value="olive" />
 
         <div class="form-grid">
@@ -136,6 +138,14 @@
             <label for="cf-message" class="required">Message</label>
             <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
           </div>
+        </div>
+
+        <!-- Cloudflare Turnstile widget (invisible) -->
+        <div class="cf-turnstile"
+             data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
+             data-theme="light"
+             data-language="auto"
+             data-size="invisible">
         </div>
 
         <div class="form-actions">
