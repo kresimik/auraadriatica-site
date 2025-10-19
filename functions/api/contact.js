@@ -1,121 +1,105 @@
-// functions/api/contact.js
-export async function onRequestPost(context) {
+// /functions/api/contact.js
+
+export async function onRequest(context) {
   const { request, env } = context;
 
-  // ----- CORS (da može iz browsera) -----
-  const corsHeaders = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-  };
-  if (request.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers: corsHeaders });
-  }
+  if (request.method !== 'POST') {
+    return new Response(JSON.stringify({ ok:false, error:'Method Not Allowed' }), { status:405 });
+    }
+  try{
+    const body = await request.json();
+    const {
+      apt, name, email, phone, dates, message, tsToken
+    } = body || {};
 
-  if (request.method !== "POST") {
-    return new Response(JSON.stringify({ ok: false, error: "Method Not Allowed" }), {
-      status: 405,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
+    // Basic validation
+    if (!name || !email || !message) {
+      return new Response(JSON.stringify({ ok:false, error:'Missing fields' }), { status:400 });
+    }
+
+    // --- Turnstile verify ---
+    if (!tsToken) {
+      return new Response(JSON.stringify({ ok:false, error:'Missing Turnstile token' }), { status:400 });
+    }
+    const ip = request.headers.get('CF-Connecting-IP') || '';
+    const formData = new URLSearchParams();
+    formData.append('secret', env.TURNSTILE_SECRET);
+    formData.append('response', tsToken);
+    if (ip) formData.append('remoteip', ip);
+
+    const tsRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: formData
     });
-  }
+    const tsJson = await tsRes.json();
 
-  // ----- Parse body -----
-  let payload;
-  try {
-    payload = await request.json();
-  } catch {
-    return new Response(JSON.stringify({ ok: false, error: "Invalid JSON" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
-  }
+    if (!tsJson.success) {
+      return new Response(JSON.stringify({ ok:false, error:'Turnstile failed', details:tsJson }), { status:403 });
+    }
 
-  const name    = (payload.name || "").toString().trim();
-  const email   = (payload.email || "").toString().trim();
-  const phone   = (payload.phone || "").toString().trim();
-  const company = (payload.company || "").toString().trim();
-  const apt     = (payload.apt || "").toString().trim();
-  const message = (payload.message || "").toString().trim();
+    // --- Send email via Resend ---
+    const FROM_ADDR = 'Aura Adriatica <no-reply@auraadriatica.com>'; // verified sender/domain in Resend
+    const TO_ADDR   = 'info@auraadriatica.com';
 
-  if (!name || !email || !message) {
-    return new Response(JSON.stringify({ ok: false, error: "Missing required fields" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
-  }
+    const subject = `Novi upit${apt ? ' — ' + apt : ''} (web)`;
+    const lines = [
+      apt ? `Apartman: ${apt}` : null,
+      `Ime: ${name}`,
+      `Email: ${email}`,
+      phone ? `Telefon: ${phone}` : null,
+      dates ? `Datumi: ${dates}` : null,
+      '',
+      'Poruka:',
+      message
+    ].filter(Boolean);
 
-  // ----- ENV (FROM/TO/API KEY) -----
-  const FROM = (env.CONTACT_FROM || "").trim();      // npr. onboarding@resend.dev
-  const TO   = (env.CONTACT_TO   || "").trim();      // npr. info@auraadriatica.com
-  const KEY  = (env.RESEND_API_KEY || "").trim();    // re_...
+    const html = `
+      <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5">
+        <h2 style="margin:0 0 10px 0">Novi upit ${apt ? '— ' + apt : ''}</h2>
+        <p><strong>Ime:</strong> ${escapeHtml(name)}<br/>
+           <strong>Email:</strong> ${escapeHtml(email)}<br/>
+           ${phone ? `<strong>Telefon:</strong> ${escapeHtml(phone)}<br/>` : ''}
+           ${dates ? `<strong>Datumi:</strong> ${escapeHtml(dates)}<br/>` : ''}
+           ${apt ? `<strong>Apartman:</strong> ${escapeHtml(apt)}<br/>` : ''}
+        </p>
+        <p style="white-space:pre-wrap"><strong>Poruka:</strong>\n${escapeHtml(message)}</p>
+      </div>`.trim();
 
-  if (!FROM || !TO || !KEY) {
-    return new Response(JSON.stringify({
-      ok: false,
-      error: "Missing env vars",
-      debug: { FROM, TO, HAVE_KEY: !!KEY }
-    }), {
-      status: 500,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
-  }
+    const text = lines.join('\n');
 
-  const subject = `[${apt || "Apartment"}] Inquiry from ${name}`;
-  const text = `Name: ${name}
-Email: ${email}
-Phone: ${phone || "—"}
-Company: ${company || "—"}
-Apartment: ${apt || "—"}
-
-Message:
-${message}
-`;
-
-  // ----- Direct RESEND REST call -----
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
       headers: {
-        "Authorization": `Bearer ${KEY}`,
-        "Content-Type": "application/json"
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: FROM,                // << OVDJE KORISTIMO ENV
-        to: [TO],
+        from: FROM_ADDR,
+        to: [TO_ADDR],
+        reply_to: [email],
         subject,
-        text,
-        reply_to: email            // da reply ide gostu
+        html,
+        text
       })
     });
 
-    const out = await res.json().catch(() => ({}));
-
+    const out = await res.json().catch(()=> ({}));
     if (!res.ok) {
-      // vratimo sve što je Resend rekao + koji FROM smo koristili
-      return new Response(JSON.stringify({
-        ok: false,
-        status: res.status,
-        error: out,
-        used: { FROM, TO }
-      }), {
-        status: 502,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      });
+      return new Response(JSON.stringify({ ok:false, status:res.status, error: out }), { status: res.status });
     }
 
-    return new Response(JSON.stringify({
-      ok: true,
-      id: out.id || null,
-      used: { FROM, TO }
-    }), {
-      status: 200,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
+    return new Response(JSON.stringify({ ok:true, id: out.id || null }), { status:200 });
 
-  } catch (e) {
-    return new Response(JSON.stringify({ ok: false, error: String(e), used: { FROM, TO } }), {
-      status: 500,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
+  }catch(err){
+    return new Response(JSON.stringify({ ok:false, error:String(err) }), { status:500 });
   }
+}
+
+function escapeHtml(s=''){
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
 }
