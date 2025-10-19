@@ -105,57 +105,56 @@
     <div class="container">
       <h2 data-i18n="contact_h">Contact</h2>
 
-      <form id="contact-form" class="contact-card" data-apt="Olive" novalidate>
-        <input type="hidden" id="cf-apt" name="apt" value="Olive" />
+      <form id="contact-form" class="contact-card" data-apt="Onyx" novalidate>
+  <input type="hidden" id="cf-apt" name="apt" value="Onyx" />
 
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="cf-name" class="required">Ime i prezime</label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Vaše ime" required />
-            <small class="err-msg" aria-live="polite"></small>
-          </div>
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="cf-name" class="required">Full name</label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+      <small class="err-msg" aria-live="polite"></small>
+    </div>
 
-          <div class="form-group">
-            <label for="cf-email" class="required">Email</label>
-            <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="ime@domena.com" required />
-            <small class="err-msg" aria-live="polite"></small>
-          </div>
+    <div class="form-group">
+      <label for="cf-email" class="required">Email</label>
+      <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required />
+      <small class="err-msg" aria-live="polite"></small>
+    </div>
 
-          <div class="form-group">
-            <label for="cf-phone">Telefon (nije obavezno)</label>
-            <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
-          </div>
+    <div class="form-group">
+      <label for="cf-phone">Phone (optional)</label>
+      <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
+    </div>
 
-          <!-- honeypot -->
-          <div class="form-group hp">
-            <label for="cf-company">Company</label>
-            <input id="cf-company" name="company" type="text" autocomplete="organization" />
-          </div>
+    <!-- honeypot (hidden) -->
+    <div class="form-group hp">
+      <label for="cf-company">Company</label>
+      <input id="cf-company" name="company" type="text" autocomplete="organization" />
+    </div>
 
-          <div class="form-group form-full">
-            <label for="cf-message" class="required">Poruka</label>
-            <textarea id="cf-message" name="message" rows="5" required placeholder="Željeni datumi, broj gostiju, pitanja…"></textarea>
-            <small class="err-msg" aria-live="polite"></small>
-          </div>
+    <div class="form-group form-full">
+      <label for="cf-message" class="required">Message</label>
+      <textarea id="cf-message" name="message" rows="5" required placeholder="Desired dates, number of guests, questions…"></textarea>
+      <small class="err-msg" aria-live="polite"></small>
+    </div>
 
-          <!-- Turnstile widget -->
-          <div class="form-group form-full">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"></div>
-            <small class="err-msg" aria-live="polite"></small>
-          </div>
-        </div>
+    <!-- Turnstile -->
+    <div class="form-group form-full">
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"></div>
+      <small class="err-msg" aria-live="polite"></small>
+    </div>
+  </div>
 
-        <div class="form-actions">
-          <button class="button" id="cf-submit" type="submit">
-            Pošalji poruku
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <span class="form-note" id="cf-status" aria-live="polite"></span>
-        </div>
-      </form>
-
+  <div class="form-actions">
+    <button class="button" id="cf-submit" type="submit">
+      Send message
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <span class="form-note" id="cf-status" aria-live="polite"></span>
+  </div>
+</form>
       <!-- Turnstile skripta (jednom po stranici) -->
       <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
     </div>
