@@ -56,6 +56,7 @@
       return;
     }
 
+    // osnovna validacija
     const name  = document.getElementById('cf-name');
     const email = document.getElementById('cf-email');
     const phone = document.getElementById('cf-phone');
@@ -66,6 +67,16 @@
     if (!name.value.trim()){ markInvalid(name, 'Unesite ime.'); ok = false; }
     if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value)){ markInvalid(email, 'Unesite ispravan email.'); ok = false; }
     if (!msg.value.trim()){ markInvalid(msg, 'Unesite poruku.'); ok = false; }
+
+    // Turnstile token (managed widget generira hidden input)
+    const tsInput = document.querySelector('input[name="cf-turnstile-response"]');
+    const tsToken = tsInput && tsInput.value ? tsInput.value : '';
+
+    if (!tsToken){
+      setStatus('Molimo potvrdi da nisi robot.', 'err');
+      return;
+    }
+
     if (!ok) return;
 
     submit.disabled = true;
@@ -75,9 +86,10 @@
         apt: apt || undefined,
         name: name.value.trim(),
         email: email.value.trim(),
-        phone: phone.value.trim() || undefined,
-        dates: dates.value.trim() || undefined,
-        message: msg.value.trim()
+        phone: (phone && phone.value.trim()) || undefined,
+        dates: (dates && dates.value.trim()) || undefined,
+        message: msg.value.trim(),
+        tsToken // Turnstile token
       };
 
       const res = await fetch('/api/contact', {
@@ -86,21 +98,30 @@
         body: JSON.stringify(payload)
       });
 
-      if (!res.ok){
-        const txt = await res.text().catch(()=> '');
-        throw new Error(`API error ${res.status}: ${txt || res.statusText}`);
-      }
+      const text = await res.text();
+      let json = {};
+      try{ json = JSON.parse(text); }catch{ /* keep empty */ }
 
-      const json = await res.json().catch(()=> ({}));
-      if (!json || json.ok !== true){
-        throw new Error(json && json.error ? json.error : 'Neuspjeh slanja.');
+      if (!res.ok || !json.ok){
+        throw new Error(json.error || `API error ${res.status}: ${text}`);
       }
 
       setStatus('Hvala! Poruka je poslana. Uskoro se javljamo. 📨', 'ok');
       form.reset();
+
+      // resetiraj turnstile widget (ako je global dostupan)
+      if (window.turnstile) {
+        const w = document.querySelector('.cf-turnstile');
+        if (w) window.turnstile.reset(w);
+      }
     }catch(err){
       console.warn('[contact] submit error', err);
       setStatus('Ups. Trenutno ne možemo poslati poruku. Pokušajte kasnije ili javite se na info@auraadriatica.com.', 'err');
+      // safety reset
+      if (window.turnstile) {
+        const w = document.querySelector('.cf-turnstile');
+        if (w) window.turnstile.reset(w);
+      }
     }finally{
       submit.disabled = false;
     }
