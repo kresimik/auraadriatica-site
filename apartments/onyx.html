@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apartment Onyx — Aura Adriatica</title>
-  <meta name="description" content="Apartment Onyx — modern design, close to the sea, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
+  <meta name="description" content="Apartment Onyx — sunny balcony with sea view, fast Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -22,7 +22,9 @@
   <link rel="stylesheet" href="/assets/css/style.css?v=20251018">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/apt.js" defer></script>
-  <!-- Uklonjeno: /assets/js/form.js -->
+
+  <!-- Cloudflare Turnstile (invizibilni widget) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body data-apt-slug="onyx">
@@ -34,8 +36,8 @@
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
@@ -67,7 +69,7 @@
       url('/assets/img/onyx-hero.jpg');">
     <div class="container hero-center">
       <h1 data-i18n="onyx_h">Onyx Apartment</h1>
-      <p data-i18n="onyx_intro">Modern design, close to the sea, parking, Wi-Fi.</p>
+      <p data-i18n="onyx_intro">Sunny balcony, sea view, parking, fast Wi-Fi.</p>
       <div class="cta">
         <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
@@ -107,7 +109,7 @@
       <h2 data-i18n="contact_h">Contact</h2>
 
       <form id="contact-form" class="contact-card" novalidate>
-        <!-- hidden apt (popunit će se i iz data-apt-slug) -->
+        <!-- hidden apt (slug) -->
         <input type="hidden" id="cf-apt" name="apt" value="onyx" />
 
         <div class="form-grid">
@@ -138,6 +140,14 @@
           </div>
         </div>
 
+        <!-- Cloudflare Turnstile widget (invisible) -->
+        <div class="cf-turnstile"
+             data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
+             data-theme="light"
+             data-language="auto"
+             data-size="invisible">
+        </div>
+
         <div class="form-actions">
           <button class="button" id="cf-submit" type="submit">Send message</button>
           <span class="form-note" id="cf-status" aria-live="polite"></span>
@@ -153,8 +163,8 @@
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
+        <a href="/apartments/oonyx.html" class="active" data-i18n="onyx_h">Onyx</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
