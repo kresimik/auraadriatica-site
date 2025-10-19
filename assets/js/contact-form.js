@@ -4,12 +4,12 @@
   if (!form) return;
 
   const statusEl = document.getElementById('cf-status');
-
   const el = (sel, root = form) => root.querySelector(sel);
+
   const rows = {
-    name: el('#cf-name')?.closest('.form-row'),
-    email: el('#cf-email')?.closest('.form-row'),
-    message: el('#cf-message')?.closest('.form-row')
+    name: el('#cf-name')?.closest('.form-group'),
+    email: el('#cf-email')?.closest('.form-group'),
+    message: el('#cf-message')?.closest('.form-group')
   };
 
   const getMsg = (row) => row?.querySelector('.err-msg');
@@ -17,8 +17,13 @@
   const setErr = (row, msg) => {
     if (!row) return;
     row.classList.add('is-invalid');
-    const m = getMsg(row);
-    if (m) m.textContent = msg || '';
+    let m = getMsg(row);
+    if (!m) {
+      m = document.createElement('div');
+      m.className = 'err-msg';
+      row.appendChild(m);
+    }
+    m.textContent = msg || '';
   };
 
   const clearErr = (row) => {
@@ -36,11 +41,22 @@
     const email = el('#cf-email');
     const message = el('#cf-message');
 
-    clearErr(rows.name); clearErr(rows.email); clearErr(rows.message);
+    clearErr(rows.name);
+    clearErr(rows.email);
+    clearErr(rows.message);
 
-    if (!name.value.trim()) { setErr(rows.name, 'Please enter your name.'); ok = false; }
-    if (!email.value.trim() || !emailOk(email.value)) { setErr(rows.email, 'Please enter a valid email.'); ok = false; }
-    if (!message.value.trim()) { setErr(rows.message, 'Please enter a message.'); ok = false; }
+    if (!name.value.trim()) {
+      setErr(rows.name, 'Please enter your name.');
+      ok = false;
+    }
+    if (!email.value.trim() || !emailOk(email.value)) {
+      setErr(rows.email, 'Please enter a valid email.');
+      ok = false;
+    }
+    if (!message.value.trim()) {
+      setErr(rows.message, 'Please enter a message.');
+      ok = false;
+    }
 
     return ok;
   };
@@ -49,7 +65,7 @@
     const btn = form.querySelector('button[type="submit"]');
     if (!btn) return;
     btn.disabled = busy;
-    btn.style.opacity = busy ? .8 : 1;
+    btn.style.opacity = busy ? 0.7 : 1;
     btn.style.pointerEvents = busy ? 'none' : 'auto';
   };
 
@@ -74,17 +90,31 @@
     setBusy(true);
     setStatus('Sending…');
 
+    // dohvaćanje Turnstile tokena
+    let token = '';
+    try {
+      token = await turnstile.execute(
+        form.querySelector('.cf-turnstile'),
+        { action: 'submit' }
+      );
+    } catch (err) {
+      console.warn('Turnstile error', err);
+      setStatus('Verification failed. Please refresh and try again.', 'err');
+      setBusy(false);
+      return;
+    }
+
     // payload
     const payload = {
-      apt: form.getAttribute('data-apt') || 'Apartment',
+      apt: el('#cf-apt')?.value || 'Apartment',
       name: el('#cf-name').value.trim(),
       email: el('#cf-email').value.trim(),
       phone: el('#cf-phone')?.value?.trim() || '',
-      message: el('#cf-message').value.trim()
+      message: el('#cf-message').value.trim(),
+      token
     };
 
     try {
-      // Ako imaš backend na /api/contact — super:
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -94,8 +124,8 @@
       if (res.ok) {
         setStatus('Thank you! Your message has been sent.', 'ok');
         form.reset();
+        turnstile.reset(); // reset after success
       } else {
-        // fallback: otvori mail klijent
         const subj = encodeURIComponent(`[${payload.apt}] Inquiry from ${payload.name}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
@@ -104,7 +134,7 @@
         setStatus('Opening your email client… If nothing happens, write to info@auraadriatica.com.', 'ok');
       }
     } catch (err) {
-      // total-fallback: mailto
+      console.error('Send error', err);
       const subj = encodeURIComponent(`[${payload.apt}] Inquiry from ${payload.name}`);
       const body = encodeURIComponent(
         `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
