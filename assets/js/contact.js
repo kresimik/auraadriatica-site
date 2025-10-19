@@ -1,129 +1,105 @@
-// /assets/js/contact.js
-(function(){
-  const q = new URLSearchParams(location.search);
-  const apt = q.get('apt') || '';
+// /functions/api/contact.js
 
-  const aptHidden = document.getElementById('cf-apt');
-  const aptBadge  = document.getElementById('apt-badge');
-  const aptBadgeText = document.getElementById('apt-badge-text');
+export async function onRequest(context) {
+  const { request, env } = context;
 
-  if (aptHidden) aptHidden.value = apt;
-  if (apt && aptBadge && aptBadgeText){
-    aptBadgeText.textContent = apt;
-    aptBadge.hidden = false;
+  if (request.method !== 'POST') {
+    return new Response(JSON.stringify({ ok:false, error:'Method Not Allowed' }), { status:405 });
+    }
+  try{
+    const body = await request.json();
+    const {
+      apt, name, email, phone, dates, message, tsToken
+    } = body || {};
+
+    // Basic validation
+    if (!name || !email || !message) {
+      return new Response(JSON.stringify({ ok:false, error:'Missing fields' }), { status:400 });
+    }
+
+    // --- Turnstile verify ---
+    if (!tsToken) {
+      return new Response(JSON.stringify({ ok:false, error:'Missing Turnstile token' }), { status:400 });
+    }
+    const ip = request.headers.get('CF-Connecting-IP') || '';
+    const formData = new URLSearchParams();
+    formData.append('secret', env.TURNSTILE_SECRET);
+    formData.append('response', tsToken);
+    if (ip) formData.append('remoteip', ip);
+
+    const tsRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: formData
+    });
+    const tsJson = await tsRes.json();
+
+    if (!tsJson.success) {
+      return new Response(JSON.stringify({ ok:false, error:'Turnstile failed', details:tsJson }), { status:403 });
+    }
+
+    // --- Send email via Resend ---
+    const FROM_ADDR = 'Aura Adriatica <no-reply@auraadriatica.com>'; // verified sender/domain in Resend
+    const TO_ADDR   = 'info@auraadriatica.com';
+
+    const subject = `Novi upit${apt ? ' — ' + apt : ''} (web)`;
+    const lines = [
+      apt ? `Apartman: ${apt}` : null,
+      `Ime: ${name}`,
+      `Email: ${email}`,
+      phone ? `Telefon: ${phone}` : null,
+      dates ? `Datumi: ${dates}` : null,
+      '',
+      'Poruka:',
+      message
+    ].filter(Boolean);
+
+    const html = `
+      <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5">
+        <h2 style="margin:0 0 10px 0">Novi upit ${apt ? '— ' + apt : ''}</h2>
+        <p><strong>Ime:</strong> ${escapeHtml(name)}<br/>
+           <strong>Email:</strong> ${escapeHtml(email)}<br/>
+           ${phone ? `<strong>Telefon:</strong> ${escapeHtml(phone)}<br/>` : ''}
+           ${dates ? `<strong>Datumi:</strong> ${escapeHtml(dates)}<br/>` : ''}
+           ${apt ? `<strong>Apartman:</strong> ${escapeHtml(apt)}<br/>` : ''}
+        </p>
+        <p style="white-space:pre-wrap"><strong>Poruka:</strong>\n${escapeHtml(message)}</p>
+      </div>`.trim();
+
+    const text = lines.join('\n');
+
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: FROM_ADDR,
+        to: [TO_ADDR],
+        reply_to: [email],
+        subject,
+        html,
+        text
+      })
+    });
+
+    const out = await res.json().catch(()=> ({}));
+    if (!res.ok) {
+      return new Response(JSON.stringify({ ok:false, status:res.status, error: out }), { status: res.status });
+    }
+
+    return new Response(JSON.stringify({ ok:true, id: out.id || null }), { status:200 });
+
+  }catch(err){
+    return new Response(JSON.stringify({ ok:false, error:String(err) }), { status:500 });
   }
+}
 
-  const form   = document.getElementById('contact-form');
-  const status = document.getElementById('cf-status');
-  const submit = document.getElementById('cf-submit');
-
-  const setStatus = (msg, cls) => {
-    if (!status) return;
-    status.textContent = msg || '';
-    status.classList.remove('ok','err');
-    if (cls) status.classList.add(cls);
-  };
-
-  const markInvalid = (el, msg) => {
-    const row = el.closest('.form-row');
-    if (row) row.classList.add('is-invalid');
-    const small = row && row.querySelector('.err-msg');
-    if (small) small.textContent = msg || '';
-  };
-
-  const clearInvalid = (el) => {
-    const row = el.closest('.form-row');
-    if (row) row.classList.remove('is-invalid');
-    const small = row && row.querySelector('.err-msg');
-    if (small) small.textContent = '';
-  };
-
-  ['cf-name','cf-email','cf-message'].forEach(id=>{
-    const el = document.getElementById(id);
-    if (el) el.addEventListener('input', ()=> clearInvalid(el));
-  });
-
-  if (!form) return;
-
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    setStatus('', null);
-
-    // honeypot
-    const hp = document.getElementById('cf-company');
-    if (hp && hp.value.trim() !== ''){
-      setStatus('Greška. Pokušajte ponovno.', 'err');
-      return;
-    }
-
-    // osnovna validacija
-    const name  = document.getElementById('cf-name');
-    const email = document.getElementById('cf-email');
-    const phone = document.getElementById('cf-phone');
-    const dates = document.getElementById('cf-dates');
-    const msg   = document.getElementById('cf-message');
-
-    let ok = true;
-    if (!name.value.trim()){ markInvalid(name, 'Unesite ime.'); ok = false; }
-    if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value)){ markInvalid(email, 'Unesite ispravan email.'); ok = false; }
-    if (!msg.value.trim()){ markInvalid(msg, 'Unesite poruku.'); ok = false; }
-
-    // Turnstile token (managed widget generira hidden input)
-    const tsInput = document.querySelector('input[name="cf-turnstile-response"]');
-    const tsToken = tsInput && tsInput.value ? tsInput.value : '';
-
-    if (!tsToken){
-      setStatus('Molimo potvrdi da nisi robot.', 'err');
-      return;
-    }
-
-    if (!ok) return;
-
-    submit.disabled = true;
-
-    try{
-      const payload = {
-        apt: apt || undefined,
-        name: name.value.trim(),
-        email: email.value.trim(),
-        phone: (phone && phone.value.trim()) || undefined,
-        dates: (dates && dates.value.trim()) || undefined,
-        message: msg.value.trim(),
-        tsToken // Turnstile token
-      };
-
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type':'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      const text = await res.text();
-      let json = {};
-      try{ json = JSON.parse(text); }catch{ /* keep empty */ }
-
-      if (!res.ok || !json.ok){
-        throw new Error(json.error || `API error ${res.status}: ${text}`);
-      }
-
-      setStatus('Hvala! Poruka je poslana. Uskoro se javljamo. 📨', 'ok');
-      form.reset();
-
-      // resetiraj turnstile widget (ako je global dostupan)
-      if (window.turnstile) {
-        const w = document.querySelector('.cf-turnstile');
-        if (w) window.turnstile.reset(w);
-      }
-    }catch(err){
-      console.warn('[contact] submit error', err);
-      setStatus('Ups. Trenutno ne možemo poslati poruku. Pokušajte kasnije ili javite se na info@auraadriatica.com.', 'err');
-      // safety reset
-      if (window.turnstile) {
-        const w = document.querySelector('.cf-turnstile');
-        if (w) window.turnstile.reset(w);
-      }
-    }finally{
-      submit.disabled = false;
-    }
-  });
-})();
+function escapeHtml(s=''){
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
