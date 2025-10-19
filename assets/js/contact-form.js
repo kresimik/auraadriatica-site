@@ -4,12 +4,12 @@
   if (!form) return;
 
   const statusEl = document.getElementById('cf-status');
-  const $ = (sel, root = form) => root.querySelector(sel);
+  const el = (sel, root = form) => root.querySelector(sel);
 
   const rows = {
-    name: $('#cf-name')?.closest('.form-group'),
-    email: $('#cf-email')?.closest('.form-group'),
-    message: $('#cf-message')?.closest('.form-group'),
+    name: el('#cf-name')?.closest('.form-row'),
+    email: el('#cf-email')?.closest('.form-row'),
+    message: el('#cf-message')?.closest('.form-row')
   };
 
   const getMsg = (row) => row?.querySelector('.err-msg');
@@ -17,50 +17,77 @@
     if (!row) return;
     row.classList.add('is-invalid');
     let m = getMsg(row);
-    if (!m) { m = document.createElement('div'); m.className = 'err-msg'; row.appendChild(m); }
+    if (!m) {
+      m = document.createElement('div');
+      m.className = 'err-msg';
+      row.appendChild(m);
+    }
     m.textContent = msg || '';
   };
-  const clearErr = (row) => { if (!row) return; row.classList.remove('is-invalid'); const m = getMsg(row); if (m) m.textContent = ''; };
-  const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-  const setBusy = (busy) => { const btn = form.querySelector('button[type="submit"]'); if (btn){ btn.disabled = busy; btn.style.opacity = busy ? .7 : 1; btn.style.pointerEvents = busy ? 'none':'auto'; } };
-  const setStatus = (t, type) => { if (!statusEl) return; statusEl.textContent = t || ''; statusEl.classList.remove('ok','err'); if (type) statusEl.classList.add(type); };
+  const clearErr = (row) => {
+    if (!row) return;
+    row.classList.remove('is-invalid');
+    const m = getMsg(row);
+    if (m) m.textContent = '';
+  };
 
+  const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
   const validate = () => {
     let ok = true;
-    const name = $('#cf-name'), email = $('#cf-email'), message = $('#cf-message');
-    clearErr(rows.name); clearErr(rows.email); clearErr(rows.message);
+    const name = el('#cf-name');
+    const email = el('#cf-email');
+    const message = el('#cf-message');
+
+    clearErr(rows.name);
+    clearErr(rows.email);
+    clearErr(rows.message);
+
     if (!name.value.trim()) { setErr(rows.name, 'Please enter your name.'); ok = false; }
     if (!email.value.trim() || !emailOk(email.value)) { setErr(rows.email, 'Please enter a valid email.'); ok = false; }
     if (!message.value.trim()) { setErr(rows.message, 'Please enter a message.'); ok = false; }
+
     return ok;
+  };
+
+  const setBusy = (busy) => {
+    const btn = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+    btn.disabled = busy;
+    btn.style.opacity = busy ? 0.7 : 1;
+  };
+  const setStatus = (text, type) => {
+    if (!statusEl) return;
+    statusEl.textContent = text || '';
+    statusEl.classList.remove('ok', 'err');
+    if (type) statusEl.classList.add(type);
   };
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // honeypot
-    if ($('#cf-company')?.value?.trim()) {
+    if (form.querySelector('#cf-company')?.value?.trim()) {
       setStatus('Something went wrong. Please try another channel.', 'err');
       return;
     }
     if (!validate()) return;
 
-    // Turnstile token iz hidden inputa
-    const token = document.getElementById('cf-token')?.value || '';
-    if (!token) {
-      setStatus('Please complete the verification and try again.', 'err');
-      return;
-    }
-
     setBusy(true);
     setStatus('Sending…');
 
+    // NEW: read token from hidden input filled by Turnstile callback
+    const token = el('#cf-token')?.value?.trim();
+    if (!token) {
+      setStatus('Missing Turnstile token', 'err');
+      setBusy(false);
+      return;
+    }
+
     const payload = {
-      apt: $('#cf-apt')?.value || form.getAttribute('data-apt') || 'Apartment',
-      name: $('#cf-name').value.trim(),
-      email: $('#cf-email').value.trim(),
-      phone: $('#cf-phone')?.value?.trim() || '',
-      message: $('#cf-message').value.trim(),
+      apt: el('#cf-apt')?.value || 'Apartment',
+      name: el('#cf-name').value.trim(),
+      email: el('#cf-email').value.trim(),
+      phone: el('#cf-phone')?.value?.trim() || '',
+      message: el('#cf-message').value.trim(),
       token
     };
 
@@ -74,14 +101,15 @@
       if (res.ok) {
         setStatus('Thank you! Your message has been sent.', 'ok');
         form.reset();
-        // resetiraj i Turnstile widget (ako je global dostupan)
-        try { window.turnstile && window.turnstile.reset(); } catch {}
+        const tokenEl = el('#cf-token');
+        if (tokenEl) tokenEl.value = '';
+        if (window.turnstile) turnstile.reset();
       } else {
-        const data = await res.json().catch(()=>({}));
-        setStatus(data?.error || 'Could not send. Please try again.', 'err');
+        setStatus('Sending failed — please try again later.', 'err');
       }
     } catch (err) {
-      setStatus('Network error. Please try again.', 'err');
+      console.error('Send error', err);
+      setStatus('Network error — please try again.', 'err');
     } finally {
       setBusy(false);
     }
