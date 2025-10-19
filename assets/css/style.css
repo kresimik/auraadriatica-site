@@ -513,7 +513,8 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 }
 
 /* === Contact form — modern soft style (drop-in) ===================== */
-.contact-form{
+.contact-form,
+.contact-card{
   --cf-bg:#fff;
   --cf-fill:#f6f8fc;
   --cf-border:#e5ebf5;
@@ -541,14 +542,17 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 .form-row{ display:flex; flex-direction:column; gap:6px; }
 .form-row--full{ grid-column: 1 / -1; }
 
-.contact-form label{
+.contact-form label,
+.contact-card label{
   font: 700 .95rem/1.2 'Poppins','Roboto',system-ui,sans-serif;
   color: var(--cf-text);
 }
 
 /* soft-filled polja */
 .contact-form input,
-.contact-form textarea{
+.contact-form textarea,
+.contact-card input,
+.contact-card textarea{
   width:100%;
   appearance:none;
   border:1px solid var(--cf-border);
@@ -559,16 +563,23 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   color:#2b3d5b;
   transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .05s ease;
 }
-.contact-form textarea{ resize:vertical; min-height:120px; }
+.contact-form textarea,
+.contact-card textarea{ resize:vertical; min-height:120px; }
 .contact-form input::placeholder,
-.contact-form textarea::placeholder{ color:#9fb0c9; }
+.contact-form textarea::placeholder,
+.contact-card input::placeholder,
+.contact-card textarea::placeholder{ color:#9fb0c9; }
 
 .contact-form input:hover,
-.contact-form textarea:hover{
+.contact-form textarea:hover,
+.contact-card input:hover,
+.contact-card textarea:hover{
   border-color:#d8e2f1;
 }
 .contact-form input:focus,
-.contact-form textarea:focus{
+.contact-form textarea:focus,
+.contact-card input:focus,
+.contact-card textarea:focus{
   outline:0;
   background:#fff;
   border-color: var(--brand-blue);
@@ -610,12 +621,12 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 /* mobitel: 1 kolona */
 @media (max-width: 760px){
   .form-grid{ grid-template-columns: 1fr; }
-  .contact-form{ padding:22px 18px; }
+  .contact-form, .contact-card{ padding:22px 18px; }
 }
 
 /* === CONTACT FORM — HARD OVERRIDE (add at the very end) === */
-
-section .contact-form{
+section .contact-form,
+section .contact-card{
   --cf-bg:#fff; --cf-fill:#f6f8fc; --cf-border:#e5ebf5;
   --cf-text:#2b3d5b; --cf-muted:#7a8aa9;
   --cf-ring: rgba(77,166,255,.22);
@@ -630,21 +641,27 @@ section .contact-form{
   box-shadow: 0 12px 30px rgba(10,26,47,.08) !important;
 }
 
-section .contact-form .form-grid{
+section .contact-form .form-grid,
+section .contact-card .form-grid{
   display:grid !important;
   grid-template-columns: 1fr 1fr !important;
   gap: 16px 18px !important;
 }
-section .contact-form .form-row{ display:flex !important; flex-direction:column !important; gap:8px !important; }
-section .contact-form .form-row--full{ grid-column:1/-1 !important; }
+section .contact-form .form-row,
+section .contact-card .form-row{ display:flex !important; flex-direction:column !important; gap:8px !important; }
+section .contact-form .form-row--full,
+section .contact-card .form-row--full{ grid-column:1/-1 !important; }
 
-section .contact-form label{
+section .contact-form label,
+section .contact-card label{
   font: 700 .98rem/1.2 'Poppins','Roboto',system-ui,sans-serif !important;
   color: var(--cf-text) !important;
 }
 
 section .contact-form input,
-section .contact-form textarea{
+section .contact-form textarea,
+section .contact-card input,
+section .contact-card textarea{
   -webkit-appearance: none !important;
   appearance: none !important;
   width: 100% !important;
@@ -656,16 +673,23 @@ section .contact-form textarea{
   color: var(--cf-text) !important;
   transition: background .15s, border-color .15s, box-shadow .15s !important;
 }
-section .contact-form textarea{ resize: vertical !important; min-height: 120px !important; }
+section .contact-form textarea,
+section .contact-card textarea{ resize: vertical !important; min-height: 120px !important; }
 
 section .contact-form input::placeholder,
-section .contact-form textarea::placeholder{ color:#9fb0c9 !important; }
+section .contact-form textarea::placeholder,
+section .contact-card input::placeholder,
+section .contact-card textarea::placeholder{ color:#9fb0c9 !important; }
 
 section .contact-form input:hover,
-section .contact-form textarea:hover{ border-color:#d8e2f1 !important; }
+section .contact-form textarea:hover,
+section .contact-card input:hover,
+section .contact-card textarea:hover{ border-color:#d8e2f1 !important; }
 
 section .contact-form input:focus,
-section .contact-form textarea:focus{
+section .contact-form textarea:focus,
+section .contact-card input:focus,
+section .contact-card textarea:focus{
   outline:0 !important;
   background:#fff !important;
   border-color: var(--brand-blue) !important;
@@ -673,19 +697,24 @@ section .contact-form textarea:focus{
 }
 
 /* validation */
-section .contact-form .err-msg{ min-height:18px !important; font-size:.85rem !important; color:var(--cf-err) !important; }
+section .contact-form .err-msg,
+section .contact-card .err-msg{ min-height:18px !important; font-size:.85rem !important; color:var(--cf-err) !important; }
 section .contact-form .is-invalid input,
-section .contact-form .is-invalid textarea{
+section .contact-form .is-invalid textarea,
+section .contact-card .is-invalid input,
+section .contact-card .is-invalid textarea{
   border-color: var(--cf-err) !important;
   box-shadow: 0 0 0 4px rgba(209,74,74,.14) !important;
 }
 
 /* actions */
-section .contact-form .form-actions{
+section .contact-form .form-actions,
+section .contact-card .form-actions{
   display:flex !important; justify-content:center !important; align-items:center !important;
   gap:14px !important; margin-top:8px !important;
 }
-section .contact-form .form-actions .button{
+section .contact-form .form-actions .button,
+section .contact-card .form-actions .button{
   display:inline-flex !important; align-items:center !important; gap:.55rem !important;
   padding:.9rem 1.6rem !important; border-radius:12px !important;
   box-shadow:0 12px 24px rgba(77,166,255,.22) !important;
@@ -693,6 +722,8 @@ section .contact-form .form-actions .button{
 
 /* responsive */
 @media (max-width: 760px){
-  section .contact-form .form-grid{ grid-template-columns:1fr !important; }
-  section .contact-form{ padding:22px 18px !important; }
+  section .contact-form .form-grid,
+  section .contact-card .form-grid{ grid-template-columns:1fr !important; }
+  section .contact-form,
+  section .contact-card{ padding:22px 18px !important; }
 }
