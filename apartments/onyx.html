@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apartment Onyx — Aura Adriatica</title>
-  <meta name="description" content="Apartment Onyx — sunny balcony with sea view, fast Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
+  <meta name="description" content="Apartment Onyx — modern design, close to the sea, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -22,9 +22,6 @@
   <link rel="stylesheet" href="/assets/css/style.css?v=20251018">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/apt.js" defer></script>
-
-  <!-- Cloudflare Turnstile (invizibilni widget) -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body data-apt-slug="onyx">
@@ -36,8 +33,8 @@
       </a>
 
       <nav class="main-nav" aria-label="Primary">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
@@ -69,7 +66,7 @@
       url('/assets/img/onyx-hero.jpg');">
     <div class="container hero-center">
       <h1 data-i18n="onyx_h">Onyx Apartment</h1>
-      <p data-i18n="onyx_intro">Sunny balcony, sea view, parking, fast Wi-Fi.</p>
+      <p data-i18n="onyx_intro">Modern design, close to the sea, parking, Wi-Fi.</p>
       <div class="cta">
         <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
@@ -108,51 +105,59 @@
     <div class="container">
       <h2 data-i18n="contact_h">Contact</h2>
 
-      <form id="contact-form" class="contact-card" novalidate>
-        <!-- hidden apt (slug) -->
-        <input type="hidden" id="cf-apt" name="apt" value="onyx" />
+      <form id="contact-form" class="contact-card" data-apt="Onyx" novalidate>
+        <input type="hidden" id="cf-apt" name="apt" value="Onyx" />
 
         <div class="form-grid">
           <div class="form-group">
-            <label for="cf-name" class="required">Name</label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" required />
+            <label for="cf-name" class="required">Ime i prezime</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Vaše ime" required />
+            <small class="err-msg" aria-live="polite"></small>
           </div>
 
           <div class="form-group">
             <label for="cf-email" class="required">Email</label>
-            <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" required />
+            <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="ime@domena.com" required />
+            <small class="err-msg" aria-live="polite"></small>
           </div>
 
           <div class="form-group">
-            <label for="cf-phone">Phone (optional)</label>
-            <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" />
+            <label for="cf-phone">Telefon (nije obavezno)</label>
+            <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
           </div>
 
-          <!-- honeypot (skriveno) -->
-          <div class="form-group" style="position:absolute; left:-50000px; top:auto; width:1px; height:1px; overflow:hidden;">
+          <!-- honeypot -->
+          <div class="form-group hp">
             <label for="cf-company">Company</label>
-            <input id="cf-company" name="company" type="text" autocomplete="organization" tabindex="-1" />
+            <input id="cf-company" name="company" type="text" autocomplete="organization" />
           </div>
 
           <div class="form-group form-full">
-            <label for="cf-message" class="required">Message</label>
-            <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
+            <label for="cf-message" class="required">Poruka</label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Željeni datumi, broj gostiju, pitanja…"></textarea>
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+
+          <!-- Turnstile widget -->
+          <div class="form-group form-full">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"></div>
+            <small class="err-msg" aria-live="polite"></small>
           </div>
         </div>
 
-        <!-- Cloudflare Turnstile widget (invisible) -->
-        <div class="cf-turnstile"
-             data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
-             data-theme="light"
-             data-language="auto"
-             data-size="invisible">
-        </div>
-
         <div class="form-actions">
-          <button class="button" id="cf-submit" type="submit">Send message</button>
+          <button class="button" id="cf-submit" type="submit">
+            Pošalji poruku
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
           <span class="form-note" id="cf-status" aria-live="polite"></span>
         </div>
       </form>
+
+      <!-- Turnstile skripta (jednom po stranici) -->
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
     </div>
   </section>
 
@@ -163,8 +168,8 @@
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="/apartments/oonyx.html" class="active" data-i18n="onyx_h">Onyx</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
@@ -177,7 +182,7 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Lang hook -->
+  <!-- Hook: promjena jezika → reload JSON-a apartmana -->
   <script>
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
