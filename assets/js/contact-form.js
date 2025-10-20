@@ -154,7 +154,8 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-
+  const data = await res.json().catch(() => ({}));
+  console.log('API response:', data);
       if (res.ok) {
         setStatus('Thank you! Your message has been sent.', 'ok');
         form.reset();
