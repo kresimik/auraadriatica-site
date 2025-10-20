@@ -1,4 +1,6 @@
 // /functions/api/contact.js
+// Cloudflare Pages Function (route: /api/contact)
+
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const TURNSTILE_VERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
@@ -7,42 +9,31 @@ const json = (obj, status = 200) =>
 
 const bad = (msg, status = 400) => json({ ok: false, error: msg }, status);
 
-const emailOk = (v = "") => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
+const emailOk = (v = "") => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 
-const esc = (s = "") =>
-  String(s)
+function escapeHtml(s = "") {
+  return s
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
-
-function stripOuterQuotes(s = "") {
-  let x = String(s).trim();
-  x = x.replace(/^[“”"']+/, "").replace(/[“”"']+$/, "");
-  return x.trim();
 }
 
-function squashSpaces(s = "") {
-  return String(s).replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
-}
+// normalizira CONTACT_FROM u dopušten format
+function buildFrom(raw) {
+  const fallback = "Aura Adriatica <no-reply@auraadriatica.com>";
+  if (!raw || typeof raw !== "string") return fallback;
 
-function normalizeFrom(input, fallbackName = "Aura Adriatica") {
-  let s = stripOuterQuotes(input || "");
-  s = squashSpaces(s);
+  const v = raw.trim().replaceAll("“", '"').replaceAll("”", '"').replaceAll("’", "'");
+  // pokušaj izvući email
+  const m = v.match(/<?([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})>?/);
+  if (!m) return fallback;
 
-  // Already in "Name <email>" ?
-  if (/^.+<[^<>@\s]+@[^<>@\s]+>$/.test(s)) return s;
-
-  // bare email?
-  if (emailOk(s)) return `${fallbackName} <${s}>`;
-
-  // extract email between <>
-  const m = s.match(/<\s*([^<>@\s]+@[^<>@\s]+)\s*>/);
-  if (m && emailOk(m[1])) return `${fallbackName} <${m[1]}>`;
-
-  // fallback
-  return `${fallbackName} <no-reply@auraadriatica.com>`;
+  const email = m[1];
+  // ako već ima <email>, pusti kako je; ako je samo email, dodaj ime
+  if (/<\s*[\w.+-]+@/i.test(v)) return v;
+  return `Aura Adriatica <${email}>`;
 }
 
 export async function onRequestPost({ request, env }) {
@@ -54,10 +45,10 @@ export async function onRequestPost({ request, env }) {
     if (!emailOk(email)) return bad("Invalid email");
     if (!message.trim()) return bad("Message required");
 
-    // Turnstile check
     if (!env.TURNSTILE_SECRET) return bad("Server misconfigured: TURNSTILE_SECRET missing", 500);
-    if (!token) return bad("Missing Turnstile token", 400);
+    if (!token) return bad("Turnstile token missing", 400);
 
+    // Verify Turnstile
     const form = new URLSearchParams();
     form.append("secret", env.TURNSTILE_SECRET);
     form.append("response", token);
@@ -68,17 +59,14 @@ export async function onRequestPost({ request, env }) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" }
     });
     const tJson = await tRes.json().catch(() => ({}));
-    if (!tJson.success) {
-      return json({ ok: false, error: "Turnstile verification failed", turnstile: tJson }, 403);
-    }
+    if (!tJson.success) return bad("Turnstile verification failed", 403);
 
-    // Resend
+    // Prepare email
     const RESEND_API_KEY = env.RESEND_API_KEY;
     if (!RESEND_API_KEY) return bad("Server misconfigured: RESEND_API_KEY missing", 500);
 
-    const CONTACT_TO = squashSpaces(env.CONTACT_TO || "info@auraadriatica.com");
-    const CONTACT_FROM_RAW = env.CONTACT_FROM || "Aura Adriatica <no-reply@auraadriatica.com>";
-    const CONTACT_FROM = normalizeFrom(CONTACT_FROM_RAW, "Aura Adriatica");
+    const CONTACT_TO = (env.CONTACT_TO || "info@auraadriatica.com").trim();
+    const CONTACT_FROM = buildFrom(env.CONTACT_FROM || "no-reply@auraadriatica.com");
 
     const subject = `[${apt}] Inquiry from ${name}`;
     const text = [
@@ -92,12 +80,12 @@ export async function onRequestPost({ request, env }) {
 
     const html = `
       <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5;color:#1b2a4a;">
-        <h2 style="margin:0 0 8px 0;">${esc(subject)}</h2>
-        <p><strong>Apartment:</strong> ${esc(apt)}</p>
-        <p><strong>Name:</strong> ${esc(name)}<br/>
-           <strong>Email:</strong> ${esc(email)}${phone ? `<br/><strong>Phone:</strong> ${esc(phone)}` : ""}</p>
+        <h2 style="margin:0 0 8px 0;">${escapeHtml(subject)}</h2>
+        <p><strong>Apartment:</strong> ${escapeHtml(apt)}</p>
+        <p><strong>Name:</strong> ${escapeHtml(name)}<br/>
+           <strong>Email:</strong> ${escapeHtml(email)}${phone ? `<br/><strong>Phone:</strong> ${escapeHtml(phone)}` : ""}</p>
         <hr style="border:none;border-top:1px solid #e6eef7;margin:16px 0"/>
-        <pre style="white-space:pre-wrap;font:inherit;margin:0">${esc(message)}</pre>
+        <pre style="white-space:pre-wrap;font:inherit;margin:0">${escapeHtml(message)}</pre>
       </div>
     `;
 
@@ -108,33 +96,27 @@ export async function onRequestPost({ request, env }) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: CONTACT_FROM,
+        from: CONTACT_FROM,           // npr. "Aura Adriatica <no-reply@auraadriatica.com>"
         to: [CONTACT_TO],
         subject,
         text,
         html,
-        reply_to: email
+        reply_to: email               // reply ide gostu
       })
     });
 
     if (!r.ok) {
-      const bodyText = await r.text().catch(() => "");
-      let msg = "Resend error";
-      try {
-        const j = JSON.parse(bodyText);
-        if (j && (j.message || j.error)) msg = j.message || j.error;
-      } catch { if (bodyText) msg = bodyText; }
-
+      // vrati jasniji debug da odmah vidimo što je poslano
+      const errText = await r.text().catch(() => "");
       return json({
         ok: false,
         status: r.status,
-        error: msg,
+        error: errText || "Resend error",
         used: { from: CONTACT_FROM, to: CONTACT_TO }
       }, 502);
     }
 
     return json({ ok: true, sent: true });
-
   } catch (e) {
     return bad(`Server error: ${e?.message || String(e)}`, 500);
   }
