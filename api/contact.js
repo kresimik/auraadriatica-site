@@ -9,58 +9,52 @@ const bad = (msg, status = 400) => json({ ok: false, error: msg }, status);
 
 const emailOk = (v = "") => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
 
-/** Skida obične i “pametne” navodnike oko cijelog stringa */
+const esc = (s = "") =>
+  String(s)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
 function stripOuterQuotes(s = "") {
   let x = String(s).trim();
   x = x.replace(/^[“”"']+/, "").replace(/[“”"']+$/, "");
   return x.trim();
 }
 
-/** Kompaktira razmake i non-breaking space u običan razmak */
 function squashSpaces(s = "") {
   return String(s).replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
 }
 
-/** Normalizira FROM u format: "Name <email@domain>" */
 function normalizeFrom(input, fallbackName = "Aura Adriatica") {
   let s = stripOuterQuotes(input || "");
   s = squashSpaces(s);
 
-  // Već u ispravnom formatu?
+  // Already in "Name <email>" ?
   if (/^.+<[^<>@\s]+@[^<>@\s]+>$/.test(s)) return s;
 
-  // Samo email?
+  // bare email?
   if (emailOk(s)) return `${fallbackName} <${s}>`;
 
-  // Pokušaj izvući email iz zagrada
+  // extract email between <>
   const m = s.match(/<\s*([^<>@\s]+@[^<>@\s]+)\s*>/);
   if (m && emailOk(m[1])) return `${fallbackName} <${m[1]}>`;
 
-  // Ako ništa: fallback na verified no-reply
+  // fallback
   return `${fallbackName} <no-reply@auraadriatica.com>`;
-}
-
-function esc(s = "") {
-  return String(s)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
 }
 
 export async function onRequestPost({ request, env }) {
   try {
-    // Body
     const data = await request.json().catch(() => ({}));
     const { apt = "Apartment", name = "", email = "", phone = "", message = "", token = "" } = data || {};
 
-    // Validacija
     if (!name.trim()) return bad("Missing name");
     if (!emailOk(email)) return bad("Invalid email");
     if (!message.trim()) return bad("Message required");
 
-    // Turnstile
+    // Turnstile check
     if (!env.TURNSTILE_SECRET) return bad("Server misconfigured: TURNSTILE_SECRET missing", 500);
     if (!token) return bad("Missing Turnstile token", 400);
 
@@ -74,7 +68,9 @@ export async function onRequestPost({ request, env }) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" }
     });
     const tJson = await tRes.json().catch(() => ({}));
-    if (!tJson.success) return bad("Turnstile verification failed", 403);
+    if (!tJson.success) {
+      return json({ ok: false, error: "Turnstile verification failed", turnstile: tJson }, 403);
+    }
 
     // Resend
     const RESEND_API_KEY = env.RESEND_API_KEY;
@@ -112,7 +108,7 @@ export async function onRequestPost({ request, env }) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: CONTACT_FROM,        // npr. Aura Adriatica <no-reply@auraadriatica.com>
+        from: CONTACT_FROM,
         to: [CONTACT_TO],
         subject,
         text,
