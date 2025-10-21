@@ -16,7 +16,7 @@
 
   <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20251019">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
 
   <!-- Scripts -->
   <script src="/assets/js/i18n.js" defer></script>
@@ -38,6 +38,20 @@
         <a href="/gallery.html">Gallery</a>
         <a href="/reviews.html">Reviews</a>
       </nav>
+      <div class="lang-dropdown">
+        <button class="lang-toggle" id="lang-toggle">EN</button>
+        <div class="lang-menu" hidden>
+          <button data-lang="en">EN</button>
+          <button data-lang="hr">HR</button>
+          <button data-lang="de">DE</button>
+          <button data-lang="it">IT</button>
+          <button data-lang="sl">SL</button>
+          <button data-lang="hu">HU</button>
+          <button data-lang="cs">CS</button>
+          <button data-lang="sk">SK</button>
+          <button data-lang="uk">UA</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -79,70 +93,62 @@
     </div>
   </section>
 
- <!-- CONTACT -->
-<section class="section alt">
-  <div class="container">
-    <h2 data-i18n="contact_h">Contact</h2>
+  <!-- CONTACT -->
+  <section class="section alt">
+    <div class="container">
+      <h2 data-i18n="contact_h">Contact</h2>
 
-    <form id="contact-form" class="contact-card" data-apt="Olive" novalidate>
-      <input type="hidden" id="cf-apt" name="apt" value="Olive" />
+      <form id="contact-form" class="contact-card" data-apt="Olive" novalidate>
+        <input type="hidden" id="cf-apt" name="apt" value="Olive" />
 
-      <div class="form-grid tight">
-        <div class="form-group">
-          <label for="cf-name" class="required">Name</label>
-          <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
-          <small class="err-msg" aria-live="polite"></small>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="cf-name" class="required" data-i18n="contact.name_label">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-email" class="required" data-i18n="contact.email_label">Email</label>
+            <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required />
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-phone" data-i18n="contact.phone_label">Phone (optional)</label>
+            <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
+          </div>
+
+          <div class="form-group form-full">
+            <label for="cf-message" class="required" data-i18n="contact.message_label">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+
+          <!-- Turnstile (single) -->
+          <div class="form-group form-full">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"></div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="cf-email" class="required">Email</label>
-          <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required />
-          <small class="err-msg" aria-live="polite"></small>
+        <div class="form-actions">
+          <button class="button" id="cf-submit" type="submit" data-i18n="contact.send_btn">
+            Send message
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
 
-        <div class="form-group form-full">
-          <label for="cf-phone">Phone (optional)</label>
-          <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
-        </div>
-
-        <div class="form-group form-full">
-          <label for="cf-message" class="required">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
-          <small class="err-msg" aria-live="polite"></small>
-        </div>
-
-        <!-- Turnstile (single) -->
-        <div class="form-group form-full">
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"></div>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button class="button" id="cf-submit" type="submit">
-          Send message
-          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <!-- status u NOVOM redu, centriran -->
-      <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-      <!-- Turnstile -->
-      <script>
-        window.cfStoreToken = function(token) {
-          const el = document.getElementById('cf-token');
-          if (el) el.value = token;
-          const st = document.getElementById('cf-status');
-          if (st && st.classList.contains('err')) st.textContent = '';
-        };
-      </script>
-      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <p class="form-status form-note" id="cf-status" role="status" aria-live="polite" data-i18n="contact.note_after">
+          We reply within 24h.
+        </p>
+      </form>
     </div>
   </section>
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -164,6 +170,20 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Language switch handler (multi-language + contact form update)
+    document.addEventListener('click', async (e)=>{
+      const btn = e.target.closest('.lang-menu button[data-lang]');
+      if(!btn) return;
+      const lang = btn.dataset.lang;
+      const slug = document.body.getAttribute('data-apt-slug');
+      if (slug && typeof window.loadApartment === 'function') {
+        await window.loadApartment(slug, lang);
+      }
+      if (window.applyContactI18n) window.applyContactI18n(lang);
+    });
+  </script>
 </body>
 </html>
