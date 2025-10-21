@@ -123,3 +123,183 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadLang(saved);
   wireLanguageDropdowns();
 });
+
+// ==== CONTACT FORM I18N =====================================================
+// Jezici: hr, en, de, it, sl, hu, cs, sk, uk
+window.I18N = Object.assign({}, window.I18N || {}, {
+  en: { contact: {
+    name_label: "Name", name_ph: "Your name",
+    email_label: "Email", email_ph: "name@example.com",
+    phone_label: "Phone (optional)", phone_ph: "+385…",
+    message_label: "Message", message_ph: "Dates, number of guests, questions…",
+    send_btn: "Send message",
+    note_after: "We reply within 24h.",
+    // statuses / errors
+    val_name: "Please enter your name.",
+    val_email: "Please enter a valid email.",
+    val_message: "Please enter a message.",
+    sending: "Sending…",
+    sent_ok: "Thank you! Your message has been sent.",
+    sent_fail: "Sending failed — please try again later.",
+    spam: "Something went wrong. Please try another channel.",
+    verify_fail: "Verification failed. Please refresh and try again."
+  }},
+  hr: { contact: {
+    name_label: "Ime i prezime", name_ph: "Vaše ime",
+    email_label: "Email", email_ph: "ime@domena.com",
+    phone_label: "Telefon (nije obavezno)", phone_ph: "+385…",
+    message_label: "Poruka", message_ph: "Željeni datumi, broj gostiju, pitanja…",
+    send_btn: "Pošalji poruku",
+    note_after: "Odgovaramo unutar 24 sata.",
+    val_name: "Unesite ime.",
+    val_email: "Unesite ispravan email.",
+    val_message: "Unesite poruku.",
+    sending: "Šaljem…",
+    sent_ok: "Hvala! Vaša poruka je poslana.",
+    sent_fail: "Slanje nije uspjelo — pokušajte kasnije.",
+    spam: "Nešto je pošlo po zlu. Pokušajte drugim kanalom.",
+    verify_fail: "Provjera nije uspjela. Osvježite stranicu i pokušajte ponovno."
+  }},
+  de: { contact: {
+    name_label: "Name", name_ph: "Ihr Name",
+    email_label: "E-Mail", email_ph: "name@beispiel.de",
+    phone_label: "Telefon (optional)", phone_ph: "+49…",
+    message_label: "Nachricht", message_ph: "Daten, Gästezahl, Fragen…",
+    send_btn: "Nachricht senden",
+    note_after: "Wir antworten innerhalb von 24h.",
+    val_name: "Bitte geben Sie Ihren Namen ein.",
+    val_email: "Bitte gültige E-Mail eingeben.",
+    val_message: "Bitte eine Nachricht eingeben.",
+    sending: "Senden…",
+    sent_ok: "Danke! Ihre Nachricht wurde gesendet.",
+    sent_fail: "Senden fehlgeschlagen — bitte später erneut versuchen.",
+    spam: "Etwas ist schiefgelaufen. Bitte anderen Kanal versuchen.",
+    verify_fail: "Verifizierung fehlgeschlagen. Seite aktualisieren und erneut versuchen."
+  }},
+  it: { contact: {
+    name_label: "Nome", name_ph: "Il tuo nome",
+    email_label: "Email", email_ph: "nome@esempio.it",
+    phone_label: "Telefono (facoltativo)", phone_ph: "+39…",
+    message_label: "Messaggio", message_ph: "Date, numero di ospiti, domande…",
+    send_btn: "Invia messaggio",
+    note_after: "Rispondiamo entro 24 ore.",
+    val_name: "Inserisci il tuo nome.",
+    val_email: "Inserisci un'email valida.",
+    val_message: "Inserisci un messaggio.",
+    sending: "Invio…",
+    sent_ok: "Grazie! Il tuo messaggio è stato inviato.",
+    sent_fail: "Invio non riuscito — riprova più tardi.",
+    spam: "Qualcosa è andato storto. Prova un altro canale.",
+    verify_fail: "Verifica fallita. Aggiorna la pagina e riprova."
+  }},
+  sl: { contact: {
+    name_label: "Ime in priimek", name_ph: "Vaše ime",
+    email_label: "E-pošta", email_ph: "ime@domena.si",
+    phone_label: "Telefon (neobvezno)", phone_ph: "+386…",
+    message_label: "Sporočilo", message_ph: "Datumi, št. gostov, vprašanja…",
+    send_btn: "Pošlji sporočilo",
+    note_after: "Odgovorimo v 24 urah.",
+    val_name: "Vnesite ime.",
+    val_email: "Vnesite veljaven e-poštni naslov.",
+    val_message: "Vnesite sporočilo.",
+    sending: "Pošiljanje…",
+    sent_ok: "Hvala! Vaše sporočilo je poslano.",
+    sent_fail: "Pošiljanje ni uspelo — poskusite kasneje.",
+    spam: "Prišlo je do napake. Poskusite drug kanal.",
+    verify_fail: "Preverjanje ni uspelo. Osvežite stran in poskusite znova."
+  }},
+  hu: { contact: {
+    name_label: "Név", name_ph: "Az Ön neve",
+    email_label: "E-mail", email_ph: "nev@pelda.hu",
+    phone_label: "Telefon (nem kötelező)", phone_ph: "+36…",
+    message_label: "Üzenet", message_ph: "Dátumok, vendégek száma, kérdések…",
+    send_btn: "Üzenet küldése",
+    note_after: "24 órán belül válaszolunk.",
+    val_name: "Adja meg a nevét.",
+    val_email: "Adjon meg érvényes e-mail címet.",
+    val_message: "Írjon üzenetet.",
+    sending: "Küldés…",
+    sent_ok: "Köszönjük! Üzenete elküldve.",
+    sent_fail: "Sikertelen küldés — próbálja meg később.",
+    spam: "Hiba történt. Próbálja másik csatornán.",
+    verify_fail: "Ellenőrzés sikertelen. Frissítsen és próbálja újra."
+  }},
+  cs: { contact: {
+    name_label: "Jméno", name_ph: "Vaše jméno",
+    email_label: "E-mail", email_ph: "jmeno@domena.cz",
+    phone_label: "Telefon (nepovinné)", phone_ph: "+420…",
+    message_label: "Zpráva", message_ph: "Termíny, počet hostů, dotazy…",
+    send_btn: "Odeslat zprávu",
+    note_after: "Odpovíme do 24 hodin.",
+    val_name: "Zadejte své jméno.",
+    val_email: "Zadejte platný e-mail.",
+    val_message: "Zadejte zprávu.",
+    sending: "Odesílám…",
+    sent_ok: "Děkujeme! Zpráva byla odeslána.",
+    sent_fail: "Odeslání selhalo — zkuste to později.",
+    spam: "Nastala chyba. Zkuste jiný kanál.",
+    verify_fail: "Ověření se nezdařilo. Obnovte stránku a zkuste znovu."
+  }},
+  sk: { contact: {
+    name_label: "Meno a priezvisko", name_ph: "Vaše meno",
+    email_label: "Email", email_ph: "meno@domena.sk",
+    phone_label: "Telefón (nepovinné)", phone_ph: "+421…",
+    message_label: "Správa", message_ph: "Termíny, počet hostí, otázky…",
+    send_btn: "Odoslať správu",
+    note_after: "Odpovieme do 24 hodín.",
+    val_name: "Zadajte meno.",
+    val_email: "Zadajte platný email.",
+    val_message: "Zadajte správu.",
+    sending: "Odosielam…",
+    sent_ok: "Ďakujeme! Vaša správa bola odoslaná.",
+    sent_fail: "Odoslanie zlyhalo — skúste neskôr.",
+    spam: "Nastala chyba. Skúste iný kanál.",
+    verify_fail: "Overenie zlyhalo. Obnovte stránku a skúste znovu."
+  }},
+  uk: { contact: {
+    name_label: "Ім'я та прізвище", name_ph: "Ваше ім'я",
+    email_label: "Ел. пошта", email_ph: "name@domain.com",
+    phone_label: "Телефон (необов'язково)", phone_ph: "+380…",
+    message_label: "Повідомлення", message_ph: "Дати, кількість гостей, запитання…",
+    send_btn: "Надіслати повідомлення",
+    note_after: "Відповідаємо протягом 24 годин.",
+    val_name: "Вкажіть ім’я.",
+    val_email: "Вкажіть дійсну адресу ел. пошти.",
+    val_message: "Введіть повідомлення.",
+    sending: "Надсилання…",
+    sent_ok: "Дякуємо! Ваше повідомлення надіслано.",
+    sent_fail: "Не вдалося надіслати — спробуйте пізніше.",
+    spam: "Сталася помилка. Спробуйте інший канал.",
+    verify_fail: "Не вдалося перевірити. Оновіть сторінку і спробуйте ще раз."
+  }}
+});
+
+// Helper: postavi label/placeholder tekste za formu
+window.applyContactI18n = function(lang){
+  const cur = (lang || document.documentElement.lang || 'en').toLowerCase();
+  const dict = (window.I18N[cur] && window.I18N[cur].contact) || window.I18N.en.contact;
+
+  const $ = (sel) => document.querySelector(sel);
+  // labele
+  const set = (sel, key) => { const el = $(sel); if (el) el.textContent = dict[key]; };
+  set('label[for="cf-name"]',    'name_label');
+  set('label[for="cf-email"]',   'email_label');
+  set('label[for="cf-phone"]',   'phone_label');
+  set('label[for="cf-message"]', 'message_label');
+  const btn = document.querySelector('#cf-submit');
+  if (btn) btn.firstChild && (btn.firstChild.nodeType===3 ? (btn.firstChild.nodeValue = dict.send_btn + ' ') : (btn.textContent = dict.send_btn));
+  const note = document.querySelector('.form-note'); if (note && !note.dataset.locked) note.textContent = dict.note_after;
+
+  // placeholders
+  const setPh = (sel, key) => { const el = $(sel); if (el) el.placeholder = dict[key]; };
+  setPh('#cf-name', 'name_ph');
+  setPh('#cf-email','email_ph');
+  setPh('#cf-phone','phone_ph');
+  setPh('#cf-message','message_ph');
+};
+
+// Init na load
+document.addEventListener('DOMContentLoaded', ()=> window.applyContactI18n?.());
+
+// Ako već imaš handler za promjenu jezika, samo pozovi applyContactI18n(lang) tamo.
+// (vidi izmjenu u HTML-u ispod)
