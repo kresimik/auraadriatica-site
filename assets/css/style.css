@@ -512,7 +512,7 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   .g-item img, .g-item::after, .glightbox, .glb-close, .glb-nav { transition:none !important; }
 }
 
-/* === Contact form — modern soft style (drop-in) ===================== */
+/* === Contact form — modern compact (shared for .contact-card & .contact-form) ===== */
 .contact-form,
 .contact-card{
   --cf-bg:#fff;
@@ -520,35 +520,37 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   --cf-border:#e5ebf5;
   --cf-text:#2b3d5b;
   --cf-muted:#7a8aa9;
-  --cf-ring: rgba(77,166,255,.22);
+  --cf-ring: rgba(77,166,255,.20);
   --cf-ok:#16a269;
   --cf-err:#d14a4a;
 
-  max-width: 720px;
+  max-width: 560px;
   margin: 0 auto;
   background: var(--cf-bg);
   border: 1px solid var(--cf-border);
-  border-radius: 16px;
-  padding: 28px 26px;
-  box-shadow: 0 12px 30px rgba(10,26,47,.08);
+  border-radius: 14px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 26px rgba(10,26,47,.06);
 }
 
-/* grid: 2 kolone na većim, 1 na mobu */
 .form-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 18px;
+  gap: 12px 14px;
 }
-.form-row{ display:flex; flex-direction:column; gap:6px; }
-.form-row--full{ grid-column: 1 / -1; }
+.form-group{ display:flex; flex-direction:column; gap:6px; }
+.form-full{ grid-column: 1 / -1; }
 
 .contact-form label,
 .contact-card label{
-  font: 700 .95rem/1.2 'Poppins','Roboto',system-ui,sans-serif;
+  font: 700 .92rem/1.2 'Poppins','Roboto',system-ui,sans-serif;
   color: var(--cf-text);
 }
+.contact-form label.required::after,
+.contact-card label.required::after{
+  content:" *"; color: var(--cf-err); font-weight:800;
+}
 
-/* soft-filled polja */
 .contact-form input,
 .contact-form textarea,
 .contact-card input,
@@ -557,14 +559,14 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   appearance:none;
   border:1px solid var(--cf-border);
   background: var(--cf-fill);
-  border-radius:12px;
-  padding:.8rem 1rem;
-  font: 500 1rem/1.35 'Roboto',system-ui,sans-serif;
-  color:#2b3d5b;
-  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .05s ease;
+  border-radius:10px;
+  padding:.7rem .9rem;
+  font: 500 .98rem/1.35 'Roboto',system-ui,sans-serif;
+  color: var(--cf-text);
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
 .contact-form textarea,
-.contact-card textarea{ resize:vertical; min-height:120px; }
+.contact-card textarea{ resize:vertical; min-height:110px; }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder,
 .contact-card input::placeholder,
@@ -573,9 +575,7 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
 .contact-form input:hover,
 .contact-form textarea:hover,
 .contact-card input:hover,
-.contact-card textarea:hover{
-  border-color:#d8e2f1;
-}
+.contact-card textarea:hover{ border-color:#d8e2f1; }
 .contact-form input:focus,
 .contact-form textarea:focus,
 .contact-card input:focus,
@@ -583,147 +583,45 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   outline:0;
   background:#fff;
   border-color: var(--brand-blue);
-  box-shadow: 0 0 0 4px var(--cf-ring);
+  box-shadow: 0 0 0 3px var(--cf-ring);
 }
 
-/* greške / validacija */
-.err-msg{ min-height:18px; font-size:.85rem; color:var(--cf-err); }
+/* Turnstile centrirano */
+.cf-turnstile{ display:flex; justify-content:center; }
+
+/* validation */
+.err-msg{ min-height:16px; font-size:.84rem; color:var(--cf-err); }
 .is-invalid input,
 .is-invalid textarea{
   border-color: var(--cf-err) !important;
-  box-shadow: 0 0 0 4px rgba(209,74,74,.14) !important;
+  box-shadow: 0 0 0 3px rgba(209,74,74,.14) !important;
 }
 
-/* akcije */
+/* actions */
 .form-actions{
   display:flex;
   justify-content:center;
-  align-items:center;
-  gap:14px;
-  margin-top: 6px;
+  margin-top:8px;
 }
 .form-actions .button{
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.9rem 1.6rem;
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.8rem 1.4rem;
   border-radius:12px;
-  box-shadow:0 12px 24px rgba(77,166,255,.22);
+  box-shadow:0 10px 22px rgba(77,166,255,.18);
 }
 
+/* status u novom redu */
 .form-status{
+  margin-top:10px;
+  text-align:center;
   font: 600 .95rem/1.2 'Roboto',system-ui,sans-serif;
   color: var(--cf-muted);
 }
 .form-status.ok{ color: var(--cf-ok); }
 .form-status.err{ color: var(--cf-err); }
 
-/* mobitel: 1 kolona */
-@media (max-width: 760px){
-  .form-grid{ grid-template-columns: 1fr; }
-  .contact-form, .contact-card{ padding:22px 18px; }
-}
-
-/* === CONTACT FORM — HARD OVERRIDE (add at the very end) === */
-section .contact-form,
-section .contact-card{
-  --cf-bg:#fff; --cf-fill:#f6f8fc; --cf-border:#e5ebf5;
-  --cf-text:#2b3d5b; --cf-muted:#7a8aa9;
-  --cf-ring: rgba(77,166,255,.22);
-  --cf-ok:#16a269; --cf-err:#d14a4a;
-
-  max-width: 720px !important;
-  margin: 0 auto !important;
-  background: var(--cf-bg) !important;
-  border: 1px solid var(--cf-border) !important;
-  border-radius: 16px !important;
-  padding: 28px 26px !important;
-  box-shadow: 0 12px 30px rgba(10,26,47,.08) !important;
-}
-
-section .contact-form .form-grid,
-section .contact-card .form-grid{
-  display:grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 16px 18px !important;
-}
-section .contact-form .form-row,
-section .contact-card .form-row{ display:flex !important; flex-direction:column !important; gap:8px !important; }
-section .contact-form .form-row--full,
-section .contact-card .form-row--full{ grid-column:1/-1 !important; }
-
-section .contact-form label,
-section .contact-card label{
-  font: 700 .98rem/1.2 'Poppins','Roboto',system-ui,sans-serif !important;
-  color: var(--cf-text) !important;
-}
-
-section .contact-form input,
-section .contact-form textarea,
-section .contact-card input,
-section .contact-card textarea{
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  width: 100% !important;
-  border: 1px solid var(--cf-border) !important;
-  background: var(--cf-fill) !important;
-  border-radius: 12px !important;
-  padding: .85rem 1rem !important;
-  font: 500 1rem/1.35 'Roboto',system-ui,sans-serif !important;
-  color: var(--cf-text) !important;
-  transition: background .15s, border-color .15s, box-shadow .15s !important;
-}
-section .contact-form textarea,
-section .contact-card textarea{ resize: vertical !important; min-height: 120px !important; }
-
-section .contact-form input::placeholder,
-section .contact-form textarea::placeholder,
-section .contact-card input::placeholder,
-section .contact-card textarea::placeholder{ color:#9fb0c9 !important; }
-
-section .contact-form input:hover,
-section .contact-form textarea:hover,
-section .contact-card input:hover,
-section .contact-card textarea:hover{ border-color:#d8e2f1 !important; }
-
-section .contact-form input:focus,
-section .contact-form textarea:focus,
-section .contact-card input:focus,
-section .contact-card textarea:focus{
-  outline:0 !important;
-  background:#fff !important;
-  border-color: var(--brand-blue) !important;
-  box-shadow: 0 0 0 4px var(--cf-ring) !important;
-}
-
-/* validation */
-section .contact-form .err-msg,
-section .contact-card .err-msg{ min-height:18px !important; font-size:.85rem !important; color:var(--cf-err) !important; }
-section .contact-form .is-invalid input,
-section .contact-form .is-invalid textarea,
-section .contact-card .is-invalid input,
-section .contact-card .is-invalid textarea{
-  border-color: var(--cf-err) !important;
-  box-shadow: 0 0 0 4px rgba(209,74,74,.14) !important;
-}
-
-/* actions */
-section .contact-form .form-actions,
-section .contact-card .form-actions{
-  display:flex !important; justify-content:center !important; align-items:center !important;
-  gap:14px !important; margin-top:8px !important;
-}
-section .contact-form .form-actions .button,
-section .contact-card .form-actions .button{
-  display:inline-flex !important; align-items:center !important; gap:.55rem !important;
-  padding:.9rem 1.6rem !important; border-radius:12px !important;
-  box-shadow:0 12px 24px rgba(77,166,255,.22) !important;
-}
-
-/* responsive */
-@media (max-width: 760px){
-  section .contact-form .form-grid,
-  section .contact-card .form-grid{ grid-template-columns:1fr !important; }
-  section .contact-form,
-  section .contact-card{ padding:22px 18px !important; }
+/* mobile: 1 kolona */
+@media (max-width: 680px){
+  .form-grid{ grid-template-columns:1fr; }
+  .contact-form, .contact-card{ padding:16px 14px; }
 }
