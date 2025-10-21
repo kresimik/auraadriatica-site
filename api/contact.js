@@ -22,7 +22,7 @@ function escapeHtml(s = "") {
 
 // normalizira CONTACT_FROM u dopušten format
 function buildFrom(raw) {
-  const fallback = "Aura Adriatica <no-reply@auraadriatica.com>";
+  const fallback = "Aura Adriatica <info@auraadriatica.com>";
   if (!raw || typeof raw !== "string") return fallback;
 
   const v = raw.trim().replaceAll("“", '"').replaceAll("”", '"').replaceAll("’", "'");
