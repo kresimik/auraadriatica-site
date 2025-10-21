@@ -1,4 +1,3 @@
-<script>
 // i18n.js — translations + language dropdown (single source of truth)
 
 const DEFAULT_LANG = "en";
@@ -74,12 +73,23 @@ window.setLang = async function setLang(lang) {
   localStorage.setItem("lang", lc);
   await loadLang(lc);
 
-  // Page hooks
+  // Page hooks — usklađeno s postojećim potpisima:
+  // - apartments: window.loadApartment(slug, lang)  (tako je u tvom HTML-u)
+  // - alternativno: window.loadApt(lang)
+  // - explore/home: opcionalni hookovi
+  const slug = document.body?.dataset?.aptSlug || document.body?.getAttribute("data-apt-slug") || "";
+
+  if (typeof window.loadApartment === "function") {
+    try { await window.loadApartment(slug, lc); } catch {}
+  } else if (typeof window.loadApt === "function") {
+    try { await window.loadApt(lc); } catch {}
+  }
+
   if (typeof window.loadExplore === "function") {
     try { await window.loadExplore(lc); } catch {}
   }
-  if (typeof window.loadApartment === "function") {
-    try { await window.loadApartment(lc); } catch {}
+  if (typeof window.loadHome === "function") {
+    try { await window.loadHome(lc); } catch {}
   }
 };
 
@@ -117,6 +127,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const saved = (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
   await loadLang(saved);
   wireLanguageDropdowns();
+
+  // Kontakt forma i18n (ako postoji na stranici)
+  try { window.applyContactI18n?.(saved); } catch {}
 });
 
 // ==== CONTACT FORM I18N =====================================================
@@ -129,7 +142,6 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     message_label: "Message", message_ph: "Dates, number of guests, questions…",
     send_btn: "Send message",
     note_after: "We reply within 24h.",
-    // statuses / errors
     val_name: "Please enter your name.",
     val_email: "Please enter a valid email.",
     val_message: "Please enter a message.",
@@ -277,40 +289,3 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     verify_unavail: "Служба перевірки недоступна. Оновіть сторінку."
   }}
 });
-
-// Helper: postavi label/placeholder tekste za formu
-window.applyContactI18n = function(lang){
-  const cur = (lang || document.documentElement.lang || 'en').toLowerCase();
-  const dict = (window.I18N[cur] && window.I18N[cur].contact) || window.I18N.en.contact;
-
-  const $ = (sel) => document.querySelector(sel);
-  // labels
-  const set = (sel, key) => { const el = $(sel); if (el) el.textContent = dict[key]; };
-  set('label[for="cf-name"]',    'name_label');
-  set('label[for="cf-email"]',   'email_label');
-  set('label[for="cf-phone"]',   'phone_label');
-  set('label[for="cf-message"]', 'message_label');
-
-  // button
-  const btn = document.querySelector('#cf-submit');
-  if (btn) {
-    const icon = btn.querySelector('svg');
-    btn.textContent = dict.send_btn;
-    if (icon) btn.appendChild(icon);
-  }
-
-  // note (ako nije “zaključan” od status poruke)
-  const note = document.querySelector('.form-note');
-  if (note && !note.dataset.locked) note.textContent = dict.note_after;
-
-  // placeholders
-  const setPh = (sel, key) => { const el = $(sel); if (el) el.placeholder = dict[key]; };
-  setPh('#cf-name',    'name_ph');
-  setPh('#cf-email',   'email_ph');
-  setPh('#cf-phone',   'phone_ph');
-  setPh('#cf-message', 'message_ph');
-};
-
-// Init na load
-document.addEventListener('DOMContentLoaded', ()=> window.applyContactI18n?.());
-</script>
