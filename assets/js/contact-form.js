@@ -1,4 +1,3 @@
-<script>
 // /assets/js/contact-form.js
 (function () {
   const form = document.getElementById('contact-form');
@@ -57,7 +56,6 @@
     statusEl.textContent = text || '';
     statusEl.classList.remove('ok', 'err');
     if (type) statusEl.classList.add(type);
-    // spriječi da i18n pregazi note nakon prvog manualnog statusa
     const note = document.querySelector('.form-note');
     if (note) note.dataset.locked = '1';
   };
@@ -107,7 +105,6 @@
         form.reset();
         try { turnstile.reset(); } catch {}
       } else {
-        // Fallback mailto (i dalje pokažemo status)
         const subj = encodeURIComponent(`[${payload.apt}] Inquiry from ${payload.name}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
@@ -122,4 +119,3 @@
     }
   });
 })();
-</script>
