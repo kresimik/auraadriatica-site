@@ -1,3 +1,4 @@
+<script>
 // i18n.js — translations + language dropdown (single source of truth)
 
 const DEFAULT_LANG = "en";
@@ -22,7 +23,6 @@ async function loadLang(lang) {
     currentLang = wanted;
   } catch (err) {
     console.warn(`⚠️ ${err.message}. Falling back to ${DEFAULT_LANG}.`);
-    // fall back to default if custom missing
     translations = await fetchLangFile(DEFAULT_LANG);
     currentLang = DEFAULT_LANG;
   }
@@ -38,10 +38,7 @@ function applyTranslations() {
     const key = el.getAttribute("data-i18n");
     if (!key) return;
     const val = translations[key];
-
-    // Only apply strings (prevents arrays/objects from being dumped as text)
-    if (typeof val !== "string") return;
-
+    if (typeof val !== "string") return; // only strings
     if (el.hasAttribute("data-i18n-html")) {
       el.innerHTML = val;
     } else {
@@ -58,11 +55,9 @@ function applyTranslations() {
 
 function updateDropdown(lang) {
   const lc = (lang || "").toLowerCase();
-  // toggle active state
   document.querySelectorAll(".lang-menu button[data-lang]").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.lang?.toLowerCase() === lc);
   });
-  // visible current code(s)
   document.querySelectorAll(".current-lang").forEach((el) => {
     el.textContent = lc.toUpperCase();
   });
@@ -79,12 +74,12 @@ window.setLang = async function setLang(lang) {
   localStorage.setItem("lang", lc);
   await loadLang(lc);
 
-  // Page hooks (optional)
+  // Page hooks
   if (typeof window.loadExplore === "function") {
     try { await window.loadExplore(lc); } catch {}
   }
-  if (typeof window.loadApt === "function") {
-    try { await window.loadApt(lc); } catch {}
+  if (typeof window.loadApartment === "function") {
+    try { await window.loadApartment(lc); } catch {}
   }
 };
 
@@ -142,7 +137,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Thank you! Your message has been sent.",
     sent_fail: "Sending failed — please try again later.",
     spam: "Something went wrong. Please try another channel.",
-    verify_fail: "Verification failed. Please refresh and try again."
+    verify_fail: "Verification failed. Please refresh and try again.",
+    verify_unavail: "Verification service unavailable. Please refresh the page."
   }},
   hr: { contact: {
     name_label: "Ime i prezime", name_ph: "Vaše ime",
@@ -158,7 +154,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Hvala! Vaša poruka je poslana.",
     sent_fail: "Slanje nije uspjelo — pokušajte kasnije.",
     spam: "Nešto je pošlo po zlu. Pokušajte drugim kanalom.",
-    verify_fail: "Provjera nije uspjela. Osvježite stranicu i pokušajte ponovno."
+    verify_fail: "Provjera nije uspjela. Osvježite stranicu i pokušajte ponovno.",
+    verify_unavail: "Usluga provjere nije dostupna. Osvježite stranicu."
   }},
   de: { contact: {
     name_label: "Name", name_ph: "Ihr Name",
@@ -174,7 +171,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Danke! Ihre Nachricht wurde gesendet.",
     sent_fail: "Senden fehlgeschlagen — bitte später erneut versuchen.",
     spam: "Etwas ist schiefgelaufen. Bitte anderen Kanal versuchen.",
-    verify_fail: "Verifizierung fehlgeschlagen. Seite aktualisieren und erneut versuchen."
+    verify_fail: "Verifizierung fehlgeschlagen. Seite aktualisieren und erneut versuchen.",
+    verify_unavail: "Überprüfungsdienst nicht verfügbar. Seite aktualisieren."
   }},
   it: { contact: {
     name_label: "Nome", name_ph: "Il tuo nome",
@@ -190,7 +188,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Grazie! Il tuo messaggio è stato inviato.",
     sent_fail: "Invio non riuscito — riprova più tardi.",
     spam: "Qualcosa è andato storto. Prova un altro canale.",
-    verify_fail: "Verifica fallita. Aggiorna la pagina e riprova."
+    verify_fail: "Verifica fallita. Aggiorna la pagina e riprova.",
+    verify_unavail: "Servizio di verifica non disponibile. Ricarica la pagina."
   }},
   sl: { contact: {
     name_label: "Ime in priimek", name_ph: "Vaše ime",
@@ -206,7 +205,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Hvala! Vaše sporočilo je poslano.",
     sent_fail: "Pošiljanje ni uspelo — poskusite kasneje.",
     spam: "Prišlo je do napake. Poskusite drug kanal.",
-    verify_fail: "Preverjanje ni uspelo. Osvežite stran in poskusite znova."
+    verify_fail: "Preverjanje ni uspelo. Osvežite stran in poskusite znova.",
+    verify_unavail: "Storitev preverjanja ni na voljo. Osvežite stran."
   }},
   hu: { contact: {
     name_label: "Név", name_ph: "Az Ön neve",
@@ -222,7 +222,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Köszönjük! Üzenete elküldve.",
     sent_fail: "Sikertelen küldés — próbálja meg később.",
     spam: "Hiba történt. Próbálja másik csatornán.",
-    verify_fail: "Ellenőrzés sikertelen. Frissítsen és próbálja újra."
+    verify_fail: "Ellenőrzés sikertelen. Frissítsen és próbálja újra.",
+    verify_unavail: "Az ellenőrző szolgáltatás nem érhető el. Frissítsen."
   }},
   cs: { contact: {
     name_label: "Jméno", name_ph: "Vaše jméno",
@@ -238,7 +239,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Děkujeme! Zpráva byla odeslána.",
     sent_fail: "Odeslání selhalo — zkuste to později.",
     spam: "Nastala chyba. Zkuste jiný kanál.",
-    verify_fail: "Ověření se nezdařilo. Obnovte stránku a zkuste znovu."
+    verify_fail: "Ověření se nezdařilo. Obnovte stránku a zkuste znovu.",
+    verify_unavail: "Služba ověření není dostupná. Obnovte stránku."
   }},
   sk: { contact: {
     name_label: "Meno a priezvisko", name_ph: "Vaše meno",
@@ -254,7 +256,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Ďakujeme! Vaša správa bola odoslaná.",
     sent_fail: "Odoslanie zlyhalo — skúste neskôr.",
     spam: "Nastala chyba. Skúste iný kanál.",
-    verify_fail: "Overenie zlyhalo. Obnovte stránku a skúste znovu."
+    verify_fail: "Overenie zlyhalo. Obnovte stránku a skúste znovu.",
+    verify_unavail: "Overovacia služba nie je dostupná. Obnovte stránku."
   }},
   uk: { contact: {
     name_label: "Ім'я та прізвище", name_ph: "Ваше ім'я",
@@ -270,7 +273,8 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     sent_ok: "Дякуємо! Ваше повідомлення надіслано.",
     sent_fail: "Не вдалося надіслати — спробуйте пізніше.",
     spam: "Сталася помилка. Спробуйте інший канал.",
-    verify_fail: "Не вдалося перевірити. Оновіть сторінку і спробуйте ще раз."
+    verify_fail: "Не вдалося перевірити. Оновіть сторінку і спробуйте ще раз.",
+    verify_unavail: "Служба перевірки недоступна. Оновіть сторінку."
   }}
 });
 
@@ -280,26 +284,33 @@ window.applyContactI18n = function(lang){
   const dict = (window.I18N[cur] && window.I18N[cur].contact) || window.I18N.en.contact;
 
   const $ = (sel) => document.querySelector(sel);
-  // labele
+  // labels
   const set = (sel, key) => { const el = $(sel); if (el) el.textContent = dict[key]; };
   set('label[for="cf-name"]',    'name_label');
   set('label[for="cf-email"]',   'email_label');
   set('label[for="cf-phone"]',   'phone_label');
   set('label[for="cf-message"]', 'message_label');
+
+  // button
   const btn = document.querySelector('#cf-submit');
-  if (btn) btn.firstChild && (btn.firstChild.nodeType===3 ? (btn.firstChild.nodeValue = dict.send_btn + ' ') : (btn.textContent = dict.send_btn));
-  const note = document.querySelector('.form-note'); if (note && !note.dataset.locked) note.textContent = dict.note_after;
+  if (btn) {
+    const icon = btn.querySelector('svg');
+    btn.textContent = dict.send_btn;
+    if (icon) btn.appendChild(icon);
+  }
+
+  // note (ako nije “zaključan” od status poruke)
+  const note = document.querySelector('.form-note');
+  if (note && !note.dataset.locked) note.textContent = dict.note_after;
 
   // placeholders
   const setPh = (sel, key) => { const el = $(sel); if (el) el.placeholder = dict[key]; };
-  setPh('#cf-name', 'name_ph');
-  setPh('#cf-email','email_ph');
-  setPh('#cf-phone','phone_ph');
-  setPh('#cf-message','message_ph');
+  setPh('#cf-name',    'name_ph');
+  setPh('#cf-email',   'email_ph');
+  setPh('#cf-phone',   'phone_ph');
+  setPh('#cf-message', 'message_ph');
 };
 
 // Init na load
 document.addEventListener('DOMContentLoaded', ()=> window.applyContactI18n?.());
-
-// Ako već imaš handler za promjenu jezika, samo pozovi applyContactI18n(lang) tamo.
-// (vidi izmjenu u HTML-u ispod)
+</script>
