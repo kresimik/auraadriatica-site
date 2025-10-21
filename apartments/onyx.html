@@ -14,14 +14,14 @@
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
   <meta name="theme-color" content="#4da6ff">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
 
-  <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
+  <!-- Scripts -->
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/apt.js" defer></script>
+  <script src="/assets/js/contact-form.js" defer></script>
 </head>
 
 <body data-apt-slug="onyx">
@@ -31,30 +31,25 @@
       <a href="/" class="logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
-
       <nav class="main-nav" aria-label="Primary">
-        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
-        <a href="/explore.html" data-i18n="explore">Explore</a>
-        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+        <a href="/apartments/olive.html">Olive</a>
+        <a href="/apartments/onyx.html" class="active">Onyx</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
       </nav>
-
-      <!-- LANGUAGE DROPDOWN -->
-      <div class="lang-dropdown" id="lang-dd">
-        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
-          <span class="current-lang" id="cur-lang">EN</span> ▾
-        </button>
-        <div class="lang-menu" id="lang-menu" role="menu" hidden>
-          <button type="button" data-lang="hr">HR</button>
-          <button type="button" data-lang="en" class="active">EN</button>
-          <button type="button" data-lang="de">DE</button>
-          <button type="button" data-lang="it">IT</button>
-          <button type="button" data-lang="sl">SL</button>
-          <button type="button" data-lang="hu">HU</button>
-          <button type="button" data-lang="cs">CS</button>
-          <button type="button" data-lang="sk">SK</button>
-          <button type="button" data-lang="uk">UK</button>
+      <div class="lang-dropdown">
+        <button class="lang-toggle" id="lang-toggle">EN</button>
+        <div class="lang-menu" hidden>
+          <button data-lang="en">EN</button>
+          <button data-lang="hr">HR</button>
+          <button data-lang="de">DE</button>
+          <button data-lang="it">IT</button>
+          <button data-lang="sl">SL</button>
+          <button data-lang="hu">HU</button>
+          <button data-lang="cs">CS</button>
+          <button data-lang="sk">SK</button>
+          <button data-lang="uk">UA</button>
         </div>
       </div>
     </div>
@@ -65,10 +60,10 @@
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
       url('/assets/img/onyx-hero.jpg');">
     <div class="container hero-center">
-      <h1 data-i18n="onyx_h">Onyx Apartment</h1>
-      <p data-i18n="onyx_intro">Modern design, close to the sea, parking, Wi-Fi.</p>
+      <h1>Onyx Apartment</h1>
+      <p>Modern design, close to the sea, parking, fast Wi-Fi.</p>
       <div class="cta">
-        <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
+        <a class="button" href="/index.html">Back to Home</a>
       </div>
     </div>
   </section>
@@ -76,16 +71,14 @@
   <!-- DETAILS -->
   <section class="section">
     <div class="container">
-      <h2 data-i18n="apts_h">Apartment details</h2>
-
+      <h2>Apartment details</h2>
       <div class="two-col two-col--boxed">
         <div class="col">
-          <h3 data-i18n="desc_h">Description</h3>
+          <h3>Description</h3>
           <div id="apt-desc"></div>
         </div>
-
         <div class="col">
-          <h3 data-i18n="highlights_h">Highlights</h3>
+          <h3>Highlights</h3>
           <ul class="highlights" id="apt-highlights"></ul>
         </div>
       </div>
@@ -95,55 +88,80 @@
   <!-- GALLERY -->
   <section class="section alt">
     <div class="container">
-      <h2 data-i18n="gallery_h">Gallery</h2>
+      <h2>Gallery</h2>
       <div class="gallery" id="apt-gallery"></div>
-    </div>
-  </section>
-
-  <!-- INQUIRY -->
-  <section class="section">
-    <div class="container" id="apt-inquiry-wrap" style="display:none;">
-      <h2 id="apt-inquiry-h" data-i18n="inquiry_h">Availability &amp; Inquiry</h2>
-      <p id="apt-inquiry-note">Send us your desired dates and we’ll reply with availability and rates.</p>
-      <div id="apt-inquiry"></div>
-    </div>
-  </section>
-
-  <!-- CALENDAR fallback -->
-  <section class="section">
-    <div class="container">
-      <div id="apt-calendar-wrap" style="display:none;">
-        <h2 data-i18n="avail_h">Availability</h2>
-        <p data-i18n="avail_note">Select your dates to check availability.</p>
-        <iframe id="apt-calendar" class="calendar-iframe" loading="lazy"></iframe>
-      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="section alt">
-    <div class="container contact-box" id="apt-contact-wrap">
+    <div class="container">
       <h2 data-i18n="contact_h">Contact</h2>
-      <p id="apt-contact-text">
-        Interested in Apartment <span id="apt-name">Onyx</span>? 
-        <span data-i18n="contact_note_en">Send us your inquiry directly:</span>
-        <a id="apt-contact-email" href="mailto:info@auraadriatica.com">info@auraadriatica.com</a>
-      </p>
+
+      <form id="contact-form" class="contact-card" data-apt="Onyx" novalidate>
+        <input type="hidden" id="cf-apt" name="apt" value="Onyx" />
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="cf-name" class="required" data-i18n="contact.name_label">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-email" class="required" data-i18n="contact.email_label">Email</label>
+            <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required />
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-phone" data-i18n="contact.phone_label">Phone (optional)</label>
+            <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
+          </div>
+
+          <div class="form-group form-full">
+            <label for="cf-message" class="required" data-i18n="contact.message_label">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+
+          <!-- Turnstile (single) -->
+          <div class="form-group form-full">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="button" id="cf-submit" type="submit" data-i18n="contact.send_btn">
+            Send message
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <p class="form-status form-note" id="cf-status" role="status" aria-live="polite" data-i18n="contact.note_after">
+          We reply within 24h.
+        </p>
+      </form>
     </div>
   </section>
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+      <a href="/" class="footer-logo">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-        <a href="/explore.html" data-i18n="explore">Explore</a>
-        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+      <nav class="footer-nav">
+        <a href="/apartments/olive.html">Olive</a>
+        <a href="/apartments/onyx.html" class="active">Onyx</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
       </nav>
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
@@ -151,19 +169,21 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Lang hook -->
   <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Language switch handler (keeps details + form in sync)
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
       if(!btn) return;
+      const lang = btn.dataset.lang;
       const slug = document.body.getAttribute('data-apt-slug');
       if (slug && typeof window.loadApartment === 'function') {
-        await window.loadApartment(slug, btn.dataset.lang);
+        await window.loadApartment(slug, lang);
       }
+      if (window.applyContactI18n) window.applyContactI18n(lang);
     });
   </script>
-
 </body>
 </html>
