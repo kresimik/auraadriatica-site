@@ -67,16 +67,16 @@ function updateDocumentLang(lang) {
   if (html) html.setAttribute("lang", (lang || DEFAULT_LANG).toLowerCase());
 }
 
-// Expose setLang globally
+// ---------- global setLang ----------
 window.setLang = async function setLang(lang) {
   const lc = (lang || DEFAULT_LANG).toLowerCase();
   localStorage.setItem("lang", lc);
   await loadLang(lc);
 
-  // Page hooks — usklađeno s postojećim potpisima:
-  // - apartments: window.loadApartment(slug, lang)  (tako je u tvom HTML-u)
-  // - alternativno: window.loadApt(lang)
-  // - explore/home: opcionalni hookovi
+  // ✅ NEW: update contact form labels/placeholders on language switch
+  try { window.applyContactI18n?.(lc); } catch {}
+
+  // page hooks (safe fallbacks)
   const slug = document.body?.dataset?.aptSlug || document.body?.getAttribute("data-apt-slug") || "";
 
   if (typeof window.loadApartment === "function") {
@@ -93,14 +93,14 @@ window.setLang = async function setLang(lang) {
   }
 };
 
-// ---------- Dropdown wiring (no per-page inline needed) ----------
+// ---------- dropdown wiring ----------
 function wireLanguageDropdowns() {
   document.querySelectorAll(".lang-dropdown").forEach((dd) => {
     const btn = dd.querySelector(".lang-toggle");
     const menu = dd.querySelector(".lang-menu");
     if (!btn || !menu) return;
 
-    const open  = () => { menu.hidden = false; btn.setAttribute("aria-expanded", "true");  };
+    const open  = () => { menu.hidden = false; btn.setAttribute("aria-expanded", "true"); };
     const close = () => { menu.hidden = true;  btn.setAttribute("aria-expanded", "false"); };
 
     btn.addEventListener("click", (e) => {
@@ -108,7 +108,6 @@ function wireLanguageDropdowns() {
       menu.hidden ? open() : close();
     });
 
-    // Pick a language
     menu.addEventListener("click", async (e) => {
       const b = e.target.closest("button[data-lang]");
       if (!b) return;
@@ -116,24 +115,22 @@ function wireLanguageDropdowns() {
       close();
     });
 
-    // Close on outside click / Esc
     document.addEventListener("click", (e) => { if (!dd.contains(e.target)) close(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   });
 }
 
-// ---------- Boot ----------
+// ---------- init ----------
 document.addEventListener("DOMContentLoaded", async () => {
   const saved = (localStorage.getItem("lang") || DEFAULT_LANG).toLowerCase();
   await loadLang(saved);
   wireLanguageDropdowns();
 
-  // Kontakt forma i18n (ako postoji na stranici)
+  // initialize contact form i18n on first load
   try { window.applyContactI18n?.(saved); } catch {}
 });
 
 // ==== CONTACT FORM I18N =====================================================
-// Jezici: hr, en, de, it, sl, hu, cs, sk, uk
 window.I18N = Object.assign({}, window.I18N || {}, {
   en: { contact: {
     name_label: "Name", name_ph: "Your name",
@@ -289,3 +286,32 @@ window.I18N = Object.assign({}, window.I18N || {}, {
     verify_unavail: "Служба перевірки недоступна. Оновіть сторінку."
   }}
 });
+
+// --- helper: apply contact i18n ---
+window.applyContactI18n = function(lang){
+  const cur = (lang || document.documentElement.lang || 'en').toLowerCase();
+  const dict = (window.I18N[cur] && window.I18N[cur].contact) || window.I18N.en.contact;
+  const $ = (sel) => document.querySelector(sel);
+
+  const set = (sel, key) => { const el = $(sel); if (el) el.textContent = dict[key]; };
+  set('label[for="cf-name"]',    'name_label');
+  set('label[for="cf-email"]',   'email_label');
+  set('label[for="cf-phone"]',   'phone_label');
+  set('label[for="cf-message"]', 'message_label');
+
+  const btn = $('#cf-submit');
+  if (btn) {
+    const icon = btn.querySelector('svg');
+    btn.textContent = dict.send_btn;
+    if (icon) btn.appendChild(icon);
+  }
+
+  const note = document.querySelector('.form-note');
+  if (note && !note.dataset.locked) note.textContent = dict.note_after;
+
+  const setPh = (sel, key) => { const el = $(sel); if (el) el.placeholder = dict[key]; };
+  setPh('#cf-name', 'name_ph');
+  setPh('#cf-email','email_ph');
+  setPh('#cf-phone','phone_ph');
+  setPh('#cf-message','message_ph');
+};
