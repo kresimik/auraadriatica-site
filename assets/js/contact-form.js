@@ -4,9 +4,11 @@
   if (!form) return;
 
   const statusEl = document.getElementById('cf-status');
-  const SITEKEY = (form.querySelector('.cf-turnstile')?.getAttribute('data-sitekey')) || '';
+  const SITEKEY =
+    form.querySelector('[data-sitekey]')?.getAttribute('data-sitekey') // ako je ostao stari markup
+    || '0x4AAAAAAB7dSzYE1I-UlV1x'; // tvoj site key (možeš i ostaviti ovako)
 
-  // --- i18n helpers (kao i prije) ---
+  // --- i18n helpers ---
   const currentLang = () => (document.documentElement.lang || 'en').toLowerCase();
   const t = (k, fb) => {
     const dict = (window.I18N?.[currentLang()]?.contact) || window.I18N?.en?.contact || {};
@@ -14,7 +16,8 @@
   };
 
   const $ = (sel, root = form) => root.querySelector(sel);
-  const row = (inputSel) => $(inputSel)?.closest('.form-group');
+  const rowOf = (inputSel) => $(inputSel)?.closest('.form-group');
+
   const setErr = (rowEl, msg) => {
     if (!rowEl) return;
     rowEl.classList.add('is-invalid');
@@ -35,10 +38,10 @@
     const name = $('#cf-name');
     const email = $('#cf-email');
     const message = $('#cf-message');
-    [row('#cf-name'), row('#cf-email'), row('#cf-message')].forEach(clearErr);
-    if (!name.value.trim())        { setErr(row('#cf-name'),    t('val_name','Please enter your name.')); ok = false; }
-    if (!email.value.trim() || !emailOk(email.value)) { setErr(row('#cf-email'),   t('val_email','Please enter a valid email.')); ok = false; }
-    if (!message.value.trim())     { setErr(row('#cf-message'), t('val_message','Please enter a message.')); ok = false; }
+    [rowOf('#cf-name'), rowOf('#cf-email'), rowOf('#cf-message')].forEach(clearErr);
+    if (!name.value.trim())        { setErr(rowOf('#cf-name'),    t('val_name','Please enter your name.')); ok = false; }
+    if (!email.value.trim() || !emailOk(email.value)) { setErr(rowOf('#cf-email'),   t('val_email','Please enter a valid email.')); ok = false; }
+    if (!message.value.trim())     { setErr(rowOf('#cf-message'), t('val_message','Please enter a message.')); ok = false; }
     return ok;
   };
 
@@ -59,54 +62,69 @@
     if (note) note.dataset.locked = '1';
   };
 
-  // ---------- Turnstile: safe render + execute ----------
+  // ---------- Turnstile: programmatic render + callback token ----------
   let widgetId = null;
+  let tsToken = '';
 
-  // Rendera widget ako već nije renderan (prod problem)
-  async function ensureWidget() {
-    const container = form.querySelector('.cf-turnstile');
-    if (!container) throw new Error('Turnstile container not found.');
+  // callbacki koje Turnstile zove
+  window.__tsOk = function(token) {
+    tsToken = token || '';
+  };
+  window.__tsExpired = function() {
+    tsToken = '';
+  };
+  window.__tsError = function() {
+    tsToken = '';
+  };
 
-    // Ako je već renderan, Cloudflare mu na container stavi attribute "data-widget-id"
-    if (container.getAttribute('data-widget-id')) {
-      widgetId = container.getAttribute('data-widget-id');
-      return widgetId;
+  // Render widgeta kad je skripta spremna
+  function renderTurnstile() {
+    const box = document.getElementById('cf-turnstile');
+    if (!box) return;
+
+    // ako je već renderan, nemoj duplo
+    if (box.getAttribute('data-widget-id')) {
+      widgetId = box.getAttribute('data-widget-id');
+      return;
     }
+    if (!window.turnstile || typeof window.turnstile.render !== 'function') return;
 
-    // Pričekaj da se skripta učita
-    await new Promise((resolve, reject) => {
-      const ready = () => resolve();
+    widgetId = window.turnstile.render('#cf-turnstile', {
+      sitekey: SITEKEY,
+      callback: '__tsOk',
+      'expired-callback': '__tsExpired',
+      'error-callback': '__tsError',
+      theme: 'light'
+      // (bez size:'invisible' – koristimo managed widget i callback)
+    });
+
+    if (widgetId) box.setAttribute('data-widget-id', widgetId);
+  }
+
+  function ensureTurnstileReady() {
+    return new Promise((resolve, reject) => {
+      let tries = 0;
+      const done = () => { try { renderTurnstile(); resolve(); } catch(e){ reject(e); } };
+
       if (window.turnstile && typeof window.turnstile.ready === 'function') {
-        window.turnstile.ready(ready);
+        window.turnstile.ready(done);
       } else {
-        // fallback: čekaj dok se pojavi turnstile
-        let tries = 0;
         const iv = setInterval(() => {
           tries++;
           if (window.turnstile && typeof window.turnstile.render === 'function') {
-            clearInterval(iv); resolve();
-          } else if (tries > 100) { // ~5s
+            clearInterval(iv); done();
+          } else if (tries > 120) { // ~6s
             clearInterval(iv); reject(new Error('Turnstile script not loaded.'));
           }
         }, 50);
       }
     });
-
-    // Render kao invisible (tako da možemo programatski execute)
-    const opts = { sitekey: SITEKEY, size: 'invisible' };
-    widgetId = window.turnstile.render(container, opts);
-    // upiši id i na DOM da idući put znamo da je renderano
-    if (widgetId) container.setAttribute('data-widget-id', widgetId);
-    return widgetId;
   }
 
-  async function getToken() {
-    await ensureWidget();
-    if (!window.turnstile || !widgetId) throw new Error('Turnstile not ready.');
-    // reset prije execute izbjegne “already executed” poruku i vraća svježi token
-    try { window.turnstile.reset(widgetId); } catch {}
-    return await window.turnstile.execute(widgetId, { action: 'submit' });
-  }
+  // Pokušaj rendera čim DOM postoji
+  document.addEventListener('DOMContentLoaded', () => {
+    ensureTurnstileReady().catch(() => {});
+  });
 
   // ---------- Submit ----------
   form.addEventListener('submit', async (e) => {
@@ -116,28 +134,30 @@
     setBusy(true);
     setStatus(t('sending','Sending…'));
 
-    // 1) Token
-    let token = '';
     try {
-      token = await getToken();
-      if (!token) throw new Error('empty token');
-    } catch (err) {
+      await ensureTurnstileReady();
+    } catch {
       setStatus(t('verify_fail','Verification failed. Please refresh and try again.'), 'err');
       setBusy(false);
       return;
     }
 
-    // 2) Payload
+    // Moramo imati token iz callbacka
+    if (!tsToken) {
+      setStatus(t('verify_fail','Verification failed. Please refresh and try again.'), 'err');
+      setBusy(false);
+      return;
+    }
+
     const payload = {
       apt: form.getAttribute('data-apt') || $('#cf-apt')?.value || 'Apartment',
       name: $('#cf-name').value.trim(),
       email: $('#cf-email').value.trim(),
       phone: $('#cf-phone')?.value?.trim() || '',
       message: $('#cf-message').value.trim(),
-      token
+      token: tsToken
     };
 
-    // 3) Send
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -148,9 +168,11 @@
       if (res.ok) {
         setStatus(t('sent_ok','Thank you! Your message has been sent.'), 'ok');
         form.reset();
-        try { window.turnstile.reset(widgetId); } catch {}
+        tsToken = '';
+        try {
+          if (widgetId && window.turnstile?.reset) window.turnstile.reset(widgetId);
+        } catch {}
       } else {
-        // Fallback na mailto (status ipak pokaži)
         const subj = encodeURIComponent(`[${payload.apt}] Inquiry from ${payload.name}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
