@@ -100,6 +100,8 @@
 
       <form id="contact-form" class="contact-card" data-apt="Onyx" novalidate>
         <input type="hidden" id="cf-apt" name="apt" value="Onyx" />
+        <!-- NEW: hidden Turnstile token (filled by callback) -->
+        <input type="hidden" id="cf-token" name="cf-token" value="" />
 
         <div class="form-grid">
           <div class="form-group">
@@ -127,7 +129,12 @@
 
           <!-- Turnstile (single) -->
           <div class="form-group form-full">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"></div>
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
+              data-callback="cfStoreToken"
+              data-retry="auto">
+            </div>
           </div>
         </div>
 
@@ -147,7 +154,15 @@
     </div>
   </section>
 
-  <!-- Cloudflare Turnstile -->
+  <!-- Turnstile callback + loader -->
+  <script>
+    window.cfStoreToken = function(token){
+      var t = document.getElementById('cf-token');
+      if (t) t.value = token || '';
+      var st = document.getElementById('cf-status');
+      if (st && st.classList.contains('err')) st.textContent = '';
+    };
+  </script>
   <script data-cfasync="false" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- FOOTER -->
