@@ -5,7 +5,6 @@
 
   const statusEl = document.getElementById('cf-status');
   const currentLang = () => (document.documentElement.lang || 'en').toLowerCase();
-
   const t = (k, fb) => {
     const dict = (window.I18N?.[currentLang()]?.contact) || window.I18N?.en?.contact || {};
     return dict[k] || fb || k;
@@ -21,14 +20,12 @@
     if (!m) { m = document.createElement('div'); m.className = 'err-msg'; rowEl.appendChild(m); }
     m.textContent = msg || '';
   };
-
   const clearErr = (rowEl) => {
     if (!rowEl) return;
     rowEl.classList.remove('is-invalid');
     const m = rowEl.querySelector('.err-msg');
     if (m) m.textContent = '';
   };
-
   const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v||'').trim());
 
   const validate = () => {
@@ -51,7 +48,6 @@
       setErr(row('#cf-message'), t('val_message','Please enter a message.'));
       ok = false;
     }
-
     return ok;
   };
 
@@ -72,41 +68,27 @@
     if (note) note.dataset.locked = '1';
   };
 
-  // === Turnstile managed mode support ===
-  let widgetId = null;
-  window.addEventListener('load', () => {
-    try {
-      const node = document.querySelector('.cf-turnstile');
-      if (node && window.turnstile && !widgetId) {
-        widgetId = turnstile.render(node, {
-          sitekey: node.dataset.sitekey,
-          callback: window.cfStoreToken
-        });
-      }
-    } catch (e) {}
-  });
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    e.stopImmediatePropagation(); // hard stop native reloads
+    e.stopImmediatePropagation();
 
     if (!validate()) return;
 
     setBusy(true);
     setStatus(t('sending','Sending…'));
 
-    // === Get Turnstile token ===
-    let token = '';
-    try {
-      if (window.turnstile && widgetId !== null && typeof turnstile.getResponse === 'function') {
-        token = turnstile.getResponse(widgetId) || '';
-      }
-    } catch (_) {}
+    // === Turnstile token via managed widget ===
+    const widget = form.querySelector('.cf-turnstile');
+    let token = ($('#cf-token')?.value || '').trim();
 
-    // Fallback: hidden input (managed widget fills it)
-    if (!token) {
-      const hidden = document.getElementById('cf-token');
-      if (hidden && hidden.value) token = hidden.value;
+    try {
+      if ((!token || token.length < 10) && window.turnstile && widget) {
+        // pokušaj eksplicitno dobiti novi token
+        await turnstile.execute(widget, { action: 'submit' });
+        token = ($('#cf-token')?.value || '').trim();
+      }
+    } catch (_) {
+      // ignore, treat as missing token
     }
 
     if (!token) {
@@ -134,8 +116,9 @@
       if (res.ok) {
         setStatus(t('sent_ok','Thank you! Your message has been sent.'), 'ok');
         form.reset();
-        try { turnstile.reset(widgetId); } catch {}
+        try { window.turnstile?.reset(widget); } catch {}
       } else {
+        // graceful fallback
         const subj = encodeURIComponent(`[${payload.apt}] Inquiry from ${payload.name}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
