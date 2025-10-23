@@ -100,7 +100,7 @@
 
       <form id="contact-form" class="contact-card" data-apt="Onyx" novalidate>
         <input type="hidden" id="cf-apt" name="apt" value="Onyx" />
-        <!-- NEW: hidden Turnstile token (filled by callback) -->
+        <!-- Hidden Turnstile token (punimo kroz callback) -->
         <input type="hidden" id="cf-token" name="cf-token" value="" />
 
         <div class="form-grid">
@@ -127,7 +127,7 @@
             <small class="err-msg" aria-live="polite"></small>
           </div>
 
-          <!-- Turnstile (single) -->
+          <!-- Turnstile (managed mode) -->
           <div class="form-group form-full">
             <div
               class="cf-turnstile"
@@ -154,7 +154,7 @@
     </div>
   </section>
 
-  <!-- Turnstile callback + loader -->
+  <!-- Turnstile callback + library (jedan skript) -->
   <script>
     window.cfStoreToken = function(token){
       var t = document.getElementById('cf-token');
@@ -163,13 +163,9 @@
       if (st && st.classList.contains('err')) st.textContent = '';
     };
   </script>
-  <script data-cfasync="false" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-<!-- Cloudflare Turnstile (explicit render; bez async da se zadrži redoslijed) -->
-<script
-  data-cfasync="false"
-  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=cfOnload"
-  defer></script>
+  <script data-cfasync="false"
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          defer></script>
 
   <!-- FOOTER -->
   <footer class="site-footer">
