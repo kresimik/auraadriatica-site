@@ -164,11 +164,12 @@
     };
   </script>
   <script data-cfasync="false" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  <!-- Cloudflare Turnstile (explicit render, no Rocket Loader) -->
+
+<!-- Cloudflare Turnstile (explicit render; bez async da se zadrži redoslijed) -->
 <script
   data-cfasync="false"
   src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=cfOnload"
-  async defer></script>
+  defer></script>
 
   <!-- FOOTER -->
   <footer class="site-footer">
