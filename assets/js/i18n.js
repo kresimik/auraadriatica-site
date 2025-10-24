@@ -76,6 +76,9 @@ window.setLang = async function setLang(lang) {
   // ✅ NEW: update contact form labels/placeholders on language switch
   try { window.applyContactI18n?.(lc); } catch {}
 
+  // [AA CAL] ✅ Re-render calendar (if present) with the new locale
+  try { window.AACalendarRerender?.(lc); } catch {}
+
   // page hooks (safe fallbacks)
   const slug = document.body?.dataset?.aptSlug || document.body?.getAttribute("data-apt-slug") || "";
 
@@ -315,3 +318,51 @@ window.applyContactI18n = function(lang){
   setPh('#cf-phone','phone_ph');
   setPh('#cf-message','message_ph');
 };
+
+// ==================== [AA CAL] Optional: Calendar UI dictionaries ====================
+// Ako želiš da kalendar koristi ovaj zajednički rječnik (umjesto ugrađenog),
+// aa-calendar.js će automatski uzeti window.I18N[lang].calendar kad postoji.
+window.I18N = Object.assign({}, window.I18N || {}, {
+  en: Object.assign({}, window.I18N?.en || {}, {
+    calendar: {
+      months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+      dows:   ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+      booked: "Booked", prev: "⟵", next: "⟶"
+    }
+  }),
+  hr: Object.assign({}, window.I18N?.hr || {}, {
+    calendar: {
+      months: ["siječanj","veljača","ožujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac"],
+      dows:   ["Pon","Uto","Sri","Čet","Pet","Sub","Ned"],
+      booked: "Zauzeto", prev: "⟵", next: "⟶"
+    }
+  }),
+  de: Object.assign({}, window.I18N?.de || {}, {
+    calendar: {
+      months: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+      dows:   ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      booked: "Belegt", prev: "⟵", next: "⟶"
+    }
+  }),
+  pl: Object.assign({}, window.I18N?.pl || {}, {
+    calendar: {
+      months: ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień"],
+      dows:   ["Pn","Wt","Śr","Cz","Pt","So","Nd"],
+      booked: "Zajęte", prev: "⟵", next: "⟶"
+    }
+  }),
+  hu: Object.assign({}, window.I18N?.hu || {}, {
+    calendar: {
+      months: ["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december"],
+      dows:   ["Hé","Ke","Sze","Cs","Pé","Szo","Va"],
+      booked: "Foglalt", prev: "⟵", next: "⟶"
+    }
+  }),
+  sk: Object.assign({}, window.I18N?.sk || {}, {
+    calendar: {
+      months: ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"],
+      dows:   ["Po","Ut","St","Št","Pi","So","Ne"],
+      booked: "Obsadené", prev: "⟵", next: "⟶"
+    }
+  })
+});
