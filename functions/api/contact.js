@@ -1,123 +1,124 @@
 // /functions/api/contact.js
-
-const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-const RESEND_API_URL = "https://api.resend.com/emails";
-
-const json = (obj, status = 200, extraHeaders = {}) =>
-  new Response(JSON.stringify(obj), {
-    status,
-    headers: {
-      "Content-Type": "application/json",
-      ...extraHeaders,
-    },
-  });
-
-const bad = (msg, status = 400, extra = {}) => json({ ok: false, error: msg, ...extra }, status);
-
-function corsHeaders(origin = "*") {
-  return {
-    "Access-Control-Allow-Origin": origin,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
-  };
-}
-
-// Optional: ako ti treba preflight u budućnosti
-export async function onRequestOptions({ request }) {
-  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get("Origin") || "*") });
-}
-
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  const ORIGIN = request.headers.get("Origin") || "*";
-  const CORS = corsHeaders(ORIGIN);
+  const json = (obj, status = 200) =>
+    new Response(JSON.stringify(obj), {
+      status,
+      headers: { 'Content-Type': 'application/json' }
+    });
 
-  const requiredEnv = ["TURNSTILE_SECRET", "RESEND_API_KEY"];
-  for (const k of requiredEnv) {
-    if (!env[k]) return bad(`Server misconfigured: ${k} missing`, 500, { env: k });
-  }
+  const fail = (status, msg, extra = {}) =>
+    json(Object.assign({ ok: false, error: msg }, extra), status);
 
+  // --- 1) Parse body
   let data;
   try {
     data = await request.json();
   } catch {
-    return bad("Invalid JSON", 400);
+    return fail(400, 'Invalid JSON');
   }
 
-  const {
-    name = "",
-    email = "",
-    message = "",
-    token = "",
-    phone = "",
-    apt = "Apartment",
-  } = data || {};
+  const { name, email, message, token, phone = '', apt = 'Apartment' } = data || {};
+  if (!name || !email || !message) return fail(400, 'Missing required fields');
+  if (!token) return fail(400, 'Missing Turnstile token');
 
-  if (!name.trim() || !email.trim() || !message.trim()) {
-    return bad("Missing required fields", 400);
+  // --- 2) Turnstile verify
+  if (!env.TURNSTILE_SECRET) {
+    return fail(500, 'Server misconfigured: TURNSTILE_SECRET missing');
   }
-  if (!token) return bad("Missing Turnstile token", 400);
 
-  // 1) Verify Turnstile
   const form = new URLSearchParams();
-  form.append("secret", env.TURNSTILE_SECRET);
-  form.append("response", token);
+  form.append('secret', env.TURNSTILE_SECRET);
+  form.append('response', token);
+  // opcionalno bi mogao dodati i IP:
+  // form.append('remoteip', request.headers.get('CF-Connecting-IP') || '');
 
-  let verifyJson = {};
+  let tJson = {};
   try {
-    const verifyRes = await fetch(TURNSTILE_VERIFY_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: form.toString(),
+    const tRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: form
     });
-    verifyJson = await verifyRes.json();
+    tJson = await tRes.json();
   } catch {
-    return bad("Turnstile verification request failed", 502);
+    return fail(502, 'Turnstile verify fetch failed');
   }
 
-  if (!verifyJson?.success) {
-    // Pomoćno za debug: error-codes (npr. “invalid-input-secret”, “invalid-input-response”, “timeout-or-duplicate”)
-    return bad("Turnstile verification failed", 400, { code: verifyJson["error-codes"] || null });
+  if (!tJson.success) {
+    return fail(400, 'Turnstile verification failed', {
+      details: {
+        'error-codes': tJson['error-codes'] || [],
+        hostname: tJson.hostname,
+        action: tJson.action,
+        cdata: tJson.cdata
+      }
+    });
   }
 
-  // 2) Send via Resend
-  const CONTACT_TO = env.CONTACT_TO || "info@auraadriatica.com";
-  const CONTACT_FROM =
-    env.CONTACT_FROM || "Aura Adriatica <info@auraadriatica.com>"; // obavezno validan verified sender
+  // --- 3) Resend payload priprema
+  if (!env.RESEND_API_KEY) {
+    return fail(500, 'Server misconfigured: RESEND_API_KEY missing');
+  }
+
+  const CONTACT_FROM = (env.CONTACT_FROM || '').trim();
+  const CONTACT_TO_RAW = (env.CONTACT_TO || 'info@auraadriatica.com').trim();
+
+  // Resend preporuka: verified sender i ispravan format
+  // dozvolimo "email" ILI "Name <email>"
+  const fromOk =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT_FROM) ||
+    /^.+<\s*[^\s@]+@[^\s@]+\.[^\s@]+\s*>$/.test(CONTACT_FROM);
+
+  if (!fromOk) {
+    // fallback (ako želiš tvrdo failati umjesto fallbacka, vrati 500)
+    // return fail(500, 'CONTACT_FROM invalid. Use "Name <user@your-verified-domain>" and verify the domain in Resend.');
+  }
+
+  // Resend očekuje array za "to" (sigurnije je uvijek array)
+  const toArray = CONTACT_TO_RAW.includes(',')
+    ? CONTACT_TO_RAW.split(',').map(s => s.trim()).filter(Boolean)
+    : [CONTACT_TO_RAW];
 
   const subject = `[${apt}] Inquiry from ${name}`;
-  const text = `Name: ${name}
-Email: ${email}
-Phone: ${phone}
+  const text = [
+    `Apartment: ${apt}`,
+    `Name: ${name}`,
+    `Email: ${email}`,
+    phone ? `Phone: ${phone}` : '',
+    '',
+    message
+  ].filter(Boolean).join('\n');
 
-${message}`;
-
-  const payload = {
-    from: CONTACT_FROM,       // "Name <email@domain>"
-    to: Array.isArray(CONTACT_TO) ? CONTACT_TO : [CONTACT_TO],
-    subject,
-    text,
-    reply_to: email,
-  };
-
-  let rJson = {};
+  // --- 4) Slanje maila
+  let r, rText, rJson;
   try {
-    const r = await fetch(RESEND_API_URL, {
-      method: "POST",
+    r = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        from: fromOk ? CONTACT_FROM : 'Aura Adriatica <info@auraadriatica.com>', // fallback
+        to: toArray,
+        subject,
+        text,
+        reply_to: email
+        // (opcionalno) html: '<strong>..</strong>'
+      })
     });
-    rJson = await r.json();
-    if (!r.ok) {
-      return bad(rJson?.message || "Resend error", r.status);
-    }
-  } catch {
-    return bad("Resend request failed", 502);
+    rText = await r.text();
+    try { rJson = JSON.parse(rText); } catch(_) { rJson = null; }
+  } catch (e) {
+    return fail(502, 'Resend fetch failed', { details: String(e) });
   }
 
-  return json({ ok: true, id: rJson?.id || null }, 200, CORS);
+  if (!r.ok) {
+    // Resend često vraća 422 s message objašnjenjem ("Invalid `from`", "Domain not verified", "The `to` field is required as an array", ...)
+    return fail(r.status, 'Resend error', { response: rJson || rText });
+  }
+
+  return json({ ok: true, id: (rJson && rJson.id) || null });
 }
