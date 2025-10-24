@@ -1,0 +1,117 @@
+/* /assets/css/aa-calendar.css  */
+/* ===== Aura Adriatica – Fancy Monthly Calendar (fits style.css) ===== */
+:root{
+  /* inherit brand + neutrals from style.css */
+  --aa-cal-bg: var(--card);
+  --aa-cal-text: var(--text);
+  --aa-cal-muted: var(--muted);
+  --aa-cal-border: var(--card-border);
+  --aa-cal-accent: var(--brand-blue);
+  --aa-cal-accent-ink: #fff;
+  --aa-cal-booked-bg: color-mix(in srgb, var(--aa-cal-accent) 12%, #ffffff);
+  --aa-cal-booked-dot: var(--aa-cal-accent);
+  --aa-cal-hover: #f5f7fb;
+  --aa-cal-radius: 14px;
+  --aa-shadow: var(--card-shadow);
+}
+
+/* Accent per apartment (auto by data-apt-slug on <body>) */
+body[data-apt-slug="olive"]{
+  --aa-cal-accent: var(--brand-olive);
+  --aa-cal-booked-bg: color-mix(in srgb, var(--brand-olive) 14%, #ffffff);
+  --aa-cal-booked-dot: var(--brand-olive);
+}
+body[data-apt-slug="onyx"]{
+  --aa-cal-accent: var(--brand-onyx);
+  --aa-cal-booked-bg: color-mix(in srgb, var(--brand-onyx) 14%, #ffffff);
+  --aa-cal-booked-dot: var(--brand-onyx);
+}
+
+.aa-availability { margin: 2rem 0; }
+.aa-cal-title { margin-bottom: .75rem; color: var(--brand-blue); }
+body[data-apt-slug="olive"] .aa-cal-title{ color: var(--brand-olive); }
+body[data-apt-slug="onyx"]  .aa-cal-title{ color: var(--brand-onyx); }
+
+.aa-cal {
+  background: var(--aa-cal-bg);
+  color: var(--aa-cal-text);
+  border: 1px solid var(--aa-cal-border);
+  border-radius: var(--aa-cal-radius);
+  box-shadow: var(--aa-shadow);
+  overflow: hidden;
+}
+
+.aa-cal__header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .75rem .9rem; border-bottom: 1px solid var(--aa-cal-border);
+  background: linear-gradient(180deg,#fff, #fbfdff);
+}
+
+.aa-cal__month {
+  font: 700 1.05rem/1 'Poppins','Roboto',system-ui,sans-serif;
+  letter-spacing: .2px; color: var(--aa-cal-text);
+}
+
+.aa-cal__nav { display: flex; gap: .5rem; }
+.aa-cal__btn {
+  border: 1px solid var(--aa-cal-border);
+  background: #fff; border-radius: 10px; padding: .45rem .6rem;
+  cursor: pointer; line-height: 1; font-weight: 700;
+  color: var(--aa-cal-muted);
+  transition: background .15s ease, transform .12s ease, border-color .15s ease;
+}
+.aa-cal__btn:hover { background: var(--aa-cal-hover); transform: translateY(-1px); border-color: #d8e2f1; }
+
+.aa-cal__grid { padding: .6rem .9rem 1rem .9rem; }
+.aa-cal__dow, .aa-cal__days {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: .25rem;
+}
+
+.aa-cal__dow span {
+  text-align: center; font: 700 .75rem/1 'Poppins','Roboto',sans-serif;
+  color: var(--aa-cal-muted);
+  padding: .25rem 0; text-transform: uppercase; letter-spacing: .08em;
+}
+
+.aa-cal__day {
+  position: relative;
+  border: 1px solid var(--aa-cal-border);
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  display: flex; align-items: flex-start; justify-content: flex-end;
+  padding: .45rem .5rem;
+  background: #fff;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+}
+.aa-cal__day:hover { background: var(--aa-cal-hover); transform: translateY(-1px); }
+.aa-cal__day--other { opacity: .45; }
+.aa-cal__day--today { border-color: var(--aa-cal-accent); box-shadow: inset 0 0 0 1px var(--aa-cal-accent); }
+
+.aa-cal__num { font: 700 .95rem/1 'Poppins','Roboto',sans-serif; color: var(--aa-cal-text); }
+
+.aa-cal__booked {
+  position: absolute; inset: 0;
+  background: var(--aa-cal-booked-bg);
+  border-radius: 12px;
+}
+.aa-cal__dot {
+  position: absolute; left: 8px; bottom: 8px; width: 6px; height: 6px;
+  background: var(--aa-cal-booked-dot); border-radius: 999px;
+}
+
+.aa-cal__legend {
+  display:flex; gap:.75rem; align-items:center; padding: .5rem .9rem 1rem;
+  color: var(--aa-cal-muted); font-size: .9rem;
+}
+.aa-cal__legend > span { display:flex; align-items:center; gap:.4rem; }
+.aa-cal__legend i {
+  width:14px; height:14px; display:inline-block; border-radius: 6px; background: var(--aa-cal-booked-bg);
+  border: 1px solid var(--aa-cal-booked-dot);
+}
+
+/* Responsive micro-tweaks */
+@media (max-width: 520px){
+  .aa-cal__btn { padding: .4rem .55rem; }
+  .aa-cal__month { font-size: .95rem; }
+  .aa-cal__day { border-radius: 10px; }
+}
