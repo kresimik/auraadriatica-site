@@ -13,24 +13,48 @@
 
   // ---- Built-in I18N (fallback) ----
   const I18N = {
-    hr: { months: ["siječanj","veljača","ožujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac"],
-          dows: ["Pon","Uto","Sri","Čet","Pet","Sub","Ned"],
-          booked: "Zauzeto", prev: "⟵", next: "⟶" },
-    en: { months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
-          dows: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-          booked: "Booked", prev: "⟵", next: "⟶" },
-    de: { months: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
-          dows: ["Mo","Di","Mi","Do","Fr","Sa","So"],
-          booked: "Belegt", prev: "⟵", next: "⟶" },
-    pl: { months: ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień"],
-          dows: ["Pn","Wt","Śr","Cz","Pt","So","Nd"],
-          booked: "Zajęte", prev: "⟵", next: "⟶" },
-    hu: { months: ["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december"],
-          dows: ["Hé","Ke","Sze","Cs","Pé","Szo","Va"],
-          booked: "Foglalt", prev: "⟵", next: "⟶" },
-    sk: { months: ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"],
-          dows: ["Po","Ut","St","Št","Pi","So","Ne"],
-          booked: "Obsadené", prev: "⟵", next: "⟶" }
+    hr: {
+      months: ["siječanj","veljača","ožujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac"],
+      dows:   ["Pon","Uto","Sri","Čet","Pet","Sub","Ned"],
+      booked: "Zauzeto",
+      free:   "Slobodno",
+      prev: "⟵", next: "⟶"
+    },
+    en: {
+      months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+      dows:   ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+      booked: "Booked",
+      free:   "Available",
+      prev: "⟵", next: "⟶"
+    },
+    de: {
+      months: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+      dows:   ["Mo","Di","Mi","Do","Fr","Sa","So"],
+      booked: "Belegt",
+      free:   "Frei",
+      prev: "⟵", next: "⟶"
+    },
+    pl: {
+      months: ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień"],
+      dows:   ["Pn","Wt","Śr","Cz","Pt","So","Nd"],
+      booked: "Zajęte",
+      free:   "Wolne",
+      prev: "⟵", next: "⟶"
+    },
+    hu: {
+      months: ["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december"],
+      dows:   ["Hé","Ke","Sze","Cs","Pé","Szo","Va"],
+      booked: "Foglalt",
+      free:   "Szabad",
+      prev: "⟵", next: "⟶"
+    },
+    sk: {
+      months: ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"],
+      dows:   ["Po","Ut","St","Št","Pi","So","Ne"],
+      booked: "Obsadené",
+      free:   "Voľné",
+      prev: "⟵", next: "⟶"
+    }
   };
 
   // [AA CAL] Optional override from global window.I18N[lang].calendar (if provided by i18n.js)
@@ -43,6 +67,7 @@
         months: Array.isArray(g.months) ? g.months : base.months,
         dows:   Array.isArray(g.dows)   ? g.dows   : base.dows,
         booked: typeof g.booked === "string" ? g.booked : base.booked,
+        free:   typeof g.free   === "string" ? g.free   : base.free,
         prev:   typeof g.prev   === "string" ? g.prev   : base.prev,
         next:   typeof g.next   === "string" ? g.next   : base.next
       };
@@ -111,6 +136,7 @@
       if (booked) {
         cell.append(el("div", "aa-cal__booked"));
         cell.append(el("i", "aa-cal__dot"));
+        cell.classList.add("aa-cal__day--booked"); // [AA CAL] pomaže CSS-u
         cell.title = lang.booked;
       }
 
@@ -123,11 +149,13 @@
     grid.append(days);
     wrap.append(grid);
 
-    // legend
+    // legend (Booked + Available)
     const legend = el("div", "aa-cal__legend");
-    const badge = el("span", "");
-    badge.append(el("i", ""), el("em", "", " " + lang.booked));
-    legend.append(badge);
+    const bookedBadge = el("span", "badge");
+    bookedBadge.append(el("i", "swatch"), el("em", "", " " + (lang.booked || "Booked")));
+    const freeBadge = el("span", "badge");
+    freeBadge.append(el("i", "swatch swatch--free"), el("em", "", " " + (lang.free || "Available")));
+    legend.append(bookedBadge, freeBadge);
     wrap.append(legend);
 
     container.append(wrap);
