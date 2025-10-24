@@ -174,3 +174,98 @@ body[data-apt-slug="onyx"] .aa-ical-calendar{
 /* (nije nužno, ali ako želiš i naslov iznad kalendara u temi) */
 body[data-apt-slug="olive"] .aa-cal-title { color: var(--brand-olive); }
 body[data-apt-slug="onyx"]  .aa-cal-title { color: var(--brand-onyx); }
+
+/* =========================
+   COMPACT VARIANT
+   ========================= */
+.aa-ical--compact {
+  max-width: 640px;
+  padding: .6rem .7rem;
+}
+.aa-ical--compact .aa-cal__month { font-size: 1.05rem; }
+.aa-ical--compact .aa-cal__btn { padding: .2rem .5rem; font-size: .9rem; border-radius: 8px; }
+.aa-ical--compact .aa-cal__dow { margin-bottom: .25rem; font-size: .8rem; }
+.aa-ical--compact .aa-cal__days { gap: .25rem; }
+.aa-ical--compact .aa-cal__day { min-height: 48px; padding: .2rem; border-radius: 8px; }
+.aa-ical--compact .aa-cal__num { font-size: .9rem; }
+.aa-ical--compact .aa-cal__legend { margin-top: .6rem; font-size: .85rem; }
+
+/* =========================
+   CLEARER BOOKED vs FREE
+   ========================= */
+
+/* Free (default) */
+.aa-cal__day {
+  background: #fff;
+  border: 1px solid var(--card-border);
+}
+
+/* Booked: punija ploha + suptilna šrafura + jači rub */
+.aa-cal__booked {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-blue) 12%, #ffffff) 0 6px,
+      color-mix(in srgb, var(--brand-blue) 18%, #ffffff) 6px 12px
+    );
+  border: 1px solid color-mix(in srgb, var(--brand-blue) 38%, #000);
+  border-radius: inherit;
+  inset: -1px;
+  z-index: 1;
+}
+
+/* Broj dana na booked – bijeli radi kontrasta */
+.aa-cal__day .aa-cal__booked ~ .aa-cal__num {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+
+/* Diskretniji dot (ostaje semantički marker) */
+.aa-cal__dot {
+  width: 5px; height: 5px; bottom: 6px;
+  background: #fff; opacity: .85;
+  box-shadow: 0 0 0 2px var(--brand-blue);
+}
+
+/* Današnji dan – blagi highlight rub */
+.aa-cal__day--today { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--brand-blue) 60%, #fff); }
+
+/* Compact hover smireniji */
+.aa-ical--compact .aa-cal__day:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(10,26,47,.08);
+}
+
+/* =========================
+   LEGEND – dodaj i "Available"
+   ========================= */
+.aa-cal__legend .badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .2rem .4rem; border-radius: 8px; border: 1px solid var(--card-border);
+  background: #fff;
+}
+.aa-cal__legend .swatch {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--brand-blue);
+}
+.aa-cal__legend .swatch--free {
+  background: #fff; border: 1px solid var(--card-border);
+}
+
+/* =========================
+   ONYX THEME – posvijetli ton
+   ========================= */
+body[data-apt-slug="onyx"] .aa-ical-calendar {
+  --brand-blue: #5a7db1;      /* svježa slate-plava */
+  --brand-blue-hover: #4a6ea0;
+}
+body[data-apt-slug="onyx"] .aa-cal-title { color: #5a7db1; }
+body[data-apt-slug="onyx"] .aa-cal__booked {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, #5a7db1 14%, #ffffff) 0 6px,
+      color-mix(in srgb, #5a7db1 22%, #ffffff) 6px 12px
+    );
+  border-color: color-mix(in srgb, #5a7db1 45%, #000);
+}
