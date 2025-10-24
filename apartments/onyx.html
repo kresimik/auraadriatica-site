@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
 
-  <!-- Scripts -->
+  <!-- App scripts -->
   <script data-cfasync="false" src="/assets/js/i18n.js" defer></script>
   <script data-cfasync="false" src="/assets/js/apt.js" defer></script>
   <script data-cfasync="false" src="/assets/js/contact-form.js" defer></script>
@@ -100,7 +100,6 @@
 
       <form id="contact-form" class="contact-card" data-apt="Onyx" novalidate>
         <input type="hidden" id="cf-apt" name="apt" value="Onyx" />
-        <!-- NEW: hidden Turnstile token (filled by callback) -->
         <input type="hidden" id="cf-token" name="cf-token" value="" />
 
         <div class="form-grid">
@@ -127,14 +126,12 @@
             <small class="err-msg" aria-live="polite"></small>
           </div>
 
-          <!-- Turnstile (single) -->
           <div class="form-group form-full">
             <div
               class="cf-turnstile"
               data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
               data-callback="cfStoreToken"
-              data-retry="auto">
-            </div>
+              data-retry="auto"></div>
           </div>
         </div>
 
@@ -154,16 +151,16 @@
     </div>
   </section>
 
-  <!-- Turnstile callback + loader -->
+  <!-- Turnstile (single include) -->
   <script>
     window.cfStoreToken = function(token){
-      var t = document.getElementById('cf-token');
+      const t = document.getElementById('cf-token');
       if (t) t.value = token || '';
-      var st = document.getElementById('cf-status');
+      const st = document.getElementById('cf-status');
       if (st && st.classList.contains('err')) st.textContent = '';
     };
   </script>
-  <script data-cfasync="false" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -188,7 +185,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Language switch handler (keeps details + form in sync)
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
       if(!btn) return;

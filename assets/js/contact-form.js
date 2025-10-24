@@ -4,8 +4,6 @@
   if (!form) return;
 
   const statusEl = document.getElementById('cf-status');
-
-  // i18n helpers
   const currentLang = () => (document.documentElement.lang || 'en').toLowerCase();
   const t = (k, fb) => {
     const dict = (window.I18N?.[currentLang()]?.contact) || window.I18N?.en?.contact || {};
@@ -15,7 +13,6 @@
   const $ = (sel, root = form) => root.querySelector(sel);
   const row = (inputSel) => $(inputSel)?.closest('.form-group');
 
-  // errors
   const setErr = (rowEl, msg) => {
     if (!rowEl) return;
     rowEl.classList.add('is-invalid');
@@ -39,10 +36,18 @@
 
     [row('#cf-name'), row('#cf-email'), row('#cf-message')].forEach(clearErr);
 
-    if (!name?.value.trim())                          { setErr(row('#cf-name'),    t('val_name','Please enter your name.')); ok = false; }
-    if (!email?.value.trim() || !emailOk(email.value)){ setErr(row('#cf-email'),   t('val_email','Please enter a valid email.')); ok = false; }
-    if (!message?.value.trim())                       { setErr(row('#cf-message'), t('val_message','Please enter a message.')); ok = false; }
-
+    if (!name.value.trim()) {
+      setErr(row('#cf-name'), t('val_name','Please enter your name.'));
+      ok = false;
+    }
+    if (!email.value.trim() || !emailOk(email.value)) {
+      setErr(row('#cf-email'), t('val_email','Please enter a valid email.'));
+      ok = false;
+    }
+    if (!message.value.trim()) {
+      setErr(row('#cf-message'), t('val_message','Please enter a message.'));
+      ok = false;
+    }
     return ok;
   };
 
@@ -59,59 +64,34 @@
     statusEl.textContent = text || '';
     statusEl.classList.remove('ok', 'err');
     if (type) statusEl.classList.add(type);
-    // spriječi da i18n pregazi note nakon prvog manualnog statusa
     const note = document.querySelector('.form-note');
     if (note) note.dataset.locked = '1';
   };
 
-  // --- Turnstile token flow (stabilno) ---
-  async function getTurnstileToken() {
-    const widget = form.querySelector('.cf-turnstile');
-    const hidden = document.getElementById('cf-token');
-
-    // 1) Ako callback već napunio hidden input — uzmi ga odmah
-    if (hidden?.value) return hidden.value;
-
-    // 2) Ako nema turnstile objekta ili widgeta — nema šanse
-    if (!window.turnstile || !widget) return '';
-
-    // 3) Pokušaj uzeti postojeći token bez execute (ako je widget već renderiran/executed)
-    try {
-      const existing = turnstile.getResponse(widget);
-      if (existing) return existing;
-    } catch { /* getResponse može baciti na starijim buildovima – ignoriramo */ }
-
-    // 4) Sigurni reset + execute (izbjegava “already executed” warning)
-    try {
-      try { turnstile.reset(widget); } catch {} // reset može failati, nije kritično
-      const fresh = await turnstile.execute(widget, { action: 'submit' });
-      if (fresh) return fresh;
-    } catch { /* ignore — probat ćemo još hidden input */ }
-
-    // 5) Zadnja linija — hidden input možda je ipak popunjen s callbacka
-    return hidden?.value || '';
-  }
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    e.stopImmediatePropagation();
+
     if (!validate()) return;
 
     setBusy(true);
     setStatus(t('sending','Sending…'));
 
-    // Turnstile token (widget +/ ili hidden input iz callbacka)
-    let token = '';
+    // === Turnstile token via managed widget ===
+    const widget = form.querySelector('.cf-turnstile');
+    let token = ($('#cf-token')?.value || '').trim();
+
     try {
-      token = await getTurnstileToken();
-      if (!token) {
-        setStatus(
-          t('verify_unavail','Verification service unavailable. Please refresh the page.'),
-          'err'
-        );
-        setBusy(false);
-        return;
+      if ((!token || token.length < 10) && window.turnstile && widget) {
+        // pokušaj eksplicitno dobiti novi token
+        await turnstile.execute(widget, { action: 'submit' });
+        token = ($('#cf-token')?.value || '').trim();
       }
-    } catch {
+    } catch (_) {
+      // ignore, treat as missing token
+    }
+
+    if (!token) {
       setStatus(t('verify_fail','Verification failed. Please refresh and try again.'), 'err');
       setBusy(false);
       return;
@@ -136,24 +116,17 @@
       if (res.ok) {
         setStatus(t('sent_ok','Thank you! Your message has been sent.'), 'ok');
         form.reset();
-        // Reset samo konkretni widget (da dobijemo novi token za idući submit)
-        const widget = form.querySelector('.cf-turnstile');
-        try { if (window.turnstile && widget) turnstile.reset(widget); } catch {}
+        try { window.turnstile?.reset(widget); } catch {}
       } else {
-        // pokuša pročitati poruku greške servera (pomogne u debug-u)
-        let msg = '';
-        try { msg = (await res.json())?.error || ''; } catch {}
-        if (msg) console.warn('API error', msg);
-
-        // Fallback mailto
+        // graceful fallback
         const subj = encodeURIComponent(`[${payload.apt}] Inquiry from ${payload.name}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
         );
-        window.location.href = `mailto:info@auraadriatica.com?subject=${subj}&body=${body}`;
+        window.open(`mailto:info@auraadriatica.com?subject=${subj}&body=${body}`, '_blank');
         setStatus(t('sent_fail','Sending failed — please try again later.'), 'err');
       }
-    } catch (_err) {
+    } catch {
       setStatus(t('sent_fail','Sending failed — please try again later.'), 'err');
     } finally {
       setBusy(false);
