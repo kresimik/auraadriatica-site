@@ -18,6 +18,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
 
+  <!-- AA CALENDAR: dodatni stil -->
+  <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=1">
+
   <!-- Turnstile callbacks (GLOBAL, prije app skripti) -->
   <script data-cfasync="false">
     window.cfStoreToken = function(token){
@@ -36,6 +39,8 @@
   <script data-cfasync="false" src="/assets/js/i18n.js" defer></script>
   <script data-cfasync="false" src="/assets/js/apt.js" defer></script>
   <script data-cfasync="false" src="/assets/js/contact-form.js" defer></script>
+  <!-- AA CALENDAR: komponenta -->
+  <script data-cfasync="false" src="/assets/js/aa-calendar.js?v=1" defer></script>
 </head>
 
 <body data-apt-slug="olive">
@@ -104,6 +109,15 @@
     <div class="container">
       <h2>Gallery</h2>
       <div class="gallery" id="apt-gallery"></div>
+    </div>
+  </section>
+
+  <!-- AA CALENDAR: Availability (iznad kontakt forme) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
+      <!-- locale se postavlja na temelju <html lang>, vidi skriptu dolje -->
+      <div class="aa-ical-calendar" data-apt="olive"></div>
     </div>
   </section>
 
@@ -193,6 +207,15 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // INIT: postavi locale za kalendar prema <html lang="">
+    document.addEventListener('DOMContentLoaded', () => {
+      var pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+      document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
+        // samo ako nije već zadano u HTML-u:
+        if (!el.dataset.locale) el.dataset.locale = pageLang;
+      });
+    });
+
     // Keep content + form in sync when switching language
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
@@ -203,6 +226,14 @@
         await window.loadApartment(slug, lang);
       }
       if (window.applyContactI18n) window.applyContactI18n(lang);
+
+      // NOTE: kalendar trenutno čita locale na loadu.
+      // Ako želiš live prebacivanje bez reload-a, mogu izložiti re-render iz aa-calendar.js.
+      // Za sada, promijenimo data-locale pa refreshamo sekciju (fallback: full reload).
+      document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
+        el.setAttribute('data-locale', lang);
+      });
+      // window.AACalendarRerender && window.AACalendarRerender(); // (ubacit ću po želji)
     });
   </script>
 </body>
