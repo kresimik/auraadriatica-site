@@ -17,6 +17,8 @@
   <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
+  <!-- AA CALENDAR: dodatni stil -->
+  <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=1">
 
   <!-- Turnstile callbacks (GLOBAL, prije app skripti) -->
   <script data-cfasync="false">
@@ -36,6 +38,8 @@
   <script data-cfasync="false" src="/assets/js/i18n.js" defer></script>
   <script data-cfasync="false" src="/assets/js/apt.js" defer></script>
   <script data-cfasync="false" src="/assets/js/contact-form.js" defer></script>
+  <!-- AA CALENDAR: komponenta -->
+  <script data-cfasync="false" src="/assets/js/aa-calendar.js?v=1" defer></script>
 </head>
 
 <body data-apt-slug="onyx">
@@ -104,6 +108,14 @@
     <div class="container">
       <h2>Gallery</h2>
       <div class="gallery" id="apt-gallery"></div>
+    </div>
+  </section>
+
+  <!-- AA CALENDAR: Availability (iznad kontakt forme) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
+      <div class="aa-ical-calendar" data-apt="onyx"></div>
     </div>
   </section>
 
@@ -193,7 +205,15 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // language switch (sync content + form)
+    // INIT: postavi locale za kalendar prema <html lang="">
+    document.addEventListener('DOMContentLoaded', () => {
+      var pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+      document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
+        if (!el.dataset.locale) el.dataset.locale = pageLang;
+      });
+    });
+
+    // language switch (sync content + form + calendar locale attribute)
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
       if(!btn) return;
@@ -203,6 +223,13 @@
         await window.loadApartment(slug, lang);
       }
       if (window.applyContactI18n) window.applyContactI18n(lang);
+
+      // ažuriraj data-locale na kalendaru (trenutna verzija re-rendera na reload)
+      document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
+        el.setAttribute('data-locale', lang);
+      });
+      // ako želiš live re-render bez reloada, reci pa dodam hook u aa-calendar.js
+      // window.AACalendarRerender && window.AACalendarRerender(lang);
     });
   </script>
 </body>
