@@ -1,3 +1,5 @@
+ <!-- Olive.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,24 +218,29 @@
       });
     });
 
-    // Keep content + form in sync when switching language
+    // LANGUAGE SWITCH (konzistentno preko i18n.js; fallback ostaje)
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
       if(!btn) return;
       const lang = btn.dataset.lang;
-      const slug = document.body.getAttribute('data-apt-slug');
-      if (slug && typeof window.loadApartment === 'function') {
-        await window.loadApartment(slug, lang);
-      }
-      if (window.applyContactI18n) window.applyContactI18n(lang);
 
-      // NOTE: kalendar trenutno čita locale na loadu.
-      // Ako želiš live prebacivanje bez reload-a, mogu izložiti re-render iz aa-calendar.js.
-      // Za sada, promijenimo data-locale pa refreshamo sekciju (fallback: full reload).
-      document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
-        el.setAttribute('data-locale', lang);
-      });
-      // window.AACalendarRerender && window.AACalendarRerender(); // (ubacit ću po želji)
+      if (typeof window.setLang === 'function') {
+        // preferirani put: i18n.js odrađuje sve (content + form + calendar re-render)
+        try { await window.setLang(lang); } catch(e) { console.warn(e); }
+      } else {
+        // fallback: lokalno ažuriraj
+        const slug = document.body.getAttribute('data-apt-slug');
+        if (slug && typeof window.loadApartment === 'function') {
+          try { await window.loadApartment(slug, lang); } catch(e) {}
+        }
+        try { window.applyContactI18n && window.applyContactI18n(lang); } catch(e) {}
+
+        // kalendar – promijeni locale atribut i pokušaj re-rendera
+        document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
+          el.setAttribute('data-locale', lang);
+        });
+        try { window.AACalendarRerender && window.AACalendarRerender(lang); } catch(e) {}
+      }
     });
   </script>
 </body>
