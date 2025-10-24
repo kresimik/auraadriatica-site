@@ -4,15 +4,19 @@
   if (!form) return;
 
   const statusEl = document.getElementById('cf-status');
+
+  // ---- i18n helpers ----
   const currentLang = () => (document.documentElement.lang || 'en').toLowerCase();
   const t = (k, fb) => {
     const dict = (window.I18N?.[currentLang()]?.contact) || window.I18N?.en?.contact || {};
     return dict[k] || fb || k;
   };
 
+  // ---- dom helpers ----
   const $ = (sel, root = form) => root.querySelector(sel);
   const row = (inputSel) => $(inputSel)?.closest('.form-group');
 
+  // ---- validation ui ----
   const setErr = (rowEl, msg) => {
     if (!rowEl) return;
     rowEl.classList.add('is-invalid');
@@ -68,6 +72,18 @@
     if (note) note.dataset.locked = '1';
   };
 
+  // ---- turnstile readiness guard (handles prod race conditions) ----
+  async function waitForTurnstileReady(maxWait = 3000) {
+    const start = Date.now();
+    while (
+      (!window.turnstile || typeof window.turnstile.execute !== 'function') &&
+      (Date.now() - start < maxWait)
+    ) {
+      await new Promise(r => setTimeout(r, 100));
+    }
+  }
+
+  // ---- submit ----
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -77,18 +93,22 @@
     setBusy(true);
     setStatus(t('sending','Sending…'));
 
-    // === Turnstile token via managed widget ===
+    // ensure the Turnstile API is ready (prod sometimes loads it later)
+    await waitForTurnstileReady();
+
     const widget = form.querySelector('.cf-turnstile');
+
+    // token from hidden input (filled via data-callback="cfStoreToken")
     let token = ($('#cf-token')?.value || '').trim();
 
-    try {
-      if ((!token || token.length < 10) && window.turnstile && widget) {
-        // pokušaj eksplicitno dobiti novi token
-        await turnstile.execute(widget, { action: 'submit' });
+    // If token missing, try to obtain a fresh one explicitly
+    if ((!token || token.length < 10) && window.turnstile && widget) {
+      try {
+        await window.turnstile.execute(widget, { action: 'submit' });
         token = ($('#cf-token')?.value || '').trim();
+      } catch (_) {
+        // swallow; we'll handle missing token below
       }
-    } catch (_) {
-      // ignore, treat as missing token
     }
 
     if (!token) {
@@ -131,5 +151,12 @@
     } finally {
       setBusy(false);
     }
+  });
+
+  // Optional: re-apply placeholders/labels if language changes dynamically
+  document.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.lang-menu button[data-lang]');
+    if (!btn) return;
+    if (window.applyContactI18n) window.applyContactI18n(btn.dataset.lang);
   });
 })();
