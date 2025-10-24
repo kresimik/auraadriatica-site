@@ -159,3 +159,18 @@
     font-size: .9rem;
   }
 }
+/* ===== Theme per apartment (auto by <body data-apt-slug>) ===== */
+body[data-apt-slug="olive"] .aa-ical-calendar{
+  /* premapiraj brand varijable unutar kalendara */
+  --brand-blue: var(--brand-olive);
+  --brand-blue-hover: var(--brand-olive-hover);
+}
+
+body[data-apt-slug="onyx"] .aa-ical-calendar{
+  --brand-blue: var(--brand-onyx);
+  --brand-blue-hover: var(--brand-onyx-hover);
+}
+
+/* (nije nužno, ali ako želiš i naslov iznad kalendara u temi) */
+body[data-apt-slug="olive"] .aa-cal-title { color: var(--brand-olive); }
+body[data-apt-slug="onyx"]  .aa-cal-title { color: var(--brand-onyx); }
