@@ -5,53 +5,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Guest Information — Aura Adriatica</title>
   <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Useful insider information for your stay at Aura Adriatica Apartments." />
 
   <link rel="stylesheet" href="/assets/css/style.css?v=guest-final">
   <style>
-    body.guest{background:#fff;color:#2e3b4e;font-family:Roboto,Arial,sans-serif;}
-    .hero{background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.35)),url('/assets/img/guest-hero.jpg') center/cover no-repeat;
-          text-align:center;padding:70px 0 60px;}
-    .hero h1{color:#fff;margin-bottom:.5rem;font-family:Poppins;font-size:2rem;}
-    .hero p{color:#e6efff;font-size:1.05rem;max-width:640px;margin:auto;}
-    .info-grid{display:grid;gap:22px;margin-top:30px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
-    .info-section{background:#fff;border:1px solid #e6ecf6;border-radius:14px;padding:18px 20px;box-shadow:0 8px 20px rgba(0,0,0,.05);}
-    .info-section h3{font-family:Poppins;font-size:1.1rem;font-weight:700;color:#2a7be4;margin:0 0 .7rem;}
-    .info-section p,.info-section li{line-height:1.45;color:#2e3b4e;}
-    .wifi-qr img{max-width:140px;border-radius:10px;border:1px solid #e6ecf6;}
+    /* HERO */
+    .hero {
+      background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+                  url('/assets/img/guest-hero.jpg') center/cover no-repeat;
+      text-align: center;
+      padding: 70px 0 60px;
+      color: #fff;
+    }
+    .hero h1 {
+      font-family: Poppins, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+    .hero p {
+      color: #e6efff;
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* GRID */
+    .info-grid {
+      display: grid;
+      gap: 22px;
+      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .info-section {
+      background: #fff;
+      border: 1px solid #e6ecf6;
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.05);
+    }
+    .info-section h3 {
+      font-family: Poppins, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2a7be4;
+      margin: 0 0 .7rem;
+    }
+    .info-section p, .info-section li {
+      line-height: 1.45;
+      color: #2e3b4e;
+    }
+    .info-section ul { padding-left: 1.15rem; }
+
+    /* WIFI */
+    .wifi-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .wifi-text { flex: 1 1 260px; }
+    .wifi-qr img {
+      max-width: 140px;
+      border-radius: 10px;
+      border: 1px solid #e6ecf6;
+      display: block;
+    }
+    .muted { color: #6b7b96; }
   </style>
 
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/guest.js?v=final-clean" defer></script>
+  <script src="/assets/js/guest.js?v=final" defer></script>
 </head>
+
 <body class="guest">
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
-      <a href="/" class="logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo"/></a>
+      <a href="/" class="logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/apartments/olive.html">Olive</a>
+        <a href="/apartments/onyx.html">Onyx</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
+      </nav>
+
+      <!-- LANGUAGE DROPDOWN -->
+      <div class="lang-dropdown" id="lang-dd">
+        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
+          <span id="cur-lang">EN</span> ▾
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
+          <button data-lang="hr">HR</button>
+          <button data-lang="en" class="active">EN</button>
+          <button data-lang="de">DE</button>
+          <button data-lang="it">IT</button>
+          <button data-lang="sl">SL</button>
+          <button data-lang="hu">HU</button>
+          <button data-lang="cs">CS</button>
+          <button data-lang="sk">SK</button>
+          <button data-lang="uk">UK</button>
+        </div>
+      </div>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="container hero-center">
-      <h1 id="guest-h1">Guest Information</h1>
-      <p id="guest-sub">Useful insider information for your stay.</p>
+      <h1 id="guest-h1">Guest & Local Information</h1>
+      <p id="guest-sub">Practical details, Wi-Fi, arrival info, and local tips for your stay.</p>
     </div>
   </section>
 
+  <!-- CONTENT -->
   <section class="section">
     <div class="container">
       <div id="guest-sections" class="info-grid"></div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <a href="/" class="footer-logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo" /></a>
+      <a href="/" class="footer-logo">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </a>
+      <nav class="footer-nav">
+        <a href="/apartments/olive.html">Olive</a>
+        <a href="/apartments/onyx.html">Onyx</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/reviews.html">Reviews</a>
+      </nav>
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
         <p>&copy; <span id="year"></span> Aura Adriatica</p>
       </div>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Language switch
+    document.addEventListener('click', async (e)=>{
+      const btn = e.target.closest('.lang-menu button[data-lang]');
+      if(!btn) return;
+      const lang = btn.dataset.lang;
+      localStorage.setItem('lang', lang);
+      if (typeof window.setLang === 'function') await window.setLang(lang);
+      if (typeof window.loadGuest === 'function') await window.loadGuest(lang);
+    });
+  </script>
 </body>
 </html>
