@@ -1,10 +1,8 @@
-// /assets/js/guest.js  (clean-2)
+// /assets/js/guest.js  (clean-3)
 
 const GUEST_DEFAULT_LANG = 'en';
 
 /* ---------- Link helpers ---------- */
-
-// For LIST items: supports Markdown [Text](URL) and " — URL" -> " — Map".
 function listItemHTML(raw) {
   if (raw == null) return '';
   let s = String(raw);
@@ -14,20 +12,16 @@ function listItemHTML(raw) {
     ' — <a href="$1" target="_blank" rel="noopener">Map</a>');
   return s;
 }
-
-// For PARAGRAPHS: Markdown ONLY (no autolink of bare URLs)
 function paragraphHTML(raw) {
   if (raw == null) return '';
   return String(raw).replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener">$1</a>');
 }
-
 function makeUL(items) {
   const ul = document.createElement('ul');
   (items || []).forEach(item => {
     const li = document.createElement('li');
     if (item && typeof item === 'object' && item.name) {
-      // object form: { name, url? }
       li.textContent = item.name + (item.url ? ' — ' : '');
       if (item.url) {
         const a = document.createElement('a');
@@ -44,26 +38,19 @@ function makeUL(items) {
 }
 
 /* ---------- Wi-Fi helpers ---------- */
-
 function buildWifiQR({ ssid, password, auth = 'WPA', size = 260, fallbackSrc }) {
-  // If explicit image provided, use it.
   if (fallbackSrc) return fallbackSrc;
-
   if (!ssid || !password) return null;
   const payload = `WIFI:T:${auth};S:${ssid};P:${password};;`;
-  const url = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(payload)}`;
-  return url;
+  return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(payload)}`;
 }
-
 function renderWifiBlock(sec) {
-  // sec.html_kind === 'wifi' OR sec.type === 'wifi' supported
   const wrap = document.createElement('div');
   wrap.className = 'wifi-flex';
 
   const left = document.createElement('div');
   left.className = 'wifi-text';
 
-  // Prefer structured fields if present; otherwise fall back to content HTML.
   const hasStructured = (sec.ssid || sec.password);
 
   if (hasStructured) {
@@ -76,33 +63,44 @@ function renderWifiBlock(sec) {
     const p2 = document.createElement('p'); p2.className = 'kv';
     p2.innerHTML = `<strong>Password:</strong> <code id="wifi-pass">${pass || '-'}</code>
       <button class="copy-btn" data-copy="#wifi-pass">Copy</button>`;
+    left.appendChild(p1); left.appendChild(p2);
 
-    left.appendChild(p1);
-    left.appendChild(p2);
-
-    const note = document.createElement('p');
-    note.className = 'muted spacious';
+    const note = document.createElement('p'); note.className = 'muted spacious';
     note.textContent = sec.note || 'Scan the QR code to join instantly.';
     left.appendChild(note);
   } else {
-    // fallback: raw HTML text with markdown links
     left.innerHTML = paragraphHTML(sec.content || '');
   }
 
   wrap.appendChild(left);
 
-  // QR
   const right = document.createElement('div'); right.className = 'wifi-qr';
   const qrSrc = buildWifiQR({
     ssid: sec.ssid, password: sec.password, auth: sec.auth || 'WPA',
     size: 260, fallbackSrc: sec.qr
   });
-  if (qrSrc) {
-    right.innerHTML = `<img id="wifi-qr" src="${qrSrc}" alt="Wi-Fi QR code">`;
-    wrap.appendChild(right);
-  }
+  if (qrSrc) right.innerHTML = `<img id="wifi-qr" src="${qrSrc}" alt="Wi-Fi QR code">`;
+  if (qrSrc) wrap.appendChild(right);
 
   return wrap;
+}
+
+/* ---------- Quickbar ---------- */
+function renderQuickbar(sections, el) {
+  if (!el) return;
+  el.innerHTML = '';
+  const links = (sections || [])
+    .filter(s => s && typeof s.id === 'string' && s.id.trim() && s.title)
+    .map(s => ({ id: s.id.trim(), title: s.title }));
+  if (!links.length) { el.style.display = 'none'; return; }
+  el.style.display = '';
+
+  links.forEach(({ id, title }) => {
+    const a = document.createElement('a');
+    a.href = `#${id}`;
+    a.textContent = title;
+    el.appendChild(a);
+  });
 }
 
 /* ---------- Loader ---------- */
@@ -130,32 +128,24 @@ async function loadGuest(langOpt){
   if (h1 && data.hero_h) h1.textContent = data.hero_h;
   if (sub && data.hero_p) sub.textContent = data.hero_p;
 
-  // GRID target
+  // QUICKBAR
+  renderQuickbar(data.sections || [], document.getElementById('guest-quickbar'));
+
+  // GRID
   const grid = document.getElementById('guest-sections');
   if (!grid) return;
   grid.innerHTML = '';
 
-  // RENDER sections
   (data.sections || []).forEach(sec => {
     const card = document.createElement('div');
     card.className = 'info-section';
-
-    // Optional anchor id for quickbar: e.g. "parking", "bins", "emergency"
-    if (sec.id && typeof sec.id === 'string') {
-      card.id = sec.id.trim();
-    }
+    if (sec.id && typeof sec.id === 'string') card.id = sec.id.trim();
 
     const h3 = document.createElement('h3');
     h3.textContent = sec.title || '';
     card.appendChild(h3);
 
-    // Types:
-    // - "wifi" or { type:"html", html_kind:"wifi", ssid,password,qr? }
-    // - "list" with items
-    // - "html" with content (markdown links)
-    // - "text" with content
     const t = (sec.type || sec.html_kind || '').toLowerCase();
-
     if (t === 'wifi' || sec.html_kind === 'wifi') {
       card.appendChild(renderWifiBlock(sec));
     } else if (t === 'list') {
@@ -164,7 +154,7 @@ async function loadGuest(langOpt){
       const div = document.createElement('div');
       div.innerHTML = paragraphHTML(sec.content || '');
       card.appendChild(div);
-    } else if (t === 'text' || !t) {
+    } else {
       const p = document.createElement('p');
       p.textContent = String(sec.content || '');
       card.appendChild(p);
@@ -173,6 +163,21 @@ async function loadGuest(langOpt){
     grid.appendChild(card);
   });
 }
+
+/* ---------- Copy buttons (delegation) ---------- */
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.copy-btn[data-copy]');
+  if (!btn) return;
+  const sel = btn.getAttribute('data-copy');
+  const el = document.querySelector(sel);
+  if (!el) return;
+  const val = el.textContent || '';
+  navigator.clipboard?.writeText(val).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(()=>{ btn.textContent = old; }, 1000);
+  });
+});
 
 // global & init
 window.loadGuest = loadGuest;
