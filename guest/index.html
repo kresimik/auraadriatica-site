@@ -7,35 +7,150 @@
   <meta name="robots" content="noindex,nofollow" />
   <meta name="description" content="Useful insider information for your stay at Aura Adriatica Apartments." />
 
-  <!-- Base CSS -->
+  <!-- Osnovni stilovi stranice -->
   <link rel="stylesheet" href="/assets/css/style.css?v=guest-final">
+
+  <!-- Lokalni stil za guest page + light/dark + print -->
   <style>
-    /* HERO & spacing */
-    .hero { min-height: 280px; }
-    .hero .hero-center { padding: 64px 0; }
+    :root{
+      --g-bg: #ffffff;
+      --g-bg-alt: #f6f8fc;
+      --g-card: #ffffff;
+      --g-text: #243045;
+      --g-muted:#6c7a93;
+      --g-accent:#2a7be4;
+      --g-border:#e4e9f3;
+      --g-shadow: 0 10px 26px rgba(10,26,47,.08);
+      --g-pill:#e8f1ff;
+      --g-pill-text:#1e5ec7;
+      --g-info-bg:#eef6ff;
+      --g-info-br:#cfe3ff;
+      --g-warn-bg:#fff7e6;
+      --g-warn-br:#ffe2ad;
+    }
+    /* Dark tema (auto) */
+    @media (prefers-color-scheme: dark){
+      :root{
+        --g-bg:#0c1424;
+        --g-bg-alt:#0f1a31;
+        --g-card:#0f1a31;
+        --g-text:#dde7ff;
+        --g-muted:#a6b5d6;
+        --g-accent:#8ab8ff;
+        --g-border:#1e2b49;
+        --g-shadow: 0 12px 30px rgba(0,0,0,.4);
+        --g-pill:#13284b;
+        --g-pill-text:#9ac1ff;
+        --g-info-bg:#0e2344;
+        --g-info-br:#234a88;
+        --g-warn-bg:#3a2b12;
+        --g-warn-br:#6b5322;
+      }
+    }
+    /* Ručni override putem data-theme na <html> */
+    html[data-theme="light"]{
+      --g-bg: #ffffff; --g-bg-alt:#f6f8fc; --g-card:#ffffff; --g-text:#243045; --g-muted:#6c7a93;
+      --g-accent:#2a7be4; --g-border:#e4e9f3; --g-shadow:0 10px 26px rgba(10,26,47,.08);
+      --g-pill:#e8f1ff; --g-pill-text:#1e5ec7; --g-info-bg:#eef6ff; --g-info-br:#cfe3ff;
+      --g-warn-bg:#fff7e6; --g-warn-br:#ffe2ad;
+    }
+    html[data-theme="dark"]{
+      --g-bg:#0c1424; --g-bg-alt:#0f1a31; --g-card:#0f1a31; --g-text:#dde7ff; --g-muted:#a6b5d6;
+      --g-accent:#8ab8ff; --g-border:#1e2b49; --g-shadow:0 12px 30px rgba(0,0,0,.4);
+      --g-pill:#13284b; --g-pill-text:#9ac1ff; --g-info-bg:#0e2344; --g-info-br:#234a88;
+      --g-warn-bg:#3a2b12; --g-warn-br:#6b5322;
+    }
+
+    body.guest{ background:var(--g-bg); color:var(--g-text); }
+
+    /* HERO */
+    .hero{
+      min-height: 280px;
+      background-size: cover; background-position: center;
+      border-bottom: 1px solid var(--g-border);
+    }
+    .hero .hero-center{ padding: 64px 0; }
+    .hero h1{ color:#fff; }
+    .hero p{ color:#f2f6ff; opacity:.95; }
+
+    /* Quickbar (sidreni linkovi) */
+    .quickbar{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px;
+    }
+    .qb-pill{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.55rem .8rem; border-radius:999px;
+      background:var(--g-pill); color:var(--g-pill-text);
+      text-decoration:none; font-weight:700; border:1px solid var(--g-border);
+      transition: transform .12s ease, background .2s ease;
+    }
+    .qb-pill:hover{ transform: translateY(-1px); }
+
     /* GRID 3-up */
     .info-grid{
       display:grid; gap:22px; margin-top:24px;
       grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
     }
     .info-section{
-      background:#fff; border-radius:14px;
-      padding:18px 18px 16px; box-shadow:0 8px 24px rgba(0,0,0,.06);
+      background:var(--g-card); border-radius:14px; border:1px solid var(--g-border);
+      padding:18px 18px 16px; box-shadow:var(--g-shadow);
     }
     .info-section h3{
       font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       font-weight:700; font-size:1.05rem; line-height:1.2;
-      color:#2a7be4; margin:0 0 .75rem;
+      color:var(--g-accent); margin:0 0 .75rem;
+      letter-spacing:.2px;
     }
-    .info-section p{ margin:.45rem 0; }
-    .info-section ul{ margin:.25rem 0; padding-left:1.15rem; }
+    .info-section p{ margin:.45rem 0; color:var(--g-text); }
+    .info-section ul{ margin:.25rem 0; padding-left:1.15rem; color:var(--g-text); }
+    .muted{ color:var(--g-muted); }
+
     /* Wi-Fi block */
-    .wifi-flex{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
-    .wifi-text{ flex:1 1 240px; }
-    .wifi-qr img{ max-width:120px; border-radius:8px; display:block; }
-    .muted{ opacity:.86; }
+    .wifi-flex{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+    .wifi-text{ flex:1 1 260px; }
+    .wifi-qr img{ max-width:120px; border-radius:8px; display:block; border:1px solid var(--g-border); }
+    .kv{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .kv code{
+      background: var(--g-bg-alt); border:1px solid var(--g-border);
+      padding:.3rem .5rem; border-radius:8px; font-weight:700;
+    }
+    .copy-btn{
+      border:1px solid var(--g-border); background:var(--g-card); color:var(--g-accent);
+      padding:.28rem .55rem; border-radius:8px; cursor:pointer; font-weight:700;
+    }
+    .copy-btn:hover{ background:var(--g-bg-alt); }
+
+    /* Callouts */
+    .callout{
+      border:1px solid; border-radius:10px; padding:.8rem .9rem; margin:.7rem 0;
+      font-size:.98rem;
+    }
+    .callout.info{ background:var(--g-info-bg); border-color:var(--g-info-br); }
+    .callout.warn{ background:var(--g-warn-bg); border-color:var(--g-warn-br); }
+
+    /* Theme switcher */
+    .theme-switch{
+      display:flex; gap:8px; align-items:center; margin-top:8px;
+    }
+    .theme-switch button{
+      border:1px solid var(--g-border); background:var(--g-card);
+      color:var(--g-text); padding:.35rem .6rem; border-radius:8px; cursor:pointer; font-weight:700;
+    }
+    .theme-switch button[aria-pressed="true"]{
+      outline:2px solid var(--g-accent); outline-offset:2px;
+    }
+
+    /* Print */
+    @media print{
+      header.site-header, .quickbar, .theme-switch, .lang-dropdown, footer.site-footer { display:none !important; }
+      .hero{ min-height:unset; padding:0; background:none; border:0; }
+      .hero .hero-center{ padding:0; }
+      .info-section{ box-shadow:none; }
+      body{ background:#fff; color:#000; }
+    }
   </style>
 
+  <!-- JS za jezike/sadržaj -->
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/guest.js?v=final2" defer></script>
 </head>
@@ -75,7 +190,7 @@
     </div>
   </header>
 
-  <!-- HERO (local image) -->
+  <!-- HERO -->
   <section class="hero" style="
     background-image:
       linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
@@ -83,12 +198,47 @@
     <div class="container hero-center">
       <h1 id="guest-h1">Guest & Local Information</h1>
       <p id="guest-sub" class="muted">Practical details, Wi-Fi, arrival info, and local tips for your stay.</p>
+
+      <!-- Quickbar -->
+      <div class="quickbar" aria-label="Quick links">
+        <a class="qb-pill" href="#wifi">📶 Wi-Fi</a>
+        <a class="qb-pill" href="#parking">🅿️ Parking</a>
+        <a class="qb-pill" href="#bins">🗑️ Bins</a>
+        <a class="qb-pill" href="#emergency">🚑 Emergency</a>
+      </div>
+
+      <!-- Theme switch (Auto/Light/Dark) -->
+      <div class="theme-switch" aria-label="Theme">
+        <span class="muted">Theme:</span>
+        <button id="th-auto"  type="button" aria-pressed="true">Auto</button>
+        <button id="th-light" type="button" aria-pressed="false">Light</button>
+        <button id="th-dark"  type="button" aria-pressed="false">Dark</button>
+      </div>
     </div>
   </section>
 
   <!-- CONTENT -->
   <section class="section">
     <div class="container">
+      <!-- Wi-Fi (opcionalni “hard-coded” blok; svejedno ćeš dalje puniti sekcije iz guest.js) -->
+      <div class="info-section" id="wifi">
+        <h3>Wi-Fi</h3>
+        <div class="wifi-flex">
+          <div class="wifi-text">
+            <p class="kv"><strong>SSID:</strong> <code id="wifi-ssid">AuraAdriatica</code>
+              <button class="copy-btn" data-copy="#wifi-ssid">Copy</button></p>
+            <p class="kv"><strong>Password:</strong> <code id="wifi-pass">your-strong-pass</code>
+              <button class="copy-btn" data-copy="#wifi-pass">Copy</button></p>
+            <div class="callout info"><strong>Tip:</strong> For best speeds, use the 5 GHz network if your device supports it.</div>
+          </div>
+          <div class="wifi-qr">
+            <!-- Ako imaš QR PNG, samo promijeni src -->
+            <img id="wifi-qr" src="/assets/img/qr-wifi.png" alt="Wi-Fi QR code">
+          </div>
+        </div>
+      </div>
+
+      <!-- Dinamične sekcije iz JSON-a (guest.js) -->
       <div id="guest-sections" class="info-grid"></div>
     </div>
   </section>
@@ -114,8 +264,9 @@
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Language → translate UI + reload guest JSON -->
+  <!-- UX skripte: language + copy + theme + smooth anchors -->
   <script>
+    // JEZIK
     document.addEventListener('click', async (e)=>{
       const btn = e.target.closest('.lang-menu button[data-lang]');
       if(!btn) return;
@@ -123,6 +274,49 @@
       localStorage.setItem('lang', lang);
       if (typeof window.setLang === 'function') await window.setLang(lang);
       if (typeof window.loadGuest === 'function') await window.loadGuest(lang);
+    });
+
+    // COPY
+    document.addEventListener('click', async (e)=>{
+      const b = e.target.closest('.copy-btn'); if(!b) return;
+      const sel = b.getAttribute('data-copy'); const el = sel && document.querySelector(sel);
+      if (!el) return;
+      try{
+        await navigator.clipboard.writeText(el.textContent.trim());
+        const old = b.textContent;
+        b.textContent = 'Copied!'; setTimeout(()=> b.textContent = old, 1200);
+      }catch{}
+    });
+
+    // THEME (Auto/Light/Dark)
+    const root = document.documentElement;
+    const bAuto = document.getElementById('th-auto');
+    const bLight= document.getElementById('th-light');
+    const bDark = document.getElementById('th-dark');
+
+    function applyTheme(mode){
+      if (mode === 'auto'){ root.removeAttribute('data-theme'); }
+      else { root.setAttribute('data-theme', mode); }
+      localStorage.setItem('theme', mode);
+      [bAuto,bLight,bDark].forEach(b=> b.setAttribute('aria-pressed','false'));
+      (mode==='light'?bLight:mode==='dark'?bDark:bAuto).setAttribute('aria-pressed','true');
+    }
+    [bAuto,bLight,bDark].forEach(b=> b?.addEventListener('click', ()=> applyTheme(b.id.replace('th-','')) ));
+    // init from storage
+    (function(){
+      const saved = localStorage.getItem('theme') || 'auto';
+      applyTheme(saved);
+    })();
+
+    // Smooth anchors (Quickbar)
+    document.addEventListener('click', (e)=>{
+      const a = e.target.closest('a[href^="#"]'); if(!a) return;
+      const id = a.getAttribute('href').slice(1);
+      const tgt = document.getElementById(id);
+      if (!tgt) return;
+      e.preventDefault();
+      tgt.scrollIntoView({ behavior:'smooth', block:'start' });
+      history.replaceState(null, '', '#'+id);
     });
   </script>
 </body>
