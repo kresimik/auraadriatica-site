@@ -63,6 +63,7 @@ async function loadApartment(slug, langOpt){
     const el = document.querySelector(sel);
     if (el && typeof val === "string" && val.trim() !== "") el.textContent = val;
   };
+  setTxt("[data-i18n='details_h']",     data.details_h);
   setTxt("[data-i18n='desc_h']",        data.desc_h);
   setTxt("[data-i18n='highlights_h']",  data.highlights_h);
   setTxt("[data-i18n='gallery_h']",     data.gallery_h);
