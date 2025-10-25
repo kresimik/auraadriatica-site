@@ -1,16 +1,22 @@
 {
   "page_title": "Apartman Olive — Aura Adriatica",
-  "meta_desc": "Apartman Olive — svijetao dvoetažni stan s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimom u svim prostorijama i privatnim parkingom u Lovranu kraj Opatije.",
+  "meta_desc": "Apartman Olive — svijetli dvoetažni apartman s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimom u svim prostorijama i privatnim parkingom u Lovranu kraj Opatije.",
   "title": "Apartman Olive",
   "intro": "Sunčani dvoetažni apartman s privatnim bazenom, terasom, vrtom i pogledom na more.",
-  "description": "Apartman Olive nudi svijetao i prostran smještaj u mirnom dijelu Lovrana, udaljen svega 10 minuta hoda od centra grada i poznate šetnice Lungomare. Sa sunčanom terasom i privatnim bazenom s pogledom na Kvarnerski zaljev, pruža moderan komfor, obilje prirodnog svjetla i smještaj za do 6 gostiju.\nUdaljen samo 100 metara od plaže i opremljen roštiljem te privatnim parkingom, Olive je savršen za opušten odmor ili rad na daljinu uz more.",
+  "desc_h": "Opis",
+  "highlights_h": "Istaknuto",
+  "gallery_h": "Galerija",
+  "availability_h": "Raspoloživost",
+  "contact_h": "Kontakt",
+  "description": "Apartman Olive nudi svijetao i prostran odmor u mirnom dijelu Lovrana, svega 10 minuta od centra i šetnice Lungomare. Sa sunčanom terasom i privatnim bazenom s pogledom na Kvarnerski zaljev pruža moderan komfor, mnogo dnevnog svjetla i smještaj do 6 gostiju. Udaljen je samo 100 metara od plaže te opremljen roštiljem i privatnim parkingom — idealno za opušten odmor i rad na daljinu uz more.",
   "features": [
     "🏊 Privatni bazen",
     "🌅 Terasa s vrtom i pogledom na more",
     "🔥 Vanjski roštilj",
     "🚗 Privatni parking",
     "🍳 Potpuno opremljena kuhinja",
-    "❄️ Klima u svim prostorijama"
+    "❄️ Klima u svim prostorijama",
+    "📶 Brzi Wi-Fi"
   ],
   "gallery": [
     "/assets/img/olive1.jpg",
@@ -20,14 +26,11 @@
     "/assets/img/olive5.jpg",
     "/assets/img/olive6.jpg"
   ],
-  "inquiry_h": "Dostupnost i upit",
-  "inquiry_note": "Pošaljite nam željene datume, a mi ćemo vam odgovoriti s dostupnošću i cijenom.",
-  "inquiry_url_hr": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/example",
-  "contact_h": "Kontakt",
-  "contact_note_hr": "Zanima vas apartman Olive? Pošaljite nam svoj upit izravno:",
+  "availability_note": "Provjerite kalendar za slobodne datume. Preporučujemo ranu rezervaciju.",
+  "inquiry_h": "Upit",
+  "inquiry_note": "Pošaljite željene datume, a mi ćemo odgovoriti s raspoloživošću i cijenom.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "contact_note": "Zanima vas Apartman Olive? Pošaljite nam upit:",
   "contact_email": "info@auraadriatica.com",
-
-  "desc_h": "Opis",
-  "highlights_h": "Glavne značajke",
-  "gallery_h": "Galerija"
+  "footer_note": "Boutique apartmani na Opatijskoj rivijeri — udobnost, dizajn i pogled na more."
 }
