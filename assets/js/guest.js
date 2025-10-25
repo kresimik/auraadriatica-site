@@ -1,15 +1,18 @@
-// /assets/js/guest.js (final-clean)
+// /assets/js/guest.js (final)
 const GUEST_DEFAULT_LANG = 'en';
 
 function listItemHTML(raw) {
   if (!raw) return '';
   let s = String(raw);
-  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-  s = s.replace(/\s—\s*(https?:\/\/\S+)/g, ' — <a href="$1" target="_blank" rel="noopener">Map</a>');
+  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/\s—\s*(https?:\/\/\S+)/g,
+    ' — <a href="$1" target="_blank" rel="noopener">Map</a>');
   return s;
 }
 function paragraphHTML(raw) {
-  return String(raw||'').replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return String(raw||'').replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener">$1</a>');
 }
 function makeUL(items){
   const ul=document.createElement('ul');
@@ -53,7 +56,9 @@ async function loadGuest(langOpt){
       card.appendChild(div);
     }
     else if(sec.type==='html'){
-      const d=document.createElement('div'); d.innerHTML=paragraphHTML(sec.content||''); card.appendChild(d);
+      const d=document.createElement('div');
+      d.innerHTML=paragraphHTML(sec.content||'');
+      card.appendChild(d);
     }
     else{
       const p=document.createElement('p'); p.textContent=sec.content||''; card.appendChild(p);
