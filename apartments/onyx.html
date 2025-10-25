@@ -17,10 +17,9 @@
   <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
-  <!-- AA CALENDAR: dodatni stil -->
   <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=1">
 
-  <!-- Turnstile callbacks (GLOBAL, prije app skripti) -->
+  <!-- Turnstile callbacks -->
   <script data-cfasync="false">
     window.cfStoreToken = function(token){
       var t = document.getElementById('cf-token');
@@ -36,9 +35,8 @@
 
   <!-- App scripts -->
   <script data-cfasync="false" src="/assets/js/i18n.js" defer></script>
-  <script data-cfasync="false" src="/assets/js/apt.js" defer></script>
+  <script data-cfasync="false" src="/assets/js/apt.js?v=20251025" defer></script>
   <script data-cfasync="false" src="/assets/js/contact-form.js" defer></script>
-  <!-- AA CALENDAR: komponenta -->
   <script data-cfasync="false" src="/assets/js/aa-calendar.js?v=1" defer></script>
 </head>
 
@@ -57,7 +55,7 @@
         <a href="/reviews.html">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN — usklađen s index.html -->
+      <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -85,7 +83,7 @@
       <h1>Onyx Apartment</h1>
       <p>Modern design, close to the sea, parking, fast Wi-Fi.</p>
       <div class="cta">
-        <a class="button" href="/index.html">Back to Home</a>
+        <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
       </div>
     </div>
   </section>
@@ -93,14 +91,14 @@
   <!-- DETAILS -->
   <section class="section">
     <div class="container">
-      <h2>Apartment details</h2>
+      <h2 data-i18n="details_h">Apartment details</h2>
       <div class="two-col two-col--boxed">
         <div class="col">
-          <h3>Description</h3>
+          <h3 data-i18n="desc_h">Description</h3>
           <div id="apt-desc"></div>
         </div>
         <div class="col">
-          <h3>Highlights</h3>
+          <h3 data-i18n="highlights_h">Highlights</h3>
           <ul class="highlights" id="apt-highlights"></ul>
         </div>
       </div>
@@ -110,21 +108,19 @@
   <!-- GALLERY -->
   <section class="section alt">
     <div class="container">
-      <h2>Gallery</h2>
+      <h2 data-i18n="gallery_h">Gallery</h2>
       <div class="gallery" id="apt-gallery"></div>
     </div>
   </section>
 
-<!-- AA CALENDAR: Availability (iznad kontakt forme) -->
-<section class="section">
-  <div class="container">
-    <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
-    <!-- Napomena iz JSON-a (apt.js puni .textContent ako availability_note postoji) -->
-    <p class="aa-cal-note" id="apt-availability-note"></p>
-
-    <div class="aa-ical-calendar aa-ical--compact" data-apt="onyx"></div>
-  </div>
-</section>
+  <!-- AVAILABILITY -->
+  <section class="section">
+    <div class="container">
+      <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
+      <p class="aa-cal-note" id="apt-availability-note"></p>
+      <div class="aa-ical-calendar aa-ical--compact" data-apt="onyx"></div>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <section class="section alt">
@@ -186,7 +182,6 @@
     </div>
   </section>
 
-  <!-- Turnstile (single include) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- FOOTER -->
@@ -212,26 +207,30 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // INIT: postavi locale za kalendar prema <html lang="">
+    // INIT: locale za kalendar
     document.addEventListener('DOMContentLoaded', () => {
-      var pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
-      document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
+      const pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+      document.querySelectorAll('.aa-ical-calendar').forEach(el => {
         if (!el.dataset.locale) el.dataset.locale = pageLang;
       });
     });
 
-    // HARMLESS PATCH: nakon promjene jezika preko i18n.js → update locale + rerender kalendara
+    // Patch za setLang → re-render kalendara i ponovni load apartmana
     (function patchSetLangForCalendar(){
       const orig = window.setLang;
       if (typeof orig !== 'function') return;
       window.setLang = async function(lc){
         const lang = (lc || 'en').toLowerCase();
-        await orig(lang); // i18n: prevede sadržaj + formu + apartment data
+        await orig(lang);
         try {
-          document.querySelectorAll('.aa-ical-calendar').forEach(function(el){
+          document.querySelectorAll('.aa-ical-calendar').forEach(el => {
             el.setAttribute('data-locale', lang);
           });
           if (window.AACalendarRerender) window.AACalendarRerender(lang);
+          const slug = document.body?.getAttribute('data-apt-slug');
+          if (slug && typeof window.loadApartment === 'function') {
+            await window.loadApartment(slug, lang);
+          }
         } catch(e){}
       };
     })();
