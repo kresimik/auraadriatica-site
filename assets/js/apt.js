@@ -8,14 +8,12 @@ async function loadApartment(slug, langOpt){
   const lang = (langOpt || localStorage.getItem("lang") || APT_DEFAULT_LANG).toLowerCase();
   const fall = APT_DEFAULT_LANG;
 
-  // ===== Path strategy (supports both old and new structure) =====
+  // ===== Prioritet: /content/apartments/{slug}/{lang}.json =====
   const tryUrls = [
-    `/content/${slugLc}/${lang}.json`,
-    `/content/${lang}.json`,
     `/content/apartments/${slugLc}/${lang}.json`,
-    `/content/${slugLc}/${fall}.json`,
-    `/content/${fall}.json`,
-    `/content/apartments/${slugLc}/${fall}.json`
+    `/content/apartments/${slugLc}/${fall}.json`,
+    `/content/${lang}.json`,
+    `/content/${fall}.json`
   ];
 
   let data = null, usedUrl = null;
@@ -69,10 +67,7 @@ async function loadApartment(slug, langOpt){
   setTxt("[data-i18n='highlights_h']",  data.highlights_h);
   setTxt("[data-i18n='gallery_h']",     data.gallery_h);
   setTxt("[data-i18n='contact_h']",     data.contact_h);
-
-  // Availability (iznad kalendara)
-  const availH = document.querySelector("[data-i18n='availability_h']");
-  if (availH && data.availability_h) availH.textContent = data.availability_h;
+  setTxt("[data-i18n='availability_h']", data.availability_h);
 
   const calNote = document.querySelector(".aa-cal-note, #apt-availability-note");
   if (calNote && typeof data.availability_note === "string") {
@@ -83,10 +78,10 @@ async function loadApartment(slug, langOpt){
   const descEl = document.getElementById("apt-desc");
   if (descEl){
     descEl.innerHTML = "";
-    let paragraphs = [];
-    if (Array.isArray(data.description)) paragraphs = data.description;
-    else if (typeof data.description === "string")
-      paragraphs = data.description.split(/\n\s*\n/);
+    let paragraphs = Array.isArray(data.description)
+      ? data.description
+      : (typeof data.description === "string"
+          ? data.description.split(/\n\s*\n/) : []);
     paragraphs
       .filter(p => p && String(p).trim() !== "")
       .forEach(p => {
@@ -136,30 +131,11 @@ async function loadApartment(slug, langOpt){
   }
 }
 
-// Global export
+// Global
 window.loadApartment = loadApartment;
 
 // Auto-init
 document.addEventListener("DOMContentLoaded", ()=>{
   const slug = document.body?.getAttribute("data-apt-slug");
   if (slug) loadApartment(slug);
-});
-
-// Zoho iframe auto-resize (ostavljeno radi kompatibilnosti)
-window.addEventListener("message", function (event) {
-  if (event.data && typeof event.data === "string" && event.data.indexOf("zf_height") > -1) {
-    try {
-      const parts = event.data.split("&");
-      const heightPart = parts.find(p => p.indexOf("zf_height") > -1);
-      if (heightPart) {
-        const newHeight = heightPart.split("=")[1];
-        const iframes = document.querySelectorAll("iframe[src*='zohopublic']");
-        iframes && iframes.forEach(frame => {
-          frame.style.height = newHeight + "px";
-        });
-      }
-    } catch (e) {
-      console.warn("Zoho resize error:", e);
-    }
-  }
 });
