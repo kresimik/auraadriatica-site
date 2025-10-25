@@ -1,0 +1,36 @@
+{
+  "page_title": "Onyx Apartman — Aura Adriatica",
+  "meta_desc": "Onyx apartman — modern, kétszintes szállás a tenger közelében, saját medencével, terasszal, kerttel és tengerre néző kilátással, grillezővel, teljesen felszerelt konyhával, minden helyiségben légkondicionálóval és privát parkolóval Lovranban, Opatija közelében.",
+  "title": "Onyx Apartman",
+  "intro": "Modern, kétszintes apartman a tenger közelében, saját medencével, terasszal, kerttel és tengerre néző kilátással.",
+  "desc_h": "Leírás",
+  "highlights_h": "Kiemelések",
+  "gallery_h": "Galéria",
+  "availability_h": "Elérhetőség",
+  "contact_h": "Kapcsolat",
+  "description": "Az Onyx apartman a modern dizájnt Lovran nyugodt környezetének bájával ötvözi. Az Olive apartman mellett található, mindössze 10 perc sétára az óvárostól és a híres Lungomare sétánytól. Saját medencéjével, napfényes teraszával és panorámás kilátásával a Kvarner-öbölre az Onyx tágas, világos és kényelmes szállást kínál akár 6 vendég számára. Ideális párok, családok vagy üzleti utazók számára. Mindössze 100 méterre a strandtól, kerttel, grillezővel és privát parkolóval — tökéletes választás pihenéshez vagy tengerparti távmunkához.",
+  "features": [
+    "🏊 Saját medence",
+    "🌅 Terasz kerttel és tengerre néző kilátással",
+    "🔥 Kültéri grill",
+    "🚗 Privát parkoló",
+    "🍳 Teljesen felszerelt konyha",
+    "❄️ Légkondicionáló minden helyiségben",
+    "📶 Gyors Wi-Fi"
+  ],
+  "gallery": [
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg",
+    "/assets/img/onyx5.jpg",
+    "/assets/img/onyx6.jpg"
+  ],
+  "availability_note": "Tekintse meg a naptárat az elérhető időpontokért. Foglaljon időben.",
+  "inquiry_h": "Érdeklődés",
+  "inquiry_note": "Küldje el a kívánt dátumokat, és válaszolunk az elérhetőséggel és árakkal.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+  "contact_note": "Érdekli az Onyx apartman? Küldje el érdeklődését:",
+  "contact_email": "info@auraadriatica.com",
+  "footer_note": "Boutique apartmanok az Opatija Riviérán — kényelem, design és tengerre néző kilátás."
+}
