@@ -8,13 +8,7 @@ async function loadApartment(slug, langOpt){
   const lang = (langOpt || localStorage.getItem("lang") || APT_DEFAULT_LANG).toLowerCase();
   const fall = APT_DEFAULT_LANG;
 
-  // ===== Robust path strategy =====
-  // 1) /content/{slug}/{lang}.json
-  // 2) /content/{lang}.json (global)
-  // 3) /content/apartments/{slug}/{lang}.json (legacy)
-  // 4) /content/{slug}/en.json
-  // 5) /content/en.json (global)
-  // 6) /content/apartments/{slug}/en.json (legacy)
+  // ===== Path strategy (supports both old and new structure) =====
   const tryUrls = [
     `/content/${slugLc}/${lang}.json`,
     `/content/${lang}.json`,
@@ -33,7 +27,6 @@ async function loadApartment(slug, langOpt){
         usedUrl = url;
         break;
       } else {
-        // 404 i slično uredno logiramo
         console.warn(`[apt] ${res.status} for ${url}`);
       }
     }catch(e){
@@ -59,55 +52,43 @@ async function loadApartment(slug, langOpt){
   }
 
   // ---------- HERO ----------
-  // H1 s data-i18n ostavljamo kao i prije
   const h1 = document.querySelector("h1[data-i18n], .hero h1");
   if (h1 && data.title) h1.textContent = data.title;
 
-  // Intro: prvo probaj stare data-i18n ključeve, inače uzmi prvi <section.hero> p
   let heroIntro =
     document.querySelector("[data-i18n='olive_intro'], [data-i18n='onyx_intro']") ||
     document.querySelector(".hero p");
   if (heroIntro && data.intro) heroIntro.textContent = data.intro;
 
-  // ---------- SECTION HEADINGS FROM APARTMENT JSON ----------
-  (function () {
-    const setTxt = (sel, val) => {
-      const el = document.querySelector(sel);
-      if (el && typeof val === "string" && val.trim() !== "") el.textContent = val;
-    };
-    setTxt("[data-i18n='desc_h']",        data.desc_h);
-    setTxt("[data-i18n='highlights_h']",  data.highlights_h);
-    setTxt("[data-i18n='gallery_h']",     data.gallery_h);
+  // ---------- HEADINGS ----------
+  const setTxt = (sel, val) => {
+    const el = document.querySelector(sel);
+    if (el && typeof val === "string" && val.trim() !== "") el.textContent = val;
+  };
+  setTxt("[data-i18n='desc_h']",        data.desc_h);
+  setTxt("[data-i18n='highlights_h']",  data.highlights_h);
+  setTxt("[data-i18n='gallery_h']",     data.gallery_h);
+  setTxt("[data-i18n='contact_h']",     data.contact_h);
 
-    // inquiry h2 po id-u (ako ga koristiš na nekoj stranici)
-    const iqH = document.getElementById("apt-inquiry-h");
-    if (iqH && data.inquiry_h) iqH.textContent = data.inquiry_h;
+  // Availability (iznad kalendara)
+  const availH = document.querySelector("[data-i18n='availability_h']");
+  if (availH && data.availability_h) availH.textContent = data.availability_h;
 
-    setTxt("[data-i18n='contact_h']",     data.contact_h);
-
-    // Availability heading je pokriven preko i18n.js (data-i18n="availability_h"),
-    // ovdje nije potrebno ništa dodatno.
-    // Ako želiš notu iz JSON-a prikazati iznad kalendara:
-    const calNote = document.querySelector(".aa-cal-note");
-    if (calNote && typeof data.availability_note === "string") {
-      calNote.textContent = data.availability_note;
-    }
-  })();
+  const calNote = document.querySelector(".aa-cal-note, #apt-availability-note");
+  if (calNote && typeof data.availability_note === "string") {
+    calNote.textContent = data.availability_note;
+  }
 
   // ---------- DESCRIPTION ----------
   const descEl = document.getElementById("apt-desc");
   if (descEl){
     descEl.innerHTML = "";
-
     let paragraphs = [];
-    if (Array.isArray(data.description)) {
-      paragraphs = data.description;
-    } else if (typeof data.description === "string") {
-      // razbij u paragrafe po praznim linijama
+    if (Array.isArray(data.description)) paragraphs = data.description;
+    else if (typeof data.description === "string")
       paragraphs = data.description.split(/\n\s*\n/);
-    }
     paragraphs
-      .filter(p => p != null && String(p).trim() !== "")
+      .filter(p => p && String(p).trim() !== "")
       .forEach(p => {
         const el = document.createElement("p");
         el.textContent = String(p).trim();
@@ -115,7 +96,7 @@ async function loadApartment(slug, langOpt){
       });
   }
 
-  // ---------- HIGHLIGHTS / FEATURES ----------
+  // ---------- FEATURES ----------
   const feats = Array.isArray(data.features) ? data.features : [];
   const list = document.getElementById("apt-highlights");
   if (list){
@@ -143,82 +124,28 @@ async function loadApartment(slug, langOpt){
     }
   }
 
-  // ---------- INQUIRY (Zoho) ----------
-  const iqWrap = document.getElementById("apt-inquiry-wrap");
-  const iqNote = document.getElementById("apt-inquiry-note");
-  const iqBox  = document.getElementById("apt-inquiry");
-
-  if (iqWrap && iqBox){
-    const url =
-      data[`inquiry_url_${lang}`] ||
-      data.inquiry_url_en ||
-      data.inquiry_url ||
-      null;
-
-    if (url){
-      if (data.inquiry_note && iqNote) iqNote.textContent = data.inquiry_note;
-      iqWrap.style.display = "";
-      iqBox.innerHTML = "";
-      const iframe = document.createElement("iframe");
-      iframe.setAttribute("aria-label", `${(data.title || slugLc)} Inquiry`);
-      iframe.src = url;
-      iframe.loading = "lazy";
-      iframe.style.width  = "100%";
-      iframe.style.minHeight = "500px";
-      iframe.style.border = "none";
-      iqBox.appendChild(iframe);
-    } else {
-      iqWrap.style.display = "none";
-      iqBox.innerHTML = "";
-    }
-  }
-
   // ---------- CONTACT ----------
-  (function(){
-    const wrap   = document.getElementById("apt-contact-wrap");
-    const mailEl = document.getElementById("apt-contact-email");
-    if (!wrap && !mailEl) return;
-
-    try {
-      const email =
-        data[`contact_email_${lang}`] ||
-        data.contact_email ||
-        "info@auraadriatica.com";
-
-      if (mailEl) {
-        mailEl.setAttribute("href", `mailto:${email}`);
-        mailEl.textContent = email;
-      }
-      if (wrap) wrap.style.display = "";
-    } catch (e) {
-      console.warn("[apt] contact fill error", e);
-    }
-  })();
-
-  // ---------- CALENDAR (legacy iframe podrška ako koristiš negdje) ----------
-  const calWrap = document.getElementById("apt-calendar-wrap");
-  const calIframe = document.getElementById("apt-calendar");
-  if (calIframe){
-    if (data.calendar){
-      calIframe.src = data.calendar;
-      if (calWrap) calWrap.style.display = "";
-    } else {
-      if (calWrap) calWrap.style.display = "none";
-      calIframe.removeAttribute("src");
-    }
+  const mailEl = document.getElementById("apt-contact-email");
+  if (mailEl){
+    const email =
+      data[`contact_email_${lang}`] ||
+      data.contact_email ||
+      "info@auraadriatica.com";
+    mailEl.setAttribute("href", `mailto:${email}`);
+    mailEl.textContent = email;
   }
 }
 
-// Global
+// Global export
 window.loadApartment = loadApartment;
 
-// Init
+// Auto-init
 document.addEventListener("DOMContentLoaded", ()=>{
   const slug = document.body?.getAttribute("data-apt-slug");
   if (slug) loadApartment(slug);
 });
 
-// === Auto-resize Zoho iframes ===
+// Zoho iframe auto-resize (ostavljeno radi kompatibilnosti)
 window.addEventListener("message", function (event) {
   if (event.data && typeof event.data === "string" && event.data.indexOf("zf_height") > -1) {
     try {
