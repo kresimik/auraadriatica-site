@@ -116,14 +116,17 @@
     </div>
   </section>
 
-  <!-- AA CALENDAR: Availability (iznad kontakt forme) -->
-  <section class="section">
-    <div class="container">
-      <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
-      <!-- locale se postavlja na temelju <html lang>, vidi skriptu dolje -->
-      <div class="aa-ical-calendar aa-ical--compact" data-apt="olive"></div>
-    </div>
-  </section>
+<!-- AA CALENDAR: Availability (iznad kontakt forme) -->
+<section class="section">
+  <div class="container">
+    <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
+    <!-- Napomena iz JSON-a (apt.js puni .textContent ako availability_note postoji) -->
+    <p class="aa-cal-note" id="apt-availability-note"></p>
+
+    <!-- locale se postavlja na temelju <html lang>, vidi skriptu dolje -->
+    <div class="aa-ical-calendar aa-ical--compact" data-apt="olive"></div>
+  </div>
+</section>
 
   <!-- CONTACT -->
   <section class="section alt">
