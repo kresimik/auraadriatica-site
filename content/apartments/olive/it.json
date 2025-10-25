@@ -1,16 +1,23 @@
 {
   "page_title": "Appartamento Olive — Aura Adriatica",
-  "meta_desc": "Appartamento Olive — luminoso duplex con piscina privata, terrazza con giardino e vista mare, barbecue, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
+  "meta_desc": "Appartamento Olive — luminoso duplex con piscina privata, terrazza con giardino e vista mare, BBQ, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
   "title": "Appartamento Olive",
-  "intro": "Luminoso duplex con piscina privata, terrazza, giardino e vista mare.",
-  "description": "L’Appartamento Olive offre un alloggio luminoso e spazioso in una zona tranquilla di Lovran, a soli 10 minuti a piedi dal centro e dalla famosa passeggiata Lungomare. Con terrazza soleggiata e piscina privata con vista sulla Baia del Quarnero, garantisce comfort moderno, molta luce naturale e spazio per fino a 6 ospiti.\nSituato a soli 100 metri dalla spiaggia e dotato di barbecue e parcheggio privato, Olive è perfetto sia per vacanze rilassanti che per lavorare da remoto vicino al mare.",
+  "intro": "Duplex soleggiato con piscina privata, terrazza, giardino e vista mare.",
+  "details_h": "Dettagli dell'appartamento",
+  "desc_h": "Descrizione",
+  "highlights_h": "Punti forti",
+  "gallery_h": "Galleria",
+  "availability_h": "Disponibilità",
+  "contact_h": "Contatto",
+  "description": "L’Appartamento Olive offre un rifugio luminoso e spazioso in una zona tranquilla di Lovran, a soli 10 minuti dal centro e dalla famosa passeggiata Lungomare. Con terrazza soleggiata e piscina privata con vista sul Quarnero, offre comfort moderno, molta luce naturale e alloggio per fino a 6 ospiti. A soli 100 metri dalla spiaggia, con area BBQ e parcheggio privato — perfetto per vacanze rilassanti o lavoro da remoto sul mare.",
   "features": [
     "🏊 Piscina privata",
     "🌅 Terrazza con giardino e vista mare",
-    "🔥 Barbecue esterno",
+    "🔥 Area BBQ esterna",
     "🚗 Parcheggio privato",
     "🍳 Cucina completamente attrezzata",
-    "❄️ Aria condizionata in tutte le stanze"
+    "❄️ Aria condizionata in tutte le stanze",
+    "📶 Wi-Fi veloce"
   ],
   "gallery": [
     "/assets/img/olive1.jpg",
@@ -20,14 +27,11 @@
     "/assets/img/olive5.jpg",
     "/assets/img/olive6.jpg"
   ],
-  "inquiry_h": "Disponibilità & Richiesta",
-  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e prezzi.",
-  "inquiry_url_it": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/example",
-  "contact_h": "Contatto",
-  "contact_note_it": "Interessati all’Appartamento Olive? Inviaci la tua richiesta direttamente:",
+  "availability_note": "Controlla il calendario per le date disponibili. Prenota in anticipo.",
+  "inquiry_h": "Richiesta",
+  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e tariffe.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "contact_note": "Interessato all’Appartamento Olive? Inviaci la tua richiesta:",
   "contact_email": "info@auraadriatica.com",
-
-  "desc_h": "Descrizione",
-  "highlights_h": "Caratteristiche",
-  "gallery_h": "Galleria"
+  "footer_note": "Appartamenti boutique sulla Riviera di Opatija — comfort, design e vista mare."
 }

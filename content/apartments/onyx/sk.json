@@ -1,0 +1,37 @@
+{
+  "page_title": "Apartmán Onyx — Aura Adriatica",
+  "meta_desc": "Apartmán Onyx — moderný mezonet pri mori so súkromným bazénom, terasou so záhradou a výhľadom na more, grilom, plne vybavenou kuchyňou, klimatizáciou vo všetkých miestnostiach a súkromným parkovaním v Lovrane pri Opatiji.",
+  "title": "Apartmán Onyx",
+  "intro": "Moderný mezonet pri mori so súkromným bazénom, terasou, záhradou a výhľadom na more.",
+  "desc_h": "Opis",
+  "details_h": "Podrobnosti apartmánu",
+  "highlights_h": "Prednosti",
+  "gallery_h": "Galéria",
+  "availability_h": "Dostupnosť",
+  "contact_h": "Kontakt",
+  "description": "Apartmán Onyx spája moderný dizajn s pôvabom pokojného prostredia Lovranu. Nachádza sa vedľa apartmánu Olive, iba 10 minút od centra mesta a známej promenády Lungomare. Súkromný bazén, slnečná terasa a panoramatický výhľad na Kvarnerský záliv poskytujú moderný komfort a priestor pre až 6 hostí. Ideálny pre páry, rodiny aj služobné cesty. Len 100 metrov od pláže, so záhradou, grilom a súkromným parkovaním — ideálne pre oddych alebo prácu na diaľku pri mori.",
+  "features": [
+    "🏊 Súkromný bazén",
+    "🌅 Terasa so záhradou a výhľadom na more",
+    "🔥 Vonkajší gril",
+    "🚗 Súkromné parkovanie",
+    "🍳 Plne vybavená kuchyňa",
+    "❄️ Klimatizácia vo všetkých miestnostiach",
+    "📶 Rýchle Wi-Fi"
+  ],
+  "gallery": [
+    "/assets/img/onyx1.jpg",
+    "/assets/img/onyx2.jpg",
+    "/assets/img/onyx3.jpg",
+    "/assets/img/onyx4.jpg",
+    "/assets/img/onyx5.jpg",
+    "/assets/img/onyx6.jpg"
+  ],
+  "availability_note": "Skontrolujte kalendár pre voľné termíny. Odporúčame skorú rezerváciu.",
+  "inquiry_h": "Dopyt",
+  "inquiry_note": "Pošlite nám požadované dátumy a odpovieme dostupnosťou a cenou.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+  "contact_note": "Zaujíma vás apartmán Onyx? Pošlite nám dopyt:",
+  "contact_email": "info@auraadriatica.com",
+  "footer_note": "Butikové apartmány na Opatijskej riviére — komfort, dizajn a výhľad na more."
+}

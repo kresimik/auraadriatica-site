@@ -236,6 +236,14 @@ body[data-apt-slug="onyx"]  .aa-cal-title { color: var(--brand-onyx); }
   box-shadow: 0 2px 8px rgba(10,26,47,.08);
 }
 
+/* Availability note (iznad kalendara) */
+.aa-cal-note{
+  margin: .25rem 0 1rem;
+  color: var(--muted, #667085);
+  font-size: .98rem;
+  line-height: 1.5;
+}
+
 /* =========================
    LEGEND – dodaj i "Available"
    ========================= */

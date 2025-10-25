@@ -1,16 +1,23 @@
 {
   "page_title": "Appartamento Onyx — Aura Adriatica",
-  "meta_desc": "Appartamento Onyx — moderno duplex vicino al mare con piscina privata, terrazza con giardino e vista mare, barbecue, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
+  "meta_desc": "Appartamento Onyx — moderno duplex vicino al mare con piscina privata, terrazza con giardino e vista mare, BBQ, cucina completamente attrezzata, aria condizionata in tutte le stanze e parcheggio privato a Lovran vicino a Opatija.",
   "title": "Appartamento Onyx",
-  "intro": "Duplex moderno vicino al mare con piscina privata, terrazza, giardino e vista mare.",
-  "description": "L’Appartamento Onyx combina design moderno con il fascino di Lovran. Situato accanto all’appartamento Olive, si trova a soli 10 minuti dal centro storico e dalla famosa passeggiata Lungomare. Con piscina privata, terrazza soleggiata e vista panoramica sul Quarnero, Onyx offre ampi spazi, luce naturale e alloggio per fino a 6 ospiti.\nPerfetto per coppie, famiglie o viaggiatori d’affari, Onyx garantisce un’atmosfera moderna e rilassante. A soli 100 metri dalla spiaggia, con giardino privato, area barbecue e parcheggio custodito, è la scelta ideale per una vacanza o per lavorare in remoto vicino al mare.",
+  "intro": "Moderno duplex vicino al mare con piscina privata, terrazza, giardino e vista mare.",
+  "details_h": "Dettagli dell'appartamento",
+  "desc_h": "Descrizione",
+  "highlights_h": "Punti forti",
+  "gallery_h": "Galleria",
+  "availability_h": "Disponibilità",
+  "contact_h": "Contatto",
+  "description": "L’Appartamento Onyx unisce design moderno e il fascino della zona tranquilla di Lovran. Situato accanto all’Appartamento Olive, dista solo 10 minuti dal centro storico e dalla famosa passeggiata Lungomare. Con piscina privata, terrazza soleggiata e vista panoramica sul Golfo del Quarnero, offre comfort moderno e spazio per fino a 6 ospiti. Ideale per coppie, famiglie o viaggi di lavoro. A soli 100 metri dalla spiaggia, con giardino, area BBQ e parcheggio privato — perfetto per vacanze o smart working vista mare.",
   "features": [
     "🏊 Piscina privata",
     "🌅 Terrazza con giardino e vista mare",
-    "🔥 Barbecue esterno",
+    "🔥 Area BBQ esterna",
     "🚗 Parcheggio privato",
     "🍳 Cucina completamente attrezzata",
-    "❄️ Aria condizionata in tutte le stanze"
+    "❄️ Aria condizionata in tutte le stanze",
+    "📶 Wi-Fi veloce"
   ],
   "gallery": [
     "/assets/img/onyx1.jpg",
@@ -20,14 +27,11 @@
     "/assets/img/onyx5.jpg",
     "/assets/img/onyx6.jpg"
   ],
-  "inquiry_h": "Disponibilità & Richiesta",
-  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e prezzi.",
-  "inquiry_url_it": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/example",
-  "contact_h": "Contatto",
-  "contact_note_it": "Interessati all’Appartamento Onyx? Inviaci la tua richiesta direttamente:",
+  "availability_note": "Controlla il calendario per le date disponibili. Prenota in anticipo.",
+  "inquiry_h": "Richiesta",
+  "inquiry_note": "Inviaci le date desiderate e ti risponderemo con disponibilità e tariffe.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+  "contact_note": "Interessato all’Appartamento Onyx? Inviaci la tua richiesta:",
   "contact_email": "info@auraadriatica.com",
-
-  "desc_h": "Descrizione",
-  "highlights_h": "Caratteristiche",
-  "gallery_h": "Galleria"
+  "footer_note": "Appartamenti boutique sulla Riviera di Opatija — comfort, design e vista mare."
 }

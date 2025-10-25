@@ -1,0 +1,37 @@
+{
+  "page_title": "Olive Apartman — Aura Adriatica",
+  "meta_desc": "Olive apartman — világos, kétszintes szállás saját medencével, terasszal, kerttel és tengerre néző kilátással, grillezővel, teljesen felszerelt konyhával, minden helyiségben légkondicionálóval és privát parkolóval Lovranban, Opatija közelében.",
+  "title": "Olive Apartman",
+  "intro": "Napfényes kétszintes apartman saját medencével, terasszal, kerttel és tengerre néző kilátással.",
+  "details_h": "Apartman részletei",
+  "desc_h": "Leírás",
+  "highlights_h": "Kiemelések",
+  "gallery_h": "Galéria",
+  "availability_h": "Elérhetőség",
+  "contact_h": "Kapcsolat",
+  "description": "Az Olive apartman világos és tágas pihenőhely Lovran csendes részén, mindössze 10 percnyire a központtól és a híres Lungomare sétánytól. Napos terasszal és saját medencével, kilátással a Kvarner-öbölre modern kényelmet, sok természetes fényt és akár 6 vendég számára szállást kínál. A strandtól mindössze 100 méterre, grillezővel és privát parkolóval — tökéletes pihenéshez vagy távmunkához a tenger mellett.",
+  "features": [
+    "🏊 Saját medence",
+    "🌅 Terasz kerttel és tengerre néző kilátással",
+    "🔥 Kültéri grill",
+    "🚗 Privát parkoló",
+    "🍳 Teljesen felszerelt konyha",
+    "❄️ Légkondicionáló minden helyiségben",
+    "📶 Gyors Wi-Fi"
+  ],
+  "gallery": [
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg",
+    "/assets/img/olive5.jpg",
+    "/assets/img/olive6.jpg"
+  ],
+  "availability_note": "Nézze meg a naptárt a szabad időpontokért. Foglaljon időben.",
+  "inquiry_h": "Érdeklődés",
+  "inquiry_note": "Küldje el a kívánt dátumokat, és válaszolunk az elérhetőséggel és árakkal.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "contact_note": "Érdekli az Olive apartman? Küldje el érdeklődését:",
+  "contact_email": "info@auraadriatica.com",
+  "footer_note": "Boutique apartmanok az Opatija Riviérán — kényelem, design és tengerre néző kilátás."
+}
