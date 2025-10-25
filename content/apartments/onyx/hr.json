@@ -1,16 +1,22 @@
 {
   "page_title": "Apartman Onyx — Aura Adriatica",
-  "meta_desc": "Apartman Onyx — moderan dvoetažni stan uz more s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimom u svim prostorijama i privatnim parkingom u Lovranu kraj Opatije.",
+  "meta_desc": "Apartman Onyx — moderan dvoetažni apartman u blizini mora s privatnim bazenom, terasom s vrtom i pogledom na more, roštiljem, potpuno opremljenom kuhinjom, klimom u svim prostorijama i privatnim parkingom u Lovranu kraj Opatije.",
   "title": "Apartman Onyx",
   "intro": "Moderan dvoetažni apartman uz more s privatnim bazenom, terasom, vrtom i pogledom na more.",
-  "description": "Apartman Onyx spaja moderan dizajn s mirom Lovrana. Smješten pored apartmana Olive, udaljen je samo 10 minuta hoda od starog grada i poznate šetnice Lungomare. Sa svojim privatnim bazenom, sunčanom terasom i panoramskim pogledom na Kvarnerski zaljev, Onyx nudi mnogo prostora, prirodnog svjetla i smještaj za do 6 gostiju.\nSavršen za parove, obitelji ili poslovne putnike, Onyx pruža opuštenu, ali modernu atmosferu. Samo 100 metara od plaže, s privatnim vrtom, roštiljem i osiguranim parkingom, idealan je izbor za odmor ili rad na daljinu uz more.",
+  "desc_h": "Opis",
+  "highlights_h": "Istaknuto",
+  "gallery_h": "Galerija",
+  "availability_h": "Raspoloživost",
+  "contact_h": "Kontakt",
+  "description": "Apartman Onyx spaja moderan dizajn i šarm mirnog dijela Lovrana. Smješten uz Apartman Olive, udaljen je svega 10 minuta od starog grada i šetnice Lungomare. Sa svojim privatnim bazenom, osunčanom terasom i panoramskim pogledom na Kvarnerski zaljev, Onyx nudi prostranost, puno prirodnog svjetla i smještaj do 6 gostiju. Idealan za parove, obitelji ili poslovne putnike, Onyx pruža opuštajuću, ali modernu atmosferu za vaš boravak. Udaljen je samo 100 metara od plaže, ima vrt, roštilj i osigurano parkiralište — savršen izbor za odmor ili rad uz more.",
   "features": [
     "🏊 Privatni bazen",
     "🌅 Terasa s vrtom i pogledom na more",
     "🔥 Vanjski roštilj",
     "🚗 Privatni parking",
     "🍳 Potpuno opremljena kuhinja",
-    "❄️ Klima u svim prostorijama"
+    "❄️ Klima u svim prostorijama",
+    "📶 Brzi Wi-Fi"
   ],
   "gallery": [
     "/assets/img/onyx1.jpg",
@@ -20,14 +26,11 @@
     "/assets/img/onyx5.jpg",
     "/assets/img/onyx6.jpg"
   ],
-  "inquiry_h": "Dostupnost i upit",
-  "inquiry_note": "Pošaljite nam željene datume, a mi ćemo vam odgovoriti s dostupnošću i cijenom.",
-  "inquiry_url_hr": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/example",
-  "contact_h": "Kontakt",
-  "contact_note_hr": "Zanima vas apartman Onyx? Pošaljite nam svoj upit izravno:",
+  "availability_note": "Provjerite kalendar za slobodne datume. Preporučujemo ranu rezervaciju.",
+  "inquiry_h": "Upit",
+  "inquiry_note": "Pošaljite željene datume, a mi ćemo odgovoriti s raspoloživošću i cijenom.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
+  "contact_note": "Zanima vas Apartman Onyx? Pošaljite nam upit:",
   "contact_email": "info@auraadriatica.com",
-
-  "desc_h": "Opis",
-  "highlights_h": "Glavne značajke",
-  "gallery_h": "Galerija"
+  "footer_note": "Boutique apartmani na Opatijskoj rivijeri — udobnost, dizajn i pogled na more."
 }
