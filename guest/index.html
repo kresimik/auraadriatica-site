@@ -5,285 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Guest Information — Aura Adriatica</title>
   <meta name="robots" content="noindex,nofollow" />
-  <meta name="description" content="Useful insider information for your stay at Aura Adriatica Apartments." />
 
-  <!-- Base site styles -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=guest-clean-1">
-
-  <!-- Page-local styles (light only) -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=guest-final">
   <style>
-    :root{
-      --g-bg:#ffffff;
-      --g-text:#263248;
-      --g-muted:#6d7a92;
-      --g-accent:#2a7be4;
-      --g-border:#e6ecf6;
-      --g-card:#ffffff;
-      --g-shadow:0 10px 26px rgba(10,26,47,.07);
-      --g-pill:#edf4ff;
-      --g-pill-text:#225fb8;
-    }
-
-    body.guest{ background:var(--g-bg); color:var(--g-text); }
-
-    /* HERO */
-    .hero{
-      min-height: 280px;
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      border-bottom:1px solid var(--g-border);
-    }
-    .hero .hero-center{ padding: 70px 0 56px; }
-    .hero h1{
-      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight: 700; letter-spacing:.2px;
-      color:#fff; margin-bottom:.35rem;
-    }
-    .hero p{ color:#f2f6ff; opacity:.95; }
-
-    /* Quickbar */
-    .quickbar{
-      display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top: 16px;
-    }
-    .qb-pill{
-      display:inline-flex; align-items:center; gap:.55rem;
-      padding:.55rem .9rem; border-radius:999px;
-      background:var(--g-pill); color:var(--g-pill-text);
-      border:1px solid var(--g-border); text-decoration:none; font-weight:700;
-      transition: transform .12s ease, background .2s ease;
-    }
-    .qb-pill:hover{ transform: translateY(-1px); }
-
-    /* Grid */
-    .info-grid{
-      display:grid; gap:22px; margin-top:26px;
-      grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
-    }
-
-    /* Card */
-    .info-section{
-      background:var(--g-card);
-      border:1px solid var(--g-border);
-      border-radius:14px;
-      box-shadow:var(--g-shadow);
-      padding:18px 18px 16px;
-    }
-    .info-section h3{
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      font-weight:700; font-size:1.08rem; line-height:1.2;
-      color:var(--g-accent); margin:0 0 .75rem;
-    }
-    .info-section p{ margin:.45rem 0; color:var(--g-text); }
-    .info-section ul{ margin:.25rem 0; padding-left:1.15rem; color:var(--g-text); }
-    .muted{ color:var(--g-muted); }
-
-    /* Wi-Fi block */
-    .wifi-flex{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap; }
-    .wifi-text{ flex:1 1 260px; }
-    .kv{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .kv code{
-      background:#f7faff;
-      border:1px solid var(--g-border);
-      padding:.35rem .55rem; border-radius:10px; font-weight:700;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      color:#1e57a8;
-    }
-    .copy-btn{
-      border:1px solid var(--g-border); background:#fff; color:var(--g-accent);
-      padding:.34rem .6rem; border-radius:10px; cursor:pointer; font-weight:700;
-    }
-    .copy-btn:hover{ background:#f5f8ff; }
-
-    .wifi-qr img{
-      display:block;
-      width:140px; height:auto;
-      border-radius:10px;
-      border:1px solid var(--g-border);
-      box-shadow:0 6px 16px rgba(10,26,47,.08);
-      background:#fff;
-    }
-
-    /* Helpers */
-    .centered { text-align:center; }
-    .spacious { margin-top: 6px; }
-
-    /* Print */
-    @media print{
-      header.site-header, .quickbar, .lang-dropdown, footer.site-footer { display:none !important; }
-      .hero{ background:none !important; min-height:auto; border:0; }
-      .hero .hero-center{ padding:0; }
-      .info-section{ box-shadow:none; }
-    }
+    body.guest{background:#fff;color:#2e3b4e;font-family:Roboto,Arial,sans-serif;}
+    .hero{background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.35)),url('/assets/img/guest-hero.jpg') center/cover no-repeat;
+          text-align:center;padding:70px 0 60px;}
+    .hero h1{color:#fff;margin-bottom:.5rem;font-family:Poppins;font-size:2rem;}
+    .hero p{color:#e6efff;font-size:1.05rem;max-width:640px;margin:auto;}
+    .info-grid{display:grid;gap:22px;margin-top:30px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+    .info-section{background:#fff;border:1px solid #e6ecf6;border-radius:14px;padding:18px 20px;box-shadow:0 8px 20px rgba(0,0,0,.05);}
+    .info-section h3{font-family:Poppins;font-size:1.1rem;font-weight:700;color:#2a7be4;margin:0 0 .7rem;}
+    .info-section p,.info-section li{line-height:1.45;color:#2e3b4e;}
+    .wifi-qr img{max-width:140px;border-radius:10px;border:1px solid #e6ecf6;}
   </style>
 
-  <!-- i18n + page logic -->
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/guest.js?v=clean-1" defer></script>
+  <script src="/assets/js/guest.js?v=final-clean" defer></script>
 </head>
-
 <body class="guest">
-  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
-      <a href="/" class="logo" aria-label="Aura Adriatica — home">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica logo">
-      </a>
-      <nav class="main-nav" aria-label="Primary">
-        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-        <a href="/explore.html" data-i18n="explore">Explore</a>
-        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-      </nav>
-
-      <!-- LANGUAGE -->
-      <div class="lang-dropdown" id="lang-dd">
-        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
-          <span id="cur-lang">EN</span> ▾
-        </button>
-        <div class="lang-menu" id="lang-menu" role="menu" hidden>
-          <button data-lang="hr">HR</button>
-          <button data-lang="en" class="active">EN</button>
-          <button data-lang="de">DE</button>
-          <button data-lang="it">IT</button>
-          <button data-lang="sl">SL</button>
-          <button data-lang="hu">HU</button>
-          <button data-lang="cs">CS</button>
-          <button data-lang="sk">SK</button>
-          <button data-lang="uk">UK</button>
-        </div>
-      </div>
+      <a href="/" class="logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo"/></a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" style="
-    background-image:
-      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url('/assets/img/guest-hero.jpg');">
+  <section class="hero">
     <div class="container hero-center">
-      <h1 id="guest-h1">Guest & Local Information</h1>
-      <p id="guest-sub" class="muted">Practical details, Wi-Fi, arrival info, and local tips for your stay.</p>
-
-      <!-- Quickbar -->
-      <div class="quickbar" aria-label="Quick links">
-        <a class="qb-pill" href="#wifi">📶 Wi-Fi</a>
-        <a class="qb-pill" href="#parking">🅿️ Parking</a>
-        <a class="qb-pill" href="#bins">🗑️ Bins</a>
-        <a class="qb-pill" href="#emergency">🚑 Emergency</a>
-      </div>
+      <h1 id="guest-h1">Guest Information</h1>
+      <p id="guest-sub">Useful insider information for your stay.</p>
     </div>
   </section>
 
-  <!-- CONTENT -->
   <section class="section">
     <div class="container">
-      <!-- Wi-Fi -->
-      <div class="info-section" id="wifi">
-        <h3>Wi-Fi</h3>
-        <div class="wifi-flex">
-          <div class="wifi-text">
-            <p class="kv"><strong>SSID:</strong>
-              <code id="wifi-ssid">AuraAdriatica</code>
-              <button class="copy-btn" data-copy="#wifi-ssid">Copy</button></p>
-
-            <p class="kv"><strong>Password:</strong>
-              <code id="wifi-pass">your-strong-pass</code>
-              <button class="copy-btn" data-copy="#wifi-pass">Copy</button></p>
-
-            <p class="muted spacious">Scan the QR code to join instantly.</p>
-          </div>
-          <div class="wifi-qr">
-            <!-- Provjeri da slika zaista postoji na ovoj putanji -->
-            <img id="wifi-qr" src="/assets/img/qr-wifi.png" alt="Wi-Fi QR code">
-          </div>
-        </div>
-      </div>
-
-      <!-- Parking -->
-      <div class="info-section" id="parking">
-        <h3>Parking</h3>
-        <p class="muted">Private parking spots are available on site. Please park within marked lines.</p>
-      </div>
-
-      <!-- Bins -->
-      <div class="info-section" id="bins">
-        <h3>Bins & Recycling</h3>
-        <ul>
-          <li>Mixed waste — green bin</li>
-          <li>Paper — blue bin</li>
-          <li>Plastic/metal — yellow bin</li>
-          <li>Glass — dedicated container by the street</li>
-        </ul>
-      </div>
-
-      <!-- Emergency -->
-      <div class="info-section" id="emergency">
-        <h3>Emergency</h3>
-        <p><strong>112</strong> — General emergency (multi-language)</p>
-        <p><strong>194</strong> — Ambulance &nbsp;•&nbsp; <strong>193</strong> — Fire &nbsp;•&nbsp; <strong>192</strong> — Police</p>
-      </div>
-
-      <!-- Dinamične sekcije (iz guest.js) -->
       <div id="guest-sections" class="info-grid"></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <a href="/" class="footer-logo">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica logo">
-      </a>
-      <nav class="footer-nav">
-        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-        <a href="/explore.html" data-i18n="explore">Explore</a>
-        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
-      </nav>
+      <a href="/" class="footer-logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo" /></a>
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
         <p>&copy; <span id="year"></span> Aura Adriatica</p>
       </div>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-  <!-- Small UX helpers -->
-  <script>
-    // Language switch → i18n + reload guest JSON
-    document.addEventListener('click', async (e)=>{
-      const btn = e.target.closest('.lang-menu button[data-lang]');
-      if(!btn) return;
-      const lang = btn.dataset.lang;
-      localStorage.setItem('lang', lang);
-      if (typeof window.setLang === 'function') await window.setLang(lang);
-      if (typeof window.loadGuest === 'function') await window.loadGuest(lang);
-    });
-
-    // Copy buttons (SSID/Pass)
-    document.addEventListener('click', async (e)=>{
-      const b = e.target.closest('.copy-btn'); if(!b) return;
-      const sel = b.getAttribute('data-copy'); const el = sel && document.querySelector(sel);
-      if (!el) return;
-      try{
-        await navigator.clipboard.writeText(el.textContent.trim());
-        const old = b.textContent; b.textContent = 'Copied!'; setTimeout(()=> b.textContent = old, 1200);
-      }catch{}
-    });
-
-    // Smooth anchors (quickbar)
-    document.addEventListener('click', (e)=>{
-      const a = e.target.closest('a[href^="#"]'); if(!a) return;
-      const id = a.getAttribute('href').slice(1);
-      const tgt = document.getElementById(id);
-      if (!tgt) return;
-      e.preventDefault();
-      tgt.scrollIntoView({ behavior:'smooth', block:'start' });
-      history.replaceState(null, '', '#'+id);
-    });
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
