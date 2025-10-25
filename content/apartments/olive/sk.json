@@ -1,0 +1,36 @@
+{
+  "page_title": "Apartmán Olive — Aura Adriatica",
+  "meta_desc": "Apartmán Olive — svetlý mezonet so súkromným bazénom, terasou so záhradou a výhľadom na more, grilom, plne vybavenou kuchyňou, klimatizáciou vo všetkých miestnostiach a súkromným parkovaním v Lovrane pri Opatiji.",
+  "title": "Apartmán Olive",
+  "intro": "Slnečný mezonet so súkromným bazénom, terasou, záhradou a výhľadom na more.",
+  "desc_h": "Opis",
+  "highlights_h": "Prednosti",
+  "gallery_h": "Galéria",
+  "availability_h": "Dostupnosť",
+  "contact_h": "Kontakt",
+  "description": "Apartmán Olive ponúka svetlý a priestranný oddych v tichej časti Lovranu, len 10 minút od centra a známej promenády Lungomare. So slnečnou terasou a súkromným bazénom s výhľadom na Kvarnerský záliv poskytuje moderný komfort, veľa denného svetla a ubytovanie pre až 6 hostí. Len 100 metrov od pláže, s grilom a súkromným parkovaním — ideálne na relax alebo prácu na diaľku pri mori.",
+  "features": [
+    "🏊 Súkromný bazén",
+    "🌅 Terasa so záhradou a výhľadom na more",
+    "🔥 Vonkajší gril",
+    "🚗 Súkromné parkovanie",
+    "🍳 Plne vybavená kuchyňa",
+    "❄️ Klimatizácia vo všetkých miestnostiach",
+    "📶 Rýchle Wi-Fi"
+  ],
+  "gallery": [
+    "/assets/img/olive1.jpg",
+    "/assets/img/olive2.jpg",
+    "/assets/img/olive3.jpg",
+    "/assets/img/olive4.jpg",
+    "/assets/img/olive5.jpg",
+    "/assets/img/olive6.jpg"
+  ],
+  "availability_note": "Skontrolujte kalendár pre voľné termíny. Odporúčame skorú rezerváciu.",
+  "inquiry_h": "Dopyt",
+  "inquiry_note": "Pošlite nám požadované dátumy a odpovieme dostupnosťou a cenou.",
+  "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
+  "contact_note": "Zaujíma vás apartmán Olive? Pošlite nám dopyt:",
+  "contact_email": "info@auraadriatica.com",
+  "footer_note": "Butikové apartmány na Opatijskej riviére — komfort, dizajn a výhľad na more."
+}
