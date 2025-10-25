@@ -1,22 +1,26 @@
 {
   "page_title": "Olive Apartment — Aura Adriatica",
   "meta_desc": "Apartment Olive — bright duplex with private pool, terrace with garden and sea view, BBQ, fully equipped kitchen, air conditioning in all rooms, and private parking in Lovran near Opatija.",
+
   "title": "Olive Apartment",
   "intro": "Sunny duplex with private pool, terrace, garden, and sea view.",
+
   "desc_h": "Description",
   "highlights_h": "Highlights",
   "gallery_h": "Gallery",
-  "availability_h": "Availability & Inquiry",
+  "availability_h": "Availability",
   "contact_h": "Contact",
-  "description": "Apartment Olive offers a bright and spacious retreat in a quiet part of Lovran, just 10 minutes from the town center and the famous Lungomare promenade. With a sunny terrace and private pool overlooking Kvarner Bay, it provides modern comfort, plenty of natural light, and accommodation for up to 6 guests.\nLocated only 100 meters from the beach and equipped with a BBQ area and private parking, Olive is perfect for both relaxing holidays and remote work by the sea.",
+
+  "description": "Apartment Olive offers a bright and spacious retreat in a quiet part of Lovran, just 10 minutes from the town center and the famous Lungomare promenade. With a sunny terrace and private pool overlooking Kvarner Bay, it provides modern comfort, plenty of natural light, and accommodation for up to 6 guests. Located only 100 meters from the beach and equipped with a BBQ area and private parking, Olive is perfect for both relaxing holidays and remote work by the sea.",
 
   "features": [
     "🏊 Private pool",
     "🌅 Terrace with garden and sea view",
-    "🔥 Outdoor BBQ",
+    "🔥 Outdoor BBQ area",
     "🚗 Private parking",
     "🍳 Fully equipped kitchen",
-    "❄️ Air conditioning in all rooms"
+    "❄️ Air conditioning in all rooms",
+    "📶 Fast Wi-Fi"
   ],
 
   "gallery": [
@@ -28,9 +32,14 @@
     "/assets/img/olive6.jpg"
   ],
 
+  "availability_note": "Check the calendar below for available dates. Book early to secure your preferred stay.",
+
+  "inquiry_h": "Inquiry",
   "inquiry_note": "Send us your desired dates and we’ll reply with availability and rates.",
   "inquiry_url_en": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
 
-  "contact_note_en": "Interested in Apartment Olive? Send us your inquiry directly:",
-  "contact_email": "info@auraadriatica.com"
+  "contact_note": "Interested in Apartment Olive? Send us your inquiry directly:",
+  "contact_email": "info@auraadriatica.com",
+
+  "footer_note": "Boutique apartments on the Opatija Riviera — comfort, design, and sea views."
 }
