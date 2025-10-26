@@ -1,0 +1,84 @@
+{
+  "page_title": "Vendéginformációk — Aura Adriatica",
+  "hero_h": "Üdvözöljük, kedves vendégek",
+  "hero_p": "Hasznos tudnivalók az Aura Adriatica apartmanokban töltött tartózkodásához.",
+  "sections": [
+    {
+      "title": "Apartman címek",
+      "type": "list",
+      "items": [
+        "Onyx apartman: Rezine 7H, Lovran — [Térkép](https://www.google.com/maps/place/Rezine+7H,+Lovran)",
+        "Olive apartman: Rezine 7G, Lovran — [Térkép](https://www.google.com/maps/place/Rezine+7G,+Lovran)"
+      ]
+    },
+    {
+      "title": "Parkolás",
+      "type": "text",
+      "content": "Mindkét apartman előtt három privát parkolóhely található, amely kizárólag az Önök számára van fenntartva."
+    },
+    {
+      "title": "Biztonságos digitális kulcs",
+      "type": "text",
+      "content": "Az apartmanok digitális zárakkal vannak felszerelve PIN-kóddal. Érkezés előtt a kódot WhatsAppon, SMS-ben vagy e-mailben küldjük el."
+    },
+    {
+      "title": "Wi-Fi információk",
+      "type": "html",
+      "html_kind": "wifi",
+      "content": "Wi-Fi hálózat: **AuraAdriatica_Guest**, jelszó: **AuraA20&24!**<br>Vagy olvassa be a QR-kódot:",
+      "qr": "/assets/img/wifi-qr.png"
+    },
+    {
+      "title": "Vendégregisztráció",
+      "type": "html",
+      "content": "A horvát jogszabályoknak megfelelően minden vendéget regisztrálni kell. Kérjük, töltse ki adatait a [Vendégregisztrációs űrlapon](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."
+    },
+    {
+      "title": "Hulladékkezelés",
+      "type": "text",
+      "content": "Két kuka található: az egyik vegyes hulladéknak, a másik műanyagnak (a parkolóban). Kulcs: Onyx — a bejárati ajtó jobb oldalán lévő polcon; Olive — a konyhasziget jobb oldali fiókjában."
+    },
+    {
+      "title": "Élelmiszerboltok",
+      "type": "list",
+      "items": [
+        "Konzum (500 m) — [Térkép](https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA)",
+        "Plodine (3 km) — [Térkép](https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9)"
+      ]
+    },
+    {
+      "title": "Ajánlott éttermek",
+      "type": "list",
+      "items": [
+        "Ganeum, Lovran — [Térkép](https://maps.app.goo.gl/E3uFaZdf27YiXXUt5)",
+        "Najade, Lovran — [Térkép](https://maps.app.goo.gl/VXj3Le13ZaP5uZR27)",
+        "Draga di Lovrana, Lovranska Draga — [Térkép](https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6)",
+        "Plavi podrum, Volosko — [Térkép](https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7)",
+        "Valle Losca, Opatija — [Térkép](https://maps.app.goo.gl/4Kyh5pqQoDDbubow7)",
+        "Zijavica, Mošćenička Draga — [Térkép](https://maps.app.goo.gl/aqptnU64dpdrEro19)",
+        "Ružmarin, Opatija — [Térkép](https://maps.app.goo.gl/cPMscVMU4gnontM97)",
+        "Johnson Restaurant, Mošćenička Draga — [Térkép](https://maps.app.goo.gl/aobtvfK67GLamKRC8)",
+        "Bistro Fortica, Kastav — [Térkép](https://maps.app.goo.gl/1gJWz9zBvvuKYdju5)",
+        "Istranka, Opatija — [Térkép](https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78)"
+      ]
+    },
+    {
+      "title": "Közeli strandok",
+      "type": "list",
+      "items": [
+        "Peharovo — [Térkép](https://maps.app.goo.gl/jnKYDnaNymPPRa1K8)",
+        "Cipera — [Térkép](https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7)",
+        "Kvarner — [Térkép](https://maps.app.goo.gl/y1teyu9YMguTyPXF7)",
+        "Medveja — [Térkép](https://maps.app.goo.gl/gzheik8unN1ocQLx9)",
+        "Mošćenička Draga — [Térkép](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
+        "Ičići — [Térkép](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
+        "Opatija — [Térkép](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
+      ]
+    },
+    {
+      "title": "Piac és turisztikai információk",
+      "type": "html",
+      "content": "[Élelmiszerpiac](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>További információ: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+    }
+  ]
+}
