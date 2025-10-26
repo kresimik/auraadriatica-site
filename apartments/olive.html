@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
   <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=1">
 
-  <!-- Turnstile callbacks (GLOBAL, prije app skripti) -->
+  <!-- Turnstile callbacks -->
   <script data-cfasync="false">
     window.cfStoreToken = function(token){
       var t = document.getElementById('cf-token');
@@ -34,10 +34,10 @@
   </script>
 
   <!-- App scripts (i18n FIRST) -->
-  <script data-cfasync="false" src="/assets/js/i18n.js" defer></script>
-  <script data-cfasync="false" src="/assets/js/apt.js?v=20251025" defer></script>
-  <script data-cfasync="false" src="/assets/js/contact-form.js" defer></script>
-  <script data-cfasync="false" src="/assets/js/aa-calendar.js?v=1" defer></script>
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/apt.js?v=20251025" defer></script>
+  <script src="/assets/js/contact-form.js" defer></script>
+  <script src="/assets/js/aa-calendar.js?v=1" defer></script>
 </head>
 
 <body data-apt-slug="olive">
@@ -47,15 +47,16 @@
       <a href="/" class="logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
+
       <nav class="main-nav" aria-label="Primary">
-        <a href="/apartments/olive.html" class="active">Olive</a>
-        <a href="/apartments/onyx.html">Onyx</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
+        <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN -->
+      <!-- LANGUAGE DROPDOWN (IDENTICAL TO INDEX) -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -181,7 +182,6 @@
     </div>
   </section>
 
-  <!-- Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- FOOTER -->
@@ -191,11 +191,11 @@
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
       <nav class="footer-nav">
-        <a href="/apartments/olive.html" class="active">Olive</a>
-        <a href="/apartments/onyx.html">Onyx</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
+        <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
@@ -207,7 +207,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // INIT: postavi locale za kalendar prema <html lang="">
+    // INIT: locale za kalendar
     document.addEventListener('DOMContentLoaded', () => {
       const pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
       document.querySelectorAll('.aa-ical-calendar').forEach(el => {
@@ -215,7 +215,7 @@
       });
     });
 
-    // Patch za setLang → osvježi kalendar i apartment content
+    // Patch za setLang → re-render kalendara i ponovni load apartmana
     (function patchSetLangForCalendar(){
       const orig = window.setLang;
       if (typeof orig !== 'function') return;

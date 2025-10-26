@@ -33,11 +33,11 @@
     };
   </script>
 
-  <!-- App scripts -->
-  <script data-cfasync="false" src="/assets/js/i18n.js" defer></script>
-  <script data-cfasync="false" src="/assets/js/apt.js?v=20251025" defer></script>
-  <script data-cfasync="false" src="/assets/js/contact-form.js" defer></script>
-  <script data-cfasync="false" src="/assets/js/aa-calendar.js?v=1" defer></script>
+  <!-- App scripts (i18n FIRST) -->
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/apt.js?v=20251025" defer></script>
+  <script src="/assets/js/contact-form.js" defer></script>
+  <script src="/assets/js/aa-calendar.js?v=1" defer></script>
 </head>
 
 <body data-apt-slug="onyx">
@@ -47,15 +47,16 @@
       <a href="/" class="logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
+
       <nav class="main-nav" aria-label="Primary">
-        <a href="/apartments/olive.html">Olive</a>
-        <a href="/apartments/onyx.html" class="active">Onyx</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
 
-      <!-- LANGUAGE DROPDOWN -->
+      <!-- LANGUAGE DROPDOWN (IDENTICAL TO INDEX) -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -117,7 +118,7 @@
   <section class="section">
     <div class="container">
       <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
-      <p class="aa-cal-note" id="apt-availability-note"></p>
+    <p class="aa-cal-note" id="apt-availability-note"></p>
       <div class="aa-ical-calendar aa-ical--compact" data-apt="onyx"></div>
     </div>
   </section>
@@ -191,11 +192,11 @@
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
       <nav class="footer-nav">
-        <a href="/apartments/olive.html">Olive</a>
-        <a href="/apartments/onyx.html" class="active">Onyx</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/onyx.html" class="active" data-i18n="onyx_h">Onyx</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
       <div class="footer-contact">
         <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
