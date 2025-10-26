@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
   <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=1">
 
-  <!-- Turnstile callbacks (GLOBAL, prije app skripti) -->
+  <!-- Turnstile callbacks -->
   <script data-cfasync="false">
     window.cfStoreToken = function(token){
       var t = document.getElementById('cf-token');
@@ -33,7 +33,7 @@
     };
   </script>
 
-  <!-- App scripts (i18n FIRST) -->
+  <!-- App scripts -->
   <script data-cfasync="false" src="/assets/js/i18n.js" defer></script>
   <script data-cfasync="false" src="/assets/js/apt.js?v=20251025" defer></script>
   <script data-cfasync="false" src="/assets/js/contact-form.js" defer></script>
@@ -69,7 +69,7 @@
           <button type="button" data-lang="hu">HU</button>
           <button type="button" data-lang="cs">CS</button>
           <button type="button" data-lang="sk">SK</button>
-          <button type="button" data-lang="uk">UK</button>
+          <button type="button" data-lang="uk">UA</button>
         </div>
       </div>
     </div>
@@ -181,7 +181,6 @@
     </div>
   </section>
 
-  <!-- Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- FOOTER -->
@@ -207,7 +206,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // INIT: postavi locale za kalendar prema <html lang="">
+    // INIT: locale za kalendar
     document.addEventListener('DOMContentLoaded', () => {
       const pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
       document.querySelectorAll('.aa-ical-calendar').forEach(el => {
@@ -215,7 +214,7 @@
       });
     });
 
-    // Patch za setLang → osvježi kalendar i apartment content
+    // Patch za setLang → re-render kalendara i ponovni load apartmana
     (function patchSetLangForCalendar(){
       const orig = window.setLang;
       if (typeof orig !== 'function') return;
@@ -234,6 +233,39 @@
         } catch(e){}
       };
     })();
+  </script>
+
+  <!-- 🔧 Fallback: ručno žičenje dropdowna ako i18n.js ne spoji evente -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.lang-dropdown').forEach((dd) => {
+        const btn  = dd.querySelector('.lang-toggle');
+        const menu = dd.querySelector('.lang-menu');
+        if (!btn || !menu) return;
+        if (btn.__aaLangWired) return;
+        btn.__aaLangWired = true;
+
+        const open  = () => { menu.hidden = false; btn.setAttribute('aria-expanded','true'); };
+        const close = () => { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); };
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        menu.addEventListener('click', async (e) => {
+          const b = e.target.closest('button[data-lang]');
+          if (!b) return;
+          const lang = b.dataset.lang;
+          try { await (window.setLang ? window.setLang(lang) : null); } catch(e) {}
+          close();
+        });
+        document.addEventListener('click', (e) => { if (!dd.contains(e.target)) close(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+        const cur = (localStorage.getItem('lang') || document.documentElement.lang || 'en').toUpperCase();
+        dd.querySelectorAll('.current-lang').forEach(el => el.textContent = cur);
+      });
+    });
   </script>
 </body>
 </html>
