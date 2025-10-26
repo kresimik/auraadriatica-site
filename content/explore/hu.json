@@ -1,0 +1,35 @@
+{
+  "hero_title": "Fedezze fel Lovrant és az Opatijai Riviérát",
+  "hero_sub": "Fedezze fel a strandokat, túraútvonalakat, gasztronómiát és egynapos kirándulásokat.",
+  "do_h": "Programok és tevékenységek",
+  "trips_h": "Egynapos kirándulások",
+  "beaches_h": "Strandok és tengerpart",
+  "food_h": "Gasztronómia",
+  "about_h": "Élvezze még jobban",
+  "do": [
+    "Túrázás és kerékpározás – Fedezze fel az Učka-hegység erdein és völgyein át vezető útvonalakat.",
+    "Lungomare sétány – Sétáljon, fusson vagy biciklizzen a híres 10 km-es tengerparti úton, amely összeköti Lovrant, Opatiját és Voloskót.",
+    "Vízisportok – Béreljen kajakot, SUP-ot vagy merüljön a kristálytiszta tengerben.",
+    "Kultúra és események – Élvezze a koncerteket, szabadtéri fesztiválokat, kiállításokat és helyi ünnepeket, például a Cseresznye Fesztivált (június) vagy a Gesztenye Fesztivált (október)."
+  ],
+  "trips": [
+    "Opatija – Sétáljon a gyönyörű parkokban, látogassa meg a történelmi villákat, vagy élvezze az estét a tengerparton.",
+    "Rijeka – Horvátország pezsgő kikötővárosa, piacokkal, múzeumokkal és kávéházi élettel.",
+    "Isztria – Látogasson el középkori dombvárosokba, mint Motovun és Grožnjan, híres szarvasgombáról, borairól és művészetéről.",
+    "Kvarner-szigetek – Hajókirándulás Cres, Krk vagy Lošinj szigetére, érintetlen strandokkal és hangulatos kisvárosokkal.",
+    "Gorski kotar – Egy órányi autóútra, erdők, patakok és tavak – tökéletes egy természetközeli kiránduláshoz."
+  ],
+  "beaches": [
+    "A családbarát kavicsos strandoktól a rejtett öblökig – Lovranban mindenki megtalálja a kedvenc helyét. A legközelebbi strand mindössze 100 méterre található az apartmantól. A Lungomare mentén sétálva találhat:",
+    "nyugodt, védett öblöket,",
+    "élénk városi strandokat kávézókkal és bárokkal,",
+    "csendes helyeket úszáshoz, búvárkodáshoz vagy napozáshoz."
+  ],
+  "food": [
+    "Az Opatijai Riviéra a mediterrán ízeket keveri a közép-európai hagyományokkal. Lovran híres a cseresznyéjéről (június) és a gesztenyéjéről (október). Itt található:",
+    "Hagyományos konobák friss halakkal, tenger gyümölcseivel, házi tésztákkal, szarvasgombával és olívaolajjal,",
+    "Elegáns éttermek modern mediterrán konyhával,",
+    "Hangulatos kávézók és borbárok, ahol helyi borokat és aperitifeket élvezhet a tengerparton."
+  ],
+  "about_p": "Lovran nem csupán egy tengerparti város – ez a történelem, a kultúra és a természet találkozása. Sétáljon a régi város kanyargós utcáin, élvezze a színes házakat és a Lungomare sétányt, amely több mint 10 km hosszan köti össze Opatiját és a környező falvakat.\nA város fölött magasodik az Učka Nemzeti Park, rengeteg túra- és kerékpárútvonallal, valamint lenyűgöző kilátással a Vojak csúcsról – az egyik oldalon a Kvarner-szigetek, a másikon Isztria dombjai.\nItt minden pillanat arra hív, hogy lassítson, felfedezzen és még többet élvezzen – a saját tempójában."
+}
