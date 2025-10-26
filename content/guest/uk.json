@@ -1,0 +1,84 @@
+{
+  "page_title": "Інформація для гостей — Aura Adriatica",
+  "hero_h": "Ласкаво просимо, дорогі гості",
+  "hero_p": "Корисна інформація для вашого перебування в апартаментах Aura Adriatica.",
+  "sections": [
+    {
+      "title": "Адреси апартаментів",
+      "type": "list",
+      "items": [
+        "Апартаменти Onyx: Rezine 7H, Lovran — [Карта](https://www.google.com/maps/place/Rezine+7H,+Lovran)",
+        "Апартаменти Olive: Rezine 7G, Lovran — [Карта](https://www.google.com/maps/place/Rezine+7G,+Lovran)"
+      ]
+    },
+    {
+      "title": "Паркування",
+      "type": "text",
+      "content": "Перед кожним апартаментом є три приватні місця для паркування, доступні та зарезервовані лише для вас."
+    },
+    {
+      "title": "Цифровий ключ безпеки",
+      "type": "text",
+      "content": "Апартаменти обладнані електронними замками з PIN-кодом. Перед приїздом ми надішлемо вам код через WhatsApp, SMS або електронну пошту."
+    },
+    {
+      "title": "Інформація Wi-Fi",
+      "type": "html",
+      "html_kind": "wifi",
+      "content": "Wi-Fi мережа: **AuraAdriatica_Guest**, пароль: **AuraA20&24!**<br>Або відскануйте QR-код:",
+      "qr": "/assets/img/wifi-qr.png"
+    },
+    {
+      "title": "Реєстрація гостей",
+      "type": "html",
+      "content": "Усі гості повинні бути зареєстровані відповідно до законодавства Хорватії. Будь ласка, заповніть форму за посиланням: [Форма реєстрації гостей](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."
+    },
+    {
+      "title": "Видалення сміття",
+      "type": "text",
+      "content": "Два контейнери: один для змішаного сміття, інший для пластику (біля паркування). Ключ: Onyx — полиця праворуч від вхідних дверей; Olive — правий ящик на кухонному острові."
+    },
+    {
+      "title": "Продуктові магазини",
+      "type": "list",
+      "items": [
+        "Konzum (500 м) — [Карта](https://maps.app.goo.gl/kznVUsQ2ekBiGJXUA)",
+        "Plodine (3 км) — [Карта](https://maps.app.goo.gl/Us9BCTEBfh4LWPBQ9)"
+      ]
+    },
+    {
+      "title": "Рекомендовані ресторани",
+      "type": "list",
+      "items": [
+        "Ganeum, Lovran — [Карта](https://maps.app.goo.gl/E3uFaZdf27YiXXUt5)",
+        "Najade, Lovran — [Карта](https://maps.app.goo.gl/VXj3Le13ZaP5uZR27)",
+        "Draga di Lovrana, Lovranska Draga — [Карта](https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6)",
+        "Plavi podrum, Volosko — [Карта](https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7)",
+        "Valle Losca, Opatija — [Карта](https://maps.app.goo.gl/4Kyh5pqQoDDbubow7)",
+        "Zijavica, Mošćenička Draga — [Карта](https://maps.app.goo.gl/aqptnU64dpdrEro19)",
+        "Ružmarin, Opatija — [Карта](https://maps.app.goo.gl/cPMscVMU4gnontM97)",
+        "Johnson Restaurant, Mošćenička Draga — [Карта](https://maps.app.goo.gl/aobtvfK67GLamKRC8)",
+        "Bistro Fortica, Kastav — [Карта](https://maps.app.goo.gl/1gJWz9zBvvuKYdju5)",
+        "Istranka, Opatija — [Карта](https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78)"
+      ]
+    },
+    {
+      "title": "Найближчі пляжі",
+      "type": "list",
+      "items": [
+        "Peharovo — [Карта](https://maps.app.goo.gl/jnKYDnaNymPPRa1K8)",
+        "Cipera — [Карта](https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7)",
+        "Kvarner — [Карта](https://maps.app.goo.gl/y1teyu9YMguTyPXF7)",
+        "Medveja — [Карта](https://maps.app.goo.gl/gzheik8unN1ocQLx9)",
+        "Mošćenička Draga — [Карта](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
+        "Ičići — [Карта](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
+        "Opatija — [Карта](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
+      ]
+    },
+    {
+      "title": "Ринок і туристична інформація",
+      "type": "html",
+      "content": "[Продовольчий ринок](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>Більше інформації: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+    }
+  ]
+}
