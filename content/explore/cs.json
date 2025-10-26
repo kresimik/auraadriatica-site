@@ -1,0 +1,35 @@
+{
+  "hero_title": "Objevujte Lovran a Riviéru Opatija",
+  "hero_sub": "Objevte pláže, turistické stezky, gastronomii a výlety v okolí.",
+  "do_h": "Co dělat",
+  "trips_h": "Jednodenní výlety",
+  "beaches_h": "Pláže a moře",
+  "food_h": "Gastronomie",
+  "about_h": "Zažijte více",
+  "do": [
+    "Pěší turistika a cyklistika – Prozkoumejte stezky vedoucí lesy, údolími a hřebeny pohoří Učka.",
+    "Promenáda Lungomare – Projděte se, běhejte nebo jeďte na kole po slavné 10 km pobřežní cestě spojující Lovran, Opatiju a Volosko.",
+    "Vodní sporty – Pronajměte si kajak, paddleboard nebo se potápějte v křišťálově čisté vodě.",
+    "Kultura a události – Užívejte si koncerty, festivaly pod širým nebem, umělecké výstavy a místní tradice, jako je Lovranský třešňový festival (červen) nebo Kaštanový festival (říjen)."
+  ],
+  "trips": [
+    "Opatija – Projděte se elegantními parky, navštivte historické vily nebo si užijte stylový večer u moře.",
+    "Rijeka – Živé přístavní město Chorvatska s trhy, muzei a pulzující kavárenskou kulturou.",
+    "Istrie – Navštivte středověká města na kopcích, jako jsou Motovun a Grožnjan, známá lanýži, vínem a uměním.",
+    "Ostrovy Kvarner – Vydejte se lodí na Cres, Krk nebo Lošinj, kde objevíte nedotčené pláže a okouzlující města.",
+    "Gorski kotar – Pouhou hodinu jízdy, kde objevíte bujné lesy, horské potoky a klidná jezera – ideální pro pěší turistiku a relax v přírodě."
+  ],
+  "beaches": [
+    "Od rodinných oblázkových pláží po skryté skalnaté zátoky – Lovran má něco pro každého. Nejbližší pláž je pouhých 100 metrů od apartmánu. Pokud chcete rozmanitost, vydejte se po promenádě Lungomare, kde najdete:",
+    "chráněné zátoky s klidnou vodou,",
+    "živé městské pláže s kavárnami a bary,",
+    "poklidná místa ideální pro plavání, šnorchlování nebo odpočinek na slunci."
+  ],
+  "food": [
+    "Riviéra Opatija spojuje středomořské chutě s tradicemi střední Evropy. Lovran je známý svými třešněmi (červen) a kaštany (říjen), které se slaví místními festivaly. Najdete zde:",
+    "Tradiční konoby s čerstvými rybami, mořskými plody, domácí pastou, lanýži a olivovým olejem,",
+    "Elegantní restaurace nabízející moderní středomořskou kuchyni,",
+    "Příjemné kavárny a vinárny, kde si můžete vychutnat místní vína, olivové oleje a aperitivy u moře."
+  ],
+  "about_p": "Lovran je víc než jen přímořské město – je to místo, kde se setkávají historie, kultura a příroda. Projděte se starým městem s úzkými kamennými uličkami, barevnými fasádami a skrytými dvorky, které vyprávějí příběhy obchodníků a námořníků. Podél pobřeží se táhne slavná promenáda Lungomare dlouhá více než 10 kilometrů, spojující Lovran s Opatijí a dalšími vesnicemi, ideální pro procházky nebo romantické západy slunce.\nNad městem se zvedá Přírodní park Učka – chráněná oblast hor s nekonečnými možnostmi pro pěší turistiku, cyklistiku a objevování nedotčených lesů. Z vrcholu Vojak se otevírá dechberoucí výhled – na modré ostrovy Kvarneru a zelené kopce Istrie.\nKaždý okamžik zde vybízí zpomalit, objevovat a zažít víc – vlastním tempem."
+}
