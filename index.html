@@ -24,10 +24,11 @@
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/weather.js?v=20250907" defer></script>
 
-  <!-- Minimal scoped styles for contact row & footer spacing -->
+  <!-- Minimal scoped styles for the combined Info+Contact section & footer spacing -->
   <style>
     :root { --brand: #4da6ff; --text: #1f2937; }
-    /* Icons pick up currentColor; set brand blue on the elements we want */
+
+    /* Contact chips in brand color, text stays dark */
     .contact-row .chip svg,
     .contact-row .chip { color: var(--brand); }
     .contact-row .chip span { color: var(--text); }
@@ -45,7 +46,11 @@
     .chip:hover { background:#f9fbff; box-shadow:0 1px 4px rgba(77,166,255,.15); }
     .chip svg { width:1.1rem; height:1.1rem; }
 
-    /* Footer spacing: put copyright on its own line with spacing above */
+    /* Info list inside the combined section */
+    .info-block ul { margin: .25rem 0 0; padding-left: 1.1rem; }
+    .info-block li { margin: .15rem 0; }
+
+    /* Footer spacing: copyright on its own line with spacing above */
     .site-footer .footer-copy { margin-top: 0.8rem; color:#6b7280; }
     .site-footer .footer-contact p { margin: .15rem 0; }
   </style>
@@ -159,25 +164,24 @@
     </div>
   </section>
 
-  <!-- ROW 2: Information (Contact is moved to a full-width section at page end) -->
-  <section class="section" aria-labelledby="info">
-    <div class="container two-col two-col--boxed">
-      <div class="col">
-        <div class="card">
-          <div class="card-head">
-            <h2 id="info" data-i18n="info_h">Information</h2>
-          </div>
-          <ul id="info-list"></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT (full width, one row) -->
-  <section class="section" aria-labelledby="contact">
+  <!-- COMBINED: Information + Contact (full-width at page end) -->
+  <section class="section" aria-labelledby="info contact">
     <div class="container">
       <div class="card">
         <div class="card-head" style="text-align:center">
+          <h2 id="info" data-i18n="info_h">Information</h2>
+        </div>
+
+        <div class="info-block">
+          <ul id="info-list">
+            <!-- Static, always-visible key info -->
+            <li data-i18n="info_bbq">BBQ / Grill available on site (charcoal).</li>
+          </ul>
+        </div>
+
+        <hr style="margin:1.25rem 0; border:0; border-top:1px solid #e5e7eb" />
+
+        <div class="card-head" style="text-align:center; margin-top:.25rem">
           <h2 id="contact" data-i18n="contact_h">Contact</h2>
         </div>
 
@@ -200,9 +204,8 @@
           </a>
         </div>
 
-        <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem">
-          We usually respond within a few hours.
-        </p>
+        <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem"
+           data-i18n="contact_resp">We usually respond within a few hours.</p>
       </div>
     </div>
   </section>
@@ -231,7 +234,7 @@
 
   <!-- INFO LIST + LANGUAGE HOOK (no reload) -->
   <script>
-    // Fill the info list from the current language JSON
+    // Fill the info list from the current language JSON and keep the static items (e.g., BBQ) at the top
     async function reloadInfoList(lang) {
       try {
         const res = await fetch(`/content/${(lang || localStorage.getItem('lang') || 'en').toLowerCase()}.json`, { cache: 'no-store' });
@@ -239,7 +242,13 @@
         const data = await res.json();
         const list = document.getElementById('info-list');
         if (!list) return;
+
+        // Preserve the first static LI elements (like BBQ)
+        const staticItems = Array.from(list.querySelectorAll('li[data-i18n]'));
         list.innerHTML = '';
+        // Re-append static items first (so they can be translated by i18n.js)
+        staticItems.forEach(li => list.appendChild(li));
+
         if (Array.isArray(data.info_list)) {
           data.info_list.forEach(item => {
             const li = document.createElement('li');
@@ -262,9 +271,9 @@
         if (!btn) return;
         const lang = btn.dataset.lang;
         if (typeof window.setLang === 'function') {
-          await window.setLang(lang);   // translates all [data-i18n]
+          await window.setLang(lang);   // translates all [data-i18n] including BBQ & contact_resp
         }
-        await reloadInfoList(lang);     // refresh the list items
+        await reloadInfoList(lang);     // refresh dynamic list items
       });
     });
   </script>
