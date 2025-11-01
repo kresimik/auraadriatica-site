@@ -39,7 +39,7 @@
   <script src="/assets/js/contact-form.js" defer></script>
   <script src="/assets/js/aa-calendar.js?v=1" defer></script>
 
-  <!-- Scoped styles for Info+Contact & footer spacing -->
+  <!-- Scoped styles for Contact card & footer spacing -->
   <style>
     :root { --brand:#4da6ff; --text:#1f2937; }
     .contact-row .chip svg, .contact-row .chip { color: var(--brand); }
@@ -48,9 +48,6 @@
     .chip { display:inline-flex; align-items:center; gap:.55rem; padding:.6rem .85rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; text-decoration:none; font-weight:500; transition:background .2s ease, box-shadow .2s ease; }
     .chip:hover { background:#f9fbff; box-shadow:0 1px 4px rgba(77,166,255,.15); }
     .chip svg { width:1.1rem; height:1.1rem; }
-    .info-block ul { margin:.25rem 0 0; padding-left:0; list-style:none; text-align:center; }
-    .info-item { display:inline-flex; align-items:center; gap:.45rem; color:var(--text); margin:.25rem .75rem; font-weight:500; }
-    .info-item svg { width:1.1rem; height:1.1rem; color:#6b7280; }
     .site-footer .footer-copy { margin-top:.8rem; color:#6b7280; }
     .site-footer .footer-contact p { margin:.15rem 0; }
   </style>
@@ -70,9 +67,6 @@
     </symbol>
     <symbol id="ic-external" viewBox="0 0 24 24">
       <path fill="currentColor" d="M14 3h7v7h-2V6.4l-7.8 7.8l-1.4-1.4L17.6 5H14V3M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z"/>
-    </symbol>
-    <symbol id="ic-bbq" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.16 3 5.19V16h-1v2h2v3h2v-3h2v-2h-1v-2.81c1.79-1.03 3-2.97 3-5.19a6 6 0 0 0-6-6m0 2a4 4 0 0 1 4 4c0 1.36-.74 2.54-1.84 3.2L14 13h-4l-.16-1.8A3.999 3.999 0 0 1 8 8a4 4 0 0 1 4-4m-8 9v2h2v-2H4m14 0v2h2v-2h-2Z"/>
     </symbol>
   </svg>
 
@@ -216,21 +210,10 @@
     </div>
   </section>
 
-  <!-- INFORMATION + CONTACT (same frame as index, at the very end) -->
+  <!-- CONTACT (index-like frame at the very end, without Information) -->
   <section class="section">
     <div class="container">
       <div class="card">
-        <div class="card-head" style="text-align:center"><h2 data-i18n="info_h">Information</h2></div>
-        <div class="info-block">
-          <ul id="info-list">
-            <li class="info-item" data-i18n="info_bbq">
-              <svg aria-hidden="true"><use href="#ic-bbq"></use></svg> BBQ / Grill available
-            </li>
-          </ul>
-        </div>
-
-        <hr style="margin:1.25rem 0; border:0; border-top:1px solid #e5e7eb" />
-
         <div class="card-head" style="text-align:center; margin-top:.25rem"><h2 data-i18n="contact_h">Contact</h2></div>
         <div class="contact-row" aria-label="Contact options">
           <a class="chip" href="mailto:info@auraadriatica.com" aria-label="Email us at info@auraadriatica.com">
@@ -280,9 +263,9 @@
       document.querySelectorAll('.aa-ical-calendar').forEach(el => {
         if (!el.dataset.locale) el.dataset.locale = pageLang;
       });
-      reloadInfoList(); // initial fill for info list
     });
 
+    // Patch setLang → rerender calendar + reload apartment
     (function patchSetLangForCalendar(){
       const orig = window.setLang;
       if (typeof orig !== 'function') return;
@@ -294,41 +277,9 @@
           if (window.AACalendarRerender) window.AACalendarRerender(lang);
           const slug = document.body?.getAttribute('data-apt-slug');
           if (slug && typeof window.loadApartment === 'function') await window.loadApartment(slug, lang);
-          await reloadInfoList(lang);
         } catch(e){}
       };
     })();
-
-    async function reloadInfoList(lang) {
-      try {
-        const res = await fetch(`/content/${(lang || localStorage.getItem('lang') || 'en').toLowerCase()}.json`, { cache: 'no-store' });
-        if (!res.ok) return;
-        const data = await res.json();
-        const list = document.getElementById('info-list');
-        if (!list) return;
-        const staticItems = Array.from(list.querySelectorAll('li[data-i18n]'));
-        list.innerHTML = '';
-        staticItems.forEach(li => list.appendChild(li));
-        if (Array.isArray(data.info_list)) {
-          data.info_list.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            list.appendChild(li);
-          });
-        }
-      } catch (e) { console.warn(e); }
-    }
-
-    document.addEventListener('click', async (e) => {
-      const btn = e.target.closest('.lang-menu button[data-lang]');
-      if (!btn) return;
-      const lang = btn.dataset.lang;
-      if (typeof window.setLang === 'function') {
-        await window.setLang(lang);
-      } else {
-        await reloadInfoList(lang);
-      }
-    });
   </script>
 </body>
 </html>
