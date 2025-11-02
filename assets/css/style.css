@@ -625,3 +625,70 @@ h3{ font-size:1.3rem; color:var(--brand-olive); }
   .form-grid{ grid-template-columns:1fr; }
   .contact-form, .contact-card{ padding:16px 14px; }
 }
+
+/* =========================
+   FOOTER tweaks
+   ========================= */
+.footer-copy { margin-top:.8rem; }
+
+/* =========================
+   CONTACT "CHIPS" + AMENITIES (NEW)
+   ========================= */
+
+/* Kontakt u jednom redu */
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
+
+/* Chip linkovi (email / phone / WhatsApp) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .6rem .85rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: var(--brand-blue); /* ikone */
+  text-decoration: none;
+  font-weight: 500;
+  transition: background .2s ease, box-shadow .2s ease;
+}
+.chip:hover {
+  background: #f9fbff;
+  box-shadow: 0 1px 4px rgba(77, 166, 255, .15);
+}
+.chip svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--brand-blue);
+}
+.chip span {
+  color: var(--text);
+}
+
+/* Amenities lista (u nizu, s ikonicama/emoji) */
+.info-block ul {
+  margin: .25rem 0 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--text);
+  margin: .35rem .75rem;
+  font-weight: 500;
+}
+.info-item svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #6b7280; /* sivo za inline SVG (BBQ) */
+}

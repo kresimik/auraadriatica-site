@@ -19,52 +19,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20251102a">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20251102c">
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/weather.js?v=20250907" defer></script>
-
-  <style>
-    :root { --brand:#4da6ff; --text:#1f2937; }
-    .contact-row .chip svg, .contact-row .chip { color:var(--brand); }
-    .contact-row .chip span { color:var(--text); }
-    .contact-row {
-      display:flex; align-items:center; justify-content:center;
-      gap:.75rem; flex-wrap:wrap; margin-top:.5rem;
-    }
-    .chip {
-      display:inline-flex; align-items:center; gap:.55rem;
-      padding:.6rem .85rem; border-radius:999px;
-      border:1px solid #e5e7eb; background:#fff;
-      text-decoration:none; font-weight:500;
-      transition:background .2s ease, box-shadow .2s ease;
-    }
-    .chip:hover { background:#f9fbff; box-shadow:0 1px 4px rgba(77,166,255,.15); }
-    .chip svg { width:1.1rem; height:1.1rem; }
-
-    .info-block ul { margin:.25rem 0 0; padding-left:0; list-style:none; text-align:center; }
-    .info-item { display:inline-flex; align-items:center; gap:.45rem; color:var(--text); margin:.35rem .75rem; font-weight:500; }
-    .info-item svg { width:1.1rem; height:1.1rem; color:#6b7280; }
-
-    .site-footer .footer-copy { margin-top:0.8rem; color:#6b7280; }
-    .site-footer .footer-contact p { margin:.15rem 0; }
-  </style>
+  <script src="/assets/js/weather.js?v=20251102" defer></script>
 </head>
-
 <body>
+
   <!-- SVG ICONS -->
   <svg width="0" height="0" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
-    <symbol id="ic-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5L4 8V6l8 5 8-5z"/></symbol>
-    <symbol id="ic-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M16.2 13.5c-.2-.1-1.3-.6-1.5-.6c-.2 0-.3-.1-.4.1s-.5.6-.6.7c-.1.1-.2.1-.4 0c-.2-.1-.9-.3-1.7-1c-.6-.6-1-1.2-1.1-1.4c-.1-.2 0-.3.1-.4c.1-.1.2-.2.3-.3c.1-.1.1-.2.2-.3c.1-.1.1-.2 0-.3c0-.1-.4-1.1-.6-1.5c-.2-.4-.3-.3-.4-.3h-.3c-.1 0-.3 0-.4.2c-.1.2-.5.5-.5 1.3c0 .8.6 1.6.7 1.7c.1.1 1.2 1.8 2.9 2.5c1.7.7 1.7.5 2 .5c.3 0 1-.4 1.1-.8c.1-.4.1-.7.1-.8c0-.1-.1-.1-.3-.2M12.1 3a9 9 0 0 0-4.8 1.4A9.1 9.1 0 0 0 3 12.2A9.2 9.2 0 0 0 4.3 17L3 21l4-1a9.2 9.2 0 0 0 5.1 1.5a9.1 9.1 0 0 0 6.3-2.6c1.7-1.7 2.7-3.9 2.7-6.3a9.1 9.1 0 0 0-2.7-6.5A9.1 9.1 0 0 0 12.1 3Z"/></symbol>
-    <symbol id="ic-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-1.91 1.91a16.91 16.91 0 0 1-7.6-7.6l1.91-1.91a1 1 0 0 0 .24-1.02A11.84 11.84 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1C3 14.05 9.95 21 19 21c.55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1"/></symbol>
-    <symbol id="ic-external" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-7.8 7.8l-1.4-1.4L17.6 5H14V3M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z"/></symbol>
-    <symbol id="ic-bbq" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.16 3 5.19V16h-1v2h2v3h2v-3h2v-2h-1v-2.81c1.79-1.03 3-2.97 3-5.19a6 6 0 0 0-6-6m0 2a4 4 0 0 1 4 4c0 1.36-.74 2.54-1.84 3.2L14 13h-4l-.16-1.8A3.999 3.999 0 0 1 8 8a4 4 0 0 1 4-4m-8 9v2h2v-2H4m14 0v2h2v-2h-2Z"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5L4 8V6l8 5 8-5z"/>
+    </symbol>
+    <symbol id="ic-wa" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M16.2 13.5c-.2-.1-1.3-.6-1.5-.6c-.2 0-.3-.1-.4.1s-.5.6-.6.7c-.1.1-.2.1-.4 0c-.2-.1-.9-.3-1.7-1c-.6-.6-1-1.2-1.1-1.4c-.1-.2 0-.3.1-.4c.1-.1.2-.2.3-.3c.1-.1.1-.2.2-.3c.1-.1.1-.2 0-.3c0-.1-.4-1.1-.6-1.5c-.2-.4-.3-.3-.4-.3h-.3c-.1 0-.3 0-.4.2c-.1.2-.5.5-.5 1.3c0 .8.6 1.6.7 1.7c.1.1 1.2 1.8 2.9 2.5c1.7.7 1.7.5 2 .5c.3 0 1-.4 1.1-.8c.1-.4.1-.7.1-.8c0-.1-.1-.1-.3-.2M12.1 3a9 9 0 0 0-4.8 1.4A9.1 9.1 0 0 0 3 12.2A9.2 9.2 0 0 0 4.3 17L3 21l4-1a9.2 9.2 0 0 0 5.1 1.5a9.1 9.1 0 0 0 6.3-2.6c1.7-1.7 2.7-3.9 2.7-6.3a9.1 9.1 0 0 0-2.7-6.5A9.1 9.1 0 0 0 12.1 3Z"/>
+    </symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-1.91 1.91a16.91 16.91 0 0 1-7.6-7.6l1.91-1.91a1 1 0 0 0 .24-1.02A11.84 11.84 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1C3 14.05 9.95 21 19 21c.55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1"/>
+    </symbol>
+    <symbol id="ic-external" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M14 3h7v7h-2V6.4l-7.8 7.8l-1.4-1.4L17.6 5H14V3M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z"/>
+    </symbol>
+    <symbol id="ic-bbq" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.16 3 5.19V16h-1v2h2v3h2v-3h2v-2h-1v-2.81c1.79-1.03 3-2.97 3-5.19a6 6 0 0 0-6-6m0 2a4 4 0 0 1 4 4c0 1.36-.74 2.54-1.84 3.2L14 13h-4l-.16-1.8A3.999 3.999 0 0 1 8 8a4 4 0 0 1 4-4m-8 9v2h2v-2H4m14 0v2h2v-2h-2Z"/>
+    </symbol>
   </svg>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
-      <a href="/" class="logo" aria-label="Aura Adriatica — home"><img src="/assets/img/logo.png" alt="Aura Adriatica logo" /></a>
-      <nav class="main-nav" aria-label="Primary">
+      <a href="/" class="logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo"></a>
+      <nav class="main-nav">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
@@ -73,10 +57,11 @@
       </nav>
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button"><span class="current-lang" id="cur-lang">EN</span> ▾</button>
-        <div class="lang-menu" id="lang-menu" role="menu" hidden>
+        <div class="lang-menu" id="lang-menu" hidden>
           <button data-lang="hr">HR</button><button data-lang="en" class="active">EN</button>
-          <button data-lang="de">DE</button><button data-lang="it">IT</button><button data-lang="sl">SL</button>
-          <button data-lang="hu">HU</button><button data-lang="cs">CS</button><button data-lang="sk">SK</button><button data-lang="uk">UK</button>
+          <button data-lang="de">DE</button><button data-lang="it">IT</button>
+          <button data-lang="sl">SL</button><button data-lang="hu">HU</button>
+          <button data-lang="cs">CS</button><button data-lang="sk">SK</button><button data-lang="uk">UK</button>
         </div>
       </div>
     </div>
@@ -97,53 +82,68 @@
   <!-- ABOUT + LOCATION -->
   <section class="section">
     <div class="container two-col two-col--boxed">
-      <div class="col"><div class="card"><div class="card-head"><h2 data-i18n="about_h">About us</h2></div><p data-i18n="about_p"></p></div></div>
-      <div class="col"><div class="card"><div class="card-head"><h2 data-i18n="loc_h">Location</h2></div><p data-i18n="loc_p"></p></div></div>
+      <div class="col">
+        <div class="card"><div class="card-head"><h2 data-i18n="about_h">About us</h2></div><p data-i18n="about_p"></p></div>
+      </div>
+      <div class="col">
+        <div class="card"><div class="card-head"><h2 data-i18n="loc_h">Location</h2></div><p data-i18n="loc_p"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-head" style="text-align:center"><h2 data-i18n="features_h">Amenities</h2></div>
+        <div class="info-block">
+          <ul>
+            <li class="info-item">🏊 <span data-i18n="info_pool">Private pool</span></li>
+            <li class="info-item">🌅 <span data-i18n="info_terrace">Terrace &amp; garden with sea view</span></li>
+            <li class="info-item">📶 <span data-i18n="info_wifi">Fast Wi-Fi</span></li>
+            <li class="info-item">❄️ <span data-i18n="info_ac">Air conditioning in all rooms</span></li>
+            <li class="info-item">🍳 <span data-i18n="info_kitchen">Fully equipped kitchen</span></li>
+            <li class="info-item">🚗 <span data-i18n="info_parking">Private parking</span></li>
+            <li class="info-item">🧺 <span data-i18n="info_washer">Washing machine</span></li>
+            <li class="info-item">🍽️ <span data-i18n="info_dishwasher">Dishwasher</span></li>
+            <li class="info-item">🚴 <span data-i18n="info_trails">Hiking &amp; cycling trails nearby</span></li>
+            <li class="info-item"><svg><use href="#ic-bbq"></use></svg> <span data-i18n="info_bbq">BBQ / Grill available</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- WEATHER -->
   <section class="section">
-    <div class="container"><div class="card">
-      <div class="card-head"><h2 data-i18n="weather_h">7-day Forecast</h2></div>
-      <p data-i18n="weather_note">Weather in Lovran — updated daily</p>
-      <div id="weather-widget" class="weather"></div>
-    </div></div>
+    <div class="container">
+      <div class="card">
+        <div class="card-head"><h2 data-i18n="weather_h">7-day Forecast</h2></div>
+        <p data-i18n="weather_note">Weather in Lovran — updated daily.</p>
+        <div id="weather-widget" class="weather"></div>
+      </div>
+    </div>
   </section>
 
-  <!-- AMENITIES -->
+  <!-- CONTACT -->
   <section class="section">
-    <div class="container"><div class="card">
-      <div class="card-head" style="text-align:center"><h2 data-i18n="features_h">Amenities</h2></div>
-      <div class="info-block"><ul>
-        <li class="info-item">🏊 <span data-i18n="info_pool">Private pool</span></li>
-        <li class="info-item">🌅 <span data-i18n="info_terrace">Terrace & garden with sea view</span></li>
-        <li class="info-item">📶 <span data-i18n="info_wifi">Fast Wi-Fi</span></li>
-        <li class="info-item">❄️ <span data-i18n="info_ac">Air conditioning in all rooms</span></li>
-        <li class="info-item">🍳 <span data-i18n="info_kitchen">Fully equipped kitchen</span></li>
-        <li class="info-item">🚗 <span data-i18n="info_parking">Private parking</span></li>
-        <li class="info-item">🧺 <span data-i18n="info_washer">Washing machine</span></li>
-        <li class="info-item">🍽️ <span data-i18n="info_dishwasher">Dishwasher</span></li>
-        <li class="info-item">🚴 <span data-i18n="info_trails">Hiking & cycling trails nearby</span></li>
-        <li class="info-item"><svg><use href="#ic-bbq"></use></svg><span data-i18n="info_bbq">BBQ / Grill available</span></li>
-      </ul></div>
-
-      <hr style="margin:1.25rem 0; border:0; border-top:1px solid #e5e7eb"/>
-
-      <div class="card-head" style="text-align:center; margin-top:.25rem"><h2 data-i18n="contact_h">Contact</h2></div>
-      <div class="contact-row">
-        <a class="chip" href="mailto:info@auraadriatica.com"><svg><use href="#ic-mail"></use></svg><span>info@auraadriatica.com</span></a>
-        <a class="chip" href="tel:+385992210910"><svg><use href="#ic-phone"></use></svg><span>+385 99 221 0910</span></a>
-        <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener"><svg><use href="#ic-wa"></use></svg><span>WhatsApp</span><svg><use href="#ic-external"></use></svg></a>
+    <div class="container">
+      <div class="card">
+        <div class="card-head" style="text-align:center"><h2 data-i18n="contact_h">Contact</h2></div>
+        <div class="contact-row">
+          <a class="chip" href="mailto:info@auraadriatica.com"><svg><use href="#ic-mail"></use></svg><span>info@auraadriatica.com</span></a>
+          <a class="chip" href="tel:+385992210910"><svg><use href="#ic-phone"></use></svg><span>+385 99 221 0910</span></a>
+          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener"><svg><use href="#ic-wa"></use></svg><span>WhatsApp</span><svg><use href="#ic-external"></use></svg></a>
+        </div>
+        <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
       </div>
-      <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
-    </div></div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-flex">
-      <a href="/" class="footer-logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo" /></a>
+      <a href="/" class="footer-logo"><img src="/assets/img/logo.png" alt="Aura Adriatica logo"></a>
       <nav class="footer-nav">
         <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
@@ -160,22 +160,15 @@
     </div>
   </footer>
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "Aura Adriatica",
     "url": "https://auraadriatica.com/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Lovran",
-      "addressCountry": "HR"
-    },
-    "telephone": "+385992210910",
+    "address": { "@type": "PostalAddress", "addressLocality": "Lovran", "addressCountry": "HR" },
     "email": "info@auraadriatica.com",
-    "availableLanguage": ["English","Croatian","German","Italian","Slovenian","Hungarian","Czech","Slovak","Ukrainian"],
-    "sameAs": ["https://wa.me/385992210910"]
+    "telephone": "+385992210910"
   }
   </script>
 </body>
