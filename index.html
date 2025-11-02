@@ -25,11 +25,11 @@
 
   <!-- Scoped styling -->
   <style>
-    :root { --brand: #4da6ff; --text: #1f2937; }
+    :root { --brand:#4da6ff; --text:#1f2937; }
 
     /* Contact chips */
-    .contact-row .chip svg, .contact-row .chip { color: var(--brand); }
-    .contact-row .chip span { color: var(--text); }
+    .contact-row .chip svg, .contact-row .chip { color:var(--brand); }
+    .contact-row .chip span { color:var(--text); }
     .contact-row {
       display:flex; align-items:center; justify-content:center;
       gap:.75rem; flex-wrap:wrap; margin-top:.5rem;
@@ -46,7 +46,10 @@
 
     /* Info items */
     .info-block ul { margin:.25rem 0 0; padding-left:0; list-style:none; text-align:center; }
-    .info-item { display:inline-flex; align-items:center; gap:.45rem; color:var(--text); margin:.25rem .75rem; font-weight:500; }
+    .info-item {
+      display:inline-flex; align-items:center; gap:.45rem;
+      color:var(--text); margin:.25rem .75rem; font-weight:500;
+    }
     .info-item svg { width:1.1rem; height:1.1rem; color:#6b7280; }
 
     /* Footer spacing */
@@ -132,10 +135,7 @@
           <div class="card-head">
             <h2 id="about" data-i18n="about_h">About us</h2>
           </div>
-          <p data-i18n="about_p">
-            Welcome to Aura Adriatica — your perfect getaway on the Opatija Riviera.
-            Enjoy comfort, modern design, and stunning views of the Adriatic Sea.
-          </p>
+          <p data-i18n="about_p"></p>
         </div>
       </div>
 
@@ -144,10 +144,7 @@
           <div class="card-head">
             <h2 id="location" data-i18n="loc_h">Location</h2>
           </div>
-          <p data-i18n="loc_p">
-            We are located in Ičići, a charming coastal town near Opatija, Croatia.
-            The beach, marina, and Učka mountain trails are all within walking distance.
-          </p>
+          <p data-i18n="loc_p"></p>
         </div>
       </div>
     </div>
@@ -175,12 +172,7 @@
         </div>
 
         <div class="info-block">
-          <ul id="info-list">
-            <!-- Static, always-visible key info -->
-            <li class="info-item" data-i18n="info_bbq">
-              <svg aria-hidden="true"><use href="#ic-bbq"></use></svg> BBQ / Grill available
-            </li>
-          </ul>
+          <ul id="info-list"></ul>
         </div>
 
         <hr style="margin:1.25rem 0; border:0; border-top:1px solid #e5e7eb" />
@@ -191,25 +183,19 @@
 
         <div class="contact-row" aria-label="Contact options">
           <a class="chip" href="mailto:info@auraadriatica.com" aria-label="Email us at info@auraadriatica.com">
-            <svg aria-hidden="true"><use href="#ic-mail"></use></svg>
-            <span>info@auraadriatica.com</span>
+            <svg aria-hidden="true"><use href="#ic-mail"></use></svg><span>info@auraadriatica.com</span>
           </a>
-
           <a class="chip" href="tel:+385992210910" aria-label="Call us at +385 99 221 0910">
-            <svg aria-hidden="true"><use href="#ic-phone"></use></svg>
-            <span>+385 99 221 0910</span>
+            <svg aria-hidden="true"><use href="#ic-phone"></use></svg><span>+385 99 221 0910</span>
           </a>
-
-          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener"
-             aria-label="Chat on WhatsApp at +385 99 221 0910">
-            <svg aria-hidden="true"><use href="#ic-wa"></use></svg>
-            <span>WhatsApp</span>
-            <svg aria-hidden="true"><use href="#ic-external"></use></svg>
+          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener" aria-label="Chat on WhatsApp at +385 99 221 0910">
+            <svg aria-hidden="true"><use href="#ic-wa"></use></svg><span>WhatsApp</span><svg aria-hidden="true"><use href="#ic-external"></use></svg>
           </a>
         </div>
 
-        <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem"
-           data-i18n="contact_resp">We usually respond within a few hours.</p>
+        <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem" data-i18n="contact_resp">
+          We usually respond within a few hours.
+        </p>
       </div>
     </div>
   </section>
@@ -238,28 +224,35 @@
 
   <!-- INFO LIST + LANGUAGE HOOK -->
   <script>
-    // Fill the info list from the current language JSON and keep the static items (e.g., BBQ) at the top
+    // Dohvati /content/{lang}.json i popuni listu; BBQ dodaj NA KRAJ sa ikonom
     async function reloadInfoList(lang) {
       try {
-        const res = await fetch(`/content/${(lang || localStorage.getItem('lang') || 'en').toLowerCase()}.json`, { cache: 'no-store' });
+        const lc = (lang || localStorage.getItem('lang') || 'en').toLowerCase();
+        const res = await fetch(`/content/${lc}.json`, { cache: 'no-store' });
         if (!res.ok) return;
         const data = await res.json();
         const list = document.getElementById('info-list');
         if (!list) return;
-
-        // Preserve the first static LI elements (like BBQ)
-        const staticItems = Array.from(list.querySelectorAll('li[data-i18n]'));
         list.innerHTML = '';
-        // Re-append static items first (so they can be translated by i18n.js)
-        staticItems.forEach(li => list.appendChild(li));
 
+        // Dinamičke stavke iz info_list
         if (Array.isArray(data.info_list)) {
           data.info_list.forEach(item => {
             const li = document.createElement('li');
+            li.className = 'info-item';
             li.textContent = item;
             list.appendChild(li);
           });
         }
+
+        // BBQ stavka na samom kraju
+        const bbqLi = document.createElement('li');
+        bbqLi.className = 'info-item';
+        bbqLi.innerHTML = `
+          <svg aria-hidden="true"><use href="#ic-bbq"></use></svg>
+          <span>${data.info_bbq || 'BBQ / Grill available'}</span>
+        `;
+        list.appendChild(bbqLi);
       } catch (e) {
         console.warn(e);
       }
@@ -268,16 +261,15 @@
     document.addEventListener('DOMContentLoaded', () => {
       reloadInfoList(); // initial fill
 
-      // When a language is chosen in the dropdown, let i18n.js translate,
-      // then re-fetch the info list in that language.
+      // Kada promijenimo jezik u dropdownu:
       document.addEventListener('click', async (e) => {
         const btn = e.target.closest('.lang-menu button[data-lang]');
         if (!btn) return;
         const lang = btn.dataset.lang;
         if (typeof window.setLang === 'function') {
-          await window.setLang(lang);   // translates all [data-i18n] including BBQ & contact_resp
+          await window.setLang(lang);   // prevede sve [data-i18n]
         }
-        await reloadInfoList(lang);     // refresh dynamic list items
+        await reloadInfoList(lang);     // osvježi listu u tom jeziku
       });
     });
   </script>
