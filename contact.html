@@ -33,7 +33,21 @@
   <link rel="stylesheet" href="/assets/css/style.css?v=20260101">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
-  <script src="/assets/js/contact.js" defer></script>
+  <script src="/assets/js/contact-form.js" defer></script>
+
+  <!-- Turnstile callbacks -->
+  <script data-cfasync="false">
+    window.cfStoreToken = function(token){
+      var t = document.getElementById('cf-token');
+      if (t) t.value = token || '';
+      var st = document.getElementById('cf-status');
+      if (st && st.classList.contains('err')) st.textContent = '';
+    };
+    window.cfExpireToken = function(){
+      var t = document.getElementById('cf-token');
+      if (t) t.value = '';
+    };
+  </script>
 </head>
 <body>
 
@@ -108,55 +122,49 @@
         <div class="section-label" data-i18n="contact_form_label">Send a message</div>
         <h2 data-i18n="contact_form_h">Inquiry form</h2>
 
-        <form id="contact-form" class="contact-form" novalidate style="margin-top:1.5rem">
-          <input type="hidden" name="apt" id="cf-apt" />
-
-          <!-- Apartment badge (shown when redirected from apt page) -->
-          <div id="apt-badge" hidden style="margin-bottom:1rem">
-            <span class="apt-badge-pill" id="apt-badge-text"></span>
-          </div>
+        <form id="contact-form-el" class="contact-card" data-apt="" novalidate style="margin-top:1.5rem">
+          <input type="hidden" id="cf-apt" name="apt" value="" />
+          <input type="hidden" id="cf-token" name="cf-token" value="" />
 
           <div class="form-grid">
             <div class="form-group">
               <label for="cf-name" class="required" data-i18n="contact.name_label">Name</label>
-              <input id="cf-name" name="name" type="text" autocomplete="name" required />
+              <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
               <small class="err-msg" aria-live="polite"></small>
             </div>
             <div class="form-group">
               <label for="cf-email" class="required" data-i18n="contact.email_label">Email</label>
-              <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" required />
+              <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required />
               <small class="err-msg" aria-live="polite"></small>
             </div>
             <div class="form-group">
               <label for="cf-phone" data-i18n="contact.phone_label">Phone (optional)</label>
               <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
             </div>
-            <div class="form-group">
-              <label for="cf-dates" data-i18n="contact.dates_label">Preferred dates (optional)</label>
-              <input id="cf-dates" name="dates" type="text" placeholder="e.g. 12–18 July" />
-            </div>
             <div class="form-group form-full">
               <label for="cf-message" class="required" data-i18n="contact.message_label">Message</label>
-              <textarea id="cf-message" name="message" rows="6" required></textarea>
+              <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
               <small class="err-msg" aria-live="polite"></small>
             </div>
             <div class="form-group form-full">
               <div class="cf-turnstile"
                 data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
-                data-theme="light"
-                data-language="auto"></div>
+                data-callback="cfStoreToken"
+                data-expired-callback="cfExpireToken"
+                data-error-callback="cfExpireToken"
+                data-retry="auto"></div>
             </div>
           </div>
 
           <div class="form-actions">
-            <button class="button" type="submit" id="cf-submit" data-i18n="contact.send_btn">
+            <button class="button" id="cf-submit" type="submit" data-i18n="contact.send_btn">
               Send message
               <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
           </div>
-          <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
+          <p class="form-status form-note" id="cf-status" role="status" aria-live="polite" data-i18n="contact.note_after">We reply within 24h.</p>
         </form>
       </div>
 
