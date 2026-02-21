@@ -33,5 +33,8 @@
   "info_dishwasher": "Mosogatógép",
   "info_trails": "Túra- és kerékpárutak a közelben",
   "info_bbq": "BBQ / grill rendelkezésre áll",
-  "back_home": "Vissza a főoldalra"
+  "back_home": "Vissza a főoldalra",
+  "notice_text": "Közvetlen foglalás · ",
+  "notice_bold": "Díjmentes",
+  "notice_location": " · Lovran, Opatija Riviéra"
 }
