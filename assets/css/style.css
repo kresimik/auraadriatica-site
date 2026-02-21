@@ -249,7 +249,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
    ========================= */
 .hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 70vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -304,12 +304,14 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 .hero h1 em { font-style: italic; color: var(--gold-hover); }
 .hero p {
-  font-size: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 300;
-  color: rgba(255,255,255,.72);
+  font-style: italic;
+  color: rgba(255,255,255,.85);
   letter-spacing: .03em;
-  line-height: 1.65;
-  max-width: 460px;
+  line-height: 1.5;
+  max-width: 520px;
   margin-bottom: 2.5rem;
 }
 .hero .cta {
