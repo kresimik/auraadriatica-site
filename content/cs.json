@@ -33,5 +33,8 @@
   "info_dishwasher": "Myčka nádobí",
   "info_trails": "Pěší a cyklistické trasy poblíž",
   "info_bbq": "BBQ / gril k dispozici",
-  "back_home": "Zpět na úvod"
+  "back_home": "Zpět na úvod",
+  "notice_text": "Přímá rezervace · ",
+  "notice_bold": "Bez poplatků",
+  "notice_location": " · Lovran, Riviera Opatija"
 }
