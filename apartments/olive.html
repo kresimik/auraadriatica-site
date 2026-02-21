@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apartment Olive — Aura Adriatica</title>
-  <meta name="description" content="Apartment Olive — sunny balcony with sea view, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
-  <meta name="theme-color" content="#4da6ff">
+  <meta name="description" content="Apartment Olive — sunny terrace with sea view, private pool, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
+  <meta name="theme-color" content="#b8965a">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://auraadriatica.com/apartments/olive.html">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Apartment Olive — Aura Adriatica">
-  <meta property="og:description" content="Sunny apartment with sea-view balcony, full kitchen, AC, Wi-Fi and private parking near Opatija, Croatia.">
-  <meta property="og:image" content="https://auraadriatica.com/assets/img/hero.jpg">
+  <meta property="og:description" content="Apartment Olive — sunny terrace with sea view, private pool, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia.">
+  <meta property="og:image" content="https://auraadriatica.com/assets/img/olive-hero.jpg">
   <meta property="og:url" content="https://auraadriatica.com/apartments/olive.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aura Adriatica">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://auraadriatica.com/apartments/olive.html">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -24,9 +24,13 @@
   <link rel="manifest" href="/assets/favicons/site.webmanifest">
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
 
-  <!-- Fonts & CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20251021">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260101">
   <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=1">
 
   <!-- Turnstile callbacks -->
@@ -48,23 +52,11 @@
   <script src="/assets/js/apt.js?v=20251025" defer></script>
   <script src="/assets/js/contact-form.js" defer></script>
   <script src="/assets/js/aa-calendar.js?v=1" defer></script>
-
-  <!-- Scoped styles for Contact card & footer spacing -->
-  <style>
-    :root { --brand:#4da6ff; --text:#1f2937; }
-    .contact-row .chip svg, .contact-row .chip { color: var(--brand); }
-    .contact-row .chip span { color: var(--text); }
-    .contact-row { display:flex; align-items:center; justify-content:center; gap:.75rem; flex-wrap:wrap; margin-top:.5rem; }
-    .chip { display:inline-flex; align-items:center; gap:.55rem; padding:.6rem .85rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; text-decoration:none; font-weight:500; transition:background .2s ease, box-shadow .2s ease; }
-    .chip:hover { background:#f9fbff; box-shadow:0 1px 4px rgba(77,166,255,.15); }
-    .chip svg { width:1.1rem; height:1.1rem; }
-    .site-footer .footer-copy { margin-top:.8rem; color:#6b7280; }
-    .site-footer .footer-contact p { margin:.15rem 0; }
-  </style>
 </head>
 
 <body data-apt-slug="olive">
-  <!-- Inline SVG icons -->
+
+  <!-- SVG ICONS -->
   <svg width="0" height="0" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
     <symbol id="ic-mail" viewBox="0 0 24 24">
       <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5L4 8V6l8 5 8-5z"/>
@@ -80,13 +72,15 @@
     </symbol>
   </svg>
 
+  <!-- NOTICE BAR -->
+  <div class="notice-bar"><span data-i18n="notice_text">Direct booking · </span><strong data-i18n="notice_bold">No fees</strong><span data-i18n="notice_location"> · Lovran, Opatija Riviera</span></div>
+
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
       <a href="/" class="logo" aria-label="Aura Adriatica — home">
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
-
       <nav class="main-nav" aria-label="Primary">
         <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
         <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
@@ -94,8 +88,6 @@
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
-
-      <!-- LANGUAGE DROPDOWN -->
       <div class="lang-dropdown" id="lang-dd">
         <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
           <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -116,30 +108,35 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" style="background-image:
-      linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url('/assets/img/olive-hero.jpg');">
+  <section class="hero" style="background-image: linear-gradient(to bottom, rgba(14,14,14,.2), rgba(14,14,14,.62)), url('/assets/img/olive-hero.jpg');">
     <div class="container hero-center">
-      <h1>Olive Apartment</h1>
-      <p>Sunny balcony, sea view, private pool, parking, fast Wi-Fi.</p>
+      <div class="hero-eyebrow">Ground floor · Garden · Private pool</div>
+      <h1>Apartment <em>Olive</em></h1>
+      <p>Sunny terrace, private garden, sea view and the quiet comfort of the Opatija Riviera.</p>
       <div class="cta">
-        <a class="button" href="/index.html" data-i18n="back_home">Back to Home</a>
+        <a class="button olive" href="#contact-form" data-i18n="inquire_btn">Inquire now</a>
+        <a class="button ghost" href="/" data-i18n="back_home">Back to Home</a>
       </div>
     </div>
   </section>
 
   <!-- DETAILS -->
   <section class="section">
-    <div class="container">
+    <div class="container fade-up">
+      <div class="section-label" data-i18n="details_label">Apartment</div>
       <h2 data-i18n="details_h">Apartment details</h2>
-      <div class="two-col two-col--boxed">
+      <div class="two-col" style="margin-top:1.5rem">
         <div class="col">
-          <h3 data-i18n="desc_h">Description</h3>
-          <div id="apt-desc"></div>
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="desc_h">Description</h3></div>
+            <div id="apt-desc"></div>
+          </div>
         </div>
         <div class="col">
-          <h3 data-i18n="highlights_h">Highlights</h3>
-          <ul class="highlights" id="apt-highlights"></ul>
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="highlights_h">Highlights</h3></div>
+            <ul class="highlights" id="apt-highlights"></ul>
+          </div>
         </div>
       </div>
     </div>
@@ -147,26 +144,29 @@
 
   <!-- GALLERY -->
   <section class="section alt">
-    <div class="container">
+    <div class="container fade-up">
+      <div class="section-label" data-i18n="gallery_label">Photos</div>
       <h2 data-i18n="gallery_h">Gallery</h2>
-      <div class="gallery" id="apt-gallery"></div>
+      <div class="gallery" id="apt-gallery" style="margin-top:1.5rem"></div>
     </div>
   </section>
 
   <!-- AVAILABILITY -->
   <section class="section">
-    <div class="container">
+    <div class="container fade-up">
+      <div class="section-label" data-i18n="avail_label">Calendar</div>
       <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
       <p class="aa-cal-note" id="apt-availability-note"></p>
       <div class="aa-ical-calendar aa-ical--compact" data-apt="olive"></div>
     </div>
   </section>
 
-  <!-- CONTACT FORM (existing) -->
-  <section class="section alt">
-    <div class="container">
-      <h2 data-i18n="contact_h">Contact</h2>
-      <form id="contact-form" class="contact-card" data-apt="Olive" novalidate>
+  <!-- CONTACT FORM -->
+  <section class="section alt" id="contact-form">
+    <div class="container fade-up">
+      <div class="section-label" data-i18n="contact_label">Contact</div>
+      <h2 data-i18n="contact_h">Get in touch</h2>
+      <form id="contact-form-el" class="contact-card" data-apt="Olive" novalidate style="margin-top:1.5rem">
         <input type="hidden" id="cf-apt" name="apt" value="Olive" />
         <input type="hidden" id="cf-token" name="cf-token" value="" />
 
@@ -176,24 +176,20 @@
             <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
             <small class="err-msg" aria-live="polite"></small>
           </div>
-
           <div class="form-group">
             <label for="cf-email" class="required" data-i18n="contact.email_label">Email</label>
             <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required />
             <small class="err-msg" aria-live="polite"></small>
           </div>
-
           <div class="form-group">
             <label for="cf-phone" data-i18n="contact.phone_label">Phone (optional)</label>
             <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
           </div>
-
           <div class="form-group form-full">
             <label for="cf-message" class="required" data-i18n="contact.message_label">Message</label>
             <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
             <small class="err-msg" aria-live="polite"></small>
           </div>
-
           <div class="form-group form-full">
             <div class="cf-turnstile"
               data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
@@ -212,31 +208,30 @@
             </svg>
           </button>
         </div>
-
-        <p class="form-status form-note" id="cf-status" role="status" aria-live="polite" data-i18n="contact.note_after">
-          We reply within 24h.
-        </p>
+        <p class="form-status form-note" id="cf-status" role="status" aria-live="polite" data-i18n="contact.note_after">We reply within 24h.</p>
       </form>
     </div>
   </section>
 
-  <!-- CONTACT (index-like frame at the very end, without Information) -->
+  <!-- CONTACT CHIPS -->
   <section class="section">
     <div class="container">
-      <div class="card">
-        <div class="card-head" style="text-align:center; margin-top:.25rem"><h2 data-i18n="contact_h">Contact</h2></div>
+      <div class="card fade-up" style="text-align:center; max-width:600px; margin:0 auto;">
+        <div class="section-label" style="justify-content:center" data-i18n="contact_label">Contact</div>
+        <h2 data-i18n="contact_h">Get in touch</h2>
         <div class="contact-row" aria-label="Contact options">
-          <a class="chip" href="mailto:info@auraadriatica.com" aria-label="Email us at info@auraadriatica.com">
+          <a class="chip" href="mailto:info@auraadriatica.com" aria-label="Email us">
             <svg aria-hidden="true"><use href="#ic-mail"></use></svg><span>info@auraadriatica.com</span>
           </a>
-          <a class="chip" href="tel:+385992210910" aria-label="Call us at +385 99 221 0910">
+          <a class="chip" href="tel:+385992210910" aria-label="Call us">
             <svg aria-hidden="true"><use href="#ic-phone"></use></svg><span>+385 99 221 0910</span>
           </a>
-          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener" aria-label="Chat on WhatsApp at +385 99 221 0910">
-            <svg aria-hidden="true"><use href="#ic-wa"></use></svg><span>WhatsApp</span><svg aria-hidden="true"><use href="#ic-external"></use></svg>
+          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg aria-hidden="true"><use href="#ic-wa"></use></svg><span>WhatsApp</span>
+            <svg aria-hidden="true"><use href="#ic-external"></use></svg>
           </a>
         </div>
-        <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
+        <p style="margin-top:.9rem;color:var(--muted);font-size:.9rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
       </div>
     </div>
   </section>
@@ -268,6 +263,12 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
     // INIT: locale for calendar
     document.addEventListener('DOMContentLoaded', () => {
       const pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
@@ -276,7 +277,7 @@
       });
     });
 
-    // Patch setLang → rerender calendar + reload apartment
+    // Patch setLang -> rerender calendar + reload apartment
     (function patchSetLangForCalendar(){
       const orig = window.setLang;
       if (typeof orig !== 'function') return;
