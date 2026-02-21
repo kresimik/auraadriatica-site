@@ -115,7 +115,7 @@
       <p>Modern duplex with private pool, panoramic sea-view terrace and the deep luxury of a secluded retreat.</p>
       <div class="cta">
         <a class="button onyx" href="#contact-form" data-i18n="inquire_btn">Inquire now</a>
-        <a class="button ghost" href="/" data-i18n="back_home">Back to Home</a>
+        <a class="button back-home" href="/" data-i18n="back_home">← Home</a>
       </div>
     </div>
   </section>
@@ -147,7 +147,7 @@
     <div class="container fade-up">
       <div class="section-label" data-i18n="gallery_label">Photos</div>
       <h2 data-i18n="gallery_h">Gallery</h2>
-      <div class="gallery" id="apt-gallery" style="margin-top:1.5rem"></div>
+      <div class="gallery-apt" id="apt-gallery" style="margin-top:1.5rem"></div>
     </div>
   </section>
 
@@ -268,6 +268,19 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Wrap gallery images in div for hover effects
+    const galEl = document.getElementById('apt-gallery');
+    if (galEl) {
+      new MutationObserver(() => {
+        galEl.querySelectorAll('img:not(.wrapped)').forEach(img => {
+          img.classList.add('wrapped');
+          const wrap = document.createElement('div');
+          galEl.insertBefore(wrap, img);
+          wrap.appendChild(img);
+        });
+      }).observe(galEl, { childList: true });
+    }
 
     // INIT: locale for calendar
     document.addEventListener('DOMContentLoaded', () => {
