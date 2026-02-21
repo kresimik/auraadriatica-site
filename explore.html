@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Explore — Aura Adriatica</title>
   <meta name="description" content="What to do in Lovran and the Opatija Riviera — beaches, walks, Učka trails, gastronomy, day trips." />
-  <meta name="theme-color" content="#4da6ff">
+  <meta name="theme-color" content="#b8965a">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://auraadriatica.com/explore.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Explore Lovran &amp; Opatija Riviera — Aura Adriatica">
-  <meta property="og:description" content="Discover the best beaches, trails, restaurants and day trips around Lovran and the Opatija Riviera.">
-  <meta property="og:image" content="https://auraadriatica.com/assets/img/hero.jpg">
+  <meta property="og:title" content="Explore Lovran & Opatija Riviera — Aura Adriatica">
+  <meta property="og:description" content="Beaches, Lungomare, Učka trails, gastronomy and day trips from your base in Lovran.">
+  <meta property="og:image" content="https://auraadriatica.com/assets/img/explore-hero.jpg">
   <meta property="og:url" content="https://auraadriatica.com/explore.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aura Adriatica">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://auraadriatica.com/explore.html">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -25,12 +25,12 @@
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
 
   <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250908c">
-  <!-- i18n must load first so it can translate on DOMContentLoaded -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260101">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/explore.js" defer></script>
 
@@ -40,31 +40,18 @@
       if (typeof window.setLang === 'function') {
         const _setLang = window.setLang;
         window.setLang = async (lang) => {
-          await _setLang(lang);                 // i18n: translate all [data-i18n]
+          await _setLang(lang);
           if (typeof window.loadExplore === 'function') {
-            await window.loadExplore(lang);     // refresh Explore dynamic content
+            await window.loadExplore(lang);
           }
         };
       }
     });
   </script>
-
-  <!-- Scoped styles for Contact chips & footer spacing -->
-  <style>
-    :root { --brand:#4da6ff; --text:#1f2937; }
-    .contact-row .chip svg, .contact-row .chip { color: var(--brand); }
-    .contact-row .chip span { color: var(--text); }
-    .contact-row { display:flex; align-items:center; justify-content:center; gap:.75rem; flex-wrap:wrap; margin-top:.5rem; }
-    .chip { display:inline-flex; align-items:center; gap:.55rem; padding:.6rem .85rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff; text-decoration:none; font-weight:500; transition:background .2s ease, box-shadow .2s ease; }
-    .chip:hover { background:#f9fbff; box-shadow:0 1px 4px rgba(77,166,255,.15); }
-    .chip svg { width:1.1rem; height:1.1rem; }
-    .site-footer .footer-copy { margin-top:.8rem; color:#6b7280; }
-    .site-footer .footer-contact p { margin:.15rem 0; }
-  </style>
 </head>
 <body>
 
-<!-- Inline SVG icons (mail, phone, WhatsApp, external) -->
+<!-- SVG ICONS -->
 <svg width="0" height="0" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
   <symbol id="ic-mail" viewBox="0 0 24 24">
     <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5L4 8V6l8 5 8-5z"/>
@@ -80,6 +67,9 @@
   </symbol>
 </svg>
 
+<!-- NOTICE BAR -->
+<div class="notice-bar"><span data-i18n="notice_text">Direct booking · </span><strong data-i18n="notice_bold">No fees</strong><span data-i18n="notice_location"> · Lovran, Opatija Riviera</span></div>
+
 <!-- HEADER -->
 <header class="site-header">
   <div class="container header-flex">
@@ -93,9 +83,8 @@
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
       <a href="/reviews.html" data-i18n="reviews">Reviews</a>
     </nav>
-    <!-- LANGUAGE DROPDOWN (handled globally by i18n.js: no inline handler here) -->
     <div class="lang-dropdown" id="lang-dd">
-      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
+      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
         <span class="current-lang" id="cur-lang">EN</span> ▾
       </button>
       <div class="lang-menu" id="lang-menu" role="menu" hidden>
@@ -113,91 +102,99 @@
   </div>
 </header>
 
-<!-- HERO (Explore.js fills these) -->
-<section class="hero" style="background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url('/assets/img/explore-hero.jpg');">
+<!-- HERO -->
+<section class="hero" style="background-image: linear-gradient(to bottom, rgba(14,14,14,.2), rgba(14,14,14,.62)), url('/assets/img/explore-hero.jpg'); min-height: 55vh;">
   <div class="container hero-center">
-    <h1 id="ex-hero-title">Explore Lovran &amp; Opatija Riviera</h1>
-    <p  id="ex-hero-sub">Beaches, Lungomare, Učka trails, gastronomy &amp; day trips.</p>
+    <div class="hero-eyebrow">Lovran · Opatija Riviera</div>
+    <h1 id="ex-hero-title">Explore Lovran &amp; <em>Opatija Riviera</em></h1>
+    <p id="ex-hero-sub">Beaches, Lungomare, Učka trails, gastronomy &amp; day trips.</p>
   </div>
 </section>
 
-<!-- ABOUT + THINGS TO DO (two-col) -->
-<section class="section">
-  <div class="container two-col two-col--boxed">
-    <div class="col">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="ex-about">About Lovran</h2>
-        </div>
-        <p id="ex-intro">
-          A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.
-        </p>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="ex-do">Things to do</h2>
-        </div>
-        <ul id="ex-do-list"></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BEACHES + DAY TRIPS (two-col) -->
-<section class="section">
-  <div class="container two-col two-col--boxed">
-    <div class="col">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="ex-beaches">Beaches &amp; Seaside</h2>
-        </div>
-        <ul id="ex-beaches-list"></ul>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-head">
-          <h2 id="ex-trips">Day trips</h2>
-        </div>
-        <ul id="ex-trips-list"></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GASTRONOMY (full-width card) -->
+<!-- ABOUT + THINGS TO DO -->
 <section class="section">
   <div class="container">
+    <div class="two-col fade-up">
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <div class="section-label">Lovran</div>
+            <h2 id="ex-about">About Lovran</h2>
+          </div>
+          <p id="ex-intro">A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <div class="section-label" data-i18n="explore_do_label">Activities</div>
+            <h2 id="ex-do">Things to do</h2>
+          </div>
+          <ul id="ex-do-list" class="explore-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEACHES + DAY TRIPS -->
+<section class="section alt">
+  <div class="container">
+    <div class="two-col fade-up">
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <div class="section-label" data-i18n="explore_beaches_label">Seaside</div>
+            <h2 id="ex-beaches">Beaches &amp; Seaside</h2>
+          </div>
+          <ul id="ex-beaches-list" class="explore-list"></ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-head">
+            <div class="section-label" data-i18n="explore_trips_label">Day trips</div>
+            <h2 id="ex-trips">Day trips</h2>
+          </div>
+          <ul id="ex-trips-list" class="explore-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMY -->
+<section class="section">
+  <div class="container fade-up">
     <div class="card">
       <div class="card-head">
+        <div class="section-label" data-i18n="explore_food_label">Food &amp; Drink</div>
         <h2 id="ex-food">Gastronomy</h2>
       </div>
-      <ul id="ex-food-list"></ul>
+      <ul id="ex-food-list" class="explore-list explore-list--inline"></ul>
     </div>
   </div>
 </section>
 
-<!-- CONTACT (index-like frame at the very end) -->
-<section class="section">
+<!-- CONTACT -->
+<section class="section alt">
   <div class="container">
-    <div class="card">
-      <div class="card-head" style="text-align:center; margin-top:.25rem"><h2 data-i18n="contact_h">Contact</h2></div>
+    <div class="card fade-up" style="text-align:center; max-width:600px; margin:0 auto;">
+      <div class="section-label" style="justify-content:center" data-i18n="contact_label">Contact</div>
+      <h2 data-i18n="contact_h">Get in touch</h2>
       <div class="contact-row" aria-label="Contact options">
-        <a class="chip" href="mailto:info@auraadriatica.com" aria-label="Email us at info@auraadriatica.com">
+        <a class="chip" href="mailto:info@auraadriatica.com" aria-label="Email us">
           <svg aria-hidden="true"><use href="#ic-mail"></use></svg><span>info@auraadriatica.com</span>
         </a>
-        <a class="chip" href="tel:+385992210910" aria-label="Call us at +385 99 221 0910">
+        <a class="chip" href="tel:+385992210910" aria-label="Call us">
           <svg aria-hidden="true"><use href="#ic-phone"></use></svg><span>+385 99 221 0910</span>
         </a>
-        <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener" aria-label="Chat on WhatsApp at +385 99 221 0910">
-          <svg aria-hidden="true"><use href="#ic-wa"></use></svg><span>WhatsApp</span><svg aria-hidden="true"><use href="#ic-external"></use></svg>
+        <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg aria-hidden="true"><use href="#ic-wa"></use></svg><span>WhatsApp</span>
+          <svg aria-hidden="true"><use href="#ic-external"></use></svg>
         </a>
       </div>
-      <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
+      <p style="margin-top:.9rem;color:var(--muted);font-size:.9rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
     </div>
   </div>
 </section>
@@ -223,7 +220,15 @@
     </div>
   </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
