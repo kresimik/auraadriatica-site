@@ -769,22 +769,65 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 /* Modern gallery grid */
 .gallery-modern {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 4px;
+}
+/* Svaka 7. slika zauzima 2 kolone za vizualni ritam */
+.gallery-modern .g-item:nth-child(7n+1) {
+  grid-column: span 2;
 }
 .g-item {
   position: relative; display: block;
   overflow: hidden; background: var(--sand);
-  border: 1px solid rgba(14,14,14,.06);
+  border: none;
   transform: translateZ(0);
 }
 .g-item img {
   width: 100%; height: 100%;
   aspect-ratio: 4/3; object-fit: cover;
-  transition: transform .35s ease, filter .35s ease;
+  transition: transform .5s ease, filter .5s ease;
+  display: block;
 }
-.g-item:hover img { transform: scale(1.04); filter: saturate(1.05); }
+/* Široke slike imaju drugačiji aspect ratio */
+.gallery-modern .g-item:nth-child(7n+1) img {
+  aspect-ratio: 16/9;
+}
+/* Zlatni overlay na hoveru */
+.g-item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(184,150,90,.35), rgba(26,51,71,.4));
+  opacity: 0;
+  transition: opacity .35s ease;
+  z-index: 1;
+}
+/* Lupa ikona na hoveru */
+.g-item::after {
+  content: '+';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(.6);
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: #fff;
+  opacity: 0;
+  transition: opacity .3s ease, transform .3s ease;
+  z-index: 2;
+  line-height: 1;
+}
+.g-item:hover img { transform: scale(1.06); filter: saturate(1.1); }
+.g-item:hover::before { opacity: 1; }
+.g-item:hover::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 .g-item:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+@media (max-width: 768px) {
+  .gallery-modern { grid-template-columns: repeat(2, 1fr); }
+  .gallery-modern .g-item:nth-child(7n+1) { grid-column: span 1; }
+  .gallery-modern .g-item:nth-child(7n+1) img { aspect-ratio: 4/3; }
+}
+@media (max-width: 480px) {
+  .gallery-modern { grid-template-columns: 1fr; }
+}
 
 /* Lightbox */
 .glightbox {
@@ -889,6 +932,68 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 @media (max-width: 768px) {
   .footer-flex { flex-direction: column; text-align: center; }
   .footer-nav a { margin: 0 .5rem; }
+}
+
+/* =========================
+   APARTMENT GALLERY (3 col)
+   ========================= */
+.gallery-apt {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.gallery-apt img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease, filter .4s ease;
+  cursor: pointer;
+}
+.gallery-apt a,
+.gallery-apt > div {
+  position: relative;
+  overflow: hidden;
+}
+.gallery-apt a::after,
+.gallery-apt > div::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,14,14,.45), transparent 55%);
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.gallery-apt a:hover::after,
+.gallery-apt > div:hover::after { opacity: 1; }
+.gallery-apt a:hover img,
+.gallery-apt > div:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.08) brightness(1.03);
+}
+@media (max-width: 768px) {
+  .gallery-apt { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .gallery-apt { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   BACK HOME BUTTON
+   ========================= */
+.button.back-home {
+  background: transparent;
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.25);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  padding: .9rem 1.4rem;
+}
+.button.back-home:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.5);
+  color: #fff;
+  transform: translateX(-3px);
 }
 
 /* =========================
