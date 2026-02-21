@@ -1081,11 +1081,10 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .contact-apts { display: flex; flex-direction: column; gap: .5rem; }
 .contact-apt-card {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .3rem;
+  padding: 1rem 1.4rem;
   border-radius: 4px;
   text-decoration: none;
   transition: transform .2s, box-shadow .2s;
@@ -1101,19 +1100,19 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 .contact-apt-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1;
-  flex-shrink: 0;
+  display: block;
 }
 .contact-apt-sub {
   font-size: .65rem;
   font-weight: 500;
-  letter-spacing: .1em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: rgba(255,255,255,.55);
   line-height: 1.4;
-  text-align: right;
+  display: block;
 }
 
 /* Apt badge pill */
