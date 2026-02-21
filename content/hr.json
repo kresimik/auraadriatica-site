@@ -33,5 +33,15 @@
   "info_dishwasher": "Perilica suđa",
   "info_trails": "Planinarske i biciklističke staze u blizini",
   "info_bbq": "Roštilj / grill na raspolaganju",
-  "back_home": "Povratak na početnu"
+  "back_home": "Povratak na početnu",
+  "notice_text": "Direktna rezervacija · ",
+  "notice_bold": "Bez naknade",
+  "notice_location": " · Lovran, Opatijska rivijera",
+  "contact_nav": "Kontakt",
+  "olive_tag": "Dvoetažni · Privatni bazen · Terasa · Parking",
+  "onyx_tag": "Dvoetažni · Privatni bazen · Pogled na more · Parking",
+  "olive_short": "Sunčana terasa, privatni vrt i mirni kutak Rivijere.",
+  "onyx_short": "Privatni bazen, panoramska terasa s pogledom na more i luksuz osame.",
+  "our_spaces": "Naši prostori",
+  "apts_title": "Dva apartmana, jedna rivijera"
 }

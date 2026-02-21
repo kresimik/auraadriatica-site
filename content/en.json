@@ -22,7 +22,6 @@
   "contact_email": "info@auraadriatica.com",
   "contact_resp": "We usually respond within a few hours.",
   "gallery_intro": "Discover Olive & Onyx and the beauty of the Opatija Riviera.",
-
   "features_h": "Amenities",
   "info_pool": "Private pool",
   "info_terrace": "Terrace & garden with sea view",
@@ -34,6 +33,15 @@
   "info_dishwasher": "Dishwasher",
   "info_trails": "Hiking & cycling trails nearby",
   "info_bbq": "BBQ / Grill available",
-
-  "back_home": "Back to Home"
+  "back_home": "Back to Home",
+  "notice_text": "Direct booking · ",
+  "notice_bold": "No fees",
+  "notice_location": " · Lovran, Opatija Riviera",
+  "contact_nav": "Contact",
+  "olive_tag": "Duplex · Private pool · Terrace · Parking",
+  "onyx_tag": "Duplex · Private pool · Sea view · Parking",
+  "olive_short": "Sun-drenched terrace, private garden and a quiet corner of the Riviera.",
+  "onyx_short": "Private pool, panoramic sea-view terrace and the luxury of a secluded retreat.",
+  "our_spaces": "Our Spaces",
+  "apts_title": "Two apartments, one riviera"
 }

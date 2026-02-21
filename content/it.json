@@ -33,5 +33,15 @@
   "info_dishwasher": "Lavastoviglie",
   "info_trails": "Sentieri escursionistici e ciclabili nelle vicinanze",
   "info_bbq": "BBQ / Grill disponibile",
-  "back_home": "Torna alla Home"
+  "back_home": "Torna alla Home",
+  "notice_text": "Prenotazione diretta · ",
+  "notice_bold": "Nessuna commissione",
+  "notice_location": " · Lovran, Riviera di Opatija",
+  "contact_nav": "Contatto",
+  "olive_tag": "Duplex · Piscina privata · Terrazza · Parcheggio",
+  "onyx_tag": "Duplex · Piscina privata · Vista mare · Parcheggio",
+  "olive_short": "Terrazza soleggiata, giardino privato e un angolo tranquillo della Riviera.",
+  "onyx_short": "Piscina privata, terrazza panoramica con vista mare e il lusso di un rifugio esclusivo.",
+  "our_spaces": "I nostri spazi",
+  "apts_title": "Due appartamenti, una riviera"
 }
