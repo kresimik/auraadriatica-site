@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aura Adriatica</title>
-  <meta name="description" content="Aura Adriatica — boutique apartments Olive & Onyx on the Opatija Riviera" />
-  <meta name="theme-color" content="#4da6ff">
+  <meta name="description" content="Aura Adriatica — boutique apartments Olive &amp; Onyx on the Opatija Riviera" />
+  <meta name="theme-color" content="#b8965a">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://auraadriatica.com/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Aura Adriatica — Boutique Apartments on the Opatija Riviera">
@@ -14,8 +16,6 @@
   <meta property="og:url" content="https://auraadriatica.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aura Adriatica">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://auraadriatica.com/">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -25,11 +25,12 @@
   <link rel="shortcut icon" href="/assets/favicons/favicon.ico">
 
   <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20251102c">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260101">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/weather.js?v=20251102" defer></script>
 </head>
@@ -54,6 +55,9 @@
     </symbol>
   </svg>
 
+  <!-- NOTICE BAR -->
+  <div class="notice-bar">Direktna rezervacija · <strong>Bez naknade</strong> · Lovran, Opatijska rivijera</div>
+
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-flex">
@@ -66,7 +70,9 @@
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
       </nav>
       <div class="lang-dropdown" id="lang-dd">
-        <button class="lang-toggle" type="button"><span class="current-lang" id="cur-lang">EN</span> ▾</button>
+        <button class="lang-toggle" type="button" aria-label="Select language" aria-haspopup="true">
+          <span class="current-lang" id="cur-lang">EN</span> ▾
+        </button>
         <div class="lang-menu" id="lang-menu" hidden>
           <button data-lang="hr">HR</button><button data-lang="en" class="active">EN</button>
           <button data-lang="de">DE</button><button data-lang="it">IT</button>
@@ -78,13 +84,51 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" style="background-image:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/assets/img/hero.jpg');">
+  <section class="hero" style="background-image:linear-gradient(to bottom,rgba(14,14,14,.2),rgba(14,14,14,.6)),url('/assets/img/hero.jpg');">
+    <svg class="hero-waves" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,50 C240,85 480,15 720,50 C960,85 1200,15 1440,50 L1440,100 L0,100 Z" fill="white"/>
+    </svg>
     <div class="container hero-center">
-      <h1 data-i18n="brand">Aura Adriatica</h1>
+      <div class="hero-eyebrow">Boutique Apartments · Lovran</div>
+      <h1 data-i18n="brand">Where the <em>Adriatic</em><br>meets elegance</h1>
       <p data-i18n="tagline">Two boutique apartments on the Opatija Riviera</p>
       <div class="cta">
         <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
-        <a class="button onyx" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
+        <a class="button ghost" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- APARTMENTS -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-label fade-up" data-i18n="our_spaces">Our Spaces</div>
+      <h2 class="fade-up" data-i18n="apts_title">Two apartments, <em>one riviera</em></h2>
+      <div class="apt-grid">
+        <a class="apt-card apt-olive fade-up" href="/apartments/olive.html">
+          <div class="apt-card-bg"></div>
+          <div class="apt-card-overlay"></div>
+          <div class="apt-card-content">
+            <span class="apt-tag" data-i18n="olive_tag">Ground floor · Garden</span>
+            <h3 data-i18n="olive_h">Olive</h3>
+            <p data-i18n="olive_short">Sun-drenched terrace, private garden and a quiet corner of the Riviera.</p>
+            <span class="apt-link" data-i18n="discover_olive">Discover Olive</span>
+          </div>
+        </a>
+        <a class="apt-card apt-onyx fade-up" href="/apartments/onyx.html">
+          <div class="apt-card-bg"></div>
+          <div class="apt-card-overlay"></div>
+          <div class="apt-card-content">
+            <span class="apt-tag" data-i18n="onyx_tag">Duplex · Sea view</span>
+            <h3 data-i18n="onyx_h">Onyx</h3>
+            <p data-i18n="onyx_short">Private pool, panoramic sea-view terrace and the luxury of a secluded retreat.</p>
+            <span class="apt-link" data-i18n="discover_onyx">Discover Onyx</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -92,20 +136,47 @@
   <!-- ABOUT + LOCATION -->
   <section class="section">
     <div class="container two-col two-col--boxed">
-      <div class="col">
-        <div class="card"><div class="card-head"><h2 data-i18n="about_h">About us</h2></div><p data-i18n="about_p"></p></div>
+      <div class="col fade-up">
+        <div class="card">
+          <div class="card-head"><h2 data-i18n="about_h">About us</h2></div>
+          <p data-i18n="about_p"></p>
+        </div>
       </div>
-      <div class="col">
-        <div class="card"><div class="card-head"><h2 data-i18n="loc_h">Location</h2></div><p data-i18n="loc_p"></p></div>
+      <div class="col fade-up">
+        <div class="card">
+          <div class="card-head"><h2 data-i18n="loc_h">Location</h2></div>
+          <p data-i18n="loc_p"></p>
+          <div class="location-stats">
+            <div class="stat-item">
+              <div class="stat-num">2'</div>
+              <div class="stat-label" data-i18n="stat_beach">to the beach</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">8km</div>
+              <div class="stat-label" data-i18n="stat_opatija">to Opatija</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">45'</div>
+              <div class="stat-label" data-i18n="stat_airport">to Pula airport</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">1h</div>
+              <div class="stat-label" data-i18n="stat_plitvice">to Plitvice</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- AMENITIES -->
-  <section class="section">
+  <section class="section alt">
     <div class="container">
-      <div class="card">
-        <div class="card-head" style="text-align:center"><h2 data-i18n="features_h">Amenities</h2></div>
+      <div class="card fade-up">
+        <div class="card-head" style="text-align:center">
+          <div class="section-label" style="justify-content:center" data-i18n="amenities_label">Amenities</div>
+          <h2 data-i18n="features_h">Everything you <em>need</em></h2>
+        </div>
         <div class="info-block">
           <ul>
             <li class="info-item">🏊 <span data-i18n="info_pool">Private pool</span></li>
@@ -127,8 +198,11 @@
   <!-- WEATHER -->
   <section class="section">
     <div class="container">
-      <div class="card">
-        <div class="card-head"><h2 data-i18n="weather_h">7-day Forecast</h2></div>
+      <div class="card fade-up">
+        <div class="card-head">
+          <div class="section-label" data-i18n="weather_label">Weather</div>
+          <h2 data-i18n="weather_h">7-day Forecast</h2>
+        </div>
         <p data-i18n="weather_note">Weather in Lovran — updated daily.</p>
         <div id="weather-widget" class="weather"></div>
       </div>
@@ -136,16 +210,27 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="section">
+  <section class="section alt">
     <div class="container">
-      <div class="card">
-        <div class="card-head" style="text-align:center"><h2 data-i18n="contact_h">Contact</h2></div>
+      <div class="card fade-up" style="text-align:center; max-width:600px; margin:0 auto;">
+        <div class="section-label" style="justify-content:center" data-i18n="contact_label">Contact</div>
+        <h2 data-i18n="contact_h">Get in touch</h2>
         <div class="contact-row">
-          <a class="chip" href="mailto:info@auraadriatica.com"><svg><use href="#ic-mail"></use></svg><span>info@auraadriatica.com</span></a>
-          <a class="chip" href="tel:+385992210910"><svg><use href="#ic-phone"></use></svg><span>+385 99 221 0910</span></a>
-          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener"><svg><use href="#ic-wa"></use></svg><span>WhatsApp</span><svg><use href="#ic-external"></use></svg></a>
+          <a class="chip" href="mailto:info@auraadriatica.com">
+            <svg><use href="#ic-mail"></use></svg>
+            <span>info@auraadriatica.com</span>
+          </a>
+          <a class="chip" href="tel:+385992210910">
+            <svg><use href="#ic-phone"></use></svg>
+            <span>+385 99 221 0910</span>
+          </a>
+          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener">
+            <svg><use href="#ic-wa"></use></svg>
+            <span>WhatsApp</span>
+            <svg><use href="#ic-external"></use></svg>
+          </a>
         </div>
-        <p style="text-align:center;margin-top:.9rem;color:#6b7280;font-size:.95rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
+        <p style="margin-top:.9rem;color:var(--muted);font-size:.9rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
       </div>
     </div>
   </section>
@@ -169,6 +254,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Fade-in on scroll -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 
   <script type="application/ld+json">
   {
