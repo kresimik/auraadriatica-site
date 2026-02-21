@@ -1019,6 +1019,41 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .apt-detail-hero h1 { color: #fff; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: .5rem; }
 
 /* =========================
+   EXPLORE LISTS
+   ========================= */
+.explore-list {
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: 0;
+}
+.explore-list li {
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: .93rem;
+  color: var(--muted);
+  line-height: 1.5;
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+}
+.explore-list li:last-child { border-bottom: none; }
+.explore-list li::before {
+  content: '—';
+  color: var(--gold);
+  font-weight: 300;
+  flex-shrink: 0;
+}
+/* Inline variant za gastronomiju */
+.explore-list--inline {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0 2rem;
+}
+.explore-list--inline li {
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* =========================
    FADE IN ANIMATION
    ========================= */
 .fade-up {
