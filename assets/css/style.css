@@ -1019,6 +1019,112 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .apt-detail-hero h1 { color: #fff; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: .5rem; }
 
 /* =========================
+   CONTACT PAGE
+   ========================= */
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .contact-page-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Info side */
+.contact-page-info h2 { margin-bottom: 0; }
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-top: .5rem;
+}
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .9rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--cream);
+  text-decoration: none;
+  transition: border-color .2s, background .2s;
+}
+.contact-info-item:hover { border-color: var(--gold); background: var(--sand); }
+.contact-info-icon {
+  width: 40px; height: 40px;
+  background: var(--sand);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: background .2s;
+}
+.contact-info-item:hover .contact-info-icon { background: #fff; }
+.contact-info-label {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .15rem;
+}
+.contact-info-value {
+  font-size: .92rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+/* Apartment cards on contact page */
+.contact-apts { display: flex; flex-direction: column; gap: .5rem; }
+.contact-apt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.contact-apt-card:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(14,14,14,.1); }
+.apt-olive.contact-apt-card {
+  background: linear-gradient(135deg, #3d5a2a, #5a7a35);
+  color: #fff;
+}
+.apt-onyx.contact-apt-card {
+  background: linear-gradient(135deg, #1a2535, #2b3a4f);
+  color: #fff;
+}
+.contact-apt-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.contact-apt-sub {
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+
+/* Apt badge pill */
+.apt-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .7rem;
+  border-radius: 2px;
+  background: var(--sand);
+  border: 1px solid var(--border);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--gold);
+}
+
+/* =========================
    EXPLORE LISTS
    ========================= */
 .explore-list {
