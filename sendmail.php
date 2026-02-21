@@ -3,10 +3,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Ako koristiš PHPMailer preko Composer-a, onda:
-// require '/path/to/vendor/autoload.php';
-// Ako ne koristiš Composer, samo ručno includaj PHPMailer.php i SMTP.php.
-
 require_once __DIR__ . '/phpmailer/PHPMailer.php';
 require_once __DIR__ . '/phpmailer/SMTP.php';
 require_once __DIR__ . '/phpmailer/Exception.php';
@@ -15,9 +11,9 @@ require_once __DIR__ . '/phpmailer/Exception.php';
 $to       = 'info@auraadriatica.com';   // glavni primatelj
 $from     = 'info@auraadriatica.com';   // Zoho verified sender
 $fromName = 'Aura Adriatica Web Form';
-$smtpHost = 'smtp.zoho.eu';              // ako koristiš EU Zoho račun
+$smtpHost = 'smtp.zoho.eu';
 $smtpUser = 'info@auraadriatica.com';
-$smtpPass = 'nbEUHmacTTrX'; // app password iz Zoho Maila
+$smtpPass = $_ENV['SMTP_PASSWORD'] ?? getenv('SMTP_PASSWORD'); // ← lozinka iz env varijable
 $smtpPort = 587;
 
 // === PRIKUPI PODATKE IZ FORME ===
@@ -56,7 +52,6 @@ $body = "
 // === SLANJE MAILA ===
 $mail = new PHPMailer(true);
 try {
-    // SMTP postavke
     $mail->isSMTP();
     $mail->Host       = $smtpHost;
     $mail->SMTPAuth   = true;

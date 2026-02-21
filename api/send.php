@@ -7,9 +7,6 @@ declare(strict_types=1);
 
 // ---------- CORS / headers ----------
 header('Content-Type: application/json; charset=utf-8');
-// If you serve from same origin, CORS isn’t strictly needed.
-// If you want to allow from anywhere, uncomment next line (or set a specific origin).
-// header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept');
 
@@ -37,7 +34,6 @@ function get_client_ip(): string {
   return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
 }
 function clean(string $s): string {
-  // basic trim + strip control chars
   $s = trim($s);
   $s = preg_replace('/[\x00-\x1F\x7F]/u','', $s);
   return $s;
@@ -56,23 +52,19 @@ if (stripos($ctype, 'application/json') !== false && $raw) {
   if (is_array($json)) $payload = $json;
 }
 
-// fallback to POST fields (FormData / urlencoded)
 if (!$payload) $payload = $_POST;
 
-// expected fields (optional ones may be empty)
 $name    = isset($payload['name'])    ? clean((string)$payload['name'])    : '';
 $email   = isset($payload['email'])   ? clean((string)$payload['email'])   : '';
 $subject = isset($payload['subject']) ? clean((string)$payload['subject']) : '';
 $message = isset($payload['message']) ? clean((string)$payload['message']) : '';
 $apt     = isset($payload['apt'])     ? clean((string)$payload['apt'])     : '';
 $dates   = isset($payload['dates'])   ? clean((string)$payload['dates'])   : '';
-// simple honeypot (must NOT be present in your form)
 $hp      = isset($payload['website']) ? (string)$payload['website'] : '';
 
 // ---------- basic validation ----------
 $errs = [];
 if ($hp !== '') {
-  // honeypot filled -> bot
   jfail('Spam detected', 400);
 }
 if ($name === '' || mb_strlen($name) < 2) {
@@ -84,8 +76,7 @@ if (!valid_email($email)) {
 if ($message === '' || mb_strlen($message) < 5) {
   $errs[] = 'Please enter a message.';
 }
-// soft limits
-if (mb_strlen($name) > 120)   $name = mb_substr($name, 0, 120);
+if (mb_strlen($name) > 120)    $name = mb_substr($name, 0, 120);
 if (mb_strlen($subject) > 160) $subject = mb_substr($subject, 0, 160);
 if (mb_strlen($message) > 4000) $message = mb_substr($message, 0, 4000);
 
@@ -94,7 +85,7 @@ if ($errs) jfail(implode(' ', $errs), 400);
 // ---------- throttle (simple per-IP lock in /tmp) ----------
 $ip = preg_replace('/[^0-9a-fA-F\.\:]/','', get_client_ip());
 $lockFile = sys_get_temp_dir() . '/aa_form_' . md5($ip) . '.lock';
-$maxPer5Min = 5; // allow 5 messages per 5 minutes per IP
+$maxPer5Min = 5;
 
 $now = time();
 $window = 5 * 60;
@@ -115,11 +106,11 @@ if (count($history) > $maxPer5Min) {
 @file_put_contents($lockFile, implode(',', $history), LOCK_EX);
 
 // ---------- build email ----------
-$toEmail = 'info@auraadriatica.com';      // destination
+$toEmail = 'info@auraadriatica.com';
 $toName  = 'Aura Adriatica Website';
 
 $finalSubject = $subject !== '' ? $subject : 'Website Inquiry';
-if ($apt !== '')  $finalSubject .= " — {$apt}";
+if ($apt !== '')   $finalSubject .= " — {$apt}";
 if ($dates !== '') $finalSubject .= " — {$dates}";
 
 $bodyText = "New inquiry from Aura Adriatica website\n\n"
@@ -134,7 +125,7 @@ $bodyText = "New inquiry from Aura Adriatica website\n\n"
 $bodyHtml = nl2br(htmlspecialchars($bodyText, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
 
 // ---------- send via PHPMailer (SMTP Zoho) ----------
-require_once __DIR__ . '/../vendor/autoload.php'; // Composer autoload
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -146,40 +137,26 @@ if (!class_exists(PHPMailer::class)) {
 $mail = new PHPMailer(true);
 
 try {
-  // SMTP config (Zoho Mail)
   $mail->isSMTP();
-  $mail->Host       = 'smtp.zoho.eu';  // or smtp.zoho.com if your account is .com region
+  $mail->Host       = 'smtp.zoho.eu';
   $mail->Port       = 587;
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
   $mail->SMTPAuth   = true;
 
-  // CREDENTIALS ————> EDIT THIS <————
-  $mail->Username   = 'info@auraadriatica.com';   // your Zoho mailbox
-  $mail->Password   = 'nbEUHmacTTrX';        // Zoho app password
+  $mail->Username   = 'info@auraadriatica.com';
+  $mail->Password   = $_ENV['SMTP_PASSWORD'] ?? getenv('SMTP_PASSWORD'); // ← lozinka iz env varijable
 
-  // From / To
   $mail->setFrom('info@auraadriatica.com', 'Aura Adriatica Website');
   $mail->addAddress($toEmail, $toName);
-
-  // Reply-To = visitor
   $mail->addReplyTo($email, $name);
 
-  // Content
   $mail->Subject = $finalSubject;
   $mail->isHTML(true);
   $mail->Body    = $bodyHtml;
   $mail->AltBody = $bodyText;
 
-  // (Optional) DKIM — if you’ve set a DKIM selector on your domain
-  // $mail->DKIM_domain = 'auraadriatica.com';
-  // $mail->DKIM_selector = 'zoho';
-  // $mail->DKIM_private = __DIR__ . '/../secure/dkim_private.key';
-  // $mail->DKIM_passphrase = ''; // usually empty
-  // $mail->DKIM_identity = $mail->From;
-
   $mail->send();
   jsuccess('We received your inquiry. Thank you!');
 } catch (Exception $e) {
-  // log server-side if you want: error_log($e->getMessage());
   jfail('Mail delivery failed. Please try again or email us at info@auraadriatica.com', 500);
 }

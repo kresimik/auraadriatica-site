@@ -35,7 +35,7 @@
 /* =========================
    FONTS
    ========================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+/* Fontovi se učitavaju u <head> svih HTML stranica — @import uklonjen radi brzine */
 
 html,body{ height:100%; }
 *{ box-sizing:border-box; }
