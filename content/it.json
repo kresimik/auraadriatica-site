@@ -33,5 +33,9 @@
   "info_dishwasher": "Lavastoviglie",
   "info_trails": "Sentieri escursionistici e ciclabili nelle vicinanze",
   "info_bbq": "BBQ / Grill disponibile",
-  "back_home": "Torna alla Home"
+  "back_home": "Torna alla Home",
+  "notice_text": "Prenotazione diretta · ",
+  "notice_bold": "Nessuna commissione",
+  "notice_location": " · Lovran, Riviera di Opatija",
+  "contact_nav": "Contatto"
 }

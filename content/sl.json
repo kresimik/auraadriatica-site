@@ -33,5 +33,9 @@
   "info_dishwasher": "Pomivalni stroj",
   "info_trails": "Pohodniške in kolesarske poti v bližini",
   "info_bbq": "Žar / BBQ na voljo",
-  "back_home": "Nazaj na prvo stran"
+  "back_home": "Nazaj na prvo stran",
+  "notice_text": "Neposredna rezervacija · ",
+  "notice_bold": "Brez provizije",
+  "notice_location": " · Lovran, Riviera Opatija",
+  "contact_nav": "Kontakt"
 }

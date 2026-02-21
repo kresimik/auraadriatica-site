@@ -33,5 +33,9 @@
   "info_dishwasher": "Perilica suđa",
   "info_trails": "Planinarske i biciklističke staze u blizini",
   "info_bbq": "Roštilj / grill na raspolaganju",
-  "back_home": "Povratak na početnu"
+  "back_home": "Povratak na početnu",
+  "notice_text": "Direktna rezervacija · ",
+  "notice_bold": "Bez naknade",
+  "notice_location": " · Lovran, Opatijska rivijera",
+  "contact_nav": "Kontakt"
 }
