@@ -1187,32 +1187,25 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 
 /* =========================
-   AWARD BADGES
+   HERO AWARD BADGE
    ========================= */
-.award-badge {
-  display: flex;
-  justify-content: flex-start;
+.hero-award {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 3;
+  opacity: .55;
+  transition: opacity .3s;
 }
-.award-badge img {
-  max-width: 340px;
-  width: 100%;
+.hero-award:hover { opacity: .85; }
+.hero-award img {
+  width: 140px;
   height: auto;
-  border-radius: 4px;
-}
-
-.awards-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(184,150,90,.15);
-}
-.awards-row img {
-  max-width: 240px;
-  width: 100%;
-  height: auto;
+  display: block;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 @media (max-width: 600px) {
-  .award-badge img { max-width: 260px; }
-  .awards-row img  { max-width: 180px; }
+  .hero-award { bottom: 1.5rem; right: 1rem; }
+  .hero-award img { width: 100px; }
 }
