@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apartment Olive — Aura Adriatica</title>
-  <meta name="description" content="Apartment Olive — sunny terrace with sea view, private pool, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia." />
+  <meta name="description" content="Apartment Olive — modern duplex near the sea with private pool, terrace, sea view, parking, and Wi-Fi in Lovran, Croatia." />
   <meta name="theme-color" content="#b8965a">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://auraadriatica.com/apartments/olive.html">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Apartment Olive — Aura Adriatica">
-  <meta property="og:description" content="Apartment Olive — sunny terrace with sea view, private pool, Wi-Fi, AC, full kitchen, and private parking near Opatija, Croatia.">
+  <meta property="og:description" content="Apartment Olive — modern duplex near the sea with private pool, terrace, sea view, parking, and Wi-Fi in Lovran, Croatia.">
   <meta property="og:image" content="https://auraadriatica.com/assets/img/olive-hero.webp">
   <meta property="og:url" content="https://auraadriatica.com/apartments/olive.html">
   <meta property="og:type" content="website">
@@ -82,8 +82,8 @@
         <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
       </a>
       <nav class="main-nav" aria-label="Primary">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
         <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
-        <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
         <a href="/explore.html" data-i18n="explore">Explore</a>
         <a href="/gallery.html" data-i18n="gallery">Gallery</a>
         <a href="/reviews.html" data-i18n="reviews">Reviews</a>
@@ -113,7 +113,7 @@
     <div class="container hero-center">
       <div class="hero-eyebrow">Ground floor · Garden · Private pool</div>
       <h1>Apartment <em>Olive</em></h1>
-      <p>Sunny terrace, private garden, sea view and the quiet comfort of the Opatija Riviera.</p>
+      <p>Modern duplex with private pool, panoramic sea-view terrace and the deep luxury of a secluded retreat.</p>
       <div class="cta">
         <a class="button olive" href="#contact-form" data-i18n="inquire_btn">Inquire now</a>
         <a class="button back-home" href="/" data-i18n="back_home">← Home</a>
@@ -141,3 +141,174 @@
         </div>
       </div>
       <!-- Booking.com Award -->
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section alt">
+    <div class="container fade-up">
+      <div class="section-label" data-i18n="gallery_label">Photos</div>
+      <h2 data-i18n="gallery_h">Gallery</h2>
+      <div class="gallery-apt" id="apt-gallery" style="margin-top:1.5rem"></div>
+    </div>
+  </section>
+
+  <!-- AVAILABILITY -->
+  <section class="section">
+    <div class="container fade-up">
+      <div class="section-label" data-i18n="avail_label">Calendar</div>
+      <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
+      <p class="aa-cal-note" id="apt-availability-note"></p>
+      <div class="aa-ical-calendar aa-ical--compact" data-apt="olive"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="section alt" id="contact-form">
+    <div class="container fade-up">
+      <div class="section-label" data-i18n="contact_label">Contact</div>
+      <h2 data-i18n="contact_h">Get in touch</h2>
+      <form id="contact-form-el" class="contact-card" data-apt="Olive" novalidate style="margin-top:1.5rem">
+        <input type="hidden" id="cf-apt" name="apt" value="Olive" />
+        <input type="hidden" id="cf-token" name="cf-token" value="" />
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="cf-name" class="required" data-i18n="contact.name_label">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+          <div class="form-group">
+            <label for="cf-email" class="required" data-i18n="contact.email_label">Email</label>
+            <input id="cf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required />
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+          <div class="form-group">
+            <label for="cf-phone" data-i18n="contact.phone_label">Phone (optional)</label>
+            <input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+385…" />
+          </div>
+          <div class="form-group form-full">
+            <label for="cf-message" class="required" data-i18n="contact.message_label">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Dates, number of guests, questions…"></textarea>
+            <small class="err-msg" aria-live="polite"></small>
+          </div>
+          <div class="form-group form-full">
+            <div class="cf-turnstile"
+              data-sitekey="0x4AAAAAAB7dSzYE1I-UlV1x"
+              data-callback="cfStoreToken"
+              data-expired-callback="cfExpireToken"
+              data-error-callback="cfExpireToken"
+              data-retry="auto"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="button" id="cf-submit" type="submit" data-i18n="contact.send_btn">
+            Send message
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h11M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <p class="form-status form-note" id="cf-status" role="status" aria-live="polite" data-i18n="contact.note_after">We reply within 24h.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT CHIPS -->
+  <section class="section">
+    <div class="container">
+      <div class="card fade-up" style="text-align:center; max-width:600px; margin:0 auto;">
+        <div class="section-label" style="justify-content:center" data-i18n="contact_label">Contact</div>
+        <h2 data-i18n="contact_h">Get in touch</h2>
+        <div class="contact-row" aria-label="Contact options">
+          <a class="chip" href="mailto:info@auraadriatica.com" aria-label="Email us">
+            <svg aria-hidden="true"><use href="#ic-mail"></use></svg><span>info@auraadriatica.com</span>
+          </a>
+          <a class="chip" href="tel:+385992210910" aria-label="Call us">
+            <svg aria-hidden="true"><use href="#ic-phone"></use></svg><span>+385 99 221 0910</span>
+          </a>
+          <a class="chip" href="https://wa.me/385992210910" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg aria-hidden="true"><use href="#ic-wa"></use></svg><span>WhatsApp</span>
+            <svg aria-hidden="true"><use href="#ic-external"></use></svg>
+          </a>
+        </div>
+        <p style="margin-top:.9rem;color:var(--muted);font-size:.9rem" data-i18n="contact_resp">We usually respond within a few hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+        <a href="/apartments/olive.html" class="active" data-i18n="olive_h">Olive</a>
+        <a href="/explore.html" data-i18n="explore">Explore</a>
+        <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+        <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+        <a href="/contact.html" data-i18n="contact_nav">Contact</a>
+      </nav>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+        <p>Phone: <a href="tel:+385992210910">+385 99 221 0910</a></p>
+        <p>WhatsApp: <a href="https://wa.me/385992210910" target="_blank" rel="noopener">+385 99 221 0910</a></p>
+        <p class="footer-copy">&copy; <span id="year"></span> Aura Adriatica</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Wrap gallery images in div for hover effects
+    const galEl = document.getElementById('apt-gallery');
+    if (galEl) {
+      new MutationObserver(() => {
+        galEl.querySelectorAll('img:not(.wrapped)').forEach(img => {
+          img.classList.add('wrapped');
+          const wrap = document.createElement('div');
+          galEl.insertBefore(wrap, img);
+          wrap.appendChild(img);
+        });
+      }).observe(galEl, { childList: true });
+    }
+
+    // INIT: locale for calendar
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+      document.querySelectorAll('.aa-ical-calendar').forEach(el => {
+        if (!el.dataset.locale) el.dataset.locale = pageLang;
+      });
+    });
+
+    // Patch setLang -> rerender calendar + reload apartment
+    (function patchSetLangForCalendar(){
+      const orig = window.setLang;
+      if (typeof orig !== 'function') return;
+      window.setLang = async function(lc){
+        const lang = (lc || 'en').toLowerCase();
+        await orig(lang);
+        try {
+          document.querySelectorAll('.aa-ical-calendar').forEach(el => el.setAttribute('data-locale', lang));
+          if (window.AACalendarRerender) window.AACalendarRerender(lang);
+          const slug = document.body?.getAttribute('data-apt-slug');
+          if (slug && typeof window.loadApartment === 'function') await window.loadApartment(slug, lang);
+        } catch(e){}
+      };
+    })();
+  </script>
+</body>
+</html>
