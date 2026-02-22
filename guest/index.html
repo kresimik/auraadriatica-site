@@ -7,160 +7,218 @@
   <meta name="robots" content="noindex,nofollow" />
   <meta name="description" content="Useful insider information for your stay at Aura Adriatica Apartments." />
 
-  <link rel="stylesheet" href="/assets/css/style.css?v=guest-final">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260101">
+
   <style>
-    /* HERO */
-    .hero {
-      background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35)),
-                  url('/assets/img/guest-hero.jpg') center/cover no-repeat;
-      text-align: center;
-      padding: 70px 0 60px;
-      color: #fff;
-    }
-    .hero h1 {
-      font-family: Poppins, sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: .5rem;
-    }
-    .hero p {
-      color: #e6efff;
-      font-size: 1.05rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
+    /* ========================
+       GUEST PAGE SCOPED STYLES
+       ======================== */
 
-    /* GRID */
-    .info-grid {
+    /* Info grid */
+    .guest-grid {
       display: grid;
-      gap: 22px;
-      margin-top: 30px;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1px;
+      margin-top: 2.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      background: rgba(184,150,90,.12);
+      border: 1px solid rgba(184,150,90,.15);
     }
-    .info-section {
-      background: #fff;
-      border: 1px solid #e6ecf6;
-      border-radius: 14px;
-      padding: 18px 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.05);
-    }
-    .info-section h3 {
-      font-family: Poppins, sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #2a7be4;
-      margin: 0 0 .7rem;
-    }
-    .info-section p, .info-section li {
-      line-height: 1.45;
-      color: #2e3b4e;
-    }
-    .info-section ul { padding-left: 1.15rem; }
+    @media (max-width: 900px) { .guest-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .guest-grid { grid-template-columns: 1fr; } }
 
-    /* WIFI */
-    .wifi-flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+    /* Info card */
+    .guest-card {
+      background: #fff;
+      padding: 1.6rem 1.8rem;
+      transition: background .2s;
     }
-    .wifi-text { flex: 1 1 260px; }
-    .wifi-qr img {
-      max-width: 140px;
-      border-radius: 10px;
-      border: 1px solid #e6ecf6;
+    .guest-card:hover { background: #faf8f4; }
+
+    .guest-card__icon {
+      font-size: 1.4rem;
+      margin-bottom: .7rem;
       display: block;
     }
-    .muted { color: #6b7b96; }
+    .guest-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #1a3347;
+      margin: 0 0 .6rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid rgba(184,150,90,.2);
+    }
+    .guest-card p,
+    .guest-card li {
+      font-family: 'Jost', sans-serif;
+      font-size: .88rem;
+      line-height: 1.65;
+      color: #4a4a3a;
+    }
+    .guest-card ul {
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    .guest-card li {
+      padding: .3rem 0;
+      border-bottom: 1px solid rgba(184,150,90,.1);
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+    }
+    .guest-card li:last-child { border-bottom: none; }
+    .guest-card li::before {
+      content: '—';
+      color: var(--gold);
+      font-weight: 300;
+      flex-shrink: 0;
+    }
+    .guest-card a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(184,150,90,.3);
+      transition: border-color .2s;
+    }
+    .guest-card a:hover { border-color: var(--gold); }
+
+    /* WiFi special */
+    .wifi-flex {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    .wifi-text { flex: 1; }
+    .wifi-qr img {
+      width: 90px;
+      border: 1px solid rgba(184,150,90,.2);
+      border-radius: 3px;
+      display: block;
+    }
+
+    /* Wide card (spans 2 cols) */
+    .guest-card--wide {
+      grid-column: span 2;
+    }
+    @media (max-width: 900px) { .guest-card--wide { grid-column: span 1; } }
+
+    /* Welcome banner */
+    .guest-welcome {
+      background: linear-gradient(135deg, #1a3347, #2a4a5e);
+      color: #fff;
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      grid-column: 1 / -1;
+    }
+    .guest-welcome p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,.85);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .guest-welcome strong {
+      color: var(--gold-hover);
+      font-style: normal;
+      font-weight: 400;
+    }
   </style>
 
   <script src="/assets/js/i18n.js" defer></script>
-  <script src="/assets/js/guest.js?v=final" defer></script>
+  <script src="/assets/js/guest.js?v=20260101" defer></script>
 </head>
 
 <body class="guest">
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-flex">
-      <a href="/" class="logo" aria-label="Aura Adriatica — home">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-      </a>
-      <nav class="main-nav" aria-label="Primary">
-        <a href="/apartments/olive.html">Olive</a>
-        <a href="/apartments/onyx.html">Onyx</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
-      </nav>
 
-      <!-- LANGUAGE DROPDOWN -->
-      <div class="lang-dropdown" id="lang-dd">
-        <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
-          <span id="cur-lang">EN</span> ▾
-        </button>
-        <div class="lang-menu" id="lang-menu" role="menu" hidden>
-          <button data-lang="hr">HR</button>
-          <button data-lang="en" class="active">EN</button>
-          <button data-lang="de">DE</button>
-          <button data-lang="it">IT</button>
-          <button data-lang="sl">SL</button>
-          <button data-lang="hu">HU</button>
-          <button data-lang="cs">CS</button>
-          <button data-lang="sk">SK</button>
-          <button data-lang="uk">UK</button>
-        </div>
+<!-- NOTICE BAR -->
+<div class="notice-bar"><span data-i18n="notice_text">Direct booking · </span><strong data-i18n="notice_bold">No fees</strong><span data-i18n="notice_location"> · Lovran, Opatija Riviera</span></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-flex">
+    <a href="/" class="logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+    <div class="lang-dropdown" id="lang-dd">
+      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+        <span class="current-lang" id="cur-lang">EN</span> ▾
+      </button>
+      <div class="lang-menu" id="lang-menu" role="menu" hidden>
+        <button type="button" data-lang="hr">HR</button>
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="sl">SL</button>
+        <button type="button" data-lang="hu">HU</button>
+        <button type="button" data-lang="cs">CS</button>
+        <button type="button" data-lang="sk">SK</button>
+        <button type="button" data-lang="uk">UK</button>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-center">
-      <h1 id="guest-h1">Guest & Local Information</h1>
-      <p id="guest-sub">Practical details, Wi-Fi, arrival info, and local tips for your stay.</p>
+<!-- HERO -->
+<section class="hero" style="background-image: linear-gradient(to bottom, rgba(14,14,14,.35), rgba(14,14,14,.72)), url('/assets/img/guest-hero.webp');">
+  <div class="container hero-center">
+    <div class="hero-eyebrow">Aura Adriatica · Lovran</div>
+    <h1 id="guest-h1">Welcome, <em>dear guests</em></h1>
+    <p id="guest-sub">Practical details, Wi-Fi, arrival info and local tips for your stay.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+  <div class="container fade-up">
+    <div class="section-label" style="justify-content:center; margin-bottom:.5rem">Your stay</div>
+    <div id="guest-sections" class="guest-grid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-flex">
+    <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/reviews.html" data-i18n="reviews">Reviews</a>
+    </nav>
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+      <p>Phone: <a href="tel:+385992210910">+385 99 221 0910</a></p>
+      <p class="footer-copy">&copy; <span id="year"></span> Aura Adriatica</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- CONTENT -->
-  <section class="section">
-    <div class="container">
-      <div id="guest-sections" class="info-grid"></div>
-    </div>
-  </section>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-flex">
-      <a href="/" class="footer-logo">
-        <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
-      </a>
-      <nav class="footer-nav">
-        <a href="/apartments/olive.html">Olive</a>
-        <a href="/apartments/onyx.html">Onyx</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/gallery.html">Gallery</a>
-        <a href="/reviews.html">Reviews</a>
-      </nav>
-      <div class="footer-contact">
-        <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
-        <p>&copy; <span id="year"></span> Aura Adriatica</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Language switch
-    document.addEventListener('click', async (e)=>{
-      const btn = e.target.closest('.lang-menu button[data-lang]');
-      if(!btn) return;
-      const lang = btn.dataset.lang;
-      localStorage.setItem('lang', lang);
-      if (typeof window.setLang === 'function') await window.setLang(lang);
-      if (typeof window.loadGuest === 'function') await window.loadGuest(lang);
-    });
-  </script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
