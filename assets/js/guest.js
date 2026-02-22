@@ -134,4 +134,16 @@ async function loadGuest(langOpt) {
 }
 
 window.loadGuest = loadGuest;
-document.addEventListener('DOMContentLoaded', () => loadGuest());
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait for i18n.js to set the language first, then load guest content
+  const init = () => {
+    const lang = localStorage.getItem('lang') || GUEST_DEFAULT_LANG;
+    loadGuest(lang);
+  };
+  // Small delay to ensure i18n.js has initialized
+  if (document.documentElement.lang && document.documentElement.lang !== 'en') {
+    init();
+  } else {
+    setTimeout(init, 100);
+  }
+});
