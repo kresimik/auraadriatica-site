@@ -1,21 +1,28 @@
 // /assets/js/guest.js
 const GUEST_DEFAULT_LANG = 'en';
 
-// Icons per section title keyword
+// Icons matched by keyword across all 9 languages
 const ICONS = {
-  'address':    '📍',
-  'parking':    '🚗',
-  'key':        '🔑',
-  'wi-fi':      '📶',
-  'wifi':       '📶',
-  'registr':    '📋',
-  'waste':      '🗑️',
-  'groceri':    '🛒',
-  'restaurant': '🍽️',
-  'beach':      '🏖️',
-  'market':     '🌿',
-  'food':       '🌿',
-  'tourist':    '🗺️',
+  // Addresses
+  'address': '📍', 'adres': '📍', 'adress': '📍', 'indiri': '📍', 'naslov': '📍', 'cím': '📍',
+  // Parking
+  'parking': '🚗', 'parkirali': '🚗', 'parkplatz': '🚗', 'parcheggio': '🚗', 'parkirišče': '🚗', 'parkovani': '🚗', 'parkovan': '🚗',
+  // Key
+  'key': '🔑', 'ključ': '🔑', 'schlüssel': '🔑', 'chiave': '🔑', 'kulcs': '🔑', 'klíč': '🔑', 'kľúč': '🔑', 'ключ': '🔑',
+  // WiFi
+  'wi-fi': '📶', 'wifi': '📶', 'wlan': '📶',
+  // Registration
+  'registr': '📋', 'prijava': '📋', 'anmeldung': '📋', 'registraz': '📋', 'vendégreg': '📋', 'реєстр': '📋',
+  // Waste
+  'waste': '🗑️', 'otpad': '🗑️', 'odpadkov': '🗑️', 'müll': '🗑️', 'rifiut': '🗑️', 'hulladék': '🗑️', 'odpadu': '🗑️', 'сміття': '🗑️',
+  // Groceries
+  'groceri': '🛒', 'trgovin': '🛒', 'lebensm': '🛒', 'supermercati': '🛒', 'élelmiszer': '🛒', 'potraviny': '🛒', 'продукт': '🛒',
+  // Restaurants
+  'restaurant': '🍽️', 'restoran': '🍽️', 'ristoranti': '🍽️', 'étterem': '🍽️', 'reštaurácie': '🍽️', 'ресторан': '🍽️',
+  // Beaches
+  'beach': '🏖️', 'plaž': '🏖️', 'strand': '🏖️', 'spiagge': '🏖️', 'pláže': '🏖️', 'пляж': '🏖️',
+  // Market / tourist
+  'market': '🌿', 'food': '🌿', 'tržnic': '🌿', 'markt': '🌿', 'mercato': '🌿', 'piac': '🌿', 'trh': '🌿', 'ринок': '🌿', 'tourist': '🗺️', 'turisti': '🗺️',
 };
 
 function getIcon(title) {
