@@ -1185,3 +1185,27 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   h1 { font-size: 2.2rem; }
   h2 { font-size: 1.7rem; }
 }
+
+/* =========================
+   HERO AWARD BADGE
+   ========================= */
+.hero-award {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 3;
+  opacity: .55;
+  transition: opacity .3s;
+}
+.hero-award:hover { opacity: .85; }
+.hero-award img {
+  width: 140px;
+  height: auto;
+  display: block;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+@media (max-width: 600px) {
+  .hero-award { bottom: 1.5rem; right: 1rem; }
+  .hero-award img { width: 100px; }
+}
