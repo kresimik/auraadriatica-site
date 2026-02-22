@@ -94,6 +94,9 @@ window.setLang = async function setLang(lang) {
   if (typeof window.loadHome === "function") {
     try { await window.loadHome(lc); } catch {}
   }
+  if (typeof window.loadGuest === "function") {
+    try { await window.loadGuest(lc); } catch {}
+  }
 };
 
 // ---------- dropdown wiring ----------
