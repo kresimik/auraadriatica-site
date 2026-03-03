@@ -43,5 +43,25 @@
   "olive_short": "Slnečná terasa, súkromná záhrada a tichý kút Riviéry.",
   "onyx_short": "Súkromný bazén, panoramatická terasa s výhľadom na more a luxus odľahlého útočiska.",
   "our_spaces": "Naše priestory",
-  "apts_title": "Dva apartmány, jedna riviéra"
+  "apts_title": "Dva apartmány, jedna riviéra",
+
+  "contact_label": "Kontakt",
+  "contact_hero_sub": "Pošlite nám dopyt o dostupnosti a cenách. Odpovedáme rýchlo.",
+  "contact_form_label": "Poslať správu",
+  "contact_form_h": "Formulár dopytu",
+  "contact_info_label": "Priamy kontakt",
+  "contact_info_h": "Kontaktujte nás priamo",
+  "contact_email_label": "E-mail",
+  "contact_phone_label": "Telefón",
+
+  "gallery_label": "Fotografie",
+
+  "inquire_btn": "Dopytovať sa teraz",
+  "details_label": "Apartmán",
+  "details_h": "Detaily apartmánu",
+  "desc_h": "Popis",
+  "highlights_h": "Highlights",
+  "gallery_h": "Galéria",
+  "avail_label": "Kalendár",
+  "availability_h": "Dostupnosť"
 }

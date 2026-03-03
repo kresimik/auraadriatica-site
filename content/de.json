@@ -43,5 +43,25 @@
   "olive_short": "Sonnige Terrasse, privater Garten und eine ruhige Ecke der Riviera.",
   "onyx_short": "Privater Pool, Panoramterrasse mit Meerblick und der Luxus eines abgeschiedenen Rückzugsorts.",
   "our_spaces": "Unsere Apartments",
-  "apts_title": "Zwei Apartments, eine Riviera"
+  "apts_title": "Zwei Apartments, eine Riviera",
+
+  "contact_label": "Kontakt",
+  "contact_hero_sub": "Senden Sie uns eine Anfrage zu Verfügbarkeit und Preisen. Wir antworten schnell.",
+  "contact_form_label": "Nachricht senden",
+  "contact_form_h": "Anfrageformular",
+  "contact_info_label": "Direktkontakt",
+  "contact_info_h": "Direkt kontaktieren",
+  "contact_email_label": "E-Mail",
+  "contact_phone_label": "Telefon",
+
+  "gallery_label": "Fotos",
+
+  "inquire_btn": "Jetzt anfragen",
+  "details_label": "Apartment",
+  "details_h": "Apartmentdetails",
+  "desc_h": "Beschreibung",
+  "highlights_h": "Highlights",
+  "gallery_h": "Galerie",
+  "avail_label": "Kalender",
+  "availability_h": "Verfügbarkeit"
 }
