@@ -8,7 +8,7 @@ const langCache = Object.create(null); // in-memory cache
 // ---------- fetch + load ----------
 async function fetchLangFile(lang) {
   if (langCache[lang]) return langCache[lang];
-  const res = await fetch(`/content/${lang}.json`, { cache: "no-store" });
+  const res = await fetch(`/content/${lang}.json`, { cache: "default" });
   if (!res.ok) throw new Error(`Missing lang file: ${lang}`);
   const json = await res.json();
   langCache[lang] = json;

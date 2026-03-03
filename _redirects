@@ -1,0 +1,3 @@
+# Block PHP files — not executed on Cloudflare Pages but source would be served as plain text
+/sendmail.php       /404            404
+/api/send.php       /404            404

@@ -15,14 +15,19 @@
   let lastActive = null;
 
   function setCounter(){
-    cap.textContent = `${idx + 1} / ${items.length}`;
+    const caption = items[idx].getAttribute('data-caption') || '';
+    cap.textContent = caption
+      ? `${idx + 1} / ${items.length} — ${caption}`
+      : `${idx + 1} / ${items.length}`;
   }
 
   function openAt(i){
     idx = (i + items.length) % items.length;
     const a = items[idx];
     const full = a.getAttribute('data-full') || a.getAttribute('href');
+    const caption = a.getAttribute('data-caption') || '';
     img.src = full;
+    img.alt = caption;
     setCounter();
     overlay.hidden = false;
     overlay.classList.add('is-open');

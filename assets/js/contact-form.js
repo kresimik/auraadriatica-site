@@ -70,6 +70,11 @@
     if (type) statusEl.classList.add(type);
     const note = document.querySelector('.form-note');
     if (note) note.dataset.locked = '1';
+    // Move focus to status so screen readers announce it
+    if (text) {
+      statusEl.setAttribute('tabindex', '-1');
+      statusEl.focus({ preventScroll: true });
+    }
   };
 
   // ---- turnstile readiness guard (handles prod race conditions) ----

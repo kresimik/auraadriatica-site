@@ -19,9 +19,21 @@ export async function onRequestPost(context) {
     return fail(400, 'Invalid JSON');
   }
 
-  const { name, email, message, token, phone = '', apt = 'Apartment' } = data || {};
-  if (!name || !email || !message) return fail(400, 'Missing required fields');
-  if (!token) return fail(400, 'Missing Turnstile token');
+  // Ensure all fields are strings (prevent type coercion attacks)
+  const str = (v, max) => String(v ?? '').trim().slice(0, max);
+  const name    = str(data?.name,    120);
+  const email   = str(data?.email,   254);
+  const message = str(data?.message, 4000);
+  const token   = str(data?.token,   2048);
+  const phone   = str(data?.phone,   30);
+  const apt     = str(data?.apt,     60) || 'Apartment';
+
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!name || name.length < 2)  return fail(400, 'Please enter your name.');
+  if (!emailOk)                  return fail(400, 'Please enter a valid email address.');
+  if (!message || message.length < 5) return fail(400, 'Please enter a message.');
+  if (!token)                    return fail(400, 'Missing Turnstile token.');
 
   // --- 2) Turnstile verify
   if (!env.TURNSTILE_SECRET) {
@@ -31,8 +43,8 @@ export async function onRequestPost(context) {
   const form = new URLSearchParams();
   form.append('secret', env.TURNSTILE_SECRET);
   form.append('response', token);
-  // opcionalno bi mogao dodati i IP:
-  // form.append('remoteip', request.headers.get('CF-Connecting-IP') || '');
+  const remoteIp = request.headers.get('CF-Connecting-IP') || '';
+  if (remoteIp) form.append('remoteip', remoteIp);
 
   let tJson = {};
   try {
