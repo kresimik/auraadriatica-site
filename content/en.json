@@ -43,5 +43,25 @@
   "olive_short": "Sun-drenched terrace, private garden and a quiet corner of the Riviera.",
   "onyx_short": "Private pool, panoramic sea-view terrace and the luxury of a secluded retreat.",
   "our_spaces": "Our Spaces",
-  "apts_title": "Two apartments, one riviera"
+  "apts_title": "Two apartments, one riviera",
+
+  "contact_label": "Contact",
+  "contact_hero_sub": "Send us an inquiry about availability and pricing. We respond quickly.",
+  "contact_form_label": "Send a message",
+  "contact_form_h": "Inquiry form",
+  "contact_info_label": "Direct contact",
+  "contact_info_h": "Reach us directly",
+  "contact_email_label": "Email",
+  "contact_phone_label": "Phone",
+
+  "gallery_label": "Photos",
+
+  "inquire_btn": "Inquire now",
+  "details_label": "Apartment",
+  "details_h": "Apartment details",
+  "desc_h": "Description",
+  "highlights_h": "Highlights",
+  "gallery_h": "Gallery",
+  "avail_label": "Calendar",
+  "availability_h": "Availability"
 }

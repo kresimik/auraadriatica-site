@@ -43,5 +43,25 @@
   "olive_short": "Napos terasz, privát kert és a Riviéra csendes sarka.",
   "onyx_short": "Privát medence, panorámás tengerkilátásos terasz és egy visszavonult menedék luxusa.",
   "our_spaces": "Apartmanjaink",
-  "apts_title": "Két apartman, egy riviéra"
+  "apts_title": "Két apartman, egy riviéra",
+
+  "contact_label": "Kapcsolat",
+  "contact_hero_sub": "Küldjön érdeklődést a rendelkezésre állással és az árakkal kapcsolatban. Gyorsan válaszolunk.",
+  "contact_form_label": "Üzenet küldése",
+  "contact_form_h": "Érdeklődési űrlap",
+  "contact_info_label": "Közvetlen kapcsolat",
+  "contact_info_h": "Lépjen kapcsolatba velünk közvetlenül",
+  "contact_email_label": "E-mail",
+  "contact_phone_label": "Telefon",
+
+  "gallery_label": "Fotók",
+
+  "inquire_btn": "Érdeklődjön most",
+  "details_label": "Apartman",
+  "details_h": "Apartman részletei",
+  "desc_h": "Leírás",
+  "highlights_h": "Kiemelések",
+  "gallery_h": "Galéria",
+  "avail_label": "Naptár",
+  "availability_h": "Elérhetőség"
 }

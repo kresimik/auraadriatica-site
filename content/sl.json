@@ -43,5 +43,25 @@
   "olive_short": "Sončna terasa, zasebni vrt in miren kotiček Riviere.",
   "onyx_short": "Zasebni bazen, panoramska terasa s pogledom na morje in luksuz odmaknjene oaze.",
   "our_spaces": "Naši prostori",
-  "apts_title": "Dva apartmaja, ena riviera"
+  "apts_title": "Dva apartmaja, ena riviera",
+
+  "contact_label": "Kontakt",
+  "contact_hero_sub": "Pošljite povpraševanje o razpoložljivosti in cenah. Odgovarjamo hitro.",
+  "contact_form_label": "Pošljite sporočilo",
+  "contact_form_h": "Obrazec za povpraševanje",
+  "contact_info_label": "Neposredni kontakt",
+  "contact_info_h": "Kontaktirajte nas neposredno",
+  "contact_email_label": "E-pošta",
+  "contact_phone_label": "Telefon",
+
+  "gallery_label": "Fotografije",
+
+  "inquire_btn": "Povprašajte zdaj",
+  "details_label": "Apartma",
+  "details_h": "Podrobnosti apartmaja",
+  "desc_h": "Opis",
+  "highlights_h": "Poudarki",
+  "gallery_h": "Galerija",
+  "avail_label": "Koledar",
+  "availability_h": "Razpoložljivost"
 }
