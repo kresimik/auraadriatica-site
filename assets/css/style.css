@@ -94,6 +94,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
 .section { padding: 3.5rem 0; }
 .section.alt { background: var(--sand); }
+[id] { scroll-margin-top: 80px; }
 
 /* Section label (eyebrow) */
 .section-label {
