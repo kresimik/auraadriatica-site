@@ -63,5 +63,18 @@
   "highlights_h": "Highlights",
   "gallery_h": "Galéria",
   "avail_label": "Kalendár",
-  "availability_h": "Dostupnosť"
+  "availability_h": "Dostupnosť",
+
+  "amenities_label": "Vybavenie",
+  "weather_label": "Počasie",
+  "discover_olive": "Objaviť Olive",
+  "discover_onyx": "Objaviť Onyx",
+  "stat_beach": "na pláž",
+  "stat_opatija": "do Opatije",
+  "stat_airport": "na letisko Pula",
+  "stat_plitvice": "k Plitvickým jazerám",
+  "explore_do_label": "Aktivity",
+  "explore_beaches_label": "Pláže",
+  "explore_trips_label": "Výlety",
+  "explore_food_label": "Jedlo a nápoje"
 }

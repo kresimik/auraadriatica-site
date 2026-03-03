@@ -63,5 +63,18 @@
   "highlights_h": "Особливості",
   "gallery_h": "Галерея",
   "avail_label": "Календар",
-  "availability_h": "Наявність"
+  "availability_h": "Наявність",
+
+  "amenities_label": "Зручності",
+  "weather_label": "Погода",
+  "discover_olive": "Переглянути Olive",
+  "discover_onyx": "Переглянути Onyx",
+  "stat_beach": "до пляжу",
+  "stat_opatija": "до Опатії",
+  "stat_airport": "до аеропорту Пула",
+  "stat_plitvice": "до Плітвицьких озер",
+  "explore_do_label": "Активності",
+  "explore_beaches_label": "Пляжі",
+  "explore_trips_label": "Екскурсії",
+  "explore_food_label": "Їжа та напої"
 }

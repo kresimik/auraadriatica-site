@@ -63,5 +63,18 @@
   "highlights_h": "Kiemelések",
   "gallery_h": "Galéria",
   "avail_label": "Naptár",
-  "availability_h": "Elérhetőség"
+  "availability_h": "Elérhetőség",
+
+  "amenities_label": "Felszereltség",
+  "weather_label": "Időjárás",
+  "discover_olive": "Olive felfedezése",
+  "discover_onyx": "Onyx felfedezése",
+  "stat_beach": "a strandig",
+  "stat_opatija": "Opatijáig",
+  "stat_airport": "Pula repülőtérig",
+  "stat_plitvice": "Plitvicéig",
+  "explore_do_label": "Programok",
+  "explore_beaches_label": "Strandok",
+  "explore_trips_label": "Kirándulások",
+  "explore_food_label": "Gasztronómia"
 }

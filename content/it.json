@@ -63,5 +63,18 @@
   "highlights_h": "Highlights",
   "gallery_h": "Galleria",
   "avail_label": "Calendario",
-  "availability_h": "Disponibilità"
+  "availability_h": "Disponibilità",
+
+  "amenities_label": "Servizi",
+  "weather_label": "Meteo",
+  "discover_olive": "Scopri Olive",
+  "discover_onyx": "Scopri Onyx",
+  "stat_beach": "alla spiaggia",
+  "stat_opatija": "a Opatija",
+  "stat_airport": "all'aeroporto di Pola",
+  "stat_plitvice": "ai Laghi di Plitvice",
+  "explore_do_label": "Attività",
+  "explore_beaches_label": "Mare",
+  "explore_trips_label": "Gite",
+  "explore_food_label": "Gastronomia"
 }
