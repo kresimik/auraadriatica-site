@@ -1,0 +1,13 @@
+# Environment & secrets
+.env
+.env.*
+*.env
+
+# Composer vendor (PHP legacy)
+vendor/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
