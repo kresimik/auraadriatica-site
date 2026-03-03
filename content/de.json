@@ -63,5 +63,18 @@
   "highlights_h": "Highlights",
   "gallery_h": "Galerie",
   "avail_label": "Kalender",
-  "availability_h": "Verfügbarkeit"
+  "availability_h": "Verfügbarkeit",
+
+  "amenities_label": "Ausstattung",
+  "weather_label": "Wetter",
+  "discover_olive": "Olive entdecken",
+  "discover_onyx": "Onyx entdecken",
+  "stat_beach": "zum Strand",
+  "stat_opatija": "bis Opatija",
+  "stat_airport": "bis Flughafen Pula",
+  "stat_plitvice": "bis Plitvicer Seen",
+  "explore_do_label": "Aktivitäten",
+  "explore_beaches_label": "Küste",
+  "explore_trips_label": "Tagesausflüge",
+  "explore_food_label": "Essen & Trinken"
 }

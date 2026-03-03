@@ -63,5 +63,18 @@
   "highlights_h": "Poudarki",
   "gallery_h": "Galerija",
   "avail_label": "Koledar",
-  "availability_h": "Razpoložljivost"
+  "availability_h": "Razpoložljivost",
+
+  "amenities_label": "Ugodnosti",
+  "weather_label": "Vreme",
+  "discover_olive": "Odkrijte Olive",
+  "discover_onyx": "Odkrijte Onyx",
+  "stat_beach": "do plaže",
+  "stat_opatija": "do Opatije",
+  "stat_airport": "do letališča Pula",
+  "stat_plitvice": "do Plitvičkih jezer",
+  "explore_do_label": "Aktivnosti",
+  "explore_beaches_label": "Plaže",
+  "explore_trips_label": "Izleti",
+  "explore_food_label": "Hrana in pijača"
 }

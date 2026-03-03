@@ -63,5 +63,18 @@
   "highlights_h": "Highlights",
   "gallery_h": "Gallery",
   "avail_label": "Calendar",
-  "availability_h": "Availability"
+  "availability_h": "Availability",
+
+  "amenities_label": "Amenities",
+  "weather_label": "Weather",
+  "discover_olive": "Discover Olive",
+  "discover_onyx": "Discover Onyx",
+  "stat_beach": "to the beach",
+  "stat_opatija": "to Opatija",
+  "stat_airport": "to Pula airport",
+  "stat_plitvice": "to Plitvice",
+  "explore_do_label": "Activities",
+  "explore_beaches_label": "Seaside",
+  "explore_trips_label": "Day trips",
+  "explore_food_label": "Food & Drink"
 }
