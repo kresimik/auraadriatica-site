@@ -801,10 +801,19 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 @keyframes wx-shimmer { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
 .wx-day { font-weight: 600; color: var(--sea-dark); letter-spacing: .06em; margin-bottom: 6px; font-size: .82rem; }
 .wx-icon svg { color: var(--gold) !important; display: block; margin: 6px auto; }
-.wx-temp { margin-top: 4px; font-size: .95rem; }
+.wx-desc {
+  font-size: .68rem;
+  letter-spacing: .05em;
+  color: var(--muted);
+  margin: 2px 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wx-temp { margin-top: 2px; font-size: .95rem; }
 .wx-temp strong { color: var(--gold); font-weight: 700; }
-.wx-temp .wx-sep { margin: 0 3px; opacity: .4; }
-.wx-temp span { color: var(--muted); font-weight: 400; }
+.wx-temp .wx-sep { margin: 0 3px; opacity: .35; }
+.wx-temp .wx-min { color: #6eaac8; font-weight: 400; }
 .wx-error {
   color: var(--muted); background: var(--sand);
   border: 1px dashed var(--border); border-radius: 4px;

@@ -37,16 +37,27 @@
   }
 
   // Ikone (two-tone)
-  const soft = 'rgba(77,166,255,.16)';
+  const soft = 'rgba(77,185,255,.32)';
   const icons = {
-    clear:`<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="12" fill="currentColor"/><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none" opacity=".95"><path d="M32 6v8"/><path d="M32 50v8"/><path d="M6 32h8"/><path d="M50 32h8"/><path d="M12 12l6 6"/><path d="M46 46l6 6"/><path d="M12 52l6-6"/><path d="M46 18l6-6"/></g><circle cx="32" cy="32" r="18" fill="${soft}"/></svg>`,
-    partly:`<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="22" r="10" fill="currentColor"/><circle cx="22" cy="22" r="16" fill="${soft}"/><g><path d="M22 46h20a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor" opacity=".95"/><path d="M14 46h24" stroke="currentColor" stroke-width="4" opacity=".35"/></g></svg>`,
-    cloudy:`<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 44h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 48h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/></svg>`,
-    rain:`<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 40h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 44h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4" opacity=".9"><path d="M22 48l-4 8"/><path d="M32 48l-4 8"/><path d="M42 48l-4 8"/></g></svg>`,
-    snow:`<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 40h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 44h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><g stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M22 48v8"/><path d="M28 48v8"/><path d="M34 48v8"/></g></svg>`,
-    fog:`<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 38h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 42h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><g stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".7"><path d="M12 48h40"/><path d="M16 54h32"/></g></svg>`,
-    storm:`<svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 38h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 42h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><path d="M30 40l-8 14h6l-4 10 14-18h-6l4-6z" fill="currentColor" opacity=".95"/></svg>`
+    clear:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="12" fill="currentColor"/><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none" opacity=".95"><path d="M32 6v8"/><path d="M32 50v8"/><path d="M6 32h8"/><path d="M50 32h8"/><path d="M12 12l6 6"/><path d="M46 46l6 6"/><path d="M12 52l6-6"/><path d="M46 18l6-6"/></g><circle cx="32" cy="32" r="18" fill="${soft}"/></svg>`,
+    partly:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="22" r="10" fill="currentColor"/><circle cx="22" cy="22" r="16" fill="${soft}"/><g><path d="M22 46h20a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor" opacity=".95"/><path d="M14 46h24" stroke="currentColor" stroke-width="4" opacity=".35"/></g></svg>`,
+    cloudy:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 44h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 48h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/></svg>`,
+    rain:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 40h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 44h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4" opacity=".9"><path d="M22 48l-4 8"/><path d="M32 48l-4 8"/><path d="M42 48l-4 8"/></g></svg>`,
+    snow:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 40h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 44h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><g stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M22 48v8"/><path d="M28 48v8"/><path d="M34 48v8"/></g></svg>`,
+    fog:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 38h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 42h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><g stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".7"><path d="M12 48h40"/><path d="M16 54h32"/></g></svg>`,
+    storm:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 38h26a10 10 0 0 0 0-20 18 18 0 0 0-34 6" fill="${soft}"/><path d="M14 42h28a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor"/><path d="M30 40l-8 14h6l-4 10 14-18h-6l4-6z" fill="currentColor" opacity=".95"/></svg>`
   };
+  // Kratki opisi po jezicima
+  const DESCS = {
+    clear:  { en:'Sunny',        hr:'Sunčano',      de:'Sonnig',       it:'Soleggiato',    sl:'Sončno',       hu:'Napos',      cs:'Slunečno',    sk:'Slnečno',    uk:'Сонячно'    },
+    partly: { en:'Few clouds',   hr:'Malo oblaka',   de:'Teils wolkig', it:'Poco nuvoloso', sl:'Malo oblakov', hu:'Kissé felh.', cs:'Málo oblačno', sk:'Málo oblačno',uk:'Мало хмар' },
+    cloudy: { en:'Cloudy',       hr:'Oblačno',       de:'Bewölkt',      it:'Nuvoloso',      sl:'Oblačno',      hu:'Felhős',     cs:'Zataženo',    sk:'Oblačno',    uk:'Хмарно'     },
+    rain:   { en:'Rain',         hr:'Kiša',          de:'Regen',        it:'Pioggia',       sl:'Dež',          hu:'Eső',        cs:'Déšť',        sk:'Dážď',       uk:'Дощ'        },
+    snow:   { en:'Snow',         hr:'Snijeg',        de:'Schnee',       it:'Neve',          sl:'Sneg',         hu:'Hó',         cs:'Sníh',        sk:'Sneh',       uk:'Сніг'       },
+    fog:    { en:'Fog',          hr:'Magla',         de:'Nebel',        it:'Nebbia',        sl:'Megla',        hu:'Köd',        cs:'Mlha',        sk:'Hmla',       uk:'Туман'      },
+    storm:  { en:'Storm',        hr:'Oluja',         de:'Gewitter',     it:'Temporale',     sl:'Nevihta',      hu:'Vihar',      cs:'Bouřka',      sk:'Búrka',      uk:'Гроза'      }
+  };
+
   function codeToKey(code){
     if (code === 0) return 'clear';
     if ([1,2].includes(code)) return 'partly';
@@ -87,21 +98,25 @@
           <article class="wx-card wx-skel" aria-hidden="true">
             <div class="wx-day">—</div>
             <div class="wx-icon"><div class="wx-ph"></div></div>
-            <div class="wx-temp"><strong>—</strong> / <span>—</span></div>
+            <div class="wx-desc">—</div>
+            <div class="wx-temp"><span class="wx-min">—</span> / <strong>—</strong></div>
           </article>`).join('')}
       </div>`;
   }
 
   function card(iso, code, tmin, tmax, dayFmt, lab){
     const key = codeToKey(code);
+    const lang = (localStorage.getItem('lang') || 'en').toLowerCase();
+    const desc = (DESCS[key] && (DESCS[key][lang] || DESCS[key].en)) || '';
     return `
       <article class="wx-card" aria-label="${iso}">
         <div class="wx-day">${dayLabel(iso, dayFmt, lab)}</div>
         <div class="wx-icon">${icons[key] || icons.cloudy}</div>
+        <div class="wx-desc">${desc}</div>
         <div class="wx-temp">
-          <strong>${t(tmax)}</strong>
+          <span class="wx-min">${t(tmin)}</span>
           <span class="wx-sep">/</span>
-          <span>${t(tmin)}</span>
+          <strong>${t(tmax)}</strong>
         </div>
       </article>`;
   }
