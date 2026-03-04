@@ -33,14 +33,22 @@ function getIcon(title) {
   return '✦';
 }
 
-function linkify(raw) {
-  if (!raw) return '';
-  let s = String(raw);
-  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener">$1</a>');
-  s = s.replace(/\s—\s*(https?:\/\/\S+)/g,
-    ' — <a href="$1" target="_blank" rel="noopener">Map</a>');
-  return s;
+function appendLinkified(container, raw) {
+  if (!raw) return;
+  const s = String(raw);
+  const re = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)|\s—\s*(https?:\/\/\S+)/g;
+  let last = 0, m;
+  while ((m = re.exec(s)) !== null) {
+    if (m.index > last) container.appendChild(document.createTextNode(s.slice(last, m.index)));
+    const a = document.createElement('a');
+    a.target = '_blank';
+    a.rel = 'noopener';
+    if (m[1]) { a.textContent = m[1]; a.href = m[2]; }
+    else { container.appendChild(document.createTextNode(' \u2014 ')); a.textContent = 'Map'; a.href = m[3]; }
+    container.appendChild(a);
+    last = m.index + m[0].length;
+  }
+  if (last < s.length) container.appendChild(document.createTextNode(s.slice(last)));
 }
 
 function makeCard(sec) {
@@ -70,7 +78,7 @@ function makeCard(sec) {
     const ul = document.createElement('ul');
     (sec.items || []).forEach(it => {
       const li = document.createElement('li');
-      li.innerHTML = linkify(it);
+      appendLinkified(li, it);
       ul.appendChild(li);
     });
     card.appendChild(ul);
@@ -81,20 +89,28 @@ function makeCard(sec) {
 
     const textDiv = document.createElement('div');
     textDiv.className = 'wifi-text';
-    textDiv.innerHTML = `<p>${linkify(sec.content || '')}</p>`;
+    const wifiP = document.createElement('p');
+    appendLinkified(wifiP, sec.content || '');
+    textDiv.appendChild(wifiP);
     flex.appendChild(textDiv);
 
     if (sec.qr) {
       const qrDiv = document.createElement('div');
       qrDiv.className = 'wifi-qr';
-      qrDiv.innerHTML = `<img src="${sec.qr}" alt="Wi-Fi QR code" loading="lazy">`;
+      const img = document.createElement('img');
+      img.src = sec.qr;
+      img.alt = 'Wi-Fi QR code';
+      img.loading = 'lazy';
+      qrDiv.appendChild(img);
       flex.appendChild(qrDiv);
     }
     card.appendChild(flex);
 
   } else if (sec.type === 'html') {
     const d = document.createElement('div');
-    d.innerHTML = `<p>${linkify(sec.content || '')}</p>`;
+    const htmlP = document.createElement('p');
+    appendLinkified(htmlP, sec.content || '');
+    d.appendChild(htmlP);
     card.appendChild(d);
 
   } else {
@@ -121,7 +137,7 @@ async function loadGuest(langOpt) {
   if (data.page_title) document.title = data.page_title;
   const h1 = document.getElementById('guest-h1');
   const sub = document.getElementById('guest-sub');
-  if (h1 && data.hero_h) h1.innerHTML = data.hero_h;
+  if (h1 && data.hero_h) h1.textContent = data.hero_h;
   if (sub && data.hero_p) sub.textContent = data.hero_p;
 
   const grid = document.getElementById('guest-sections');
