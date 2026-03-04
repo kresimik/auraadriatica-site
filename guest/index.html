@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/style.css?v=20260101">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260304">
 
   <style>
     /* ========================
@@ -134,6 +134,7 @@
   </style>
 
   <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/ui.js" defer></script>
   <script src="/assets/js/guest.js?v=20260101" defer></script>
 </head>
 
@@ -148,13 +149,15 @@
     <a href="/" class="logo" aria-label="Aura Adriatica — home">
       <img src="/assets/img/logo.png" alt="Aura Adriatica logo" />
     </a>
-    <nav class="main-nav" aria-label="Primary">
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
       <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
       <a href="/explore.html" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      
     </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
     <div class="lang-dropdown" id="lang-dd">
       <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
         <span class="current-lang" id="cur-lang">EN</span> ▾
@@ -220,5 +223,8 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+
 </body>
 </html>

@@ -14,7 +14,7 @@
   --gold-hover:   #d4af72;
   --sea:          #2a4a5e;
   --sea-dark:     #1a3347;
-  --muted:        #7a7060;
+  --muted:        #6a6055;
   --border:       rgba(184,150,90,.2);
   --border-light: rgba(184,150,90,.12);
 
@@ -92,7 +92,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
    LAYOUT
    ========================= */
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-.section { padding: 3.5rem 0; }
+.section { padding: 4.5rem 0; }
 .section.alt { background: var(--sand); }
 [id] { scroll-margin-top: 80px; }
 
@@ -229,20 +229,75 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .lang-menu button:hover { background: var(--sand); color: var(--ink); }
 .lang-menu button.active { background: var(--sea-dark); color: #fff; }
 
+/* Nav toggle (hamburger) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color .2s;
+}
+.nav-toggle:hover { border-color: var(--gold); }
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--ink);
+  transition: transform .25s ease, opacity .2s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
 /* Responsive header */
 @media (max-width: 900px) {
   .header-flex {
-    grid-template-columns: auto auto;
-    grid-template-areas: "logo lang" "nav nav";
-    row-gap: 8px;
-    height: auto;
-    padding: .75rem 0;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: "logo . toggle lang";
+    height: 64px;
+    gap: .75rem;
+    padding: 0;
+    row-gap: 0;
   }
   .logo { grid-area: logo; }
-  .lang-dropdown { grid-area: lang; justify-self: end; }
-  .main-nav { grid-area: nav; flex-wrap: wrap; gap: 1.2rem; justify-content: center; }
+  .lang-dropdown { grid-area: lang; }
+  .nav-toggle { grid-area: toggle; display: flex; }
+  .main-nav {
+    grid-area: unset;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(250,248,244,.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 8px 24px rgba(14,14,14,.08);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: .5rem 0 1rem;
+    display: none;
+    z-index: 50;
+  }
+  .main-nav.is-open { display: flex; animation: navSlideDown .2s ease; }
+  .main-nav a {
+    font-size: .82rem;
+    letter-spacing: .12em;
+    padding: .7rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .main-nav a:last-child { border-bottom: none; }
+  .main-nav a::after { display: none; }
   .logo img { height: 40px; }
-  .main-nav a { font-size: .72rem; }
 }
 
 /* =========================
@@ -250,7 +305,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
    ========================= */
 .hero {
   position: relative;
-  min-height: 50vh;
+  min-height: 65vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -1210,3 +1265,63 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   .hero-award { bottom: 1.5rem; right: 1rem; }
   .hero-award img { width: 100px; }
 }
+
+/* =========================
+   NAV SLIDE DOWN ANIMATION
+   ========================= */
+@keyframes navSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   BACK TO TOP
+   ========================= */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background: var(--sea-dark);
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+  z-index: 98;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease, background .2s;
+  pointer-events: none;
+  line-height: 1;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  background: var(--gold);
+  border-color: transparent;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .back-to-top { bottom: 1.2rem; right: 1.2rem; width: 40px; height: 40px; }
+}
+
+/* =========================
+   PARALLAX HERO (non-touch desktop)
+   ========================= */
+@media (hover: hover) and (min-width: 769px) {
+  .hero { background-attachment: fixed; }
+}
+
+/* =========================
+   STAGGER — apt cards
+   ========================= */
+.apt-grid .apt-card.fade-up:nth-child(2) { transition-delay: .12s; }
