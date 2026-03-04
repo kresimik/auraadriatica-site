@@ -35,9 +35,13 @@
     .guest-card {
       background: #fff;
       padding: 1.6rem 1.8rem;
-      transition: background .2s;
+      transition: background .2s, box-shadow .2s;
+      box-shadow: 0 1px 3px rgba(14,14,14,.04);
     }
-    .guest-card:hover { background: #faf8f4; }
+    .guest-card:hover {
+      background: #faf8f4;
+      box-shadow: 0 4px 18px rgba(14,14,14,.07);
+    }
 
     .guest-card__icon {
       font-size: 1.4rem;
@@ -87,6 +91,36 @@
     }
     .guest-card a:hover { border-color: var(--gold); }
 
+    /* Map badge link */
+    .guest-card a.map-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 1px 7px;
+      margin-left: 2px;
+      background: rgba(184,150,90,.08);
+      border: 1px solid rgba(184,150,90,.22);
+      border-radius: 2px;
+      font-size: .73rem;
+      letter-spacing: .05em;
+      font-weight: 500;
+      color: var(--gold);
+      vertical-align: baseline;
+    }
+    .guest-card a.map-link:hover {
+      background: var(--gold);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    /* Highlight card (WiFi) */
+    .guest-card--highlight {
+      background: linear-gradient(135deg, #fffdf7, #fdf8ee);
+    }
+    .guest-card--highlight:hover {
+      background: linear-gradient(135deg, #fdfaf0, #f8f2e2);
+      box-shadow: 0 4px 18px rgba(184,150,90,.1);
+    }
+
     /* WiFi special */
     .wifi-flex {
       display: flex;
@@ -131,11 +165,18 @@
       font-style: normal;
       font-weight: 400;
     }
+    .guest-welcome::before {
+      content: '✦';
+      font-size: 1.2rem;
+      color: var(--gold);
+      opacity: .65;
+      flex-shrink: 0;
+    }
   </style>
 
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/ui.js" defer></script>
-  <script src="/assets/js/guest.js?v=20260101" defer></script>
+  <script src="/assets/js/guest.js?v=20260304" defer></script>
 </head>
 
 <body class="guest">

@@ -1,6 +1,18 @@
 // /assets/js/guest.js
 const GUEST_DEFAULT_LANG = 'en';
 
+const WELCOME = {
+  hr: 'Drago nam je što ste naši gosti. U nastavku nalazite sve što vam je potrebno za ugodan boravak.',
+  en: 'We are delighted to welcome you. Below you will find everything you need for a comfortable and memorable stay.',
+  de: 'Herzlich willkommen! Hier finden Sie alle wichtigen Informationen für Ihren Aufenthalt.',
+  it: 'Benvenuti! Qui sotto trovate tutte le informazioni utili per il vostro soggiorno.',
+  sl: 'Dobrodošli! Spodaj najdete vse informacije za prijetno bivanje.',
+  hu: 'Üdvözöljük! Az alábbiakban mindent megtalál a kényelmes tartózkodáshoz.',
+  cs: 'Vítejte! Níže najdete vše, co potřebujete pro příjemný pobyt.',
+  sk: 'Vitajte! Nižšie nájdete všetko, čo potrebujete pre príjemný pobyt.',
+  uk: 'Ласкаво просимо! Нижче ви знайдете всю необхідну інформацію для комфортного перебування.',
+};
+
 // Icons matched by keyword across all 9 languages
 const ICONS = {
   // Addresses
@@ -36,23 +48,35 @@ function getIcon(title) {
 function appendLinkified(container, raw) {
   if (!raw) return;
   const s = String(raw);
-  const re = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)|\s—\s*(https?:\/\/\S+)/g;
+  const re = /\*\*([^*]+)\*\*|\[([^\]]+)\]\((https?:\/\/[^)]+)\)|\s—\s*(https?:\/\/\S+)/g;
   let last = 0, m;
   while ((m = re.exec(s)) !== null) {
     if (m.index > last) container.appendChild(document.createTextNode(s.slice(last, m.index)));
-    const a = document.createElement('a');
-    a.target = '_blank';
-    a.rel = 'noopener';
-    if (m[1]) { a.textContent = m[1]; a.href = m[2]; }
-    else { container.appendChild(document.createTextNode(' \u2014 ')); a.textContent = 'Map'; a.href = m[3]; }
-    container.appendChild(a);
+    if (m[1] !== undefined) {
+      const strong = document.createElement('strong');
+      strong.textContent = m[1];
+      container.appendChild(strong);
+    } else if (m[2]) {
+      const a = document.createElement('a');
+      a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = m[2]; a.href = m[3];
+      if (m[2].toLowerCase() === 'map') a.className = 'map-link';
+      container.appendChild(a);
+    } else {
+      container.appendChild(document.createTextNode(' \u2014 '));
+      const a = document.createElement('a');
+      a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'Map'; a.href = m[4];
+      a.className = 'map-link';
+      container.appendChild(a);
+    }
     last = m.index + m[0].length;
   }
   if (last < s.length) container.appendChild(document.createTextNode(s.slice(last)));
 }
 
 function makeCard(sec) {
-  const card = document.createElement('div');
+  const card = document.createElement('article');
   card.className = 'guest-card';
 
   // Wide card for restaurants (long list)
@@ -60,6 +84,7 @@ function makeCard(sec) {
   if (titleLower.includes('restaurant') || titleLower.includes('beach')) {
     card.classList.add('guest-card--wide');
   }
+  if (sec.html_kind === 'wifi') card.classList.add('guest-card--highlight');
 
   // Icon
   const icon = document.createElement('span');
@@ -90,7 +115,10 @@ function makeCard(sec) {
     const textDiv = document.createElement('div');
     textDiv.className = 'wifi-text';
     const wifiP = document.createElement('p');
-    appendLinkified(wifiP, sec.content || '');
+    (sec.content || '').split('<br>').forEach((part, i, arr) => {
+      appendLinkified(wifiP, part);
+      if (i < arr.length - 1) wifiP.appendChild(document.createElement('br'));
+    });
     textDiv.appendChild(wifiP);
     flex.appendChild(textDiv);
 
@@ -109,7 +137,10 @@ function makeCard(sec) {
   } else if (sec.type === 'html') {
     const d = document.createElement('div');
     const htmlP = document.createElement('p');
-    appendLinkified(htmlP, sec.content || '');
+    (sec.content || '').split('<br>').forEach((part, i, arr) => {
+      appendLinkified(htmlP, part);
+      if (i < arr.length - 1) htmlP.appendChild(document.createElement('br'));
+    });
     d.appendChild(htmlP);
     card.appendChild(d);
 
@@ -143,6 +174,13 @@ async function loadGuest(langOpt) {
   const grid = document.getElementById('guest-sections');
   if (!grid) return;
   grid.innerHTML = '';
+
+  const welcome = document.createElement('div');
+  welcome.className = 'guest-welcome';
+  const wP = document.createElement('p');
+  wP.textContent = WELCOME[lang] || WELCOME.en;
+  welcome.appendChild(wP);
+  grid.appendChild(welcome);
 
   (data.sections || []).forEach(sec => {
     grid.appendChild(makeCard(sec));
