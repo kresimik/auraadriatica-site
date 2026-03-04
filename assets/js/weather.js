@@ -37,7 +37,7 @@
   }
 
   // Ikone (two-tone)
-  const soft = 'rgba(77,185,255,.32)';
+  const soft = 'rgba(184,150,90,.13)';
   const icons = {
     clear:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="12" fill="currentColor"/><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none" opacity=".95"><path d="M32 6v8"/><path d="M32 50v8"/><path d="M6 32h8"/><path d="M50 32h8"/><path d="M12 12l6 6"/><path d="M46 46l6 6"/><path d="M12 52l6-6"/><path d="M46 18l6-6"/></g><circle cx="32" cy="32" r="18" fill="${soft}"/></svg>`,
     partly:`<svg width="52" height="52" viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="22" r="10" fill="currentColor"/><circle cx="22" cy="22" r="16" fill="${soft}"/><g><path d="M22 46h20a8 8 0 0 0 0-16 14 14 0 0 0-26 5" fill="currentColor" opacity=".95"/><path d="M14 46h24" stroke="currentColor" stroke-width="4" opacity=".35"/></g></svg>`,
