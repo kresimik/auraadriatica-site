@@ -52,17 +52,17 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
       font-weight: 400;
-      color: #1a3347;
+      color: var(--sea-dark);
       margin: 0 0 .6rem;
       padding-bottom: .5rem;
-      border-bottom: 1px solid rgba(184,150,90,.2);
+      border-bottom: 1px solid var(--border);
     }
     .guest-card p,
     .guest-card li {
       font-family: 'Jost', sans-serif;
       font-size: .88rem;
       line-height: 1.65;
-      color: #4a4a3a;
+      color: var(--ink);
     }
     .guest-card ul {
       list-style: none;
@@ -230,7 +230,7 @@
 <!-- CONTENT -->
 <section class="section">
   <div class="container fade-up">
-    <div class="section-label" style="justify-content:center; margin-bottom:.5rem">Your stay</div>
+    <div class="section-label">Your stay</div>
     <div id="guest-sections" class="guest-grid"></div>
   </div>
 </section>
@@ -246,11 +246,12 @@
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
       <a href="/explore.html" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      
+      <a href="/contact.html" data-i18n="contact_nav">Contact</a>
     </nav>
     <div class="footer-contact">
       <p>Email: <a href="/contact.html#form-section">info@auraadriatica.com</a></p>
       <p>Phone: <a href="tel:+385992210910">+385 99 221 0910</a></p>
+      <p>WhatsApp: <a href="https://wa.me/385992210910" target="_blank" rel="noopener">+385 99 221 0910</a></p>
       <p class="footer-copy">&copy; <span id="year"></span> Aura Adriatica</p>
     </div>
   </div>

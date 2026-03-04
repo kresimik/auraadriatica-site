@@ -813,7 +813,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .wx-temp { margin-top: 2px; font-size: .95rem; }
 .wx-temp strong { color: var(--gold); font-weight: 700; }
 .wx-temp .wx-sep { margin: 0 3px; opacity: .35; }
-.wx-temp .wx-min { color: #6eaac8; font-weight: 400; }
+.wx-temp .wx-min { color: var(--sea); font-weight: 400; }
 .wx-error {
   color: var(--muted); background: var(--sand);
   border: 1px dashed var(--border); border-radius: 4px;
