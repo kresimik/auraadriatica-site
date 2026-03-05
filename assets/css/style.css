@@ -504,10 +504,12 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   position: absolute; inset: 0;
   background-size: cover;
   background-position: center 25%;
-  opacity: .17;
+  opacity: .28;
+  -webkit-mask-image: linear-gradient(to bottom, black 15%, transparent 58%);
+  mask-image: linear-gradient(to bottom, black 15%, transparent 58%);
   transition: opacity .5s ease, transform .6s ease;
 }
-.apt-card:hover .apt-card-photo { opacity: .26; transform: scale(1.04); }
+.apt-card:hover .apt-card-photo { opacity: .42; transform: scale(1.04); }
 .apt-olive .apt-card-photo { background-image: url('/assets/img/olive-hero.webp'); }
 .apt-onyx  .apt-card-photo { background-image: url('/assets/img/onyx-hero.webp'); }
 .apt-card-overlay {
