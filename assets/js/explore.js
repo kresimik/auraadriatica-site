@@ -14,7 +14,7 @@ async function loadExplore(lang) {
   let data = null;
   for (const url of tryUrls) {
     try {
-      const res = await fetch(url, { cache: "no-store" });
+      const res = await fetch(url, { cache: "default" });
       if (res.ok) { data = await res.json(); break; }
     } catch (_) {}
   }
