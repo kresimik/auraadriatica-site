@@ -159,7 +159,7 @@ async function loadGuest(langOpt) {
   let data = null;
   for (const u of urls) {
     try {
-      const r = await fetch(u, { cache: 'no-store' });
+      const r = await fetch(u, { cache: 'default' });
       if (r.ok) { data = await r.json(); break; }
     } catch {}
   }

@@ -48,4 +48,18 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // === Footer year ===
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // === Fade-in on scroll ===
+  if ('IntersectionObserver' in window) {
+    var fadeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(function (el) { fadeObserver.observe(el); });
+  } else {
+    document.querySelectorAll('.fade-up').forEach(function (el) { el.classList.add('visible'); });
+  }
 })();
