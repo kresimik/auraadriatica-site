@@ -54,12 +54,21 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // === Fade-in on scroll ===
+  var fadeEls = document.querySelectorAll('.fade-up');
   if ('IntersectionObserver' in window) {
     var fadeObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(function (el) { fadeObserver.observe(el); });
+    fadeEls.forEach(function (el) {
+      // Immediately show elements already in the viewport (don't wait for async callback)
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.classList.add('visible');
+      } else {
+        fadeObserver.observe(el);
+      }
+    });
   } else {
-    document.querySelectorAll('.fade-up').forEach(function (el) { el.classList.add('visible'); });
+    fadeEls.forEach(function (el) { el.classList.add('visible'); });
   }
 })();
