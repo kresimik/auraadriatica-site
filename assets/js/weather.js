@@ -153,7 +153,7 @@
   async function loadAndRender(){
     showSkeleton();
     try{
-      const r = await fetch(baseURL.toString(), { cache:'no-store' });
+      const r = await fetch(baseURL.toString(), { cache:'no-cache' });
       if (!r.ok) throw new Error('Network');
       const json = await r.json();
       render(json);

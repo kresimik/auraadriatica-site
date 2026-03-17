@@ -74,28 +74,28 @@ window.setLang = async function setLang(lang) {
   await loadLang(lc);
 
   // ✅ NEW: update contact form labels/placeholders on language switch
-  try { window.applyContactI18n?.(lc); } catch {}
+  try { window.applyContactI18n?.(lc); } catch (e) { console.warn('[i18n] applyContactI18n error', e); }
 
   // [AA CAL] ✅ Re-render calendar (if present) with the new locale
-  try { window.AACalendarRerender?.(lc); } catch {}
+  try { window.AACalendarRerender?.(lc); } catch (e) { console.warn('[i18n] AACalendarRerender error', e); }
 
   // page hooks (safe fallbacks)
   const slug = document.body?.dataset?.aptSlug || document.body?.getAttribute("data-apt-slug") || "";
 
   if (typeof window.loadApartment === "function") {
-    try { await window.loadApartment(slug, lc); } catch {}
+    try { await window.loadApartment(slug, lc); } catch (e) { console.warn('[i18n] loadApartment error', e); }
   } else if (typeof window.loadApt === "function") {
-    try { await window.loadApt(lc); } catch {}
+    try { await window.loadApt(lc); } catch (e) { console.warn('[i18n] loadApt error', e); }
   }
 
   if (typeof window.loadExplore === "function") {
-    try { await window.loadExplore(lc); } catch {}
+    try { await window.loadExplore(lc); } catch (e) { console.warn('[i18n] loadExplore error', e); }
   }
   if (typeof window.loadHome === "function") {
-    try { await window.loadHome(lc); } catch {}
+    try { await window.loadHome(lc); } catch (e) { console.warn('[i18n] loadHome error', e); }
   }
   if (typeof window.loadGuest === "function") {
-    try { await window.loadGuest(lc); } catch {}
+    try { await window.loadGuest(lc); } catch (e) { console.warn('[i18n] loadGuest error', e); }
   }
 };
 
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   wireLanguageDropdowns();
 
   // initialize contact form i18n on first load
-  try { window.applyContactI18n?.(saved); } catch {}
+  try { window.applyContactI18n?.(saved); } catch (e) { console.warn('[i18n] applyContactI18n error', e); }
 });
 
 // ==== CONTACT FORM I18N =====================================================

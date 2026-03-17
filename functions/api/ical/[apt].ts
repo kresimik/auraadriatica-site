@@ -116,6 +116,7 @@ function parseICS(raw: string): { start: string; end: string }[] {
 
   for (const chunk of events) {
     if (!/BEGIN:VEVENT/.test(chunk)) continue;
+    if (/^STATUS:CANCELLED/im.test(chunk)) continue;
     const dtStart = matchProp(chunk, "DTSTART");
     const dtEnd   = matchProp(chunk, "DTEND");
     if (!dtStart) continue;
