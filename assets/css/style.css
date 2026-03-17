@@ -1251,8 +1251,16 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   opacity: 0;
   transform: translateY(20px);
   transition: opacity .65s ease, transform .65s ease;
+  animation: fadeUpFallback 0s 2s forwards;
 }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
+@keyframes fadeUpFallback {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
 
 /* =========================
    RESPONSIVE UTILITIES
