@@ -33,5 +33,51 @@
   "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
   "contact_note": "Vas zanima apartma Onyx? Pošljite nam povpraševanje:",
   "contact_email": "info@auraadriatica.com",
-  "footer_note": "Butični apartmaji na Opatijski rivieri — udobje, dizajn in pogled na morje."
+  "footer_note": "Butični apartmaji na Opatijski rivieri — udobje, dizajn in pogled na morje.",
+  "faq": [
+    {
+      "q": "Prijava in odjava",
+      "a": "Prijava od 15:00, odjava do 10:00. Pozna prijava je možna po predhodnem dogovoru — uporabljamo digitalno varnostno ključavnico in PIN kodo pošljemo pred prihodom."
+    },
+    {
+      "q": "Parkiranje",
+      "a": "3 brezplačna zasebna parkirna mesta na apartma, neposredno na posesti."
+    },
+    {
+      "q": "Plačilo",
+      "a": "20% akontacija potrdi rezervacijo. Preostali znesek je plačljiv ob prihodu."
+    },
+    {
+      "q": "Zasebni bazen",
+      "a": "Vsak apartma ima lasten zasebni bazen, namenjen izključno gostom. Kakovost vode se preverja tedensko."
+    },
+    {
+      "q": "Razdalja od centra",
+      "a": "10 minut hoje do starega mestnega jedra Lovrana, plaže in Lungomare promenade."
+    },
+    {
+      "q": "Otroška posteljica",
+      "a": "Na voljo na zahtevo brez doplačila. Prosimo, navedite ob rezervaciji."
+    },
+    {
+      "q": "Žar",
+      "a": "Plinski žar Weber na voljo vsem gostom."
+    },
+    {
+      "q": "Gospodinjski aparati",
+      "a": "Popolnoma opremljena kuhinja s pomivalnim strojem in pralnim strojem."
+    },
+    {
+      "q": "Posteljnina in brisače",
+      "a": "Vključeni. Sveža posteljnina in brisače so na voljo vsem gostom."
+    },
+    {
+      "q": "Kajenje",
+      "a": "Kajenje je dovoljeno samo v zunanjih prostorih. Notranjost apartmaja je nekadilska."
+    },
+    {
+      "q": "Klimatska naprava",
+      "a": "Klimatska naprava je na voljo v vseh sobah in bivalnih prostorih."
+    }
+  ]
 }

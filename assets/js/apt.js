@@ -128,6 +128,25 @@ async function loadApartment(slug, langOpt){
     if (typeof window.initAptLightbox === "function") window.initAptLightbox();
   }
 
+  // ---------- FAQ ----------
+  const faqEl = document.getElementById("apt-faq");
+  if (faqEl && Array.isArray(data.faq) && data.faq.length){
+    faqEl.innerHTML = "";
+    data.faq.forEach(item => {
+      const det = document.createElement("details");
+      det.className = "faq-item";
+      const sum = document.createElement("summary");
+      sum.className = "faq-q";
+      sum.textContent = item.q;
+      const ans = document.createElement("p");
+      ans.className = "faq-a";
+      ans.textContent = item.a;
+      det.appendChild(sum);
+      det.appendChild(ans);
+      faqEl.appendChild(det);
+    });
+  }
+
   // ---------- CONTACT ----------
   const mailEl = document.getElementById("apt-contact-email");
   if (mailEl){

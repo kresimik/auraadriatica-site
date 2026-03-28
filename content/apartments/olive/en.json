@@ -33,5 +33,51 @@
   "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
   "contact_note": "Interested in Apartment Olive? Send us your inquiry directly:",
   "contact_email": "info@auraadriatica.com",
-  "footer_note": "Boutique apartments on the Opatija Riviera — comfort, design, and sea views."
+  "footer_note": "Boutique apartments on the Opatija Riviera — comfort, design, and sea views.",
+  "faq": [
+    {
+      "q": "Check-in & Check-out",
+      "a": "Check-in from 15:00, check-out by 10:00. Late check-in is available with prior notice — we use a digital security lock and send your personal PIN code before arrival."
+    },
+    {
+      "q": "Parking",
+      "a": "3 free private parking spaces per apartment, directly on the property."
+    },
+    {
+      "q": "Payment",
+      "a": "A 20% deposit confirms your reservation. The remaining balance is due on arrival."
+    },
+    {
+      "q": "Private pool",
+      "a": "Each apartment has its own private pool, exclusively for its guests. Pool water quality is tested weekly."
+    },
+    {
+      "q": "Distance from the centre",
+      "a": "10-minute walk to Lovran old town, the beach, and the Lungomare promenade."
+    },
+    {
+      "q": "Baby cot",
+      "a": "Available on request at no extra charge. Please let us know when booking."
+    },
+    {
+      "q": "BBQ / Grill",
+      "a": "Weber gas grill available for all guests."
+    },
+    {
+      "q": "Appliances",
+      "a": "Fully equipped kitchen with dishwasher, plus a washing machine."
+    },
+    {
+      "q": "Bed linen & towels",
+      "a": "Included. Fresh bed linen and towels are provided for all guests."
+    },
+    {
+      "q": "Smoking",
+      "a": "Smoking is permitted in outdoor areas only. The apartment interior is smoke-free."
+    },
+    {
+      "q": "Air conditioning",
+      "a": "Air conditioning is available in all rooms and living spaces."
+    }
+  ]
 }

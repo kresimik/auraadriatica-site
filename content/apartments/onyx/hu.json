@@ -3,7 +3,7 @@
   "meta_desc": "Onyx apartman — modern, kétszintes szállás a tenger közelében, saját medencével, terasszal, kerttel és tengerre néző kilátással, grillezővel, teljesen felszerelt konyhával, minden helyiségben légkondicionálóval és privát parkolóval Lovranban, Opatija közelében.",
   "title": "Onyx Apartman",
   "intro": "Modern, kétszintes apartman a tenger közelében, saját medencével, terasszal, kerttel és tengerre néző kilátással.",
-   "details_h": "Apartman részletei",
+  "details_h": "Apartman részletei",
   "desc_h": "Leírás",
   "highlights_h": "Kiemelések",
   "gallery_h": "Galéria",
@@ -33,5 +33,51 @@
   "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OnyxInquiryEN/formperma/gby9DTk-97zjC8ZYsI9urf8dfperqQ7IclFsn_ZikDQ",
   "contact_note": "Érdekli az Onyx apartman? Küldje el érdeklődését:",
   "contact_email": "info@auraadriatica.com",
-  "footer_note": "Boutique apartmanok az Opatija Riviérán — kényelem, design és tengerre néző kilátás."
+  "footer_note": "Boutique apartmanok az Opatija Riviérán — kényelem, design és tengerre néző kilátás.",
+  "faq": [
+    {
+      "q": "Be- és kijelentkezés",
+      "a": "Bejelentkezés 15:00-tól, kijelentkezés 10:00-ig. Késői érkezés előzetes egyeztetés alapján lehetséges — digitális biztonsági zárat használunk, és a személyes PIN kódot érkezés előtt küldjük meg."
+    },
+    {
+      "q": "Parkolás",
+      "a": "Apartmanonként 3 ingyenes magánparkoló közvetlenül az ingatlanon."
+    },
+    {
+      "q": "Fizetés",
+      "a": "20% foglaló erősíti meg a foglalást. A fennmaradó összeg érkezéskor fizetendő."
+    },
+    {
+      "q": "Saját medence",
+      "a": "Minden apartmanhoz saját privát medence tartozik, kizárólag annak vendégei számára. A vízminőséget hetente ellenőrzik."
+    },
+    {
+      "q": "Távolság a belvárostól",
+      "a": "10 perc séta Lovran óvárosától, a strandjától és a Lungomare sétánytól."
+    },
+    {
+      "q": "Gyermekágy",
+      "a": "Kérésre díjmentesen elérhető. Kérjük, jelezze foglaláskor."
+    },
+    {
+      "q": "Grillezés",
+      "a": "Weber gázgrill áll minden vendég rendelkezésére."
+    },
+    {
+      "q": "Háztartási gépek",
+      "a": "Teljesen felszerelt konyha mosogatógéppel és mosógéppel."
+    },
+    {
+      "q": "Ágynemű és törölközők",
+      "a": "Biztosított. Friss ágyneműt és törölközőket biztosítunk minden vendégnek."
+    },
+    {
+      "q": "Dohányzás",
+      "a": "A dohányzás csak a külső területeken megengedett. Az apartman beltere nemdohányzó."
+    },
+    {
+      "q": "Légkondicionálás",
+      "a": "Légkondicionáló minden szobában és nappali térben elérhető."
+    }
+  ]
 }

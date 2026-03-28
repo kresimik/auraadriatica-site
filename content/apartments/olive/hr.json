@@ -33,5 +33,51 @@
   "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
   "contact_note": "Zanima vas Apartman Olive? Pošaljite nam upit:",
   "contact_email": "info@auraadriatica.com",
-  "footer_note": "Boutique apartmani na Opatijskoj rivijeri — udobnost, dizajn i pogled na more."
+  "footer_note": "Boutique apartmani na Opatijskoj rivijeri — udobnost, dizajn i pogled na more.",
+  "faq": [
+    {
+      "q": "Prijava i odjava",
+      "a": "Prijava od 15:00, odjava do 10:00. Kasna prijava moguća uz prethodnu najavu — koristimo digitalnu sigurnosnu bravu i šaljemo Vaš osobni PIN kod prije dolaska."
+    },
+    {
+      "q": "Parkiranje",
+      "a": "3 besplatna privatna parkirna mjesta po apartmanu, direktno na imanju."
+    },
+    {
+      "q": "Plaćanje",
+      "a": "20% predujam potvrđuje rezervaciju. Preostali iznos plaća se po dolasku."
+    },
+    {
+      "q": "Privatni bazen",
+      "a": "Svaki apartman ima vlastiti privatni bazen isključivo za svoje goste. Kvaliteta vode u bazenu provjerava se tjedno."
+    },
+    {
+      "q": "Udaljenost od centra",
+      "a": "10 minuta pješice do starog centra Lovrana, plaže i Lungomare šetnice."
+    },
+    {
+      "q": "Dječji krevet",
+      "a": "Dostupan na zahtjev bez dodatnih troškova. Molimo navedite pri rezervaciji."
+    },
+    {
+      "q": "Roštilj",
+      "a": "Plinski roštilj Weber na raspolaganju svim gostima."
+    },
+    {
+      "q": "Kućanski aparati",
+      "a": "Potpuno opremljena kuhinja s perilicom suđa i perilicom rublja."
+    },
+    {
+      "q": "Posteljina i ručnici",
+      "a": "Uključeni. Svježa posteljina i ručnici osigurani su za sve goste."
+    },
+    {
+      "q": "Pušenje",
+      "a": "Pušenje je dozvoljeno samo u vanjskim prostorima. Unutrašnjost apartmana je nepušačka zona."
+    },
+    {
+      "q": "Klimatizacija",
+      "a": "Klima uređaj dostupan je u svim sobama i dnevnim prostorima."
+    }
+  ]
 }

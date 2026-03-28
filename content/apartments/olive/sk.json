@@ -33,5 +33,51 @@
   "inquiry_url": "https://forms.zohopublic.eu/infoauraad1/form/OliveInquiryEN/formperma/OP0PWusRcluUMbh63Zwmo7xAM_s-34dDij1RecmrvVs",
   "contact_note": "Zaujíma vás apartmán Olive? Pošlite nám dopyt:",
   "contact_email": "info@auraadriatica.com",
-  "footer_note": "Butikové apartmány na Opatijskej riviére — komfort, dizajn a výhľad na more."
+  "footer_note": "Butikové apartmány na Opatijskej riviére — komfort, dizajn a výhľad na more.",
+  "faq": [
+    {
+      "q": "Check-in a check-out",
+      "a": "Check-in od 15:00, check-out do 10:00. Neskorý príchod je možný po dohode — používame digitálny bezpečnostný zámok a váš osobný PIN kód zasielame pred príchodom."
+    },
+    {
+      "q": "Parkovanie",
+      "a": "3 bezplatné súkromné parkovacie miesta na apartmán, priamo v areáli."
+    },
+    {
+      "q": "Platba",
+      "a": "20% záloha potvrdzuje rezerváciu. Zostatok je splatný pri príchode."
+    },
+    {
+      "q": "Súkromný bazén",
+      "a": "Každý apartmán má vlastný súkromný bazén určený výhradne pre jeho hostí. Kvalita vody sa kontroluje každý týždeň."
+    },
+    {
+      "q": "Vzdialenosť od centra",
+      "a": "10 minút chôdze do historického centra Lovrana, na pláž a na promenádu Lungomare."
+    },
+    {
+      "q": "Detská postieľka",
+      "a": "K dispozícii na požiadanie bez príplatku. Uveďte prosím pri rezervácii."
+    },
+    {
+      "q": "Gril",
+      "a": "Plynový gril Weber k dispozícii všetkým hosťom."
+    },
+    {
+      "q": "Spotrebiče",
+      "a": "Plne vybavená kuchyňa s umývačkou riadu a práčkou."
+    },
+    {
+      "q": "Posteľná bielizeň a uteráky",
+      "a": "V cene. Čistá posteľná bielizeň a uteráky sú pripravené pre všetkých hostí."
+    },
+    {
+      "q": "Fajčenie",
+      "a": "Fajčenie je povolené len vo vonkajších priestoroch. Interiér apartmánu je nefajčiarsky."
+    },
+    {
+      "q": "Klimatizácia",
+      "a": "Klimatizácia je k dispozícii vo všetkých izbách a obývacích priestoroch."
+    }
+  ]
 }

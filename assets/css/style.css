@@ -1279,6 +1279,46 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 
 /* =========================
+   FAQ ACCORDION
+   ========================= */
+.faq-list { display: flex; flex-direction: column; gap: .5rem; }
+.faq-item {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.faq-item[open] { border-color: var(--gold); }
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .9rem 1.1rem;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  list-style: none;
+  user-select: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::after {
+  content: "+";
+  font-size: 1.2rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform .2s ease;
+}
+.faq-item[open] .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 1.1rem 1rem;
+  margin: 0;
+  font-size: .92rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* =========================
    FADE IN ANIMATION
    ========================= */
 .fade-up {
