@@ -281,14 +281,6 @@
   <script src="/assets/js/gallery.js" defer></script>
 
   <script>
-    // INIT: locale for calendar
-    document.addEventListener('DOMContentLoaded', () => {
-      const pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
-      document.querySelectorAll('.aa-ical-calendar').forEach(el => {
-        if (!el.dataset.locale) el.dataset.locale = pageLang;
-      });
-    });
-
     // Patch setLang -> rerender calendar + reload apartment
     (function patchSetLangForCalendar(){
       const orig = window.setLang;
