@@ -467,15 +467,39 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .card-head { margin-bottom: 1.2rem; }
 .card-head h2 { margin-bottom: 0; }
 
-.direct-booking-card {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto;
-  border-color: var(--gold);
-  padding: 2.5rem 2rem;
+.direct-booking-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 1rem 1.4rem;
+  background: var(--card);
 }
-.direct-booking-card h2 { margin-bottom: .75rem; }
-.direct-booking-card p  { margin-bottom: 1.5rem; color: var(--muted); max-width: 480px; margin-left: auto; margin-right: auto; }
+.direct-booking-banner .dbb-text { flex: 1; min-width: 0; }
+.direct-booking-banner .dbb-label {
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .2rem;
+}
+.direct-booking-banner .dbb-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 .15rem;
+}
+.direct-booking-banner .dbb-desc {
+  font-size: .85rem;
+  color: var(--muted);
+  margin: 0;
+}
+.direct-booking-banner .button { white-space: nowrap; flex-shrink: 0; }
+@media (max-width: 600px) {
+  .direct-booking-banner { flex-direction: column; align-items: flex-start; }
+  .direct-booking-banner .button { align-self: stretch; text-align: center; }
+}
 
 /* =========================
    APARTMENT CARDS (homepage)
