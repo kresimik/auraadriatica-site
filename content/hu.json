@@ -44,7 +44,6 @@
   "onyx_short": "Privát medence, panorámás tengerkilátásos terasz és egy visszavonult menedék luxusa.",
   "our_spaces": "Apartmanjaink",
   "apts_title": "Két apartman, egy riviéra",
-
   "contact_label": "Kapcsolat",
   "contact_hero_sub": "Küldjön érdeklődést a rendelkezésre állással és az árakkal kapcsolatban. Gyorsan válaszolunk.",
   "contact_form_label": "Üzenet küldése",
@@ -53,9 +52,7 @@
   "contact_info_h": "Lépjen kapcsolatba velünk közvetlenül",
   "contact_email_label": "E-mail",
   "contact_phone_label": "Telefon",
-
   "gallery_label": "Fotók",
-
   "inquire_btn": "Érdeklődjön most",
   "details_label": "Apartman",
   "details_h": "Apartman részletei",
@@ -64,7 +61,6 @@
   "gallery_h": "Galéria",
   "avail_label": "Naptár",
   "availability_h": "Elérhetőség",
-
   "amenities_label": "Felszereltség",
   "weather_label": "Időjárás",
   "discover_olive": "Olive felfedezése",
@@ -76,5 +72,9 @@
   "explore_do_label": "Programok",
   "explore_beaches_label": "Strandok",
   "explore_trips_label": "Kirándulások",
-  "explore_food_label": "Gasztronómia"
+  "explore_food_label": "Gasztronómia",
+  "direct_booking_label": "Közvetlen foglalás",
+  "direct_booking_h": "Takarítson meg platformdíjakat",
+  "direct_booking_p": "Foglaljon közvetlenül nálunk — nincs közvetítő, nincs extra díj. A legjobb elérhető árat és személyes fogadtatást kap.",
+  "direct_booking_btn": "Érdeklődjön most"
 }

@@ -467,6 +467,16 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .card-head { margin-bottom: 1.2rem; }
 .card-head h2 { margin-bottom: 0; }
 
+.direct-booking-card {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  border-color: var(--gold);
+  padding: 2.5rem 2rem;
+}
+.direct-booking-card h2 { margin-bottom: .75rem; }
+.direct-booking-card p  { margin-bottom: 1.5rem; color: var(--muted); max-width: 480px; margin-left: auto; margin-right: auto; }
+
 /* =========================
    APARTMENT CARDS (homepage)
    ========================= */

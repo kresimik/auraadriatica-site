@@ -44,7 +44,6 @@
   "onyx_short": "Soukromý bazén, panoramatická terasa s výhledem na moře a luxus odlehlého úkrytu.",
   "our_spaces": "Naše prostory",
   "apts_title": "Dva apartmány, jedna riviéra",
-
   "contact_label": "Kontakt",
   "contact_hero_sub": "Pošlete nám dotaz ohledně dostupnosti a cen. Odpovídáme rychle.",
   "contact_form_label": "Poslat zprávu",
@@ -53,9 +52,7 @@
   "contact_info_h": "Kontaktujte nás přímo",
   "contact_email_label": "E-mail",
   "contact_phone_label": "Telefon",
-
   "gallery_label": "Fotografie",
-
   "inquire_btn": "Zeptat se nyní",
   "details_label": "Apartmán",
   "details_h": "Detaily apartmánu",
@@ -64,7 +61,6 @@
   "gallery_h": "Galerie",
   "avail_label": "Kalendář",
   "availability_h": "Dostupnost",
-
   "amenities_label": "Vybavení",
   "weather_label": "Počasí",
   "discover_olive": "Objevit Olive",
@@ -76,5 +72,9 @@
   "explore_do_label": "Aktivity",
   "explore_beaches_label": "Pláže",
   "explore_trips_label": "Výlety",
-  "explore_food_label": "Jídlo a pití"
+  "explore_food_label": "Jídlo a pití",
+  "direct_booking_label": "Přímá rezervace",
+  "direct_booking_h": "Ušetřete poplatky platformám",
+  "direct_booking_p": "Rezervujte přímo u nás — žádný zprostředkovatel, žádné příplatky. Získáte nejlepší dostupnou cenu a osobní přivítání.",
+  "direct_booking_btn": "Odeslat dotaz"
 }

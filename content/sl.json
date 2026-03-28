@@ -44,7 +44,6 @@
   "onyx_short": "Zasebni bazen, panoramska terasa s pogledom na morje in luksuz odmaknjene oaze.",
   "our_spaces": "Naši prostori",
   "apts_title": "Dva apartmaja, ena riviera",
-
   "contact_label": "Kontakt",
   "contact_hero_sub": "Pošljite povpraševanje o razpoložljivosti in cenah. Odgovarjamo hitro.",
   "contact_form_label": "Pošljite sporočilo",
@@ -53,9 +52,7 @@
   "contact_info_h": "Kontaktirajte nas neposredno",
   "contact_email_label": "E-pošta",
   "contact_phone_label": "Telefon",
-
   "gallery_label": "Fotografije",
-
   "inquire_btn": "Povprašajte zdaj",
   "details_label": "Apartma",
   "details_h": "Podrobnosti apartmaja",
@@ -64,7 +61,6 @@
   "gallery_h": "Galerija",
   "avail_label": "Koledar",
   "availability_h": "Razpoložljivost",
-
   "amenities_label": "Ugodnosti",
   "weather_label": "Vreme",
   "discover_olive": "Odkrijte Olive",
@@ -76,5 +72,9 @@
   "explore_do_label": "Aktivnosti",
   "explore_beaches_label": "Plaže",
   "explore_trips_label": "Izleti",
-  "explore_food_label": "Hrana in pijača"
+  "explore_food_label": "Hrana in pijača",
+  "direct_booking_label": "Neposredna rezervacija",
+  "direct_booking_h": "Prihranite pri provizijah",
+  "direct_booking_p": "Rezervirajte neposredno pri nas — brez posrednika, brez dodatnih stroškov. Prejmete najboljšo razpoložljivo ceno in osebno dobrodošlico.",
+  "direct_booking_btn": "Pošljite povpraševanje"
 }

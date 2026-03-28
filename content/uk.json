@@ -44,7 +44,6 @@
   "onyx_short": "Приватний басейн, панорамна тераса з видом на море і розкіш усамітненого відпочинку.",
   "our_spaces": "Наші апартаменти",
   "apts_title": "Два апартаменти, одна рив'єра",
-
   "contact_label": "Контакти",
   "contact_hero_sub": "Надішліть запит щодо наявності та цін. Відповідаємо швидко.",
   "contact_form_label": "Надіслати повідомлення",
@@ -53,9 +52,7 @@
   "contact_info_h": "Зв'яжіться з нами напряму",
   "contact_email_label": "Електронна пошта",
   "contact_phone_label": "Телефон",
-
   "gallery_label": "Фото",
-
   "inquire_btn": "Запитати зараз",
   "details_label": "Апартаменти",
   "details_h": "Деталі апартаментів",
@@ -64,7 +61,6 @@
   "gallery_h": "Галерея",
   "avail_label": "Календар",
   "availability_h": "Наявність",
-
   "amenities_label": "Зручності",
   "weather_label": "Погода",
   "discover_olive": "Переглянути Olive",
@@ -76,5 +72,9 @@
   "explore_do_label": "Активності",
   "explore_beaches_label": "Пляжі",
   "explore_trips_label": "Екскурсії",
-  "explore_food_label": "Їжа та напої"
+  "explore_food_label": "Їжа та напої",
+  "direct_booking_label": "Пряме бронювання",
+  "direct_booking_h": "Заощадьте на комісіях платформ",
+  "direct_booking_p": "Бронюйте безпосередньо у нас — без посередників, без додаткових зборів. Ви отримуєте найкращу доступну ціну та особистий прийом.",
+  "direct_booking_btn": "Надіслати запит"
 }

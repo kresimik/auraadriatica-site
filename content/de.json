@@ -44,7 +44,6 @@
   "onyx_short": "Privater Pool, Panoramterrasse mit Meerblick und der Luxus eines abgeschiedenen Rückzugsorts.",
   "our_spaces": "Unsere Apartments",
   "apts_title": "Zwei Apartments, eine Riviera",
-
   "contact_label": "Kontakt",
   "contact_hero_sub": "Senden Sie uns eine Anfrage zu Verfügbarkeit und Preisen. Wir antworten schnell.",
   "contact_form_label": "Nachricht senden",
@@ -53,9 +52,7 @@
   "contact_info_h": "Direkt kontaktieren",
   "contact_email_label": "E-Mail",
   "contact_phone_label": "Telefon",
-
   "gallery_label": "Fotos",
-
   "inquire_btn": "Jetzt anfragen",
   "details_label": "Apartment",
   "details_h": "Apartmentdetails",
@@ -64,7 +61,6 @@
   "gallery_h": "Galerie",
   "avail_label": "Kalender",
   "availability_h": "Verfügbarkeit",
-
   "amenities_label": "Ausstattung",
   "weather_label": "Wetter",
   "discover_olive": "Olive entdecken",
@@ -76,5 +72,9 @@
   "explore_do_label": "Aktivitäten",
   "explore_beaches_label": "Küste",
   "explore_trips_label": "Tagesausflüge",
-  "explore_food_label": "Essen & Trinken"
+  "explore_food_label": "Essen & Trinken",
+  "direct_booking_label": "Direkte Buchung",
+  "direct_booking_h": "Plattformgebühren sparen",
+  "direct_booking_p": "Buchen Sie direkt bei uns — kein Vermittler, keine zusätzlichen Gebühren. Sie erhalten den besten verfügbaren Preis und einen persönlichen Empfang.",
+  "direct_booking_btn": "Anfrage senden"
 }

@@ -44,7 +44,6 @@
   "onyx_short": "Piscina privata, terrazza panoramica con vista mare e il lusso di un rifugio esclusivo.",
   "our_spaces": "I nostri spazi",
   "apts_title": "Due appartamenti, una riviera",
-
   "contact_label": "Contatto",
   "contact_hero_sub": "Inviaci una richiesta sulla disponibilità e i prezzi. Rispondiamo rapidamente.",
   "contact_form_label": "Invia un messaggio",
@@ -53,9 +52,7 @@
   "contact_info_h": "Contattaci direttamente",
   "contact_email_label": "Email",
   "contact_phone_label": "Telefono",
-
   "gallery_label": "Foto",
-
   "inquire_btn": "Richiedi ora",
   "details_label": "Appartamento",
   "details_h": "Dettagli dell'appartamento",
@@ -64,7 +61,6 @@
   "gallery_h": "Galleria",
   "avail_label": "Calendario",
   "availability_h": "Disponibilità",
-
   "amenities_label": "Servizi",
   "weather_label": "Meteo",
   "discover_olive": "Scopri Olive",
@@ -76,5 +72,9 @@
   "explore_do_label": "Attività",
   "explore_beaches_label": "Mare",
   "explore_trips_label": "Gite",
-  "explore_food_label": "Gastronomia"
+  "explore_food_label": "Gastronomia",
+  "direct_booking_label": "Prenotazione diretta",
+  "direct_booking_h": "Risparmia le commissioni",
+  "direct_booking_p": "Prenota direttamente con noi — nessun intermediario, nessun costo aggiuntivo. Ottieni il miglior prezzo disponibile e un'accoglienza personale.",
+  "direct_booking_btn": "Invia una richiesta"
 }
