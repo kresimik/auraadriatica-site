@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Explore — Aura Adriatica</title>
-  <meta name="description" content="What to do in Lovran and the Opatija Riviera — beaches, walks, Učka trails, gastronomy, day trips." />
+  <title>FAQ — Aura Adriatica</title>
+  <meta name="description" content="Frequently asked questions about apartments Olive &amp; Onyx — check-in, parking, payment, pool, and more." />
   <meta name="theme-color" content="#b8965a">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="hr" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="de" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="it" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="sl" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="hu" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="cs" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="sk" href="https://auraadriatica.com/explore.html">
-  <link rel="alternate" hreflang="uk" href="https://auraadriatica.com/explore.html">
+  <link rel="canonical" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="hr" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="de" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="it" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="sl" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="hu" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="cs" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="sk" href="https://auraadriatica.com/faq.html">
+  <link rel="alternate" hreflang="uk" href="https://auraadriatica.com/faq.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Explore Lovran & Opatija Riviera — Aura Adriatica">
-  <meta property="og:description" content="Beaches, Lungomare, Učka trails, gastronomy and day trips from your base in Lovran.">
-  <meta property="og:image" content="https://auraadriatica.com/assets/img/explore-hero.webp">
-  <meta property="og:url" content="https://auraadriatica.com/explore.html">
+  <meta property="og:title" content="FAQ — Aura Adriatica">
+  <meta property="og:description" content="Frequently asked questions about apartments Olive &amp; Onyx in Lovran, Croatia.">
+  <meta property="og:image" content="https://auraadriatica.com/assets/img/hero.webp">
+  <meta property="og:url" content="https://auraadriatica.com/faq.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aura Adriatica">
 
@@ -40,24 +40,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Hero image preload -->
-  <link rel="preload" as="image" fetchpriority="high" href="/assets/img/explore-hero.webp">
+  <link rel="preload" as="image" fetchpriority="high" href="/assets/img/hero.webp">
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20260330">
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/ui.js" defer></script>
-  <script src="/assets/js/explore.js" defer></script>
 
-  <!-- Bridge: after i18n.js is ready, also refresh Explore content on language change -->
+  <script src="/assets/js/faq.js?v=20260330" defer></script>
+
+  <!-- Bridge: reload FAQ on language change -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof window.setLang === 'function') {
         const _setLang = window.setLang;
         window.setLang = async (lang) => {
           await _setLang(lang);
-          if (typeof window.loadExplore === 'function') {
-            await window.loadExplore(lang);
-          }
+          if (typeof window.loadFaq === 'function') window.loadFaq(lang);
         };
       }
     });
@@ -75,12 +74,12 @@
       <img src="/assets/img/logo.png" alt="Aura Adriatica logo" width="870" height="345" />
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-        <a href="/" data-i18n="home_nav">Home</a>
+      <a href="/" data-i18n="home_nav">Home</a>
       <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" class="active" data-i18n="explore">Explore</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/faq.html" data-i18n="faq_nav">FAQ</a>
+      <a href="/faq.html" class="active" data-i18n="faq_nav">FAQ</a>
       <a href="/contact.html" data-i18n="contact_nav">Contact</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
@@ -106,76 +105,22 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" style="background-image: linear-gradient(to bottom, rgba(14,14,14,.35), rgba(14,14,14,.72)), url('/assets/img/explore-hero.webp');">
+<section class="hero" style="background-image: linear-gradient(to bottom, rgba(14,14,14,.35), rgba(14,14,14,.72)), url('/assets/img/hero.webp');">
   <div class="container hero-center">
-    <div class="hero-eyebrow">Lovran · Opatija Riviera</div>
-    <h1 id="ex-hero-title">Explore Lovran &amp; <em>Opatija Riviera</em></h1>
-    <p id="ex-hero-sub">Beaches, Lungomare, Učka trails, gastronomy &amp; day trips.</p>
+    <div class="hero-eyebrow">Olive &amp; Onyx · Lovran</div>
+    <h1 data-i18n="faq_h">Frequently Asked Questions</h1>
+    <div class="cta">
+      <a class="button olive" href="/apartments/olive.html" data-i18n="olive_h">Olive Apartment</a>
+      <a class="button onyx" href="/apartments/onyx.html" data-i18n="onyx_h">Onyx Apartment</a>
+    </div>
   </div>
 </section>
 
-<!-- ABOUT + THINGS TO DO -->
+<!-- FAQ -->
 <section class="section">
   <div class="container">
-    <div class="two-col fade-up">
-      <div class="col">
-        <div class="card">
-          <div class="card-head">
-            <div class="section-label">Lovran</div>
-            <h2 id="ex-about">About Lovran</h2>
-          </div>
-          <p id="ex-intro">A charming coastal town next to Opatija — historic center, beaches, and the famous seaside promenade.</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-head">
-            <div class="section-label" data-i18n="explore_do_label">Activities</div>
-            <h2 id="ex-do">Things to do</h2>
-          </div>
-          <ul id="ex-do-list" class="explore-list"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BEACHES + DAY TRIPS -->
-<section class="section alt">
-  <div class="container">
-    <div class="two-col fade-up">
-      <div class="col">
-        <div class="card">
-          <div class="card-head">
-            <div class="section-label" data-i18n="explore_beaches_label">Seaside</div>
-            <h2 id="ex-beaches">Beaches &amp; Seaside</h2>
-          </div>
-          <ul id="ex-beaches-list" class="explore-list"></ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-head">
-            <div class="section-label" data-i18n="explore_trips_label">Day trips</div>
-            <h2 id="ex-trips">Day trips</h2>
-          </div>
-          <ul id="ex-trips-list" class="explore-list"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GASTRONOMY -->
-<section class="section">
-  <div class="container fade-up">
-    <div class="card">
-      <div class="card-head">
-        <div class="section-label" data-i18n="explore_food_label">Food &amp; Drink</div>
-        <h2 id="ex-food">Gastronomy</h2>
-      </div>
-      <ul id="ex-food-list" class="explore-list explore-list--inline"></ul>
-    </div>
+    <div class="section-label fade-up" data-i18n="faq_label">FAQ</div>
+    <div id="faq-list" class="faq-list fade-up" style="margin-top:1.5rem; max-width:780px;"></div>
   </div>
 </section>
 
@@ -211,9 +156,9 @@
     <nav class="footer-nav" aria-label="Footer">
       <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
-      <a href="/explore.html" class="active" data-i18n="explore">Explore</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
-      <a href="/faq.html" data-i18n="faq_nav">FAQ</a>
+      <a href="/faq.html" class="active" data-i18n="faq_nav">FAQ</a>
       <a href="/contact.html" data-i18n="contact_nav">Contact</a>
     </nav>
     <div class="footer-contact">

@@ -79,5 +79,52 @@
   "direct_booking_btn": "Odeslat dotaz",
   "home_nav": "Domů",
   "faq_label": "FAQ",
-  "faq_h": "Nejčastější dotazy"
+  "faq_h": "Nejčastější dotazy",
+  "faq_nav": "FAQ",
+  "faq": [
+    {
+      "q": "Check-in a check-out",
+      "a": "Check-in od 15:00, check-out do 10:00. Pozdní příjezd je možný po předchozí domluvě — používáme digitální bezpečnostní zámek a váš osobní PIN kód zasíláme před příjezdem."
+    },
+    {
+      "q": "Parkování",
+      "a": "3 bezplatná soukromá parkovací místa na apartmán, přímo v areálu."
+    },
+    {
+      "q": "Platba",
+      "a": "20% záloha potvrzuje rezervaci. Zbývající částka je splatná při příjezdu."
+    },
+    {
+      "q": "Soukromý bazén",
+      "a": "Každý apartmán má vlastní soukromý bazén určený výhradně pro jeho hosty. Kvalita vody se kontroluje každý týden."
+    },
+    {
+      "q": "Vzdálenost od centra",
+      "a": "10 minut chůze do historického centra Lovran, na pláž a na promenádu Lungomare."
+    },
+    {
+      "q": "Dětská postýlka",
+      "a": "K dispozici na vyžádání bez příplatku. Uveďte prosím při rezervaci."
+    },
+    {
+      "q": "Gril",
+      "a": "Plynový gril Weber k dispozici všem hostům."
+    },
+    {
+      "q": "Spotřebiče",
+      "a": "Plně vybavená kuchyně s myčkou nádobí a pračkou."
+    },
+    {
+      "q": "Ložní prádlo a ručníky",
+      "a": "V ceně. Čisté ložní prádlo a ručníky jsou připraveny pro všechny hosty."
+    },
+    {
+      "q": "Kouření",
+      "a": "Kouření je povoleno pouze ve venkovních prostorách. Interiér apartmánu je nekuřácký."
+    },
+    {
+      "q": "Klimatizace",
+      "a": "Klimatizace je k dispozici ve všech pokojích a obývacích prostorách."
+    }
+  ]
 }

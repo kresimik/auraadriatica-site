@@ -79,5 +79,52 @@
   "direct_booking_btn": "Invia una richiesta",
   "home_nav": "Home",
   "faq_label": "FAQ",
-  "faq_h": "Domande frequenti"
+  "faq_h": "Domande frequenti",
+  "faq_nav": "FAQ",
+  "faq": [
+    {
+      "q": "Check-in & Check-out",
+      "a": "Check-in dalle 15:00, check-out entro le 10:00. Check-in tardivo disponibile previo accordo — utilizziamo una serratura digitale e inviamo il codice PIN personale prima dell'arrivo."
+    },
+    {
+      "q": "Parcheggio",
+      "a": "3 posti auto privati gratuiti per appartamento, direttamente nella proprietà."
+    },
+    {
+      "q": "Pagamento",
+      "a": "Il 20% di acconto conferma la prenotazione. Il saldo è dovuto all'arrivo."
+    },
+    {
+      "q": "Piscina privata",
+      "a": "Ogni appartamento ha la propria piscina privata, riservata esclusivamente ai suoi ospiti. La qualità dell'acqua viene controllata settimanalmente."
+    },
+    {
+      "q": "Distanza dal centro",
+      "a": "10 minuti a piedi dal centro storico di Lovran, dalla spiaggia e dal Lungomare."
+    },
+    {
+      "q": "Lettino per bambini",
+      "a": "Disponibile su richiesta senza costi aggiuntivi. Si prega di indicarlo al momento della prenotazione."
+    },
+    {
+      "q": "Barbecue",
+      "a": "Barbecue a gas Weber a disposizione di tutti gli ospiti."
+    },
+    {
+      "q": "Elettrodomestici",
+      "a": "Cucina completamente attrezzata con lavastoviglie e lavatrice."
+    },
+    {
+      "q": "Biancheria e asciugamani",
+      "a": "Inclusi. Biancheria da letto fresca e asciugamani forniti per tutti gli ospiti."
+    },
+    {
+      "q": "Fumo",
+      "a": "Il fumo è consentito solo nelle aree esterne. L'appartamento è non fumatori."
+    },
+    {
+      "q": "Aria condizionata",
+      "a": "Aria condizionata disponibile in tutte le camere e gli spazi living."
+    }
+  ]
 }

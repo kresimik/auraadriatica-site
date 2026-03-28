@@ -79,5 +79,52 @@
   "direct_booking_btn": "Anfrage senden",
   "home_nav": "Startseite",
   "faq_label": "FAQ",
-  "faq_h": "Häufig gestellte Fragen"
+  "faq_h": "Häufig gestellte Fragen",
+  "faq_nav": "FAQ",
+  "faq": [
+    {
+      "q": "Check-in & Check-out",
+      "a": "Check-in ab 15:00 Uhr, Check-out bis 10:00 Uhr. Später Check-in nach Absprache möglich — wir verwenden ein digitales Sicherheitsschloss und senden Ihren persönlichen PIN-Code vor der Ankunft."
+    },
+    {
+      "q": "Parken",
+      "a": "3 kostenlose private Parkplätze pro Apartment, direkt auf dem Grundstück."
+    },
+    {
+      "q": "Zahlung",
+      "a": "20% Anzahlung zur Bestätigung der Reservierung. Der Restbetrag ist bei Ankunft fällig."
+    },
+    {
+      "q": "Privater Pool",
+      "a": "Jedes Apartment verfügt über einen eigenen Privatpool, ausschließlich für seine Gäste. Die Wasserqualität wird wöchentlich geprüft."
+    },
+    {
+      "q": "Entfernung zum Zentrum",
+      "a": "10 Gehminuten zur Altstadt von Lovran, zum Strand und zur Lungomare-Promenade."
+    },
+    {
+      "q": "Kinderbett",
+      "a": "Auf Anfrage kostenlos erhältlich. Bitte bei der Buchung angeben."
+    },
+    {
+      "q": "Grill",
+      "a": "Weber Gasgrill für alle Gäste verfügbar."
+    },
+    {
+      "q": "Haushaltsgeräte",
+      "a": "Voll ausgestattete Küche mit Geschirrspüler und Waschmaschine."
+    },
+    {
+      "q": "Bettwäsche & Handtücher",
+      "a": "Inklusive. Frische Bettwäsche und Handtücher werden für alle Gäste bereitgestellt."
+    },
+    {
+      "q": "Rauchen",
+      "a": "Rauchen ist nur im Außenbereich gestattet. Das Apartment ist rauchfrei."
+    },
+    {
+      "q": "Klimaanlage",
+      "a": "Klimaanlage in allen Zimmern und Wohnbereichen verfügbar."
+    }
+  ]
 }
