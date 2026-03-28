@@ -134,6 +134,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // initialize contact form i18n on first load
   try { window.applyContactI18n?.(saved); } catch (e) { console.warn('[i18n] applyContactI18n error', e); }
+
+  // re-render calendar with correct locale (aa-calendar.js may have inited before lang resolved)
+  try { window.AACalendarRerender?.(saved); } catch (e) { console.warn('[i18n] AACalendarRerender error', e); }
 });
 
 // ==== CONTACT FORM I18N =====================================================
