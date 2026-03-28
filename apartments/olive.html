@@ -242,6 +242,17 @@
 
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
+  <!-- LIGHTBOX OVERLAY -->
+  <div class="glightbox" id="glightbox" hidden aria-modal="true" role="dialog">
+    <button class="glb-close" id="glbClose" aria-label="Close">×</button>
+    <button class="glb-nav glb-prev" id="glbPrev" aria-label="Previous">‹</button>
+    <figure class="glb-figure">
+      <img id="glbImg" alt="">
+      <figcaption id="glbCap"></figcaption>
+    </figure>
+    <button class="glb-nav glb-next" id="glbNext" aria-label="Next">›</button>
+  </div>
+
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
 
   <!-- FOOTER -->
@@ -267,20 +278,9 @@
     </div>
   </footer>
 
-  <script>
-    // Wrap gallery images in div for hover effects
-    const galEl = document.getElementById('apt-gallery');
-    if (galEl) {
-      new MutationObserver(() => {
-        galEl.querySelectorAll('img:not(.wrapped)').forEach(img => {
-          img.classList.add('wrapped');
-          const wrap = document.createElement('div');
-          galEl.insertBefore(wrap, img);
-          wrap.appendChild(img);
-        });
-      }).observe(galEl, { childList: true });
-    }
+  <script src="/assets/js/gallery.js" defer></script>
 
+  <script>
     // INIT: locale for calendar
     document.addEventListener('DOMContentLoaded', () => {
       const pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();

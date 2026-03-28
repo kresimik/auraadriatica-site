@@ -110,14 +110,22 @@ async function loadApartment(slug, langOpt){
     gal.innerHTML = "";
     if (Array.isArray(data.gallery)){
       data.gallery.forEach((src, i)=>{
+        const a = document.createElement("a");
+        a.className = "g-item";
+        a.href = src;
+        a.setAttribute("data-full", src);
+        a.setAttribute("data-caption", `${(data.title || slugLc)} — photo ${i+1}`);
         const img = document.createElement("img");
         img.src = src;
         img.loading = "lazy";
         img.decoding = "async";
-        img.alt = `${(data.title || slugLc)} photo ${i+1}`;
-        gal.appendChild(img);
+        img.alt = `${(data.title || slugLc)} — photo ${i+1}`;
+        a.appendChild(img);
+        gal.appendChild(a);
       });
     }
+    // Re-init lightbox after gallery is populated
+    if (typeof window.initAptLightbox === "function") window.initAptLightbox();
   }
 
   // ---------- CONTACT ----------

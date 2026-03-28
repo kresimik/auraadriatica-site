@@ -1,34 +1,38 @@
 // Lightweight gallery lightbox + keyboard nav + focus trap + counter (n/total)
 (function(){
-  const grid = document.getElementById('gallery');
+  const grid = document.getElementById('gallery') || document.getElementById('apt-gallery');
   if(!grid) return;
 
-  const items = Array.from(grid.querySelectorAll('.g-item'));
   const overlay = document.getElementById('glightbox');
-  const img = document.getElementById('glbImg');
-  const cap = document.getElementById('glbCap');
+  const img     = document.getElementById('glbImg');
+  const cap     = document.getElementById('glbCap');
   const btnClose = document.getElementById('glbClose');
-  const btnPrev = document.getElementById('glbPrev');
-  const btnNext = document.getElementById('glbNext');
+  const btnPrev  = document.getElementById('glbPrev');
+  const btnNext  = document.getElementById('glbNext');
+
+  if (!overlay || !img || !cap || !btnClose || !btnPrev || !btnNext) return;
 
   let idx = 0;
   let lastActive = null;
 
-  function setCounter(){
-    const caption = items[idx].getAttribute('data-caption') || '';
+  // Live query — works even when apt.js repopulates the grid dynamically
+  function getItems(){ return Array.from(grid.querySelectorAll('.g-item')); }
+
+  function setCounter(list){
+    const caption = list[idx].getAttribute('data-caption') || '';
     cap.textContent = caption
-      ? `${idx + 1} / ${items.length} — ${caption}`
-      : `${idx + 1} / ${items.length}`;
+      ? `${idx + 1} / ${list.length} — ${caption}`
+      : `${idx + 1} / ${list.length}`;
   }
 
   function openAt(i){
-    idx = (i + items.length) % items.length;
-    const a = items[idx];
-    const full = a.getAttribute('data-full') || a.getAttribute('href');
-    const caption = a.getAttribute('data-caption') || '';
-    img.src = full;
-    img.alt = caption;
-    setCounter();
+    const list = getItems();
+    if (!list.length) return;
+    idx = (i + list.length) % list.length;
+    const a = list[idx];
+    img.src = a.getAttribute('data-full') || a.getAttribute('href');
+    img.alt = a.getAttribute('data-caption') || '';
+    setCounter(list);
     overlay.hidden = false;
     overlay.classList.add('is-open');
     lastActive = document.activeElement;
@@ -49,7 +53,7 @@
     const a = e.target.closest('.g-item');
     if (!a) return;
     e.preventDefault();
-    openAt(items.indexOf(a));
+    openAt(getItems().indexOf(a));
   });
 
   // Nav buttons
@@ -70,6 +74,9 @@
     if (e.target === overlay) close();
   });
 
-  // Prevent scroll on wheel in overlay (optional)
+  // Prevent scroll on wheel in overlay
   overlay.addEventListener('wheel', (e)=>{ if(!overlay.hidden) e.preventDefault(); }, {passive:false});
+
+  // Called by apt.js after gallery repopulation (no-op — live query handles it)
+  window.initAptLightbox = function(){};
 })();

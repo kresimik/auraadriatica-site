@@ -132,5 +132,44 @@ export async function onRequestPost(context) {
     return fail(r.status, 'Resend error', { response: rJson || rText });
   }
 
+  // --- 5) Confirmation email to guest (best-effort, don't fail the request if it errors)
+  const confirmFrom = fromOk ? CONTACT_FROM : 'Aura Adriatica <info@auraadriatica.com>';
+  const confirmText = [
+    `Dear ${name},`,
+    '',
+    `Thank you for your inquiry about ${apt !== 'Apartment' ? `Apartment ${apt}` : 'our apartments'}.`,
+    'We have received your message and will get back to you within 24 hours.',
+    '',
+    'Your message:',
+    '---',
+    message,
+    '---',
+    '',
+    'Best regards,',
+    'Aura Adriatica',
+    'Lovran, Opatija Riviera',
+    'info@auraadriatica.com | +385 99 221 0910',
+    'https://auraadriatica.com'
+  ].join('\n');
+
+  try {
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: confirmFrom,
+        to: [email],
+        subject: `We received your inquiry — Aura Adriatica`,
+        text: confirmText,
+        reply_to: CONTACT_TO_RAW
+      })
+    });
+  } catch (_) {
+    // Confirmation failure is non-fatal
+  }
+
   return json({ ok: true, id: (rJson && rJson.id) || null });
 }

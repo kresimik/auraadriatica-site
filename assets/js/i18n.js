@@ -347,11 +347,18 @@ window.I18N = Object.assign({}, window.I18N || {}, {
       booked: "Belegt", prev: "⟵", next: "⟶"
     }
   }),
-  pl: Object.assign({}, window.I18N?.pl || {}, {
+  it: Object.assign({}, window.I18N?.it || {}, {
     calendar: {
-      months: ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień"],
-      dows:   ["Pn","Wt","Śr","Cz","Pt","So","Nd"],
-      booked: "Zajęte", prev: "⟵", next: "⟶"
+      months: ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],
+      dows:   ["Lun","Mar","Mer","Gio","Ven","Sab","Dom"],
+      booked: "Occupato", prev: "⟵", next: "⟶"
+    }
+  }),
+  sl: Object.assign({}, window.I18N?.sl || {}, {
+    calendar: {
+      months: ["januar","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december"],
+      dows:   ["Pon","Tor","Sre","Čet","Pet","Sob","Ned"],
+      booked: "Zasedeno", prev: "⟵", next: "⟶"
     }
   }),
   hu: Object.assign({}, window.I18N?.hu || {}, {
@@ -361,11 +368,25 @@ window.I18N = Object.assign({}, window.I18N || {}, {
       booked: "Foglalt", prev: "⟵", next: "⟶"
     }
   }),
+  cs: Object.assign({}, window.I18N?.cs || {}, {
+    calendar: {
+      months: ["leden","únor","březen","duben","květen","červen","červenec","srpen","září","říjen","listopad","prosinec"],
+      dows:   ["Po","Út","St","Čt","Pá","So","Ne"],
+      booked: "Obsazeno", prev: "⟵", next: "⟶"
+    }
+  }),
   sk: Object.assign({}, window.I18N?.sk || {}, {
     calendar: {
       months: ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"],
       dows:   ["Po","Ut","St","Št","Pi","So","Ne"],
       booked: "Obsadené", prev: "⟵", next: "⟶"
+    }
+  }),
+  uk: Object.assign({}, window.I18N?.uk || {}, {
+    calendar: {
+      months: ["січень","лютий","березень","квітень","травень","червень","липень","серпень","вересень","жовтень","листопад","грудень"],
+      dows:   ["Пн","Вт","Ср","Чт","Пт","Сб","Нд"],
+      booked: "Зайнято", prev: "⟵", next: "⟶"
     }
   })
 });
