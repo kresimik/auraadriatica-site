@@ -126,5 +126,7 @@
       "q": "Légkondicionálás",
       "a": "Légkondicionáló minden szobában és nappali térben elérhető."
     }
-  ]
+  ],
+  "map_label": "Térkép",
+  "map_h": "Találjon meg minket és fedezze fel"
 }

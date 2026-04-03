@@ -126,5 +126,7 @@
       "q": "Klimaanlage",
       "a": "Klimaanlage in allen Zimmern und Wohnbereichen verfügbar."
     }
-  ]
+  ],
+  "map_label": "Karte",
+  "map_h": "Finden Sie uns & erkunden Sie"
 }

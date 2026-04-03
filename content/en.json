@@ -126,5 +126,7 @@
       "q": "Air conditioning",
       "a": "Air conditioning is available in all rooms and living areas."
     }
-  ]
+  ],
+  "map_label": "Map",
+  "map_h": "Find us & explore"
 }

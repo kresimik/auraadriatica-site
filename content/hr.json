@@ -126,5 +126,7 @@
       "q": "Klimatizacija",
       "a": "Klima uređaj dostupan je u svim sobama i dnevnim prostorima."
     }
-  ]
+  ],
+  "map_label": "Karta",
+  "map_h": "Pronađite nas i istražite"
 }

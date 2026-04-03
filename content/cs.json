@@ -126,5 +126,7 @@
       "q": "Klimatizace",
       "a": "Klimatizace je k dispozici ve všech pokojích a obývacích prostorách."
     }
-  ]
+  ],
+  "map_label": "Mapa",
+  "map_h": "Najděte nás a prozkoumejte"
 }

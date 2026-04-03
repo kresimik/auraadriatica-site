@@ -1279,6 +1279,40 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 
 /* =========================
+   MAP
+   ========================= */
+#explore-map {
+  height: 480px;
+  border-radius: 6px;
+  margin-top: 1rem;
+  border: 1px solid var(--border-light);
+  z-index: 0;
+}
+@media (max-width: 768px) { #explore-map { height: 360px; } }
+
+.map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .5rem;
+}
+.map-filter {
+  padding: .35rem .85rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background .15s, color .15s, border-color .15s;
+}
+.map-filter:hover { border-color: var(--gold); color: var(--gold); }
+.map-filter.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+
+/* =========================
    FAQ ACCORDION
    ========================= */
 .faq-list { display: flex; flex-direction: column; gap: .5rem; }

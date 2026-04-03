@@ -47,6 +47,7 @@
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/ui.js" defer></script>
   <script src="/assets/js/explore.js" defer></script>
+  <script src="/assets/js/map.js" defer></script>
 
   <!-- Bridge: after i18n.js is ready, also refresh Explore content on language change -->
   <script>
@@ -166,8 +167,27 @@
   </div>
 </section>
 
+<!-- MAP -->
+<section class="section" id="map-section">
+  <div class="container fade-up">
+    <div class="card">
+      <div class="card-head">
+        <div class="section-label" data-i18n="map_label">Map</div>
+        <h2 data-i18n="map_h">Find us &amp; explore</h2>
+      </div>
+      <div class="map-filters">
+        <button class="map-filter active" data-cat="all">All</button>
+        <button class="map-filter" data-cat="apartment">🏠 Apartments</button>
+        <button class="map-filter" data-cat="restaurant">🍽️ Restaurants</button>
+        <button class="map-filter" data-cat="beach">🏖️ Beaches</button>
+      </div>
+      <div id="explore-map"></div>
+    </div>
+  </div>
+</section>
+
 <!-- GASTRONOMY -->
-<section class="section">
+<section class="section alt">
   <div class="container fade-up">
     <div class="card">
       <div class="card-head">
