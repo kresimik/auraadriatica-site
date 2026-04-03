@@ -25,7 +25,7 @@
       { name: "Cipera",            lat: 45.2898, lng: 14.2732, maps: "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7" },
       { name: "Kvarner (Lovran)",  lat: 45.2932, lng: 14.2813, maps: "https://maps.app.goo.gl/y1teyu9YMguTyPXF7" },
       { name: "Medveja",           lat: 45.2705, lng: 14.2692, maps: "https://maps.app.goo.gl/gzheik8unN1ocQLx9" },
-      { name: "Mošćenička Draga",  lat: 45.2395, lng: 14.2585, maps: "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8" },
+      { name: "Mošćenička Draga",  lat: 45.2372, lng: 14.2545, maps: "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8" },
       { name: "Ičići",             lat: 45.3126, lng: 14.3130, maps: "https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9" },
       { name: "Opatija",           lat: 45.3334, lng: 14.3271, maps: "https://maps.app.goo.gl/djPMCyABH8tkoKe5A" }
     ]
