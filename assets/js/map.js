@@ -8,7 +8,7 @@
       { name: "Ganeum",             lat: 45.2926, lng: 14.2800, maps: "https://maps.app.goo.gl/E3uFaZdf27YiXXUt5" },
       { name: "Najade",             lat: 45.2921, lng: 14.2792, maps: "https://maps.app.goo.gl/VXj3Le13ZaP5uZR27" },
       { name: "Lovranska Vrata",    lat: 45.2932, lng: 14.2816, maps: "https://www.google.com/maps/search/Lovranska+Vrata+Lovran" },
-      { name: "Draga di Lovrana",   lat: 45.2773, lng: 14.2857, maps: "https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6" },
+      { name: "Draga di Lovrana",   lat: 45.2760, lng: 14.2514, maps: "https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6" },
       { name: "Konoba Kali",        lat: 45.2615, lng: 14.2649, maps: "https://www.google.com/maps/search/Konoba+Kali+Medveja" },
       { name: "Zijavica",           lat: 45.2401, lng: 14.2607, maps: "https://maps.app.goo.gl/aqptnU64dpdrEro19" },
       { name: "Johnson Restaurant", lat: 45.2395, lng: 14.2602, maps: "https://maps.app.goo.gl/aobtvfK67GLamKRC8" },
