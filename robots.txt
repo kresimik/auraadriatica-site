@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /guest/
+Disallow: /admin/
+
+Sitemap: https://auraadriatica.com/sitemap.xml
