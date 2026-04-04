@@ -1281,6 +1281,18 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 /* =========================
    MAP
    ========================= */
+.map-emoji {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 10px;
+  line-height: 1;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: none;
+}
+.map-emoji::before { display: none !important; }
+
 #explore-map {
   height: 480px;
   border-radius: 6px;

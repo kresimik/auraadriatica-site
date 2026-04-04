@@ -45,16 +45,24 @@
     grocery:    { bg: "#27ae60", border: "#1e8449" }
   };
 
-  function makeIcon(cat) {
+  const EMOJIS = { apartment: "🏠", restaurant: "🍽️", beach: "🏖️", grocery: "🛒" };
+
+  function makeMarker(cat, latlng) {
     const c = COLORS[cat];
-    const emoji = cat === "apartment" ? "🏠" : cat === "restaurant" ? "🍽️" : cat === "beach" ? "🏖️" : "🛒";
-    return L.divIcon({
-      className: "",
-      html: `<div style="background:${c.bg};border:2px solid ${c.border};width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer;">${emoji}</div>`,
-      iconSize: [15, 15],
-      iconAnchor: [7, 7],
-      popupAnchor: [0, -10]
+    const marker = L.circleMarker(latlng, {
+      radius: 9,
+      fillColor: c.bg,
+      color: c.border,
+      weight: 2,
+      fillOpacity: 1
     });
+    marker.bindTooltip(EMOJIS[cat], {
+      permanent: true,
+      direction: "center",
+      className: "map-emoji",
+      offset: [0, 0]
+    });
+    return marker;
   }
 
   function initMap() {
@@ -79,7 +87,7 @@
 
     Object.entries(PLACES).forEach(([cat, places]) => {
       places.forEach(p => {
-        const marker = L.marker([p.lat, p.lng], { icon: makeIcon(cat) });
+        const marker = makeMarker(cat, [p.lat, p.lng]);
         marker.bindPopup(
           `<div style="font-family:'Jost',sans-serif;min-width:140px;">` +
           `<strong style="font-size:.95rem;color:#0e0e0e;">${p.name}</strong><br>` +
