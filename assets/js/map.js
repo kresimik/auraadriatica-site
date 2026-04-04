@@ -5,29 +5,29 @@
       { name: "Olive & Onyx Apartments", lat: 45.2888, lng: 14.2726, maps: "https://www.google.com/maps/place/Rezine+7H,+Lovran" }
     ],
     restaurant: [
-      { name: "Ganeum",             lat: 45.2926, lng: 14.2800, maps: "https://maps.app.goo.gl/E3uFaZdf27YiXXUt5" },
-      { name: "Najade",             lat: 45.2921, lng: 14.2792, maps: "https://maps.app.goo.gl/VXj3Le13ZaP5uZR27" },
-      { name: "Lovranska Vrata",    lat: 45.2932, lng: 14.2816, maps: "https://www.google.com/maps/search/Lovranska+Vrata+Lovran" },
-      { name: "Draga di Lovrana",   lat: 45.2760, lng: 14.2514, maps: "https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6" },
-      { name: "Konoba Kali",        lat: 45.2615, lng: 14.2649, maps: "https://www.google.com/maps/search/Konoba+Kali+Medveja" },
-      { name: "Zijavica",           lat: 45.2401, lng: 14.2607, maps: "https://maps.app.goo.gl/aqptnU64dpdrEro19" },
-      { name: "Johnson Restaurant", lat: 45.2395, lng: 14.2602, maps: "https://maps.app.goo.gl/aobtvfK67GLamKRC8" },
-      { name: "Plavi podrum",       lat: 45.3270, lng: 14.3210, maps: "https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7" },
-      { name: "Trattoria Mandrać",  lat: 45.3268, lng: 14.3207, maps: "https://www.google.com/maps/search/Trattoria+Mandrac+Volosko" },
-      { name: "Bevanda",            lat: 45.3334, lng: 14.3274, maps: "https://www.google.com/maps/search/Bevanda+restaurant+Opatija" },
-      { name: "Valle Losca",        lat: 45.3326, lng: 14.3268, maps: "https://maps.app.goo.gl/4Kyh5pqQoDDbubow7" },
-      { name: "Ružmarin",           lat: 45.3320, lng: 14.3257, maps: "https://maps.app.goo.gl/cPMscVMU4gnontM97" },
-      { name: "Istranka",           lat: 45.3323, lng: 14.3263, maps: "https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78" },
-      { name: "Bistro Fortica",     lat: 45.3657, lng: 14.3691, maps: "https://maps.app.goo.gl/1gJWz9zBvvuKYdju5" }
+      { name: "Ganeum",             lat: 45.2922, lng: 14.2776, maps: "https://maps.app.goo.gl/E3uFaZdf27YiXXUt5" },
+      { name: "Najade",             lat: 45.2904, lng: 14.2767, maps: "https://maps.app.goo.gl/VXj3Le13ZaP5uZR27" },
+      { name: "Lovranska Vrata",    lat: 45.2920, lng: 14.2770, maps: "https://www.google.com/maps/search/Lovranska+Vrata+Lovran" },
+      { name: "Draga di Lovrana",   lat: 45.2761, lng: 14.2514, maps: "https://maps.app.goo.gl/KRJHHeXPYkrMxbwn6" },
+      { name: "Konoba Kali",        lat: 45.2668, lng: 14.2615, maps: "https://www.google.com/maps/search/Konoba+Kali+Medveja" },
+      { name: "Zijavica",           lat: 45.2367, lng: 14.2544, maps: "https://maps.app.goo.gl/aqptnU64dpdrEro19" },
+      { name: "Johnson Restaurant", lat: 45.2386, lng: 14.2489, maps: "https://maps.app.goo.gl/aobtvfK67GLamKRC8" },
+      { name: "Plavi podrum",       lat: 45.3478, lng: 14.3205, maps: "https://maps.app.goo.gl/fehZwnU1Brj9J4Qv7" },
+      { name: "Trattoria Mandrać",  lat: 45.3476, lng: 14.3208, maps: "https://www.google.com/maps/search/Trattoria+Mandrac+Volosko" },
+      { name: "Bevanda",            lat: 45.3354, lng: 14.3115, maps: "https://www.google.com/maps/search/Bevanda+restaurant+Opatija" },
+      { name: "Valle Losca",        lat: 45.3505, lng: 14.3205, maps: "https://maps.app.goo.gl/4Kyh5pqQoDDbubow7" },
+      { name: "Ružmarin",           lat: 45.3325, lng: 14.3019, maps: "https://maps.app.goo.gl/cPMscVMU4gnontM97" },
+      { name: "Istranka",           lat: 45.3384, lng: 14.3083, maps: "https://maps.app.goo.gl/vA9B6eCD3rv4LkJ78" },
+      { name: "Bistro Fortica",     lat: 45.3726, lng: 14.3494, maps: "https://maps.app.goo.gl/1gJWz9zBvvuKYdju5" }
     ],
     beach: [
-      { name: "Peharovo",          lat: 45.2904, lng: 14.2746, maps: "https://maps.app.goo.gl/jnKYDnaNymPPRa1K8" },
-      { name: "Cipera",            lat: 45.2898, lng: 14.2732, maps: "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7" },
-      { name: "Kvarner (Lovran)",  lat: 45.2932, lng: 14.2813, maps: "https://maps.app.goo.gl/y1teyu9YMguTyPXF7" },
+      { name: "Peharovo",          lat: 45.2877, lng: 14.2733, maps: "https://maps.app.goo.gl/jnKYDnaNymPPRa1K8" },
+      { name: "Cipera",            lat: 45.2940, lng: 14.2816, maps: "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7" },
+      { name: "Kvarner (Lovran)",  lat: 45.2993, lng: 14.2820, maps: "https://maps.app.goo.gl/y1teyu9YMguTyPXF7" },
       { name: "Medveja",           lat: 45.2705, lng: 14.2692, maps: "https://maps.app.goo.gl/gzheik8unN1ocQLx9" },
-      { name: "Mošćenička Draga",  lat: 45.2372, lng: 14.2545, maps: "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8" },
-      { name: "Ičići",             lat: 45.3126, lng: 14.3130, maps: "https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9" },
-      { name: "Opatija",           lat: 45.3334, lng: 14.3271, maps: "https://maps.app.goo.gl/djPMCyABH8tkoKe5A" }
+      { name: "Mošćenička Draga",  lat: 45.2370, lng: 14.2548, maps: "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8" },
+      { name: "Ičići",             lat: 45.3131, lng: 14.2886, maps: "https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9" },
+      { name: "Opatija",           lat: 45.3273, lng: 14.3097, maps: "https://maps.app.goo.gl/djPMCyABH8tkoKe5A" }
     ]
   };
 
