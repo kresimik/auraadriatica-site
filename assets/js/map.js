@@ -72,6 +72,8 @@
       maxZoom: 19
     }).addTo(map);
 
+    setTimeout(() => map.invalidateSize(), 100);
+
     const layers = { apartment: [], restaurant: [], beach: [], grocery: [] };
 
     Object.entries(PLACES).forEach(([cat, places]) => {
