@@ -5,6 +5,7 @@
       { name: "Olive & Onyx Apartments", lat: 45.2888, lng: 14.2726, maps: "https://www.google.com/maps/place/Rezine+7H,+Lovran" }
     ],
     restaurant: [
+      { name: "Ulika",              lat: 45.2923, lng: 14.2770, maps: "https://www.google.com/maps/search/Restoran+Ulika+Lovran" },
       { name: "Ganeum",             lat: 45.2922, lng: 14.2776, maps: "https://maps.app.goo.gl/E3uFaZdf27YiXXUt5" },
       { name: "Najade",             lat: 45.2904, lng: 14.2767, maps: "https://maps.app.goo.gl/VXj3Le13ZaP5uZR27" },
       { name: "Lovranska Vrata",    lat: 45.2920, lng: 14.2770, maps: "https://www.google.com/maps/search/Lovranska+Vrata+Lovran" },
