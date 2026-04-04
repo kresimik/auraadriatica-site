@@ -50,10 +50,10 @@
     const emoji = cat === "apartment" ? "🏠" : cat === "restaurant" ? "🍽️" : cat === "beach" ? "🏖️" : "🛒";
     return L.divIcon({
       className: "",
-      html: `<div style="background:${c.bg};border:2px solid ${c.border};width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 2px 6px rgba(0,0,0,.25);cursor:pointer;">${emoji}</div>`,
-      iconSize: [30, 30],
-      iconAnchor: [15, 15],
-      popupAnchor: [0, -18]
+      html: `<div style="background:${c.bg};border:2px solid ${c.border};width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer;">${emoji}</div>`,
+      iconSize: [15, 15],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -10]
     });
   }
 
@@ -63,7 +63,7 @@
 
     const map = L.map("explore-map", {
       center: [45.295, 14.295],
-      zoom: 12,
+      zoom: 13,
       scrollWheelZoom: false
     });
 
