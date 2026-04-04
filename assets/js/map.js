@@ -29,18 +29,25 @@
       { name: "Mošćenička Draga",  lat: 45.2370, lng: 14.2548, maps: "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8" },
       { name: "Ičići",             lat: 45.3131, lng: 14.2886, maps: "https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9" },
       { name: "Opatija",           lat: 45.3273, lng: 14.3097, maps: "https://maps.app.goo.gl/djPMCyABH8tkoKe5A" }
+    ],
+    grocery: [
+      { name: "Plodine",  lat: 45.3019, lng: 14.2792, maps: "https://www.google.com/maps/search/Plodine+Lovran" },
+      { name: "Konzum",   lat: 45.2929, lng: 14.2749, maps: "https://www.google.com/maps/search/Konzum+Lovran" },
+      { name: "Spar",     lat: 45.3441, lng: 14.3110, maps: "https://www.google.com/maps/search/Spar+Opatija" },
+      { name: "Lidl",     lat: 45.3584, lng: 14.3314, maps: "https://www.google.com/maps/search/Lidl+Rijeka+Opatija" }
     ]
   };
 
   const COLORS = {
     apartment:  { bg: "#b8965a", border: "#8a6e3e" },
     restaurant: { bg: "#c0392b", border: "#922b21" },
-    beach:      { bg: "#2a7fa5", border: "#1d5f7a" }
+    beach:      { bg: "#2a7fa5", border: "#1d5f7a" },
+    grocery:    { bg: "#27ae60", border: "#1e8449" }
   };
 
   function makeIcon(cat) {
     const c = COLORS[cat];
-    const emoji = cat === "apartment" ? "🏠" : cat === "restaurant" ? "🍽️" : "🏖️";
+    const emoji = cat === "apartment" ? "🏠" : cat === "restaurant" ? "🍽️" : cat === "beach" ? "🏖️" : "🛒";
     return L.divIcon({
       className: "",
       html: `<div style="background:${c.bg};border:2px solid ${c.border};width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 2px 6px rgba(0,0,0,.25);cursor:pointer;">${emoji}</div>`,
@@ -65,7 +72,7 @@
       maxZoom: 19
     }).addTo(map);
 
-    const layers = { apartment: [], restaurant: [], beach: [] };
+    const layers = { apartment: [], restaurant: [], beach: [], grocery: [] };
 
     Object.entries(PLACES).forEach(([cat, places]) => {
       places.forEach(p => {
