@@ -1287,6 +1287,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   margin-top: 1rem;
   border: 1px solid var(--border-light);
   z-index: 0;
+  box-sizing: content-box;
 }
 @media (max-width: 768px) { #explore-map { height: 360px; } }
 
