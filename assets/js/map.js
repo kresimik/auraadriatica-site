@@ -23,12 +23,12 @@
     ],
     beach: [
       { name: "Peharovo",          lat: 45.2877, lng: 14.2733, maps: "https://maps.app.goo.gl/jnKYDnaNymPPRa1K8" },
-      { name: "Cipera",            lat: 45.2940, lng: 14.2816, maps: "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7" },
-      { name: "Kvarner (Lovran)",  lat: 45.2993, lng: 14.2820, maps: "https://maps.app.goo.gl/y1teyu9YMguTyPXF7" },
+      { name: "Cipera",            lat: 45.2939, lng: 14.2817, maps: "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7" },
+      { name: "Kvarner (Lovran)",  lat: 45.2990, lng: 14.2774, maps: "https://maps.app.goo.gl/y1teyu9YMguTyPXF7" },
       { name: "Medveja",           lat: 45.2705, lng: 14.2692, maps: "https://maps.app.goo.gl/gzheik8unN1ocQLx9" },
       { name: "Mošćenička Draga",  lat: 45.2370, lng: 14.2548, maps: "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8" },
       { name: "Ičići",             lat: 45.3131, lng: 14.2886, maps: "https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9" },
-      { name: "Opatija",           lat: 45.3273, lng: 14.3097, maps: "https://maps.app.goo.gl/djPMCyABH8tkoKe5A" }
+      { name: "Opatija",           lat: 45.3279, lng: 14.2998, maps: "https://maps.app.goo.gl/djPMCyABH8tkoKe5A" }
     ],
     grocery: [
       { name: "Plodine",  lat: 45.3019, lng: 14.2792, maps: "https://www.google.com/maps/search/Plodine+Lovran" },
