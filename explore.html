@@ -43,7 +43,7 @@
   <link rel="preload" as="image" fetchpriority="high" href="/assets/img/explore-hero.webp">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20260407b">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260407c">
   <link rel="stylesheet" href="/assets/css/leaflet.css">
   <script src="/assets/js/leaflet.min.js"></script>
   <script src="/assets/js/i18n.js" defer></script>
@@ -53,11 +53,22 @@
 
   <!-- Bridge: after i18n.js is ready, also refresh Explore content on language change -->
   <script>
+    const _LANG_LOCALE = { en:'en-GB', hr:'hr-HR', de:'de-DE', it:'it-IT', sl:'sl-SI', cs:'cs-CZ', sk:'sk-SK', hu:'hu-HU', uk:'uk-UA' };
+    function updateEventsMonth(lang) {
+      const locale = _LANG_LOCALE[lang] || 'en-GB';
+      const now = new Date();
+      const mn = document.getElementById('events-month-name');
+      const my = document.getElementById('events-month-year');
+      if (mn) mn.textContent = now.toLocaleString(locale, { month: 'long' });
+      if (my) my.textContent = now.getFullYear();
+    }
     document.addEventListener('DOMContentLoaded', () => {
+      updateEventsMonth(localStorage.getItem('lang') || 'en');
       if (typeof window.setLang === 'function') {
         const _setLang = window.setLang;
         window.setLang = async (lang) => {
           await _setLang(lang);
+          updateEventsMonth(lang);
           if (typeof window.loadExplore === 'function') {
             await window.loadExplore(lang);
           }
@@ -128,7 +139,10 @@
           <p data-i18n="events_sub">Download the full programme of cultural events, concerts and festivals in Lovran and the Opatija Riviera.</p>
           <a href="/assets/events/Lovran_program.pdf" target="_blank" rel="noopener" class="button" data-i18n="events_btn">Download programme</a>
         </div>
-        <div class="events-icon" aria-hidden="true">📅</div>
+        <div class="events-month" id="events-month" aria-hidden="true">
+          <span class="events-month-name" id="events-month-name"></span>
+          <span class="events-month-year" id="events-month-year"></span>
+        </div>
       </div>
     </div>
   </div>

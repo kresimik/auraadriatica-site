@@ -1333,8 +1333,22 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .events-text { flex: 1; }
 .events-text h2 { margin-bottom: .6rem; }
 .events-text p { margin-bottom: 1.4rem; color: var(--text-light); }
-.events-icon { font-size: 5rem; line-height: 1; flex-shrink: 0; opacity: .7; }
-@media (max-width: 600px) { .events-icon { display: none; } .events-card { padding: 1.5rem; } }
+.events-month {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--gold); color: #fff; border-radius: 4px;
+  padding: 1.4rem 2rem; text-align: center; flex-shrink: 0; min-width: 130px;
+}
+.events-month-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 400; line-height: 1;
+  text-transform: capitalize; letter-spacing: .02em;
+}
+.events-month-year {
+  font-family: 'Jost', sans-serif;
+  font-size: .75rem; font-weight: 300; letter-spacing: .12em;
+  opacity: .8; margin-top: .35rem;
+}
+@media (max-width: 600px) { .events-month { display: none; } .events-card { padding: 1.5rem; } }
 
 /* =========================
    FAQ ACCORDION
