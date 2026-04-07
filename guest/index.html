@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/style.css?v=20260403">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260407c">
 
   <style>
     /* ========================
@@ -185,6 +185,26 @@
   <!-- Hero image preload -->
   <link rel="preload" as="image" fetchpriority="high" href="/assets/img/guest-hero.webp">
 
+  <!-- Month display for events card -->
+  <script>
+    const _LANG_LOCALE = { en:'en-GB', hr:'hr-HR', de:'de-DE', it:'it-IT', sl:'sl-SI', cs:'cs-CZ', sk:'sk-SK', hu:'hu-HU', uk:'uk-UA' };
+    function updateEventsMonth(lang) {
+      const locale = _LANG_LOCALE[lang] || 'en-GB';
+      const now = new Date();
+      const mn = document.getElementById('events-month-name');
+      const my = document.getElementById('events-month-year');
+      if (mn) mn.textContent = now.toLocaleString(locale, { month: 'long' });
+      if (my) my.textContent = now.getFullYear();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      updateEventsMonth(localStorage.getItem('lang') || 'en');
+      if (typeof window.setLang === 'function') {
+        const _orig = window.setLang;
+        window.setLang = async (lang) => { await _orig(lang); updateEventsMonth(lang); };
+      }
+    });
+  </script>
+
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/ui.js" defer></script>
   <script src="/assets/js/guest.js?v=20260304" defer></script>
@@ -202,11 +222,12 @@
       <img src="/assets/img/logo.png" alt="Aura Adriatica logo" width="870" height="345" />
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
-        <a href="/" data-i18n="home_nav">Home</a>
+      <a href="/" data-i18n="home_nav">Home</a>
       <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
       <a href="/explore.html" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/faq.html" data-i18n="faq_nav">FAQ</a>
       <a href="/contact.html" data-i18n="contact_nav">Contact</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
@@ -240,10 +261,30 @@
   </div>
 </section>
 
-<!-- CONTENT -->
+<!-- EVENTS -->
+<section class="section alt" id="events-section">
+  <div class="container">
+    <div class="card events-card">
+      <div class="events-body">
+        <div class="events-text">
+          <div class="section-label" data-i18n="events_label">Events in Lovran</div>
+          <h2 data-i18n="events_h">What's on this month</h2>
+          <p data-i18n="events_sub">Download the full programme of cultural events, concerts and festivals in Lovran and the Opatija Riviera.</p>
+          <a href="/assets/events/Lovran_program.pdf" target="_blank" rel="noopener" class="button" data-i18n="events_btn">Download programme</a>
+        </div>
+        <div class="events-month" id="events-month" aria-hidden="true">
+          <span class="events-month-name" id="events-month-name"></span>
+          <span class="events-month-year" id="events-month-year"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUEST INFO -->
 <section class="section">
   <div class="container fade-up">
-    <div class="section-label">Your stay</div>
+    <div class="section-label" data-i18n="guest_stay_label">Your stay</div>
     <div id="guest-sections" class="guest-grid"></div>
   </div>
 </section>
@@ -259,6 +300,7 @@
       <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
       <a href="/explore.html" data-i18n="explore">Explore</a>
       <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/faq.html" data-i18n="faq_nav">FAQ</a>
       <a href="/contact.html" data-i18n="contact_nav">Contact</a>
     </nav>
     <div class="footer-contact">
