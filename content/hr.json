@@ -127,6 +127,10 @@
       "a": "Klima uređaj dostupan je u svim sobama i dnevnim prostorima."
     }
   ],
+  "events_label": "Događanja u Lovranu",
+  "events_h": "Što se događa ovaj mjesec",
+  "events_sub": "Preuzmite puni program kulturnih događanja, koncerata i festivala u Lovranu i na Opatijskoj rivijeri.",
+  "events_btn": "Preuzmi program",
   "map_label": "Karta",
   "map_h": "Pronađite nas i istražite"
 }

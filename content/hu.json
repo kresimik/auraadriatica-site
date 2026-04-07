@@ -127,6 +127,10 @@
       "a": "Légkondicionáló minden szobában és nappali térben elérhető."
     }
   ],
+  "events_label": "Esemény Lovranban",
+  "events_h": "Mi történik ebben a hónapban",
+  "events_sub": "Töltse le a lovrán és az Opatija Riviéra kulturális rendezvényeinek, koncertjeinek és fesztiváljainak teljes programját.",
+  "events_btn": "Program letöltése",
   "map_label": "Térkép",
   "map_h": "Találjon meg minket és fedezze fel"
 }

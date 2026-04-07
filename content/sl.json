@@ -127,6 +127,10 @@
       "a": "Klimatska naprava je na voljo v vseh sobah in bivalnih prostorih."
     }
   ],
+  "events_label": "Dogodki v Lovranu",
+  "events_h": "Kaj se dogaja ta mesec",
+  "events_sub": "Prenesite celoten program kulturnih prireditev, koncertov in festivalov v Lovranu in na Opatijski rivieri.",
+  "events_btn": "Prenesi program",
   "map_label": "Zemljevid",
   "map_h": "Najdite nas in raziščite"
 }

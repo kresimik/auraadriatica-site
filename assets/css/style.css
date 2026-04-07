@@ -1326,6 +1326,17 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .map-filter.active { background: var(--gold); border-color: var(--gold); color: #fff; }
 
 /* =========================
+   EVENTS SECTION
+   ========================= */
+.events-card { padding: 2rem 2.5rem; }
+.events-body { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.events-text { flex: 1; }
+.events-text h2 { margin-bottom: .6rem; }
+.events-text p { margin-bottom: 1.4rem; color: var(--text-light); }
+.events-icon { font-size: 5rem; line-height: 1; flex-shrink: 0; opacity: .7; }
+@media (max-width: 600px) { .events-icon { display: none; } .events-card { padding: 1.5rem; } }
+
+/* =========================
    FAQ ACCORDION
    ========================= */
 .faq-list { display: flex; flex-direction: column; gap: .5rem; }

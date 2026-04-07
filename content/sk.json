@@ -127,6 +127,10 @@
       "a": "Klimatizácia je k dispozícii vo všetkých izbách a obývacích priestoroch."
     }
   ],
+  "events_label": "Udalosti v Lovrane",
+  "events_h": "Čo sa deje tento mesiac",
+  "events_sub": "Stiahnite si úplný program kultúrnych podujatí, koncertov a festivalov v Lovrane a na riviére Opatija.",
+  "events_btn": "Stiahnuť program",
   "map_label": "Mapa",
   "map_h": "Nájdite nás a preskúmajte"
 }

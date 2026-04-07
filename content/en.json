@@ -127,6 +127,10 @@
       "a": "Air conditioning is available in all rooms and living areas."
     }
   ],
+  "events_label": "Events in Lovran",
+  "events_h": "What's on this month",
+  "events_sub": "Download the full programme of cultural events, concerts and festivals in Lovran and the Opatija Riviera.",
+  "events_btn": "Download programme",
   "map_label": "Map",
   "map_h": "Find us & explore"
 }
