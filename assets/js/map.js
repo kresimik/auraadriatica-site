@@ -23,7 +23,7 @@
     ],
     beach: [
       { name: "Peharovo",          lat: 45.2877, lng: 14.2733, maps: "https://maps.app.goo.gl/jnKYDnaNymPPRa1K8" },
-      { name: "Cipera",            lat: 45.2939, lng: 14.2817, maps: "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7" },
+      { name: "Cipera",            lat: 45.2942, lng: 14.2765, maps: "https://maps.app.goo.gl/nmiMeqtGzRYw9uRc7" },
       { name: "Kvarner (Lovran)",  lat: 45.2990, lng: 14.2774, maps: "https://maps.app.goo.gl/y1teyu9YMguTyPXF7" },
       { name: "Medveja",           lat: 45.2705, lng: 14.2692, maps: "https://maps.app.goo.gl/gzheik8unN1ocQLx9" },
       { name: "Mošćenička Draga",  lat: 45.2370, lng: 14.2548, maps: "https://maps.app.goo.gl/JxDdQnYAmVADEnfF8" },
