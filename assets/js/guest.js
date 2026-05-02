@@ -19,8 +19,9 @@ const ICONS = {
   'address': '📍', 'adres': '📍', 'adress': '📍', 'indiri': '📍', 'naslov': '📍', 'cím': '📍',
   // Parking
   'parking': '🚗', 'parkirali': '🚗', 'parkplatz': '🚗', 'parcheggio': '🚗', 'parkirišče': '🚗', 'parkovani': '🚗', 'parkovan': '🚗',
-  // Key
+  // Key / Safe
   'key': '🔑', 'ključ': '🔑', 'schlüssel': '🔑', 'chiave': '🔑', 'kulcs': '🔑', 'klíč': '🔑', 'kľúč': '🔑', 'ключ': '🔑',
+  'safe': '🔒', 'sef': '🔒', 'trezor': '🔒', 'cassaforte': '🔒', 'széf': '🔒', 'сейф': '🔒',
   // WiFi
   'wi-fi': '📶', 'wifi': '📶', 'wlan': '📶',
   // Registration

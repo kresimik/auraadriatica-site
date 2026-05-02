@@ -22,6 +22,15 @@
       "content": "Gli appartamenti dispongono di serrature digitali sicure con PIN. Prima dell'arrivo vi invieremo il PIN tramite WhatsApp, SMS o e-mail."
     },
     {
+      "title": "Cassaforte in camera",
+      "type": "list",
+      "items": [
+        "Impostare il codice: premere **RESET**, inserire **3–8 cifre**, confermare con **#**",
+        "Chiudere: spingere la porta fino allo scatto",
+        "Aprire: inserire il codice + premere **#**"
+      ]
+    },
+    {
       "title": "Informazioni Wi-Fi",
       "type": "html",
       "html_kind": "wifi",

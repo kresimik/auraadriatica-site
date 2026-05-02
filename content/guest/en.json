@@ -22,6 +22,15 @@
       "content": "The apartments have a secure digital lock with a PIN. Before arrival, we will send you the PIN via WhatsApp, SMS, or email."
     },
     {
+      "title": "In-room Safe",
+      "type": "list",
+      "items": [
+        "Set code: press **RESET**, enter **3–8 digits**, confirm with **#**",
+        "Close door: push firmly until it locks",
+        "Open: enter your code + press **#**"
+      ]
+    },
+    {
       "title": "Wi-Fi Information",
       "type": "html",
       "html_kind": "wifi",

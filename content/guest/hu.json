@@ -22,6 +22,15 @@
       "content": "Az apartmanok digitális zárakkal vannak felszerelve PIN-kóddal. Érkezés előtt a kódot WhatsAppon, SMS-ben vagy e-mailben küldjük el."
     },
     {
+      "title": "Szobai széf",
+      "type": "list",
+      "items": [
+        "Kód beállítása: nyomja meg a **RESET** gombot, adjon meg **3–8 számjegyet**, erősítse meg **#**-vel",
+        "Zárás: tolja be az ajtót határozottan zárásig",
+        "Nyitás: adja meg a kódot + nyomja meg a **#** gombot"
+      ]
+    },
+    {
       "title": "Wi-Fi információk",
       "type": "html",
       "html_kind": "wifi",

@@ -22,6 +22,15 @@
       "content": "Apartmaji imajo varno digitalno ključavnico s PIN kodo. Pred prihodom vam bomo PIN poslali preko WhatsAppa, SMS-a ali e-pošte."
     },
     {
+      "title": "Sef v apartmaju",
+      "type": "list",
+      "items": [
+        "Nastavitev kode: pritisnite **RESET**, vnesite **3–8 številk**, potrdite z **#**",
+        "Zapiranje: trdno pritisnite vrata do zaklopa",
+        "Odpiranje: vnesite kodo + pritisnite **#**"
+      ]
+    },
+    {
       "title": "Wi-Fi informacije",
       "type": "html",
       "html_kind": "wifi",

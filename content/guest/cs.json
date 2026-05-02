@@ -22,6 +22,15 @@
       "content": "Apartmány mají bezpečný digitální zámek s PIN kódem. Před příjezdem vám PIN zašleme přes WhatsApp, SMS nebo e-mail."
     },
     {
+      "title": "Pokojový trezor",
+      "type": "list",
+      "items": [
+        "Nastavení kódu: stiskněte **RESET**, zadejte **3–8 číslic**, potvrďte **#**",
+        "Zavření: pevně zatlačte dvířka až do zajištění",
+        "Otevření: zadejte kód + stiskněte **#**"
+      ]
+    },
+    {
       "title": "Wi-Fi informace",
       "type": "html",
       "html_kind": "wifi",

@@ -22,6 +22,15 @@
       "content": "Die Apartments verfügen über ein sicheres digitales Türschloss mit PIN. Vor der Anreise senden wir Ihnen den PIN per WhatsApp, SMS oder E-Mail."
     },
     {
+      "title": "Zimmersafe",
+      "type": "list",
+      "items": [
+        "Code festlegen: **RESET** drücken, **3–8 Ziffern** eingeben, mit **#** bestätigen",
+        "Schließen: Tür fest zudrücken bis sie einrastet",
+        "Öffnen: Code eingeben + **#** drücken"
+      ]
+    },
+    {
       "title": "WLAN-Informationen",
       "type": "html",
       "html_kind": "wifi",
