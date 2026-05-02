@@ -25,9 +25,11 @@
       "title": "Cassaforte in camera",
       "type": "list",
       "items": [
-        "Impostare il codice: premere **RESET**, inserire **3–8 cifre**, confermare con **#**",
-        "Chiudere: spingere la porta fino allo scatto",
-        "Aprire: inserire il codice + premere **#**"
+        "**Impostare il codice:** aprire la porta della cassaforte → premere il pulsante rosso **RESET** all'interno → inserire il codice (**3–8 cifre**) → confermare con il tasto **🔑**",
+        "**Bloccare:** chiudere la porta → ruotare la maniglia **in senso orario**",
+        "**Aprire:** inserire il codice → confermare con il tasto **🔑** → ruotare la maniglia **in senso antiorario** → aprire la cassaforte",
+        "⚠️ Quando non in uso, lasciare la cassaforte aperta.",
+        "[📄 Visualizza istruzioni](/assets/img/safe-instructions.jpg)"
       ]
     },
     {

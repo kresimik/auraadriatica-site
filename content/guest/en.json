@@ -25,9 +25,11 @@
       "title": "In-room Safe",
       "type": "list",
       "items": [
-        "Set code: press **RESET**, enter **3–8 digits**, confirm with **#**",
-        "Close door: push firmly until it locks",
-        "Open: enter your code + press **#**"
+        "**Set code:** open safe door → press red **RESET** button inside the safe → enter your code (**3–8 digits**) → confirm with **🔑** key",
+        "**Lock:** close the door → rotate the handle **clockwise**",
+        "**Unlock:** enter your code → confirm with **🔑** key → rotate handle **counter-clockwise** → open the safe",
+        "⚠️ When not in use, please leave the safe unlocked.",
+        "[📄 View instruction photo](/assets/img/safe-instructions.jpg)"
       ]
     },
     {

@@ -25,9 +25,11 @@
       "title": "Zimmersafe",
       "type": "list",
       "items": [
-        "Code festlegen: **RESET** drücken, **3–8 Ziffern** eingeben, mit **#** bestätigen",
-        "Schließen: Tür fest zudrücken bis sie einrastet",
-        "Öffnen: Code eingeben + **#** drücken"
+        "**Code einrichten:** Tresortür öffnen → roten **RESET**-Knopf im Tresor drücken → Code eingeben (**3–8 Ziffern**) → mit **🔑**-Taste bestätigen",
+        "**Sperren:** Tür schließen → Griff **im Uhrzeigersinn** drehen",
+        "**Öffnen:** Code eingeben → mit **🔑**-Taste bestätigen → Griff **gegen den Uhrzeigersinn** drehen → Tresor öffnen",
+        "⚠️ Bitte den Tresor unverschlossen lassen, wenn er nicht benutzt wird.",
+        "[📄 Bedienungsanleitung ansehen](/assets/img/safe-instructions.jpg)"
       ]
     },
     {
