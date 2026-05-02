@@ -105,7 +105,9 @@ function makeCard(sec) {
     const ul = document.createElement('ul');
     (sec.items || []).forEach(it => {
       const li = document.createElement('li');
-      appendLinkified(li, it);
+      const span = document.createElement('span');
+      appendLinkified(span, it);
+      li.appendChild(span);
       ul.appendChild(li);
     });
     card.appendChild(ul);
