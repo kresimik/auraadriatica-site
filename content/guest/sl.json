@@ -25,10 +25,10 @@
       "title": "Sef v apartmaju",
       "type": "list",
       "items": [
-        "**Nastavitev kode:** odprite vrata sefa → pritisnite rdeč gumb **RESET** znotraj sefa → vnesite kodo (**3–8 številk**) → potrdite s tipko **🔑**",
-        "**Zaklepanje:** zaprite vrata → zavrtite ročico **v smeri urinega kazalca**",
-        "**Odklepanje:** vnesite kodo → potrdite s tipko **🔑** → zavrtite ročico **v nasprotni smeri urinega kazalca** → odprite sef",
-        "⚠️ Kadar sefa ne uporabljate, ga pustite odklenjenega.",
+        "**1. Nastavitev kode:** odprite vrata, pritisnite **RESET** znotraj, vnesite **3–8 številk**, potrdite s tipko **🔑**",
+        "**2. Zaklepanje:** zaprite vrata, zavrtite ročico **v smeri urinega kazalca**",
+        "**3. Odklepanje:** vnesite kodo, potrdite s **🔑**, zavrtite **v nasprotni smeri**, odprite sef",
+        "⚠️ Kadar sefa ne uporabljate, ga pustite odklenjenega",
         "[📄 Ogled navodil](/assets/img/safe-instructions.jpg)"
       ]
     },

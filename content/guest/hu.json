@@ -25,11 +25,11 @@
       "title": "Szobai széf",
       "type": "list",
       "items": [
-        "**Kód beállítása:** nyissa ki a széf ajtaját → nyomja meg a **RESET** gombot a széf belsejében → adja meg a kódot (**3–8 számjegy**) → erősítse meg a **🔑** gombbal",
-        "**Zárás:** zárja be az ajtót → forgassa a fogantyút **az óramutató járásával megegyező irányba**",
-        "**Nyitás:** adja meg a kódot → erősítse meg a **🔑** gombbal → forgassa a fogantyút **az óramutató járásával ellentétes irányba** → nyissa ki a széfet",
-        "⚠️ Ha nem használja a széfet, kérjük, hagyja nyitva.",
-        "[📄 Kezelési útmutató megtekintése](/assets/img/safe-instructions.jpg)"
+        "**1. Kód beállítása:** nyissa ki az ajtót, nyomja meg a **RESET** gombot belül, adjon meg **3–8 számjegyet**, erősítse meg **🔑** gombbal",
+        "**2. Zárás:** zárja be az ajtót, forgassa a fogantyút **az óramutató járásával megegyező irányba**",
+        "**3. Nyitás:** adja meg a kódot, erősítse meg **🔑**-vel, forgassa **ellentétes irányba**, nyissa ki",
+        "⚠️ Ha nem használja, kérjük hagyja nyitva a széfet",
+        "[📄 Kezelési útmutató](/assets/img/safe-instructions.jpg)"
       ]
     },
     {

@@ -25,10 +25,10 @@
       "title": "Pokojový trezor",
       "type": "list",
       "items": [
-        "**Nastavení kódu:** otevřete dveře trezoru → stiskněte červené tlačítko **RESET** uvnitř → zadejte kód (**3–8 číslic**) → potvrďte klávesou **🔑**",
-        "**Zamknutí:** zavřete dveře → otočte zámkem **po směru hodinových ručiček**",
-        "**Otevření:** zadejte kód → potvrďte klávesou **🔑** → otočte zámkem **proti směru hodinových ručiček** → otevřete trezor",
-        "⚠️ Pokud trezor nepoužíváte, nechte jej prosím odemčený.",
+        "**1. Nastavení kódu:** otevřete dveře, stiskněte **RESET** uvnitř, zadejte **3–8 číslic**, potvrďte klávesou **🔑**",
+        "**2. Zamknutí:** zavřete dveře, otočte zámkem **po směru hodinových ručiček**",
+        "**3. Otevření:** zadejte kód, potvrďte **🔑**, otočte **proti směru ručiček**, otevřete trezor",
+        "⚠️ Pokud trezor nepoužíváte, nechte jej prosím odemčený",
         "[📄 Zobrazit návod](/assets/img/safe-instructions.jpg)"
       ]
     },

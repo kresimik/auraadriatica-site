@@ -49,7 +49,7 @@ function getIcon(title) {
 function appendLinkified(container, raw) {
   if (!raw) return;
   const s = String(raw);
-  const re = /\*\*([^*]+)\*\*|\[([^\]]+)\]\((https?:\/\/[^)]+)\)|\s—\s*(https?:\/\/\S+)/g;
+  const re = /\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)]+)\)|\s—\s*(https?:\/\/\S+)/g;
   let last = 0, m;
   while ((m = re.exec(s)) !== null) {
     if (m.index > last) container.appendChild(document.createTextNode(s.slice(last, m.index)));
@@ -59,7 +59,8 @@ function appendLinkified(container, raw) {
       container.appendChild(strong);
     } else if (m[2]) {
       const a = document.createElement('a');
-      a.target = '_blank'; a.rel = 'noopener';
+      a.rel = 'noopener';
+      if (m[3].startsWith('http')) a.target = '_blank';
       a.textContent = m[2]; a.href = m[3];
       if (m[2].toLowerCase() === 'map') a.className = 'map-link';
       container.appendChild(a);

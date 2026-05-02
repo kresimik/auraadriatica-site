@@ -25,10 +25,10 @@
       "title": "Izbový trezor",
       "type": "list",
       "items": [
-        "**Nastavenie kódu:** otvorte dvierka trezora → stlačte červené tlačidlo **RESET** vnútri → zadajte kód (**3–8 číslic**) → potvrďte klávesom **🔑**",
-        "**Zamknutie:** zatvorte dvierka → otočte zámkom **v smere hodinových ručičiek**",
-        "**Otvorenie:** zadajte kód → potvrďte klávesom **🔑** → otočte zámkom **proti smeru hodinových ručičiek** → otvorte trezor",
-        "⚠️ Keď trezor nepoužívate, zanechajte ho prosím odomknutý.",
+        "**1. Nastavenie kódu:** otvorte dvierka, stlačte **RESET** vnútri, zadajte **3–8 číslic**, potvrďte klávesom **🔑**",
+        "**2. Zamknutie:** zatvorte dvierka, otočte zámkom **v smere hodinových ručičiek**",
+        "**3. Otvorenie:** zadajte kód, potvrďte **🔑**, otočte **proti smeru ručičiek**, otvorte trezor",
+        "⚠️ Keď trezor nepoužívate, zanechajte ho prosím odomknutý",
         "[📄 Zobraziť návod](/assets/img/safe-instructions.jpg)"
       ]
     },

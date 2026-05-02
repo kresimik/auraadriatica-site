@@ -25,10 +25,10 @@
       "title": "Sef u apartmanu",
       "type": "list",
       "items": [
-        "**Postavljanje koda:** otvorite vrata sefa → pritisnite crveni gumb **RESET** unutar sefa → unesite kod (**3–8 znamenki**) → potvrdite tipkom **🔑**",
-        "**Zaključavanje:** zatvorite vrata sefa → zarotirajte bravu **u smjeru kazaljke na satu**",
-        "**Otključavanje:** unesite kod → potvrdite tipkom **🔑** → zarotirajte bravu **suprotno kazaljke na satu** → otvorite sef",
-        "⚠️ Ako ne koristite sef, molimo ostavite ga otključanim.",
+        "**1. Postavljanje koda:** otvorite vrata sefa, pritisnite crveni gumb **RESET** unutar sefa, unesite **3–8 znamenki**, potvrdite tipkom **🔑**",
+        "**2. Zaključavanje:** zatvorite vrata, zarotirajte bravu **u smjeru kazaljke na satu**",
+        "**3. Otključavanje:** unesite kod, potvrdite tipkom **🔑**, zarotirajte bravu **suprotno kazaljke na satu**, otvorite sef",
+        "⚠️ Ako ne koristite sef, molimo ostavite ga otključanim",
         "[📄 Pogledaj uputstvo](/assets/img/safe-instructions.jpg)"
       ]
     },
