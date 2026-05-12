@@ -58,6 +58,11 @@
       ]
     },
     {
+      "title": "Piac és turisztikai információk",
+      "type": "html",
+      "content": "[Élelmiszerpiac](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>További információ: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+    },
+    {
       "title": "Ajánlott éttermek",
       "type": "list",
       "items": [
@@ -75,7 +80,8 @@
         "Konoba Kali, Medveja — [Térkép](https://www.google.com/maps/search/Konoba+Kali+Medveja)",
         "Bevanda, Opatija — [Térkép](https://www.google.com/maps/search/Bevanda+restaurant+Opatija)",
         "Trattoria Mandrać, Volosko — [Térkép](https://www.google.com/maps/search/Trattoria+Mandrac+Volosko)"
-      ]
+      ],
+      "wide": true
     },
     {
       "title": "Közeli strandok",
@@ -88,12 +94,8 @@
         "Mošćenička Draga — [Térkép](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
         "Ičići — [Térkép](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
         "Opatija — [Térkép](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
-      ]
-    },
-    {
-      "title": "Piac és turisztikai információk",
-      "type": "html",
-      "content": "[Élelmiszerpiac](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>További információ: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+      ],
+      "wide": true
     }
   ]
 }

@@ -58,6 +58,11 @@
       ]
     },
     {
+      "title": "Ринок і туристична інформація",
+      "type": "html",
+      "content": "[Продовольчий ринок](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>Більше інформації: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+    },
+    {
       "title": "Рекомендовані ресторани",
       "type": "list",
       "items": [
@@ -75,7 +80,8 @@
         "Konoba Kali, Medveja — [Карта](https://www.google.com/maps/search/Konoba+Kali+Medveja)",
         "Bevanda, Opatija — [Карта](https://www.google.com/maps/search/Bevanda+restaurant+Opatija)",
         "Trattoria Mandrać, Volosko — [Карта](https://www.google.com/maps/search/Trattoria+Mandrac+Volosko)"
-      ]
+      ],
+      "wide": true
     },
     {
       "title": "Найближчі пляжі",
@@ -88,12 +94,8 @@
         "Mošćenička Draga — [Карта](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
         "Ičići — [Карта](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
         "Opatija — [Карта](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
-      ]
-    },
-    {
-      "title": "Ринок і туристична інформація",
-      "type": "html",
-      "content": "[Продовольчий ринок](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>Більше інформації: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+      ],
+      "wide": true
     }
   ]
 }

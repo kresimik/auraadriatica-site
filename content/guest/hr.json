@@ -58,6 +58,11 @@
       ]
     },
     {
+      "title": "Tržnica i turističke informacije",
+      "type": "html",
+      "content": "[Tržnica](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>Više informacija: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+    },
+    {
       "title": "Preporučeni restorani",
       "type": "list",
       "items": [
@@ -75,7 +80,8 @@
         "Konoba Kali, Medveja — [Karta](https://www.google.com/maps/search/Konoba+Kali+Medveja)",
         "Bevanda, Opatija — [Karta](https://www.google.com/maps/search/Bevanda+restaurant+Opatija)",
         "Trattoria Mandrać, Volosko — [Karta](https://www.google.com/maps/search/Trattoria+Mandrac+Volosko)"
-      ]
+      ],
+      "wide": true
     },
     {
       "title": "Plaže u blizini",
@@ -88,12 +94,8 @@
         "Mošćenička Draga — [Karta](https://maps.app.goo.gl/JxDdQnYAmVADEnfF8)",
         "Ičići — [Karta](https://maps.app.goo.gl/oZoNU6jkMLxb3MEg9)",
         "Opatija — [Karta](https://maps.app.goo.gl/djPMCyABH8tkoKe5A)"
-      ]
-    },
-    {
-      "title": "Tržnica i turističke informacije",
-      "type": "html",
-      "content": "[Tržnica](https://maps.app.goo.gl/HeqR7K2jGdDcZQWT8)<br>Više informacija: [visitlovran.com](https://visitlovran.com/destinacija/lovran/)"
+      ],
+      "wide": true
     }
   ]
 }

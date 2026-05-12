@@ -81,9 +81,8 @@ function makeCard(sec) {
   const card = document.createElement('article');
   card.className = 'guest-card';
 
-  // Wide card for restaurants (long list)
-  const titleLower = (sec.title || '').toLowerCase();
-  if (titleLower.includes('restaurant') || titleLower.includes('beach')) {
+  // Wide card — driven by JSON flag, not title keyword matching
+  if (sec.wide) {
     card.classList.add('guest-card--wide');
   }
   if (sec.html_kind === 'wifi') card.classList.add('guest-card--highlight');

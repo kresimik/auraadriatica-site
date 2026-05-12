@@ -30,10 +30,14 @@
     /* Info grid */
     .guest-grid {
       display: grid;
-      gap: 1.25rem;
+      gap: 1px;
       margin-top: 2.5rem;
       grid-template-columns: repeat(3, 1fr);
       align-items: start;
+      background: rgba(184,150,90,.2);
+      border: 1px solid rgba(184,150,90,.2);
+      border-radius: 4px;
+      overflow: hidden;
     }
     @media (max-width: 900px) { .guest-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .guest-grid { grid-template-columns: 1fr; } }
@@ -42,15 +46,14 @@
     .guest-card {
       background: #fff;
       padding: 1.6rem 1.8rem;
-      border: 1px solid rgba(184,150,90,.18);
-      border-radius: 4px;
-      transition: background .2s, box-shadow .2s;
-      box-shadow: 0 1px 4px rgba(14,14,14,.05);
+      border: none;
+      border-radius: 0;
+      transition: background .2s;
+      box-shadow: none;
     }
     .guest-card:hover {
       background: #faf8f4;
-      box-shadow: 0 4px 18px rgba(14,14,14,.09);
-      border-color: rgba(184,150,90,.35);
+      box-shadow: none;
     }
 
     .guest-card__icon {
@@ -128,7 +131,6 @@
     }
     .guest-card--highlight:hover {
       background: linear-gradient(135deg, #fdfaf0, #f8f2e2);
-      box-shadow: 0 4px 18px rgba(184,150,90,.1);
     }
 
     /* WiFi special */
@@ -160,9 +162,7 @@
       align-items: center;
       gap: 1rem;
       grid-column: 1 / -1;
-      border-radius: 4px;
       border: none;
-      box-shadow: 0 2px 8px rgba(14,14,14,.12);
     }
     .guest-welcome p {
       font-family: 'Cormorant Garamond', serif;
