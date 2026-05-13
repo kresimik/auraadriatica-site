@@ -18,8 +18,12 @@
     },
     {
       "title": "Chiave digitale",
-      "type": "text",
-      "content": "Gli appartamenti dispongono di serrature digitali sicure con PIN. Prima dell'arrivo vi invieremo il PIN tramite WhatsApp, SMS o e-mail."
+      "type": "list",
+      "items": [
+        "Gli appartamenti dispongono di una serratura digitale sicura con PIN. Vi invieremo il PIN prima dell'arrivo tramite WhatsApp, SMS o email.",
+        "**🔒 Chiudere la porta:** Premere il centro del cilindro interno finché non lampeggia una luce blu, quindi chiudere la porta. La serratura scatta automaticamente dopo circa 30 secondi. La stessa procedura vale anche per chiudere dall'interno.",
+        "**Aprire dall'interno:** Premere brevemente il centro del cilindro."
+      ]
     },
     {
       "title": "Cassaforte in camera",

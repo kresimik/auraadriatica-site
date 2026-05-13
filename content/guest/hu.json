@@ -18,8 +18,12 @@
     },
     {
       "title": "Biztonságos digitális kulcs",
-      "type": "text",
-      "content": "Az apartmanok digitális zárakkal vannak felszerelve PIN-kóddal. Érkezés előtt a kódot WhatsAppon, SMS-ben vagy e-mailben küldjük el."
+      "type": "list",
+      "items": [
+        "A lakások biztonságos digitális zárral és PIN-kóddal rendelkeznek. A PIN-kódot az érkezés előtt elküldjük WhatsApp-on, SMS-ben vagy e-mailben.",
+        "**🔒 Az ajtó zárása:** Nyomja meg a belső henger közepét, amíg kék fény nem villan fel, majd zárja be az ajtót. A zár kb. 30 másodperc után automatikusan működésbe lép. Ugyanez az eljárás érvényes belülről való zárásnál is.",
+        "**Belülről nyitás:** Nyomja meg röviden a henger közepét."
+      ]
     },
     {
       "title": "Szobai széf",

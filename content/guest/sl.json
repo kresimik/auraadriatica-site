@@ -18,8 +18,12 @@
     },
     {
       "title": "Digitalni ključ",
-      "type": "text",
-      "content": "Apartmaji imajo varno digitalno ključavnico s PIN kodo. Pred prihodom vam bomo PIN poslali preko WhatsAppa, SMS-a ali e-pošte."
+      "type": "list",
+      "items": [
+        "Apartmaji imajo varno digitalno ključavnico s PIN-om. PIN vam bomo poslali pred prihodom prek WhatsAppa, SMS-a ali e-pošte.",
+        "**🔒 Zaklepanje vrat:** Pritisnite sredino notranjega cilindra, dokler ne zasveti modra lučka, nato zaprite vrata. Ključavnica se samodejno aktivira po pribl. 30 sekundah. Enako velja, če želite zakleniti od znotraj.",
+        "**Odklepanje od znotraj:** Kratko pritisnite sredino cilindra."
+      ]
     },
     {
       "title": "Sef v apartmaju",

@@ -18,8 +18,12 @@
     },
     {
       "title": "Digitalni ključ",
-      "type": "text",
-      "content": "Apartmani imaju sigurne digitalne brave s PIN-om. Prije dolaska poslat ćemo vam PIN putem WhatsAppa, SMS-a ili e-maila."
+      "type": "list",
+      "items": [
+        "Apartmani imaju sigurnu digitalnu bravu s PIN-om. PIN ćemo vam poslati prije dolaska putem WhatsAppa, SMS-a ili e-maila.",
+        "**🔒 Zaključavanje vrata:** Pritisnite središte unutarnjeg cilindra brave dok ne zatreperi plavo svjetlo, a zatim zatvorite vrata. Brava se automatski aktivira nakon oko 30 sekundi. Isti postupak vrijedi i za zaključavanje iznutra.",
+        "**Otključavanje iznutra:** Kratko pritisnite središte cilindra brave."
+      ]
     },
     {
       "title": "Sef u apartmanu",

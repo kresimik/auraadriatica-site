@@ -18,8 +18,12 @@
     },
     {
       "title": "Secure Digital Key",
-      "type": "text",
-      "content": "The apartments have a secure digital lock with a PIN. Before arrival, we will send you the PIN via WhatsApp, SMS, or email."
+      "type": "list",
+      "items": [
+        "The apartments use a secure digital PIN lock. Your PIN will be sent before arrival via WhatsApp, SMS, or email.",
+        "**🔒 Locking the door:** Press the centre of the interior lock cylinder until a blue light flashes, then close the door. The lock engages automatically after approx. 30 seconds. The same procedure applies if you wish to lock from the inside.",
+        "**Unlocking from the inside:** Briefly press the centre of the cylinder to release the latch."
+      ]
     },
     {
       "title": "In-room Safe",

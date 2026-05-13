@@ -18,8 +18,12 @@
     },
     {
       "title": "Bezpečný digitální klíč",
-      "type": "text",
-      "content": "Apartmány mají bezpečný digitální zámek s PIN kódem. Před příjezdem vám PIN zašleme přes WhatsApp, SMS nebo e-mail."
+      "type": "list",
+      "items": [
+        "Apartmány mají bezpečný digitální zámek s PIN. PIN vám zašleme před příjezdem přes WhatsApp, SMS nebo e-mail.",
+        "**🔒 Zamčení dveří:** Stiskněte střed vnitřního válce, dokud nezabliká modrá kontrolka, poté zavřete dveře. Zámek se automaticky aktivuje přibližně za 30 sekund. Stejný postup platí i pro zamčení zevnitř.",
+        "**Odemčení zevnitř:** Krátce stiskněte střed válce."
+      ]
     },
     {
       "title": "Pokojový trezor",

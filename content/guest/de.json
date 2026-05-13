@@ -18,8 +18,12 @@
     },
     {
       "title": "Digitale Schlüssel",
-      "type": "text",
-      "content": "Die Apartments verfügen über ein sicheres digitales Türschloss mit PIN. Vor der Anreise senden wir Ihnen den PIN per WhatsApp, SMS oder E-Mail."
+      "type": "list",
+      "items": [
+        "Die Apartments haben ein digitales Sicherheitsschloss mit PIN. Wir senden Ihnen die PIN vor Ihrer Ankunft per WhatsApp, SMS oder E-Mail.",
+        "**🔒 Türe abschließen:** Drücken Sie die Mitte des inneren Zylinders, bis das blaue Licht blinkt, und schließen Sie dann die Tür. Das Schloss rastet nach ca. 30 Sekunden automatisch ein. Dasselbe gilt auch, wenn Sie von innen abschließen möchten.",
+        "**Von innen öffnen:** Drücken Sie kurz die Mitte des Zylinders."
+      ]
     },
     {
       "title": "Zimmersafe",
