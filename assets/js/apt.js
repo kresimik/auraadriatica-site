@@ -35,7 +35,6 @@ async function loadApartment(slug, langOpt){
     console.warn(`[apt] Missing JSON for ${slugLc}/${lang}. Tried:`, tryUrls);
     return;
   }
-  console.log(`[apt] Loaded ${usedUrl}`);
 
   // ---------- TITLE + META ----------
   if (data.page_title) document.title = data.page_title;

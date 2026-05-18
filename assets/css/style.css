@@ -312,7 +312,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   color: #fff;
   background-image:
     linear-gradient(to bottom, rgba(14,14,14,.35) 0%, rgba(14,14,14,.72) 100%),
-    url('/assets/img/hero.jpg');
+    url('/assets/img/hero.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
