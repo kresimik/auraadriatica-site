@@ -36,6 +36,9 @@ const ICONS = {
   'beach': '🏖️', 'plaž': '🏖️', 'strand': '🏖️', 'spiagge': '🏖️', 'pláže': '🏖️', 'пляж': '🏖️',
   // Market / tourist
   'market': '🌿', 'food': '🌿', 'tržnic': '🌿', 'markt': '🌿', 'mercato': '🌿', 'piac': '🌿', 'trh': '🌿', 'ринок': '🌿', 'tourist': '🗺️', 'turisti': '🗺️',
+  // Privacy / cameras
+  'camera': '📷', 'kamera': '📷', 'nadzor': '📷', 'überwach': '📷', 'telecamer': '📷', 'видеон': '📷',
+  'privacy': '🔐', 'privatnost': '🔐', 'datenschutz': '🔐', 'adatvéd': '🔐', 'soukromí': '🔐', 'súkromi': '🔐', 'zasebnost': '🔐', 'конфід': '🔐',
 };
 
 function getIcon(title) {
