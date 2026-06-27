@@ -31,5 +31,11 @@
     "Elegáns éttermek modern mediterrán konyhával,",
     "Hangulatos kávézók és borbárok, ahol helyi borokat és aperitifeket élvezhet a tengerparton."
   ],
-  "about_p": "Lovran nem csupán egy tengerparti város – ez a történelem, a kultúra és a természet találkozása. Sétáljon a régi város kanyargós utcáin, élvezze a színes házakat és a Lungomare sétányt, amely több mint 10 km hosszan köti össze Opatiját és a környező falvakat.\nA város fölött magasodik az Učka Nemzeti Park, rengeteg túra- és kerékpárútvonallal, valamint lenyűgöző kilátással a Vojak csúcsról – az egyik oldalon a Kvarner-szigetek, a másikon Isztria dombjai.\nItt minden pillanat arra hív, hogy lassítson, felfedezzen és még többet élvezzen – a saját tempójában."
+  "about_p": "Lovran nem csupán egy tengerparti város – ez a történelem, a kultúra és a természet találkozása. Sétáljon a régi város kanyargós utcáin, élvezze a színes házakat és a Lungomare sétányt, amely több mint 10 km hosszan köti össze Opatiját és a környező falvakat.\nA város fölött magasodik az Učka Nemzeti Park, rengeteg túra- és kerékpárútvonallal, valamint lenyűgöző kilátással a Vojak csúcsról – az egyik oldalon a Kvarner-szigetek, a másikon Isztria dombjai.\nItt minden pillanat arra hív, hogy lassítson, felfedezzen és még többet élvezzen – a saját tempójában.",
+  "family_h": "Családi szórakozás és látnivalók",
+  "family": [
+    "Istralandia Aqua Park — Horvátország legnagyobb aquaparkja csúszdákkal, medencékkel és szórakozással minden korosztálynak. Kb. 1,5 óra autóval. [istralandia.com](https://istralandia.com)",
+    "Dinopark Funtana — életnagyságú dinoszaurusz-másolatok, interaktív kiállítások és játszótér — tökéletes a fiatal felfedezőknek. Kb. 1,5 óra autóval. [dinopark-funtana.com](https://dinopark-funtana.com)",
+    "Aquacolors Poreč — vízicsúszdák, lassú folyó és családi medencék Isztria szívében. Kb. 1,5 óra autóval. [aquacolors.eu](https://www.aquacolors.eu/)"
+  ]
 }

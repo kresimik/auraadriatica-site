@@ -27,6 +27,7 @@ async function loadExplore(lang) {
     const el = document.getElementById(id);
     if (el && typeof val === "string") el.textContent = val;
   };
+  const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
   const renderList = (id, items) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -34,7 +35,19 @@ async function loadExplore(lang) {
     if (Array.isArray(items)) {
       items.forEach((x) => {
         const li = document.createElement("li");
-        li.textContent = x;
+        let last = 0, m;
+        linkRe.lastIndex = 0;
+        while ((m = linkRe.exec(x)) !== null) {
+          if (m.index > last) li.appendChild(document.createTextNode(x.slice(last, m.index)));
+          const a = document.createElement("a");
+          a.textContent = m[1];
+          a.href = m[2];
+          a.target = "_blank";
+          a.rel = "noopener";
+          li.appendChild(a);
+          last = m.index + m[0].length;
+        }
+        if (last < x.length) li.appendChild(document.createTextNode(x.slice(last)));
         el.appendChild(li);
       });
     }
@@ -54,12 +67,14 @@ async function loadExplore(lang) {
   setText("ex-beaches", get("beaches_h", "explore_beaches_h"));
   setText("ex-trips",   get("trips_h",   "explore_trips_h"));
   setText("ex-food",    get("food_h",    "explore_food_h"));
+  setText("ex-family",  get("family_h",  "explore_family_h"));
 
   // Lists
   renderList("ex-do-list",      get("do",      "explore_do_list"));
   renderList("ex-beaches-list", get("beaches", "explore_beaches_list"));
   renderList("ex-trips-list",   get("trips",   "explore_trips_list"));
   renderList("ex-food-list",    get("food",    "explore_food_list"));
+  renderList("ex-family-list",  get("family",  "explore_family_list"));
 }
 
 // Expose za i18n dropdown
