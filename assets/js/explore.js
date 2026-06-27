@@ -6,9 +6,10 @@
 const DEFAULT_LANG_EXPLORE = "en";
 
 async function loadExplore(lang) {
+  const v = '20260604';
   const tryUrls = [
-    `/content/explore/${lang}.json`,
-    `/content/${lang}.json`,
+    `/content/explore/${lang}.json?v=${v}`,
+    `/content/${lang}.json?v=${v}`,
   ];
 
   let data = null;
