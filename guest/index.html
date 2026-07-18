@@ -30,30 +30,25 @@
     /* Info grid */
     .guest-grid {
       display: grid;
-      gap: 1px;
-      margin-top: 2.5rem;
-      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(2, 1fr);
       align-items: start;
-      background: rgba(184,150,90,.2);
-      border: 1px solid rgba(184,150,90,.2);
-      border-radius: 4px;
-      overflow: hidden;
     }
-    @media (max-width: 900px) { .guest-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .guest-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .guest-grid { grid-template-columns: 1fr; } }
 
     /* Info card */
     .guest-card {
       background: #fff;
       padding: 1.6rem 1.8rem;
-      border: none;
-      border-radius: 0;
-      transition: background .2s;
-      box-shadow: none;
+      border: 1px solid rgba(184,150,90,.18);
+      border-radius: 6px;
+      transition: box-shadow .2s, border-color .2s;
+      box-shadow: 0 1px 4px rgba(14,14,14,.05);
     }
     .guest-card:hover {
-      background: #faf8f4;
-      box-shadow: none;
+      box-shadow: 0 4px 16px rgba(14,14,14,.08);
+      border-color: rgba(184,150,90,.35);
     }
 
     .guest-card__icon {
@@ -147,11 +142,10 @@
       display: block;
     }
 
-    /* Wide card (spans 2 cols) */
+    /* Wide card (full width) */
     .guest-card--wide {
-      grid-column: span 2;
+      grid-column: 1 / -1;
     }
-    @media (max-width: 900px) { .guest-card--wide { grid-column: span 1; } }
 
     /* Welcome banner */
     .guest-welcome {
@@ -163,6 +157,7 @@
       gap: 1rem;
       grid-column: 1 / -1;
       border: none;
+      border-radius: 6px;
     }
     .guest-welcome p {
       font-family: 'Cormorant Garamond', serif;
@@ -266,6 +261,14 @@
   </div>
 </section>
 
+<!-- GUEST INFO -->
+<section class="section">
+  <div class="container fade-up">
+    <div class="section-label" data-i18n="guest_stay_label">Your stay</div>
+    <div id="guest-sections" class="guest-grid"></div>
+  </div>
+</section>
+
 <!-- EVENTS -->
 <section class="section alt" id="events-section">
   <div class="container">
@@ -283,14 +286,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- GUEST INFO -->
-<section class="section">
-  <div class="container fade-up">
-    <div class="section-label" data-i18n="guest_stay_label">Your stay</div>
-    <div id="guest-sections" class="guest-grid"></div>
   </div>
 </section>
 
