@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page not found — Aura Adriatica</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Find your way back to Aura Adriatica boutique apartments in Lovran.">
+  <meta name="theme-color" content="#b8965a">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+  <link rel="manifest" href="/assets/img/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260407c">
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/ui.js" defer></script>
+
+  <style>
+    .not-found-wrap {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .not-found-code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin: 0 0 .5rem;
+      opacity: .35;
+    }
+    .not-found-wrap h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+    .not-found-wrap p {
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    .not-found-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- NOTICE BAR -->
+<div class="notice-bar"><span data-i18n="notice_text">Direct booking · </span><strong data-i18n="notice_bold">No fees</strong><span data-i18n="notice_location"> · Lovran, Opatija Riviera</span></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-flex">
+    <a href="/" class="logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" width="870" height="345" />
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <a href="/" data-i18n="home_nav">Home</a>
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/faq.html" data-i18n="faq_nav">FAQ</a>
+      <a href="/contact.html" data-i18n="contact_nav">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="lang-dropdown" id="lang-dd">
+      <button class="lang-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Change language">
+        <span class="current-lang" id="cur-lang">EN</span> ▾
+      </button>
+      <div class="lang-menu" id="lang-menu" role="menu" hidden>
+        <button type="button" data-lang="hr">HR</button>
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="sl">SL</button>
+        <button type="button" data-lang="hu">HU</button>
+        <button type="button" data-lang="cs">CS</button>
+        <button type="button" data-lang="sk">SK</button>
+        <button type="button" data-lang="uk">UK</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 404 -->
+<main id="main-content">
+  <div class="not-found-wrap">
+    <div class="not-found-code" aria-hidden="true">404</div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for has moved or doesn't exist. Use the links below to find your way back.</p>
+    <nav class="not-found-links" aria-label="Return navigation">
+      <a class="button" href="/">Home</a>
+      <a class="button olive" href="/apartments/olive.html">Apartment Olive</a>
+      <a class="button onyx" href="/apartments/onyx.html">Apartment Onyx</a>
+      <a class="button" href="/contact.html">Contact us</a>
+    </nav>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-flex">
+    <a href="/" class="footer-logo" aria-label="Aura Adriatica — home">
+      <img src="/assets/img/logo.png" alt="Aura Adriatica logo" width="870" height="345" />
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/apartments/olive.html" data-i18n="olive_h">Olive</a>
+      <a href="/apartments/onyx.html" data-i18n="onyx_h">Onyx</a>
+      <a href="/explore.html" data-i18n="explore">Explore</a>
+      <a href="/gallery.html" data-i18n="gallery">Gallery</a>
+      <a href="/faq.html" data-i18n="faq_nav">FAQ</a>
+      <a href="/contact.html" data-i18n="contact_nav">Contact</a>
+    </nav>
+    <div class="footer-contact">
+      <p>Email: <a href="mailto:info@auraadriatica.com">info@auraadriatica.com</a></p>
+      <p>Phone: <a href="tel:+385992210910">+385 99 221 0910</a></p>
+      <p>WhatsApp: <a href="https://wa.me/385992210910" target="_blank" rel="noopener">+385 99 221 0910</a></p>
+      <p class="footer-copy">&copy; <span id="year"></span> Aura Adriatica</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+</body>
+</html>
