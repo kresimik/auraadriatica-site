@@ -196,7 +196,8 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   height: 1px;
   background: var(--gold);
   transform: scaleX(0);
-  transition: transform .25s ease;
+  transform-origin: center;
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
 }
 .main-nav a:hover { color: var(--ink); }
 .main-nav a:hover::after, .main-nav a.active::after { transform: scaleX(1); }
@@ -477,6 +478,11 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   border-radius: 4px;
   padding: 2rem;
   box-shadow: var(--card-shadow);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(14,14,14,.13);
 }
 .card-head { margin-bottom: 1.2rem; }
 .card-head h2 { margin-bottom: 0; }
@@ -1027,7 +1033,8 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
    FOOTER
    ========================= */
 .site-footer {
-  background: var(--ink);
+  background: var(--sea-dark);
+  border-top: 2px solid var(--gold);
   color: rgba(255,255,255,.55);
   padding: 2.5rem 0;
 }
