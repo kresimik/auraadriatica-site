@@ -76,6 +76,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
+
 <!-- NOTICE BAR -->
 <div class="notice-bar"><span data-i18n="notice_text">Direct booking · </span><strong data-i18n="notice_bold">No fees</strong><span data-i18n="notice_location"> · Lovran, Opatija Riviera</span></div>
 
@@ -117,7 +119,7 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" style="background-image: linear-gradient(to bottom, rgba(14,14,14,.35), rgba(14,14,14,.72)), url('/assets/img/explore-hero.webp');">
+<section class="hero" id="main-content" style="background-image: linear-gradient(to bottom, rgba(14,14,14,.35), rgba(14,14,14,.72)), url('/assets/img/explore-hero.webp');">
   <div class="container hero-center">
     <div class="hero-eyebrow">Lovran · Opatija Riviera</div>
     <h1 id="ex-hero-title">Explore Lovran &amp; <em>Opatija Riviera</em></h1>
@@ -220,10 +222,10 @@
       </div>
       <div class="map-filters">
         <button class="map-filter active" data-cat="all">All</button>
-        <button class="map-filter" data-cat="apartment">🏠 Apartments</button>
-        <button class="map-filter" data-cat="restaurant">🍽️ Restaurants</button>
-        <button class="map-filter" data-cat="beach">🏖️ Beaches</button>
-        <button class="map-filter" data-cat="grocery">🛒 Grocery</button>
+        <button class="map-filter" data-cat="apartment"><span aria-hidden="true">🏠</span> Apartments</button>
+        <button class="map-filter" data-cat="restaurant"><span aria-hidden="true">🍽️</span> Restaurants</button>
+        <button class="map-filter" data-cat="beach"><span aria-hidden="true">🏖️</span> Beaches</button>
+        <button class="map-filter" data-cat="grocery"><span aria-hidden="true">🛒</span> Grocery</button>
       </div>
       <div id="explore-map" style="height:480px;"></div>
     </div>

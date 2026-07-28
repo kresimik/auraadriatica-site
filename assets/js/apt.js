@@ -98,7 +98,16 @@ async function loadApartment(slug, langOpt){
     list.innerHTML = "";
     feats.forEach(f=>{
       const li = document.createElement("li");
-      li.textContent = f;
+      const m = String(f).match(/^(\p{Extended_Pictographic}[️‍⃣]?\s*)/u);
+      if (m) {
+        const sp = document.createElement("span");
+        sp.setAttribute("aria-hidden", "true");
+        sp.textContent = m[1].trimEnd() + " ";
+        li.appendChild(sp);
+        li.appendChild(document.createTextNode(String(f).slice(m[0].length)));
+      } else {
+        li.textContent = f;
+      }
       list.appendChild(li);
     });
   }
