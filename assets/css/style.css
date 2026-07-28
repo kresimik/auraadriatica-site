@@ -64,21 +64,29 @@ body {
   clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important;
 }
 .skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.skip-link:focus {
   position: fixed;
-  top: 0;
   left: 1rem;
-  transform: translateY(-200%);
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
   padding: .5rem 1rem;
   background: var(--sea-dark);
   color: #fff;
   font-size: .9rem;
   font-weight: 600;
   border-radius: 0 0 4px 4px;
-  z-index: 9999;
   text-decoration: none;
-  transition: transform .2s ease;
 }
-.skip-link:focus { transform: translateY(0); }
 
 /* =========================
    TYPOGRAPHY
