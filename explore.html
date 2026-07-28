@@ -69,9 +69,6 @@
         window.setLang = async (lang) => {
           await _setLang(lang);
           updateEventsMonth(lang);
-          if (typeof window.loadExplore === 'function') {
-            await window.loadExplore(lang);
-          }
         };
       }
     });
