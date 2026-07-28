@@ -44,6 +44,15 @@
       "qr": "/assets/img/wifi-qr.png"
     },
     {
+      "title": "Televisione",
+      "type": "list",
+      "items": [
+        "L'appartamento dispone di un **EON TV Box** con un'ampia selezione di canali di film, sport e notizie.",
+        "**Per guardare la TV:** accendere il televisore, selezionare l'ingresso **HDMI 1**, quindi utilizzare il telecomando EON TV per sfogliare i canali e i programmi.",
+        "Il telecomando EON consente anche di mettere in pausa, riavvolgere e guardare contenuti on demand."
+      ]
+    },
+    {
       "title": "Registrazione degli ospiti",
       "type": "html",
       "content": "Tutti gli ospiti devono essere registrati secondo la legge croata. Compilate i dati tramite il [Modulo di registrazione](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."

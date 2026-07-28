@@ -44,6 +44,15 @@
       "qr": "/assets/img/wifi-qr.png"
     },
     {
+      "title": "Televízia",
+      "type": "list",
+      "items": [
+        "V apartmáne je k dispozícii **EON TV Box** s bohatým výberom filmových, športových a spravodajských kanálov.",
+        "**Pre sledovanie:** zapnite televízor, prepnite vstup na **HDMI 1** a diaľkovým ovládačom EON TV vyberte požadovaný program.",
+        "Diaľkovým ovládačom EON môžete tiež pozastaviť, pretočiť alebo sledovať obsah na vyžiadanie."
+      ]
+    },
+    {
       "title": "Registrácia hostí",
       "type": "html",
       "content": "Všetci hostia musia byť zaregistrovaní podľa chorvátskeho zákona. Vyplňte údaje cez [Registračný formulár hostí](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."

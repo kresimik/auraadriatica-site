@@ -44,6 +44,15 @@
       "qr": "/assets/img/wifi-qr.png"
     },
     {
+      "title": "Televizija",
+      "type": "list",
+      "items": [
+        "U apartmanu je dostupan **EON TV Box** s bogatim izborom filmskih, sportskih i informativnih programa.",
+        "**Za gledanje:** upalite TV, odaberite ulaz **HDMI 1**, a zatim EON TV daljinskim odaberite željeni program.",
+        "EON daljinski omogućuje i pauziranje, premotavanje i gledanje sadržaja na zahtjev."
+      ]
+    },
+    {
       "title": "Prijava gostiju",
       "type": "html",
       "content": "Svi gosti moraju biti prijavljeni prema zakonu RH. Molimo ispunite podatke putem [Prijavnog obrasca](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."

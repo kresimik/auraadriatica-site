@@ -44,6 +44,15 @@
       "qr": "/assets/img/wifi-qr.png"
     },
     {
+      "title": "Fernsehen",
+      "type": "list",
+      "items": [
+        "Die Wohnung verfügt über eine **EON TV Box** mit einer großen Auswahl an Film-, Sport- und Nachrichtensendern.",
+        "**Zum Einschalten:** TV anschalten, Eingang auf **HDMI 1** umschalten und dann mit der EON TV Fernbedienung das gewünschte Programm auswählen.",
+        "Mit der EON Fernbedienung können Sie auch pausieren, zurückspulen und Inhalte auf Abruf ansehen."
+      ]
+    },
+    {
       "title": "Gästeanmeldung",
       "type": "html",
       "content": "Alle Gäste müssen gemäß kroatischem Recht registriert werden. Bitte füllen Sie die Daten im [Anmeldeformular](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c) aus."

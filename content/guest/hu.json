@@ -44,6 +44,15 @@
       "qr": "/assets/img/wifi-qr.png"
     },
     {
+      "title": "Televízió",
+      "type": "list",
+      "items": [
+        "Az apartmanban **EON TV Box** áll rendelkezésre, amelyen film-, sport- és hírcsatornák széles választékát érheti el.",
+        "**A nézéshez:** kapcsolja be a TV-t, váltson **HDMI 1** bemenetre, majd az EON TV távirányítóval válassza ki a kívánt csatornát vagy műsort.",
+        "Az EON távirányítóval szüneteltethet, visszatekerhet, és igény szerinti tartalmakat is nézhet."
+      ]
+    },
+    {
       "title": "Vendégregisztráció",
       "type": "html",
       "content": "A horvát jogszabályoknak megfelelően minden vendéget regisztrálni kell. Kérjük, töltse ki adatait a [Vendégregisztrációs űrlapon](https://mvisitor.hr/prijava/?q=6c46ee3d-4b4b-47b9-9151-ee974015d43c)."
