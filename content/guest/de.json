@@ -50,7 +50,8 @@
         "Die Wohnung verfügt über eine **EON TV Box** mit einer großen Auswahl an Film-, Sport- und Nachrichtensendern.",
         "**Zum Einschalten:** TV anschalten, Eingang auf **HDMI 1** umschalten und dann mit der EON TV Fernbedienung das gewünschte Programm auswählen.",
         "Mit der EON Fernbedienung können Sie auch pausieren, zurückspulen und Inhalte auf Abruf ansehen."
-      ]
+      ],
+      "icon": "🖥️"
     },
     {
       "title": "Gästeanmeldung",

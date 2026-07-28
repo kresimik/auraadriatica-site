@@ -50,7 +50,8 @@
         "V apartmánu je k dispozici **EON TV Box** s bohatým výběrem filmových, sportovních a zpravodajských kanálů.",
         "**Pro sledování:** zapněte televizi, přepněte vstup na **HDMI 1** a pomocí dálkového ovladače EON TV vyberte požadovaný program.",
         "Dálkovým ovladačem EON lze také pozastavit, přetočit nebo sledovat obsah na vyžádání."
-      ]
+      ],
+      "icon": "🖥️"
     },
     {
       "title": "Registrace hostů",

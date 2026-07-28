@@ -50,7 +50,8 @@
         "Az apartmanban **EON TV Box** áll rendelkezésre, amelyen film-, sport- és hírcsatornák széles választékát érheti el.",
         "**A nézéshez:** kapcsolja be a TV-t, váltson **HDMI 1** bemenetre, majd az EON TV távirányítóval válassza ki a kívánt csatornát vagy műsort.",
         "Az EON távirányítóval szüneteltethet, visszatekerhet, és igény szerinti tartalmakat is nézhet."
-      ]
+      ],
+      "icon": "🖥️"
     },
     {
       "title": "Vendégregisztráció",

@@ -50,7 +50,8 @@
         "U apartmanu je dostupan **EON TV Box** s bogatim izborom filmskih, sportskih i informativnih programa.",
         "**Za gledanje:** upalite TV, odaberite ulaz **HDMI 1**, a zatim EON TV daljinskim odaberite željeni program.",
         "EON daljinski omogućuje i pauziranje, premotavanje i gledanje sadržaja na zahtjev."
-      ]
+      ],
+      "icon": "🖥️"
     },
     {
       "title": "Prijava gostiju",

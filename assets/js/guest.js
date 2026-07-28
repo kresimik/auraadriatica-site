@@ -95,7 +95,7 @@ function makeCard(sec) {
   // Icon
   const icon = document.createElement('span');
   icon.className = 'guest-card__icon';
-  icon.textContent = getIcon(sec.title);
+  icon.textContent = sec.icon || getIcon(sec.title);
   card.appendChild(icon);
 
   // Title

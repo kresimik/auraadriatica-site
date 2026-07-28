@@ -50,7 +50,8 @@
         "V apartmaju je na voljo **EON TV Box** s široko ponudbo filmskih, športnih in informativnih programov.",
         "**Za gledanje:** vklopite televizor, preklopite vhod na **HDMI 1** in s daljinskim upravljalnikom EON TV izberite željeni program.",
         "Z daljinskim upravljalnikom EON lahko tudi pavzirate, previjate nazaj in gledate vsebine na zahtevo."
-      ]
+      ],
+      "icon": "🖥️"
     },
     {
       "title": "Prijava gostov",

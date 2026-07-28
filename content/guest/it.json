@@ -50,7 +50,8 @@
         "L'appartamento dispone di un **EON TV Box** con un'ampia selezione di canali di film, sport e notizie.",
         "**Per guardare la TV:** accendere il televisore, selezionare l'ingresso **HDMI 1**, quindi utilizzare il telecomando EON TV per sfogliare i canali e i programmi.",
         "Il telecomando EON consente anche di mettere in pausa, riavvolgere e guardare contenuti on demand."
-      ]
+      ],
+      "icon": "🖥️"
     },
     {
       "title": "Registrazione degli ospiti",

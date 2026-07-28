@@ -50,7 +50,8 @@
         "The apartment features an **EON TV Box** with a wide selection of films, sports, and news channels.",
         "**To watch:** turn on the TV, switch the input to **HDMI 1**, then use the EON TV remote to browse channels and programmes.",
         "The EON remote also lets you pause, rewind, and watch on-demand content."
-      ]
+      ],
+      "icon": "🖥️"
     },
     {
       "title": "Guest Registration",
