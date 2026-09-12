@@ -42,7 +42,8 @@ async function loadExplore(lang) {
           if (m.index > last) li.appendChild(document.createTextNode(x.slice(last, m.index)));
           const a = document.createElement("a");
           a.textContent = m[1];
-          a.href = m[2];
+          // Only http(s) — keeps javascript:/data: out if content is ever edited elsewhere
+          a.href = /^https?:\/\//i.test(m[2]) ? m[2] : "#";
           a.target = "_blank";
           a.rel = "noopener";
           li.appendChild(a);

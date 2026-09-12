@@ -37,7 +37,8 @@ export async function onRequestPost(context) {
 
   // --- 2) Turnstile verify
   if (!env.TURNSTILE_SECRET) {
-    return fail(500, 'Server misconfigured: TURNSTILE_SECRET missing');
+    console.error('Server misconfigured: TURNSTILE_SECRET missing');
+    return fail(500, 'Server error. Please email us directly at info@auraadriatica.com');
   }
 
   const form = new URLSearchParams();
@@ -59,19 +60,18 @@ export async function onRequestPost(context) {
   }
 
   if (!tJson.success) {
-    return fail(400, 'Turnstile verification failed', {
-      details: {
-        'error-codes': tJson['error-codes'] || [],
-        hostname: tJson.hostname,
-        action: tJson.action,
-        cdata: tJson.cdata
-      }
+    console.warn('Turnstile verification failed', {
+      'error-codes': tJson['error-codes'] || [],
+      hostname: tJson.hostname,
+      action: tJson.action
     });
+    return fail(400, 'Verification failed. Please try again.');
   }
 
   // --- 3) Resend payload priprema
   if (!env.RESEND_API_KEY) {
-    return fail(500, 'Server misconfigured: RESEND_API_KEY missing');
+    console.error('Server misconfigured: RESEND_API_KEY missing');
+    return fail(500, 'Server error. Please email us directly at info@auraadriatica.com');
   }
 
   const CONTACT_FROM = (env.CONTACT_FROM || '').trim();
@@ -124,26 +124,26 @@ export async function onRequestPost(context) {
     rText = await r.text();
     try { rJson = JSON.parse(rText); } catch(_) { rJson = null; }
   } catch (e) {
-    return fail(502, 'Resend fetch failed', { details: String(e) });
+    console.error('Resend fetch failed', String(e));
+    return fail(502, 'Could not send your message. Please try again or email us directly.');
   }
 
   if (!r.ok) {
-    // Resend često vraća 422 s message objašnjenjem ("Invalid `from`", "Domain not verified", "The `to` field is required as an array", ...)
-    return fail(r.status, 'Resend error', { response: rJson || rText });
+    // Resend često vraća 422 s objašnjenjem ("Invalid `from`", "Domain not verified", ...)
+    console.error('Resend error', r.status, rJson || rText);
+    return fail(502, 'Could not send your message. Please try again or email us directly.');
   }
 
   // --- 5) Confirmation email to guest (best-effort, don't fail the request if it errors)
+  // The submitted message is deliberately NOT echoed back: the confirmation goes to
+  // whatever address the form supplied, so echoing it would let anyone send arbitrary
+  // text to a third party from our domain.
   const confirmFrom = fromOk ? CONTACT_FROM : 'Aura Adriatica <info@auraadriatica.com>';
   const confirmText = [
     `Dear ${name},`,
     '',
     `Thank you for your inquiry about ${apt !== 'Apartment' ? `Apartment ${apt}` : 'our apartments'}.`,
     'We have received your message and will get back to you within 24 hours.',
-    '',
-    'Your message:',
-    '---',
-    message,
-    '---',
     '',
     'Best regards,',
     'Aura Adriatica',

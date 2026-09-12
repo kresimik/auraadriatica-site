@@ -18,11 +18,7 @@ export const onRequestGet: PagesFunction = async ({ request, params, env }) => {
   const apt = raw.toLowerCase();
 
   if (!apt) {
-    return json({
-      error: "Unknown apartment",
-      got: raw,
-      note: "No slug found in params/path/query"
-    }, 400);
+    return json({ error: "Unknown apartment" }, 400);
   }
 
   // ------------------------------------------------------------
@@ -35,7 +31,7 @@ export const onRequestGet: PagesFunction = async ({ request, params, env }) => {
 
   const key = ALIAS[apt];
   if (!key) {
-    return json({ error: "Unknown apartment", got: raw }, 400);
+    return json({ error: "Unknown apartment" }, 400);
   }
 
   // ------------------------------------------------------------
@@ -45,11 +41,10 @@ export const onRequestGet: PagesFunction = async ({ request, params, env }) => {
     key === "olive" ? env.OLIVE_ICS_URL : env.ONYX_ICS_URL;
 
   if (!ICS_URL) {
-    return json({
-      error: "Missing ICS env variable",
-      apt: key,
-      expected: key === "olive" ? "OLIVE_ICS_URL" : "ONYX_ICS_URL"
-    }, 500);
+    console.error(
+      `Missing ICS env variable: ${key === "olive" ? "OLIVE_ICS_URL" : "ONYX_ICS_URL"}`
+    );
+    return json({ error: "Calendar unavailable" }, 500);
   }
 
   // ------------------------------------------------------------
@@ -65,10 +60,8 @@ export const onRequestGet: PagesFunction = async ({ request, params, env }) => {
 
     if (!res.ok) {
       const body = await safeText(res);
-      return json({
-        error: `Upstream ${res.status}`,
-        sample: body.slice(0, 200)
-      }, 502);
+      console.error(`ICS upstream ${res.status} for ${key}`, body.slice(0, 200));
+      return json({ error: "Calendar temporarily unavailable" }, 502);
     }
 
     const ics = await res.text();
@@ -83,10 +76,8 @@ export const onRequestGet: PagesFunction = async ({ request, params, env }) => {
     });
 
   } catch (err: any) {
-    return json({
-      error: "Fetch/Parse failed",
-      message: String(err?.message || err)
-    }, 500);
+    console.error("ICS fetch/parse failed", String(err?.message || err));
+    return json({ error: "Calendar temporarily unavailable" }, 500);
   }
 };
 
