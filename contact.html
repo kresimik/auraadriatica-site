@@ -49,19 +49,8 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
   <script src="/assets/js/contact-form.js" defer></script>
 
-  <!-- Turnstile callbacks -->
-  <script data-cfasync="false">
-    window.cfStoreToken = function(token){
-      var t = document.getElementById('cf-token');
-      if (t) t.value = token || '';
-      var st = document.getElementById('cf-status');
-      if (st && st.classList.contains('err')) st.textContent = '';
-    };
-    window.cfExpireToken = function(){
-      var t = document.getElementById('cf-token');
-      if (t) t.value = '';
-    };
-  </script>
+  <!-- Turnstile callbacks (must be defined before api.js initialises the widget) -->
+  <script src="/assets/js/turnstile.js?v=20260912" data-cfasync="false"></script>
 </head>
 <body>
 

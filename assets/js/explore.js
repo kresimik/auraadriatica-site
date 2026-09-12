@@ -82,7 +82,31 @@ async function loadExplore(lang) {
 // Expose za i18n dropdown
 window.loadExplore = loadExplore;
 
+// Localised "what's on this month" label in the events card
+const _EVENTS_LOCALE = {
+  en: "en-GB", hr: "hr-HR", de: "de-DE", it: "it-IT", sl: "sl-SI",
+  cs: "cs-CZ", sk: "sk-SK", hu: "hu-HU", uk: "uk-UA"
+};
+
+function updateEventsMonth(lang) {
+  const locale = _EVENTS_LOCALE[lang] || "en-GB";
+  const now = new Date();
+  const mn = document.getElementById("events-month-name");
+  const my = document.getElementById("events-month-year");
+  if (mn) mn.textContent = now.toLocaleString(locale, { month: "long" });
+  if (my) my.textContent = now.getFullYear();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const lang = (localStorage.getItem("lang") || DEFAULT_LANG_EXPLORE).toLowerCase();
   loadExplore(lang);
+  updateEventsMonth(lang);
+
+  if (typeof window.setLang === "function") {
+    const _setLang = window.setLang;
+    window.setLang = async (l) => {
+      await _setLang(l);
+      updateEventsMonth(l);
+    };
+  }
 });

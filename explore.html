@@ -48,31 +48,8 @@
   <script src="/assets/js/leaflet.min.js" defer></script>
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/ui.js" defer></script>
-  <script src="/assets/js/explore.js?v=20260604b" defer></script>
+  <script src="/assets/js/explore.js?v=20260912" defer></script>
   <script src="/assets/js/map.js?v=20260407" defer></script>
-
-  <!-- Bridge: after i18n.js is ready, also refresh Explore content on language change -->
-  <script>
-    const _LANG_LOCALE = { en:'en-GB', hr:'hr-HR', de:'de-DE', it:'it-IT', sl:'sl-SI', cs:'cs-CZ', sk:'sk-SK', hu:'hu-HU', uk:'uk-UA' };
-    function updateEventsMonth(lang) {
-      const locale = _LANG_LOCALE[lang] || 'en-GB';
-      const now = new Date();
-      const mn = document.getElementById('events-month-name');
-      const my = document.getElementById('events-month-year');
-      if (mn) mn.textContent = now.toLocaleString(locale, { month: 'long' });
-      if (my) my.textContent = now.getFullYear();
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      updateEventsMonth(localStorage.getItem('lang') || 'en');
-      if (typeof window.setLang === 'function') {
-        const _setLang = window.setLang;
-        window.setLang = async (lang) => {
-          await _setLang(lang);
-          updateEventsMonth(lang);
-        };
-      }
-    });
-  </script>
 </head>
 <body>
 

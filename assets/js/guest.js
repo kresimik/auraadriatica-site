@@ -196,6 +196,22 @@ async function loadGuest(langOpt) {
 }
 
 window.loadGuest = loadGuest;
+
+// Localised "what's on this month" label in the events card
+const _GUEST_EVENTS_LOCALE = {
+  en: 'en-GB', hr: 'hr-HR', de: 'de-DE', it: 'it-IT', sl: 'sl-SI',
+  cs: 'cs-CZ', sk: 'sk-SK', hu: 'hu-HU', uk: 'uk-UA'
+};
+
+function updateGuestEventsMonth(lang) {
+  const locale = _GUEST_EVENTS_LOCALE[lang] || 'en-GB';
+  const now = new Date();
+  const mn = document.getElementById('events-month-name');
+  const my = document.getElementById('events-month-year');
+  if (mn) mn.textContent = now.toLocaleString(locale, { month: 'long' });
+  if (my) my.textContent = now.getFullYear();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Wait for i18n.js to set the language first, then load guest content
   const init = () => {
@@ -207,5 +223,15 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
   } else {
     setTimeout(init, 100);
+  }
+
+  updateGuestEventsMonth(localStorage.getItem('lang') || GUEST_DEFAULT_LANG);
+
+  if (typeof window.setLang === 'function') {
+    const _setLang = window.setLang;
+    window.setLang = async (lang) => {
+      await _setLang(lang);
+      updateGuestEventsMonth(lang);
+    };
   }
 });

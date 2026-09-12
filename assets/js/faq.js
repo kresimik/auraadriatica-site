@@ -32,4 +32,15 @@ async function loadFaq(langOpt) {
 
 window.loadFaq = loadFaq;
 
-document.addEventListener("DOMContentLoaded", () => loadFaq());
+document.addEventListener("DOMContentLoaded", () => {
+  loadFaq();
+
+  // Reload the FAQ list whenever the language changes
+  if (typeof window.setLang === "function") {
+    const _setLang = window.setLang;
+    window.setLang = async (lang) => {
+      await _setLang(lang);
+      loadFaq(lang);
+    };
+  }
+});

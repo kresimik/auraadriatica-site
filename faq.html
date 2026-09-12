@@ -112,20 +112,7 @@
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/ui.js" defer></script>
 
-  <script src="/assets/js/faq.js?v=20260330" defer></script>
-
-  <!-- Bridge: reload FAQ on language change -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof window.setLang === 'function') {
-        const _setLang = window.setLang;
-        window.setLang = async (lang) => {
-          await _setLang(lang);
-          if (typeof window.loadFaq === 'function') window.loadFaq(lang);
-        };
-      }
-    });
-  </script>
+  <script src="/assets/js/faq.js?v=20260912" defer></script>
 </head>
 <body>
 
