@@ -75,7 +75,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.css?v=20260729">
-  <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=20260317">
+  <link rel="stylesheet" href="/assets/css/aa-calendar.css?v=20260912">
 
   <!-- Turnstile callbacks (must be defined before api.js initialises the widget) -->
   <script src="/assets/js/turnstile.js?v=20260912" data-cfasync="false"></script>
@@ -86,9 +86,9 @@
   <!-- App scripts (i18n FIRST) -->
   <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/ui.js" defer></script>
-  <script src="/assets/js/apt.js?v=20260317" defer></script>
+  <script src="/assets/js/apt.js?v=20260912" defer></script>
   <script src="/assets/js/contact-form.js" defer></script>
-  <script src="/assets/js/aa-calendar.js?v=20260317" defer></script>
+  <script src="/assets/js/aa-calendar.js?v=20260912" defer></script>
 </head>
 
 <body data-apt-slug="onyx">
@@ -180,12 +180,18 @@
   </section>
 
   <!-- AVAILABILITY -->
-  <section class="section">
+  <!-- Booking.com availability is closed for now: data-booking-mode="direct"
+       hides the calendar and swaps in the direct-inquiry note. Remove the
+       attribute to bring the calendar back. -->
+  <section class="section" data-booking-mode="direct">
     <div class="container fade-up">
       <div class="section-label" data-i18n="avail_label">Calendar</div>
       <h2 class="aa-cal-title" data-i18n="availability_h">Availability</h2>
       <p class="aa-cal-note" id="apt-availability-note"></p>
       <div class="aa-ical-calendar aa-ical--compact" data-apt="onyx"></div>
+      <div class="avail-direct">
+        <a class="button onyx" href="#contact-form" data-i18n="inquire_btn">Inquire now</a>
+      </div>
     </div>
   </section>
 

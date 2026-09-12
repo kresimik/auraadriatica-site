@@ -217,15 +217,22 @@
     return n;
   }
 
+  // A calendar inside data-booking-mode="direct" is hidden (see style.css):
+  // skip it so we don't spend a request fetching a feed nobody will see.
+  const isHidden = (el) => !!el.closest('[data-booking-mode="direct"]');
+
   // ---- Auto-init on DOM ready ----
   document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".aa-ical-calendar[data-apt]").forEach(initCalendar);
+    document.querySelectorAll(".aa-ical-calendar[data-apt]").forEach((el) => {
+      if (!isHidden(el)) initCalendar(el);
+    });
   });
 
   // ---- Optional: live re-render on locale change ----
   // Call: window.AACalendarRerender('de'); // or without arg to just rebuild with current data-locale values
   window.AACalendarRerender = function (lang) {
     document.querySelectorAll(".aa-ical-calendar[data-apt]").forEach((el) => {
+      if (isHidden(el)) return;
       if (lang) el.dataset.locale = String(lang).toLowerCase();
       el.innerHTML = "";
       initCalendar(el);

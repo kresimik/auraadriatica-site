@@ -239,6 +239,26 @@ body[data-apt-slug="onyx"] .aa-ical-calendar {
 }
 
 /* =========================
+   DIRECT-INQUIRY MODE
+   Booking.com availability closed: hide the calendar (a fully blocked
+   grid reads as "sold out") and lead with the note plus a CTA instead.
+   ========================= */
+.avail-direct { display: none; }
+
+[data-booking-mode="direct"] .aa-ical-calendar { display: none; }
+
+[data-booking-mode="direct"] .aa-cal-note {
+  max-width: 60ch;
+  margin: .25rem 0 1.4rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--gold, #b8965a);
+  color: #5c544a;
+  font-size: 1rem;
+}
+
+[data-booking-mode="direct"] .avail-direct { display: block; }
+
+/* =========================
    NASLOVI IZNAD KALENDARA
    ========================= */
 body[data-apt-slug="olive"] .aa-cal-title { color: #4a6b1e; }

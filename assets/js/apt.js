@@ -69,9 +69,14 @@ async function loadApartment(slug, langOpt){
   setTxt("[data-i18n='contact_h']",     data.contact_h);
   setTxt("[data-i18n='availability_h']", data.availability_h);
 
+  // While Booking.com availability is closed the section is put in
+  // data-booking-mode="direct": the calendar is hidden (it would read as
+  // "sold out") and the note explains we are taking direct inquiries.
   const calNote = document.querySelector(".aa-cal-note, #apt-availability-note");
-  if (calNote && typeof data.availability_note === "string") {
-    calNote.textContent = data.availability_note;
+  if (calNote) {
+    const directMode = !!calNote.closest('[data-booking-mode="direct"]');
+    const note = (directMode && data.availability_note_direct) || data.availability_note;
+    if (typeof note === "string") calNote.textContent = note;
   }
 
   // ---------- DESCRIPTION ----------
