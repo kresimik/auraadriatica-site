@@ -152,6 +152,14 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   padding: .5rem 1rem;
 }
 .notice-bar strong { color: var(--gold-hover); }
+.notice-bar .notice-season { color: var(--gold-hover); }
+
+/* The bar is uppercase with wide tracking, so four segments wrap to three
+   lines on a phone. Drop the location there — it also sits in the hero,
+   the page title and the footer. */
+@media (max-width: 600px) {
+  .notice-bar .notice-loc { display: none; }
+}
 
 /* =========================
    HEADER
