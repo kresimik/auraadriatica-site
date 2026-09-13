@@ -12,6 +12,11 @@
   --cream:        #faf8f4;
   --gold:         #b8965a;
   --gold-hover:   #d4af72;
+  /* --gold reads at only 2.6:1 on cream and 2.5:1 on sand, below the 4.5:1
+     WCAG AA needs for text this size. Use this darker gold wherever gold is
+     TEXT on a light background; --gold stays for rules, borders and icons,
+     and --gold-hover for text on the dark hero/notice/footer (both pass). */
+  --gold-text:    #866327;
   --sea:          #2a4a5e;
   --sea-dark:     #1a3347;
   --muted:        #6a6055;
@@ -100,9 +105,9 @@ h1, h2, h3, .logo span {
 }
 h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
 h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
-h3 { font-size: 1.4rem; font-weight: 400; color: var(--gold); }
+h3 { font-size: 1.4rem; font-weight: 400; color: var(--gold-text); }
 
-h2 em, h1 em { font-style: italic; color: var(--gold); }
+h2 em, h1 em { font-style: italic; color: var(--gold-text); }
 
 /* Body copy in sections */
 .section p, .section li, .section ul, .section ol {
@@ -129,7 +134,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   font-weight: 600;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: .8rem;
 }
 .section-label::before {
@@ -519,7 +524,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   font-size: .7rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: .2rem;
 }
 .direct-booking-banner .dbb-title {
@@ -690,7 +695,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .tag {
   display: inline-block;
   background: var(--sand);
-  color: var(--gold);
+  color: var(--gold-text);
   border: 1px solid var(--border);
   padding: .3rem .65rem;
   border-radius: 2px;
@@ -727,7 +732,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   font-weight: 300;
-  color: var(--gold);
+  color: var(--gold-text);
   line-height: 1;
   margin-bottom: .25rem;
 }
@@ -850,7 +855,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   text-align: center; background: var(--sand); border-radius: 4px; padding: 2rem;
   box-shadow: var(--card-shadow); border: 1px solid var(--border-light);
 }
-.contact-box a { color: var(--gold); font-weight: 600; text-decoration: none; }
+.contact-box a { color: var(--gold-text); font-weight: 600; text-decoration: none; }
 .contact-box a:hover { color: var(--gold-hover); }
 
 /* =========================
@@ -896,7 +901,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   text-overflow: ellipsis;
 }
 .wx-temp { margin-top: 2px; font-size: .95rem; }
-.wx-temp strong { color: var(--gold); font-weight: 700; }
+.wx-temp strong { color: var(--gold-text); font-weight: 700; }
 .wx-temp .wx-sep { margin: 0 3px; opacity: .35; }
 .wx-temp .wx-min { color: var(--sea); font-weight: 400; }
 .wx-error {
