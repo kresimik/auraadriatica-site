@@ -75,10 +75,12 @@
       scrollWheelZoom: false
     });
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
-      maxZoom: 20
+    // Esri World Street Map: free, no API key, and its warm beige land / soft
+    // blue sea sit closer to the site palette than the grey no-key alternatives.
+    // Note the tile path is {z}/{y}/{x} — row before column, unlike most providers.
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+      attribution: 'Tiles © <a href="https://www.esri.com/">Esri</a> — Esri, DeLorme, NAVTEQ, TomTom',
+      maxZoom: 19
     }).addTo(map);
 
     setTimeout(() => map.invalidateSize(), 100);
