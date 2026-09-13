@@ -344,7 +344,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   overflow: hidden;
   color: #fff;
   background-image:
-    linear-gradient(to bottom, rgba(14,14,14,.35) 0%, rgba(14,14,14,.72) 100%),
+    linear-gradient(to bottom, rgba(18,36,50,.36) 0%, rgba(18,36,50,.73) 100%),
     url('/assets/img/hero.webp');
   background-position: center;
   background-size: cover;
@@ -572,16 +572,17 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   position: absolute; inset: 0;
   background: radial-gradient(circle at 30% 70%, rgba(255,255,255,.06), transparent 60%);
 }
+/* The photo carries the card. The brand gradient underneath still shows
+   through the remaining ~18%, which keeps Olive green and Onyx navy at a
+   glance, and .apt-card-overlay below handles text contrast. */
 .apt-card-photo {
   position: absolute; inset: 0;
   background-size: cover;
   background-position: center 25%;
-  opacity: .28;
-  -webkit-mask-image: linear-gradient(to bottom, black 15%, transparent 58%);
-  mask-image: linear-gradient(to bottom, black 15%, transparent 58%);
+  opacity: .82;
   transition: opacity .5s ease, transform .6s ease;
 }
-.apt-card:hover .apt-card-photo { opacity: .42; transform: scale(1.04); }
+.apt-card:hover .apt-card-photo { opacity: .92; transform: scale(1.04); }
 .apt-olive .apt-card-photo { background-image: url('/assets/img/olive-hero.webp'); }
 .apt-onyx  .apt-card-photo { background-image: url('/assets/img/onyx-hero.webp'); }
 .apt-card-overlay {
@@ -1035,9 +1036,6 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .glb-nav:hover { background: rgba(255,255,255,.2); }
 .glb-nav:hover { transform: translateY(-50%) scale(1.04); }
 @media (max-width: 720px) { .glightbox { grid-template-columns: 4px 1fr 4px; } }
-@media (prefers-reduced-motion: reduce) {
-  .g-item img, .glightbox, .glb-close, .glb-nav { transition: none !important; }
-}
 
 /* =========================
    CALENDAR IFRAME (legacy)
@@ -1440,6 +1438,27 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 @keyframes fadeUpFallback { to { opacity: 1; transform: translateY(0); } }
 .fade-up.visible { opacity: 1; transform: translateY(0); animation: none; }
+
+/* =========================
+   REDUCED MOTION
+   Previously only the gallery honoured this, leaving the section fade-ups,
+   card lifts, apartment-card zoom and nav slide animating regardless.
+   .fade-up needs an explicit override: it starts at opacity 0, so merely
+   shortening its transition would leave the content invisible.
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* =========================
    RESPONSIVE UTILITIES
