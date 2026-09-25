@@ -143,13 +143,22 @@
         form.reset();
         try { window.turnstile?.reset(widget); } catch {}
       } else {
-        // graceful fallback
+        // Offer the mail client as a fallback — but let the visitor choose.
+        // Opening it automatically hijacks the machine on every failed send,
+        // including an ordinary "please try again" validation reply.
         const subj = encodeURIComponent(`[${payload.apt}] Inquiry from ${payload.name}`);
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
         );
-        window.open(`mailto:info@auraadriatica.com?subject=${subj}&body=${body}`, '_blank');
         setStatus(t('sent_fail','Sending failed — please try again later.'), 'err');
+        if (statusEl) {
+          const a = document.createElement('a');
+          a.href = `mailto:info@auraadriatica.com?subject=${subj}&body=${body}`;
+          a.textContent = t('sent_fail_mail','Send it by email instead');
+          a.className = 'status-mail-link';
+          statusEl.appendChild(document.createTextNode(' '));
+          statusEl.appendChild(a);
+        }
       }
     } catch {
       setStatus(t('sent_fail','Sending failed — please try again later.'), 'err');

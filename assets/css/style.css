@@ -1557,3 +1557,11 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
    STAGGER — apt cards
    ========================= */
 .apt-grid .apt-card.fade-up:nth-child(2) { transition-delay: .12s; }
+
+/* Fallback offered when a send fails — the visitor clicks it, we never
+   open their mail client for them. */
+.status-mail-link {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+}
