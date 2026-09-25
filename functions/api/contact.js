@@ -124,24 +124,35 @@ export async function onRequestPost(context) {
   ].filter(Boolean).join('\n');
 
   // --- 4) Slanje maila
+  const sendMail = (fromValue) => fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      from: fromValue,
+      to: toArray,
+      subject,
+      text,
+      reply_to: email
+    })
+  });
+
   let r, rText, rJson;
   try {
-    r = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: notifyFrom, // "… WEB <addr>" — marks this as a website inquiry
-        to: toArray,
-        subject,
-        text,
-        reply_to: email
-        // (opcionalno) html: '<strong>..</strong>'
-      })
-    });
+    r = await sendMail(notifyFrom); // "… WEB <addr>" — marks this as a website inquiry
     rText = await r.text();
+
+    // The WEB suffix is cosmetic. If Resend rejects that sender for any reason,
+    // retry with CONTACT_FROM exactly as configured rather than losing the
+    // inquiry over a display name.
+    if (!r.ok && notifyFrom !== baseFrom) {
+      console.warn('Resend rejected notifyFrom, retrying with baseFrom', r.status, rText);
+      r = await sendMail(baseFrom);
+      rText = await r.text();
+    }
+
     try { rJson = JSON.parse(rText); } catch(_) { rJson = null; }
   } catch (e) {
     console.error('Resend fetch failed', String(e));

@@ -143,6 +143,13 @@
         form.reset();
         try { window.turnstile?.reset(widget); } catch {}
       } else {
+        // Show what the server actually said. Its messages are deliberately
+        // generic ("Verification failed", "Could not send your message"), so
+        // this leaks nothing, and it beats one catch-all string that hides
+        // whether the problem was the captcha, the send, or the input.
+        let reason = '';
+        try { reason = (await res.clone().json())?.error || ''; } catch {}
+
         // Offer the mail client as a fallback — but let the visitor choose.
         // Opening it automatically hijacks the machine on every failed send,
         // including an ordinary "please try again" validation reply.
@@ -150,7 +157,7 @@
         const body = encodeURIComponent(
           `Name: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\n\n${payload.message}`
         );
-        setStatus(t('sent_fail','Sending failed — please try again later.'), 'err');
+        setStatus(reason || t('sent_fail','Sending failed — please try again later.'), 'err');
         if (statusEl) {
           const a = document.createElement('a');
           a.href = `mailto:info@auraadriatica.com?subject=${subj}&body=${body}`;
