@@ -170,10 +170,12 @@ export async function onRequestPost(context) {
   // whatever address the form supplied, so echoing it would let anyone send arbitrary
   // text to a third party from our domain.
   const confirmFrom = baseFrom; // plain brand name — no internal "WEB" marker
+  const subjectLine = apt !== 'Apartment' ? `Apartment ${apt}` : 'our apartments';
+
   const confirmText = [
     `Dear ${name},`,
     '',
-    `Thank you for your inquiry about ${apt !== 'Apartment' ? `Apartment ${apt}` : 'our apartments'}.`,
+    `Thank you for your inquiry about ${subjectLine}.`,
     'We have received your message and will get back to you within 24 hours.',
     '',
     'Best regards,',
@@ -182,6 +184,50 @@ export async function onRequestPost(context) {
     'info@auraadriatica.com | +385 99 221 0910',
     'https://auraadriatica.com'
   ].join('\n');
+
+  // name and apt come from the form, so they must be escaped before going into
+  // markup — otherwise a crafted name injects HTML into the guest's mailbox.
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+
+  // A text-only confirmation is what mail-tester flagged under "your message
+  // could be improved": ordinary transactional mail carries both parts.
+  const confirmHtml = `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#faf8f4;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#faf8f4;padding:32px 16px;">
+<tr><td align="center">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid rgba(184,150,90,.25);border-radius:6px;">
+<tr><td style="height:3px;background:#b8965a;border-radius:6px 6px 0 0;"></td></tr>
+<tr><td style="padding:32px 32px 8px;">
+<div style="font:600 11px/1.4 Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#866327;">Aura Adriatica</div>
+<h1 style="margin:12px 0 0;font:300 26px/1.25 Georgia,'Times New Roman',serif;color:#1a3347;">Thank you for your inquiry</h1>
+</td></tr>
+<tr><td style="padding:16px 32px 8px;font:400 15px/1.7 Helvetica,Arial,sans-serif;color:#4a443c;">
+<p style="margin:0 0 14px;">Dear ${esc(name)},</p>
+<p style="margin:0 0 14px;">Thank you for your inquiry about <strong style="color:#1a3347;">${esc(subjectLine)}</strong>.</p>
+<p style="margin:0;">We have received your message and will get back to you within 24 hours.</p>
+</td></tr>
+<tr><td style="padding:24px 32px 32px;">
+<div style="border-top:1px solid rgba(184,150,90,.25);padding-top:18px;font:400 14px/1.7 Helvetica,Arial,sans-serif;color:#6a6055;">
+<div style="font:400 17px/1.3 Georgia,'Times New Roman',serif;color:#1a3347;">Aura Adriatica</div>
+<div style="margin-top:4px;">Lovran, Opatija Riviera</div>
+<div style="margin-top:10px;">
+<a href="mailto:info@auraadriatica.com" style="color:#866327;text-decoration:none;">info@auraadriatica.com</a>
+&nbsp;·&nbsp;
+<a href="tel:+385992210910" style="color:#866327;text-decoration:none;">+385 99 221 0910</a>
+</div>
+<div style="margin-top:10px;">
+<a href="https://auraadriatica.com" style="color:#866327;text-decoration:none;">auraadriatica.com</a>
+</div>
+</div>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body></html>`;
 
   try {
     await fetch('https://api.resend.com/emails', {
@@ -195,6 +241,7 @@ export async function onRequestPost(context) {
         to: [email],
         subject: `We received your inquiry — Aura Adriatica`,
         text: confirmText,
+        html: confirmHtml,
         reply_to: CONTACT_TO_RAW
       })
     });
