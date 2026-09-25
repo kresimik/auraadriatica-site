@@ -93,6 +93,26 @@ export async function onRequestPost(context) {
     ? CONTACT_TO_RAW.split(',').map(s => s.trim()).filter(Boolean)
     : [CONTACT_TO_RAW];
 
+  // Both mails go out under CONTACT_FROM. The owner's copy gets "WEB" appended
+  // to the display name so a website inquiry is recognisable at a glance in the
+  // inbox; the guest's confirmation keeps the plain brand name, since "WEB" is
+  // an internal marker that would only look odd to them.
+  const baseFrom = fromOk ? CONTACT_FROM : 'Aura Adriatica <info@auraadriatica.com>';
+
+  const parseFrom = (s) => {
+    const m = s.match(/^\s*(.*?)\s*<\s*([^>]+?)\s*>\s*$/);
+    if (!m) return { name: '', addr: s.trim() };
+    return { name: m[1].replace(/^"(.*)"$/, '$1').trim(), addr: m[2] };
+  };
+
+  const { name: fromName, addr: fromAddr } = parseFrom(baseFrom);
+  const notifyName = `${fromName || 'Aura Adriatica'} WEB`;
+  // Quote the phrase if it carries any RFC 5322 special, so a display name
+  // like "Aura Adriatica, Lovran" cannot break the header.
+  const notifyFrom = /[(),.:;<>@\[\]\\"]/.test(notifyName)
+    ? `"${notifyName.replace(/(["\\])/g, '\\$1')}" <${fromAddr}>`
+    : `${notifyName} <${fromAddr}>`;
+
   const subject = `[${apt}] Inquiry from ${name}`;
   const text = [
     `Apartment: ${apt}`,
@@ -113,7 +133,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: fromOk ? CONTACT_FROM : 'Aura Adriatica <info@auraadriatica.com>', // fallback
+        from: notifyFrom, // "… WEB <addr>" — marks this as a website inquiry
         to: toArray,
         subject,
         text,
@@ -138,7 +158,7 @@ export async function onRequestPost(context) {
   // The submitted message is deliberately NOT echoed back: the confirmation goes to
   // whatever address the form supplied, so echoing it would let anyone send arbitrary
   // text to a third party from our domain.
-  const confirmFrom = fromOk ? CONTACT_FROM : 'Aura Adriatica <info@auraadriatica.com>';
+  const confirmFrom = baseFrom; // plain brand name — no internal "WEB" marker
   const confirmText = [
     `Dear ${name},`,
     '',
