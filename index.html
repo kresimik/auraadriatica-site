@@ -108,7 +108,10 @@
   <section class="section alt">
     <div class="container">
       <div class="section-label fade-up" data-i18n="our_spaces">Our Spaces</div>
-      <h2 class="fade-up" data-i18n="apts_title">Two apartments, <em>one riviera</em></h2>
+      <!-- data-i18n-html: without it i18n.js writes textContent and strips the
+           <em>, so the gold italic half of the heading never renders. The value
+           comes from our own content/<lang>.json, not from user input. -->
+      <h2 class="fade-up" data-i18n="apts_title" data-i18n-html>Two apartments, <em>each with its own pool</em></h2>
       <div class="apt-grid">
         <a class="apt-card apt-olive fade-up" href="/apartments/olive.html">
           <div class="apt-card-bg"></div>
