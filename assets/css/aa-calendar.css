@@ -7,27 +7,33 @@
 /* =========================
    VARIJABLE (override po apartmanu)
    ========================= */
+/* --cal-booked-* were faint enough that a booked day was hard to tell from a
+   free one at a glance: a 13% hatch over the same cream background. The hatch
+   is now denser, sits on a solid tint, and the day number is struck through. */
 .aa-ical-calendar {
-  --cal-accent:     #b8965a;   /* gold — default */
-  --cal-accent-bg:  rgba(184,150,90,.10);
-  --cal-booked-bg:  rgba(184,150,90,.13);
-  --cal-booked-line:rgba(184,150,90,.35);
-  --cal-today-ring: rgba(184,150,90,.55);
+  --cal-accent:      #b8965a;   /* gold — default */
+  --cal-accent-bg:   rgba(184,150,90,.10);
+  --cal-booked-base: rgba(184,150,90,.14);
+  --cal-booked-bg:   rgba(184,150,90,.34);
+  --cal-booked-line: rgba(184,150,90,.55);
+  --cal-today-ring:  rgba(184,150,90,.55);
 }
 
 body[data-apt-slug="olive"] .aa-ical-calendar {
   --cal-accent:      #4a6b1e;
   --cal-accent-bg:   rgba(74,107,30,.09);
-  --cal-booked-bg:   rgba(74,107,30,.12);
-  --cal-booked-line: rgba(74,107,30,.32);
+  --cal-booked-base: rgba(74,107,30,.13);
+  --cal-booked-bg:   rgba(74,107,30,.32);
+  --cal-booked-line: rgba(74,107,30,.52);
   --cal-today-ring:  rgba(74,107,30,.5);
 }
 
 body[data-apt-slug="onyx"] .aa-ical-calendar {
   --cal-accent:      #2b3a4f;
   --cal-accent-bg:   rgba(43,58,79,.09);
-  --cal-booked-bg:   rgba(43,58,79,.13);
-  --cal-booked-line: rgba(43,58,79,.35);
+  --cal-booked-base: rgba(43,58,79,.13);
+  --cal-booked-bg:   rgba(43,58,79,.32);
+  --cal-booked-line: rgba(43,58,79,.52);
   --cal-today-ring:  rgba(43,58,79,.5);
 }
 
@@ -153,16 +159,26 @@ body[data-apt-slug="onyx"] .aa-ical-calendar {
   background:
     repeating-linear-gradient(
       135deg,
-      var(--cal-booked-bg)   0px  5px,
-      transparent            5px 10px
-    );
+      var(--cal-booked-bg)  0px 4px,
+      transparent           4px 8px
+    ),
+    var(--cal-booked-base);
   border: 1px solid var(--cal-booked-line);
 }
 
-/* Broj dana kad je zauzeto — tamniji za kontrast */
-.aa-cal__day .aa-cal__booked ~ .aa-cal__num {
-  color: #1a3347;
-  font-weight: 600;
+/* Struck through and muted: the strikethrough carries the meaning even where
+   the fill is hard to judge — small screens, print, colour-blind viewers. */
+.aa-cal__day--booked .aa-cal__num {
+  color: #6a6055;
+  font-weight: 500;
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--cal-booked-line);
+}
+
+/* Free days stay plain white so the eye lands on what is actually bookable. */
+.aa-cal__day:not(.aa-cal__day--booked):not(.aa-cal__day--other) {
+  background: #fff;
 }
 
 /* =========================
@@ -206,17 +222,19 @@ body[data-apt-slug="onyx"] .aa-ical-calendar {
 .aa-cal__legend .swatch {
   width: 14px; height: 14px;
   border-radius: 2px;
-  background: repeating-linear-gradient(
-    135deg,
-    var(--cal-booked-bg)  0px  5px,
-    transparent           5px 10px
-  );
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--cal-booked-bg)  0px 4px,
+      transparent           4px 8px
+    ),
+    var(--cal-booked-base);
   border: 1px solid var(--cal-booked-line);
   flex-shrink: 0;
 }
 .aa-cal__legend .swatch--free {
-  background: #faf8f4;
-  border: 1px solid rgba(184,150,90,.2);
+  background: #fff;
+  border: 1px solid rgba(184,150,90,.25);
 }
 /* Legacy i element */
 .aa-cal__legend i {
