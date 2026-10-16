@@ -1,4 +1,57 @@
 // /functions/api/contact.js
+
+// Guest confirmation, in the language of the page the inquiry came from.
+// Greetings are deliberately gender-neutral (Dobar dan / Guten Tag / Gentile /
+// Kedves …) — the form does not ask, and guessing from a name gets it wrong.
+// `about(apt)` gets "Olive"/"Onyx" or null for the general contact page.
+const CONFIRM = {
+  en: { name: 'English', subject: 'We received your inquiry — Aura Adriatica', heading: 'Thank you for your inquiry',
+        greet: (n) => n ? `Dear ${n},` : 'Dear guest,',
+        about: (a) => a ? `Thank you for your inquiry about Apartment ${a}.` : 'Thank you for your inquiry about our apartments.',
+        received: 'We have received your message and will get back to you within 24 hours.',
+        signoff: 'Best regards,', place: 'Lovran, Opatija Riviera' },
+  hr: { name: 'Croatian', subject: 'Zaprimili smo vaš upit — Aura Adriatica', heading: 'Hvala na upitu',
+        greet: (n) => n ? `Dobar dan, ${n},` : 'Dobar dan,',
+        about: (a) => a ? `Hvala vam na upitu za apartman ${a}.` : 'Hvala vam na upitu za naše apartmane.',
+        received: 'Vašu smo poruku zaprimili i javit ćemo vam se u roku od 24 sata.',
+        signoff: 'Srdačan pozdrav,', place: 'Lovran, Opatijska rivijera' },
+  de: { name: 'German', subject: 'Wir haben Ihre Anfrage erhalten — Aura Adriatica', heading: 'Vielen Dank für Ihre Anfrage',
+        greet: (n) => n ? `Guten Tag ${n},` : 'Guten Tag,',
+        about: (a) => a ? `Vielen Dank für Ihre Anfrage zum Apartment ${a}.` : 'Vielen Dank für Ihre Anfrage zu unseren Apartments.',
+        received: 'Wir haben Ihre Nachricht erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.',
+        signoff: 'Herzliche Grüße', place: 'Lovran, Riviera von Opatija' },
+  it: { name: 'Italian', subject: 'Abbiamo ricevuto la sua richiesta — Aura Adriatica', heading: 'Grazie per la sua richiesta',
+        greet: (n) => n ? `Gentile ${n},` : 'Gentile ospite,',
+        about: (a) => a ? `Grazie per la sua richiesta per l'appartamento ${a}.` : 'Grazie per la sua richiesta sui nostri appartamenti.',
+        received: 'Abbiamo ricevuto il suo messaggio e le risponderemo entro 24 ore.',
+        signoff: 'Cordiali saluti,', place: 'Lovran, Riviera di Opatija' },
+  sl: { name: 'Slovenian', subject: 'Prejeli smo vaše povpraševanje — Aura Adriatica', heading: 'Hvala za povpraševanje',
+        greet: (n) => n ? `Pozdravljeni, ${n},` : 'Pozdravljeni,',
+        about: (a) => a ? `Hvala za vaše povpraševanje za apartma ${a}.` : 'Hvala za vaše povpraševanje za naše apartmaje.',
+        received: 'Vaše sporočilo smo prejeli in se vam bomo oglasili v 24 urah.',
+        signoff: 'Lep pozdrav,', place: 'Lovran, Opatijska riviera' },
+  hu: { name: 'Hungarian', subject: 'Megkaptuk érdeklődését — Aura Adriatica', heading: 'Köszönjük érdeklődését',
+        greet: (n) => n ? `Kedves ${n},` : 'Kedves Vendégünk,',
+        about: (a) => a ? `Köszönjük érdeklődését az ${a} apartman iránt.` : 'Köszönjük érdeklődését apartmanjaink iránt.',
+        received: 'Üzenetét megkaptuk, és 24 órán belül válaszolunk.',
+        signoff: 'Üdvözlettel:', place: 'Lovran, Opatijai Riviéra' },
+  cs: { name: 'Czech', subject: 'Váš dotaz jsme obdrželi — Aura Adriatica', heading: 'Děkujeme za váš dotaz',
+        greet: (n) => n ? `Dobrý den, ${n},` : 'Dobrý den,',
+        about: (a) => a ? `Děkujeme za váš dotaz na apartmán ${a}.` : 'Děkujeme za váš dotaz na naše apartmány.',
+        received: 'Vaši zprávu jsme obdrželi a ozveme se vám do 24 hodin.',
+        signoff: 'S pozdravem', place: 'Lovran, Opatijská riviéra' },
+  sk: { name: 'Slovak', subject: 'Váš dopyt sme prijali — Aura Adriatica', heading: 'Ďakujeme za váš dopyt',
+        greet: (n) => n ? `Dobrý deň, ${n},` : 'Dobrý deň,',
+        about: (a) => a ? `Ďakujeme za váš dopyt na apartmán ${a}.` : 'Ďakujeme za váš dopyt na naše apartmány.',
+        received: 'Vašu správu sme prijali a ozveme sa vám do 24 hodín.',
+        signoff: 'S pozdravom', place: 'Lovran, Opatijská riviéra' },
+  uk: { name: 'Ukrainian', subject: 'Ми отримали ваш запит — Aura Adriatica', heading: 'Дякуємо за ваш запит',
+        greet: (n) => n ? `Доброго дня, ${n}!` : 'Доброго дня!',
+        about: (a) => a ? `Дякуємо за ваш запит щодо апартаментів ${a}.` : 'Дякуємо за ваш запит щодо наших апартаментів.',
+        received: 'Ми отримали ваше повідомлення і відповімо протягом 24 годин.',
+        signoff: 'З повагою,', place: 'Ловран, Опатійська Рив\'єра' }
+};
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -32,6 +85,9 @@ export async function onRequestPost(context) {
   // the form supplied — so it is a closed set, never free text.
   const APTS = { olive: 'Olive', onyx: 'Onyx' };
   const apt  = APTS[line(data?.apt, 20).toLowerCase()] || 'Apartment';
+  // Language of the page the inquiry came from — also a closed set.
+  const lang = Object.prototype.hasOwnProperty.call(CONFIRM, line(data?.lang, 5).toLowerCase())
+    ? line(data?.lang, 5).toLowerCase() : 'en';
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -120,14 +176,15 @@ export async function onRequestPost(context) {
     : `${notifyName} <${fromAddr}>`;
 
   const subject = `[${apt}] Inquiry from ${name}`;
+  // Header lines, then a blank line, then the message. (The blank line used to
+  // be dropped by filter(Boolean) along with the empty phone field.)
   const text = [
     `Apartment: ${apt}`,
     `Name: ${name}`,
     `Email: ${email}`,
     phone ? `Phone: ${phone}` : '',
-    '',
-    message
-  ].filter(Boolean).join('\n');
+    `Language: ${CONFIRM[lang].name} (${lang}) — the guest's confirmation went out in this language`
+  ].filter(Boolean).join('\n') + '\n\n' + message;
 
   // --- 4) Slanje maila
   const sendMail = (fromValue) => fetch('https://api.resend.com/emails', {
@@ -176,7 +233,9 @@ export async function onRequestPost(context) {
   // whatever address the form supplied, so echoing it would let anyone send arbitrary
   // text to a third party from our domain.
   const confirmFrom = baseFrom; // plain brand name — no internal "WEB" marker
-  const subjectLine = apt !== 'Apartment' ? `Apartment ${apt}` : 'our apartments';
+  const L = CONFIRM[lang];
+  const aptName = apt !== 'Apartment' ? apt : null;   // whitelisted Olive/Onyx or null
+  const siteUrl = lang === 'en' ? 'https://auraadriatica.com/' : `https://auraadriatica.com/${lang}/`;
 
   // The confirmation goes to an address we cannot verify, so the one piece of
   // visitor text in it must not be able to carry a message. Only greet by name
@@ -189,19 +248,19 @@ export async function onRequestPost(context) {
     /^[\p{L}\p{M}][\p{L}\p{M} .'’-]{1,59}$/u.test(name) &&
     !/\.\p{L}/u.test(name) &&
     name.split(/\s+/).length <= 5;
-  const greetName = looksLikeName ? name : 'guest';
+  const greetName = looksLikeName ? name : null;   // null -> the language's no-name greeting
 
   const confirmText = [
-    `Dear ${greetName},`,
+    L.greet(greetName),
     '',
-    `Thank you for your inquiry about ${subjectLine}.`,
-    'We have received your message and will get back to you within 24 hours.',
+    L.about(aptName),
+    L.received,
     '',
-    'Best regards,',
+    L.signoff,
     'Aura Adriatica',
-    'Lovran, Opatija Riviera',
+    L.place,
     'info@auraadriatica.com | +385 99 221 0910',
-    'https://auraadriatica.com'
+    siteUrl
   ].join('\n');
 
   // name and apt come from the form, so they must be escaped before going into
@@ -210,10 +269,16 @@ export async function onRequestPost(context) {
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
   ));
 
+  // The apartment name is bold in the HTML part. aptName is the whitelisted
+  // Olive/Onyx, so swapping it back in after escaping is safe.
+  const aboutHtml = aptName
+    ? esc(L.about(aptName)).replace(aptName, `<strong style="color:#1a3347;">${aptName}</strong>`)
+    : esc(L.about(null));
+
   // A text-only confirmation is what mail-tester flagged under "your message
   // could be improved": ordinary transactional mail carries both parts.
   const confirmHtml = `<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="${lang}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#faf8f4;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#faf8f4;padding:32px 16px;">
@@ -222,24 +287,24 @@ export async function onRequestPost(context) {
 <tr><td style="height:3px;background:#b8965a;border-radius:6px 6px 0 0;"></td></tr>
 <tr><td style="padding:32px 32px 8px;">
 <div style="font:600 11px/1.4 Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#866327;">Aura Adriatica</div>
-<h1 style="margin:12px 0 0;font:300 26px/1.25 Georgia,'Times New Roman',serif;color:#1a3347;">Thank you for your inquiry</h1>
+<h1 style="margin:12px 0 0;font:300 26px/1.25 Georgia,'Times New Roman',serif;color:#1a3347;">${esc(L.heading)}</h1>
 </td></tr>
 <tr><td style="padding:16px 32px 8px;font:400 15px/1.7 Helvetica,Arial,sans-serif;color:#4a443c;">
-<p style="margin:0 0 14px;">Dear ${esc(greetName)},</p>
-<p style="margin:0 0 14px;">Thank you for your inquiry about <strong style="color:#1a3347;">${esc(subjectLine)}</strong>.</p>
-<p style="margin:0;">We have received your message and will get back to you within 24 hours.</p>
+<p style="margin:0 0 14px;">${esc(L.greet(greetName))}</p>
+<p style="margin:0 0 14px;">${aboutHtml}</p>
+<p style="margin:0;">${esc(L.received)}</p>
 </td></tr>
 <tr><td style="padding:24px 32px 32px;">
 <div style="border-top:1px solid rgba(184,150,90,.25);padding-top:18px;font:400 14px/1.7 Helvetica,Arial,sans-serif;color:#6a6055;">
 <div style="font:400 17px/1.3 Georgia,'Times New Roman',serif;color:#1a3347;">Aura Adriatica</div>
-<div style="margin-top:4px;">Lovran, Opatija Riviera</div>
+<div style="margin-top:4px;">${esc(L.place)}</div>
 <div style="margin-top:10px;">
 <a href="mailto:info@auraadriatica.com" style="color:#866327;text-decoration:none;">info@auraadriatica.com</a>
 &nbsp;·&nbsp;
 <a href="tel:+385992210910" style="color:#866327;text-decoration:none;">+385 99 221 0910</a>
 </div>
 <div style="margin-top:10px;">
-<a href="https://auraadriatica.com" style="color:#866327;text-decoration:none;">auraadriatica.com</a>
+<a href="${siteUrl}" style="color:#866327;text-decoration:none;">auraadriatica.com</a>
 </div>
 </div>
 </td></tr>
@@ -258,7 +323,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: confirmFrom,
         to: [email],
-        subject: `We received your inquiry — Aura Adriatica`,
+        subject: L.subject,
         text: confirmText,
         html: confirmHtml,
         reply_to: CONTACT_TO_RAW

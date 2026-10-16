@@ -124,6 +124,9 @@
 
     const payload = {
       apt: form.getAttribute('data-apt') || $('#cf-apt')?.value || 'Apartment',
+      // Page language, so the guest's confirmation can be sent in it.
+      // Set on <html> by the server for /de/… pages and by i18n.js otherwise.
+      lang: (document.documentElement.lang || 'en').toLowerCase(),
       name: $('#cf-name').value.trim(),
       email: $('#cf-email').value.trim(),
       phone: $('#cf-phone')?.value?.trim() || '',
