@@ -105,6 +105,9 @@
   }
 
   function card(iso, code, tmin, tmax, dayFmt, lab){
+    // iso comes from a third-party API and is written into markup below;
+    // accept only a plain YYYY-MM-DD date.
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(iso))) return '';
     const key = codeToKey(code);
     const lang = (localStorage.getItem('lang') || 'en').toLowerCase();
     const desc = (DESCS[key] && (DESCS[key][lang] || DESCS[key].en)) || '';

@@ -21,12 +21,17 @@ export async function onRequestPost(context) {
 
   // Ensure all fields are strings (prevent type coercion attacks)
   const str = (v, max) => String(v ?? '').trim().slice(0, max);
-  const name    = str(data?.name,    120);
-  const email   = str(data?.email,   254);
+  // Single-line fields end up in a subject line; never let CR/LF through.
+  const line = (v, max) => str(v, max).replace(/[\r\n\t]+/g, ' ');
+  const name    = line(data?.name,    120);
+  const email   = line(data?.email,   254);
   const message = str(data?.message, 4000);
   const token   = str(data?.token,   2048);
-  const phone   = str(data?.phone,   30);
-  const apt     = str(data?.apt,     60) || 'Apartment';
+  const phone   = line(data?.phone,   30);
+  // apt is echoed into the guest confirmation, which goes to whatever address
+  // the form supplied — so it is a closed set, never free text.
+  const APTS = { olive: 'Olive', onyx: 'Onyx' };
+  const apt  = APTS[line(data?.apt, 20).toLowerCase()] || 'Apartment';
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -55,8 +60,9 @@ export async function onRequestPost(context) {
       body: form
     });
     tJson = await tRes.json();
-  } catch {
-    return fail(502, 'Turnstile verify fetch failed');
+  } catch (e) {
+    console.error('Turnstile verify fetch failed', String(e));
+    return fail(502, 'Verification is temporarily unavailable. Please try again.');
   }
 
   if (!tJson.success) {
@@ -172,8 +178,21 @@ export async function onRequestPost(context) {
   const confirmFrom = baseFrom; // plain brand name — no internal "WEB" marker
   const subjectLine = apt !== 'Apartment' ? `Apartment ${apt}` : 'our apartments';
 
+  // The confirmation goes to an address we cannot verify, so the one piece of
+  // visitor text in it must not be able to carry a message. Only greet by name
+  // when it looks like a name — letters, spaces, . ' ’ - — otherwise "guest".
+  // That stops "John, your booking failed, pay at evil.example" being relayed
+  // from our domain to a third party.
+  // A dot followed straight by letters is a domain ("evil.example"), not an
+  // initial ("Mr. Smith"); and a real name is a handful of words, not a sentence.
+  const looksLikeName =
+    /^[\p{L}\p{M}][\p{L}\p{M} .'’-]{1,59}$/u.test(name) &&
+    !/\.\p{L}/u.test(name) &&
+    name.split(/\s+/).length <= 5;
+  const greetName = looksLikeName ? name : 'guest';
+
   const confirmText = [
-    `Dear ${name},`,
+    `Dear ${greetName},`,
     '',
     `Thank you for your inquiry about ${subjectLine}.`,
     'We have received your message and will get back to you within 24 hours.',
@@ -206,7 +225,7 @@ export async function onRequestPost(context) {
 <h1 style="margin:12px 0 0;font:300 26px/1.25 Georgia,'Times New Roman',serif;color:#1a3347;">Thank you for your inquiry</h1>
 </td></tr>
 <tr><td style="padding:16px 32px 8px;font:400 15px/1.7 Helvetica,Arial,sans-serif;color:#4a443c;">
-<p style="margin:0 0 14px;">Dear ${esc(name)},</p>
+<p style="margin:0 0 14px;">Dear ${esc(greetName)},</p>
 <p style="margin:0 0 14px;">Thank you for your inquiry about <strong style="color:#1a3347;">${esc(subjectLine)}</strong>.</p>
 <p style="margin:0;">We have received your message and will get back to you within 24 hours.</p>
 </td></tr>
