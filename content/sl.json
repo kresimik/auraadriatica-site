@@ -66,6 +66,7 @@
   "stat_beach": "do plaže",
   "stat_opatija": "do Opatije",
   "stat_airport": "do letališča Pula",
+  "stat_airport_rijeka": "do letališča Rijeka",
   "stat_plitvice": "do Plitvičkih jezer",
   "explore_do_label": "Aktivnosti",
   "explore_beaches_label": "Plaže",
@@ -98,7 +99,7 @@
     },
     {
       "q": "Razdalja od centra",
-      "a": "10 minut hoje do starega mestnega jedra Lovrana, plaže in Lungomare promenade."
+      "a": "Najbližja plaža je oddaljena približno 100 metrov, do starega mestnega jedra Lovrana in promenade Lungomare pa je 10 minut hoje."
     },
     {
       "q": "Otroška posteljica",

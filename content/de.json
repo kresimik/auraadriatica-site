@@ -66,6 +66,7 @@
   "stat_beach": "zum Strand",
   "stat_opatija": "bis Opatija",
   "stat_airport": "bis Flughafen Pula",
+  "stat_airport_rijeka": "bis Flughafen Rijeka",
   "stat_plitvice": "bis Plitvicer Seen",
   "explore_do_label": "Aktivitäten",
   "explore_beaches_label": "Küste",
@@ -98,7 +99,7 @@
     },
     {
       "q": "Entfernung zum Zentrum",
-      "a": "10 Gehminuten zur Altstadt von Lovran, zum Strand und zur Lungomare-Promenade."
+      "a": "Der nächste Strand ist rund 100 Meter entfernt; die Altstadt von Lovran und die Lungomare-Promenade erreichen Sie in 10 Gehminuten."
     },
     {
       "q": "Kinderbett",

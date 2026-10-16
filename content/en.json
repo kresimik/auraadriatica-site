@@ -66,6 +66,7 @@
   "stat_beach": "to the beach",
   "stat_opatija": "to Opatija",
   "stat_airport": "to Pula airport",
+  "stat_airport_rijeka": "to Rijeka airport",
   "stat_plitvice": "to Plitvice",
   "explore_do_label": "Activities",
   "explore_beaches_label": "Seaside",
@@ -98,7 +99,7 @@
     },
     {
       "q": "Distance from the centre",
-      "a": "10 minutes' walk to Lovran's old town, the beach, and the Lungomare promenade."
+      "a": "The nearest beach is about 100 metres away; Lovran's old town and the Lungomare promenade are a 10-minute walk."
     },
     {
       "q": "Baby cot",

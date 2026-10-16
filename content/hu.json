@@ -66,6 +66,7 @@
   "stat_beach": "a strandig",
   "stat_opatija": "Opatijáig",
   "stat_airport": "Pula repülőtérig",
+  "stat_airport_rijeka": "Rijeka repülőtérig",
   "stat_plitvice": "Plitvicéig",
   "explore_do_label": "Programok",
   "explore_beaches_label": "Strandok",
@@ -98,7 +99,7 @@
     },
     {
       "q": "Távolság a belvárostól",
-      "a": "10 perc séta Lovran óvárosától, a strandjától és a Lungomare sétánytól."
+      "a": "A legközelebbi strand körülbelül 100 méterre van; Lovran óvárosa és a Lungomare sétány 10 perc sétára található."
     },
     {
       "q": "Gyermekágy",

@@ -713,7 +713,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
    ========================= */
 .location-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
   border: 1px solid var(--border-light);
   border-radius: 4px;
@@ -742,9 +742,12 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
   text-transform: uppercase;
   color: var(--muted);
 }
+/* Five items: two pairs, then the last one across the full width. */
 @media (max-width: 640px) {
   .location-stats { grid-template-columns: 1fr 1fr; }
-  .stat-item:nth-child(2) { border-right: 0; }
+  .stat-item:nth-child(2n) { border-right: 0; }
+  .stat-item:nth-child(n+3) { border-top: 1px solid var(--border-light); }
+  .stat-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 /* =========================

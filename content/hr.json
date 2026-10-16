@@ -66,6 +66,7 @@
   "stat_beach": "do plaže",
   "stat_opatija": "do Opatije",
   "stat_airport": "do aerodroma Pula",
+  "stat_airport_rijeka": "do aerodroma Rijeka",
   "stat_plitvice": "do Plitvica",
   "explore_do_label": "Aktivnosti",
   "explore_beaches_label": "Plaže",
@@ -98,7 +99,7 @@
     },
     {
       "q": "Udaljenost od centra",
-      "a": "10 minuta pješice do starog centra Lovrana, plaže i Lungomare šetnice."
+      "a": "Do najbliže plaže je stotinjak metara, a do starog centra Lovrana i šetnice Lungomare 10 minuta pješice."
     },
     {
       "q": "Dječji krevet",

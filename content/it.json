@@ -66,6 +66,7 @@
   "stat_beach": "alla spiaggia",
   "stat_opatija": "a Opatija",
   "stat_airport": "all'aeroporto di Pola",
+  "stat_airport_rijeka": "all'aeroporto di Fiume",
   "stat_plitvice": "ai Laghi di Plitvice",
   "explore_do_label": "Attività",
   "explore_beaches_label": "Mare",
@@ -98,7 +99,7 @@
     },
     {
       "q": "Distanza dal centro",
-      "a": "10 minuti a piedi dal centro storico di Lovran, dalla spiaggia e dal Lungomare."
+      "a": "La spiaggia più vicina è a circa 100 metri; il centro storico di Lovran e il Lungomare sono a 10 minuti a piedi."
     },
     {
       "q": "Lettino per bambini",

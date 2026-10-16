@@ -66,6 +66,7 @@
   "stat_beach": "na pláž",
   "stat_opatija": "do Opatiji",
   "stat_airport": "na letiště Pula",
+  "stat_airport_rijeka": "na letiště Rijeka",
   "stat_plitvice": "k Plitvickým jezerům",
   "explore_do_label": "Aktivity",
   "explore_beaches_label": "Pláže",
@@ -98,7 +99,7 @@
     },
     {
       "q": "Vzdálenost od centra",
-      "a": "10 minut chůze do historického centra Lovran, na pláž a na promenádu Lungomare."
+      "a": "Nejbližší pláž je asi 100 metrů daleko; historické centrum Lovranu a promenáda Lungomare jsou 10 minut chůze."
     },
     {
       "q": "Dětská postýlka",
