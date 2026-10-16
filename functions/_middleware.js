@@ -37,6 +37,13 @@ export async function onRequest(context) {
     return redirect(url, rest, 301);
   }
 
+  // Same rule Pages applies to English: one address per page, without .html.
+  // (The ASSETS binding serves /explore.html directly instead of redirecting.)
+  if (/\.html$/.test(rest)) {
+    const pretty = prettyPath(rest);
+    return redirect(url, `/${lang}${pretty === '/' ? '/' : pretty}${url.search}`, 308);
+  }
+
   // A plain fetch, deliberately not forwarding the browser's request: its
   // If-None-Match would be checked against the *English* file's ETag, and a
   // 304 then would keep serving yesterday's translation after a content edit.
