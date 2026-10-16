@@ -75,11 +75,13 @@ function applyTranslations() {
     }
   });
 
-  // Optional: translate <meta name="description">
-  const metaDesc = document.querySelector("meta[name='description']");
-  if (metaDesc && typeof translations["meta_desc"] === "string") {
-    metaDesc.setAttribute("content", translations["meta_desc"]);
-  }
+  // Attribute translations, opt-in per element: <meta data-i18n-content="key">.
+  // Previously the homepage's meta_desc was written into the description of
+  // every page, so FAQ, Gallery and Explore all carried the homepage's.
+  document.querySelectorAll("[data-i18n-content]").forEach((el) => {
+    const val = translations[el.getAttribute("data-i18n-content")];
+    if (typeof val === "string") el.setAttribute("content", val);
+  });
 }
 
 function updateDropdown(lang) {
@@ -129,6 +131,22 @@ window.setLang = async function setLang(lang) {
   }
 };
 
+// ---------- language addresses ----------
+// English at the root, every other language under its prefix: /explore,
+// /de/explore, /hr/apartments/olive. Mirrors functions/_middleware.js.
+const PREFIXED_LANGS = SUPPORTED_LANGS.filter((l) => l !== "en");
+
+function isGuestPage() {
+  return /^\/guest(\/|$)/.test(location.pathname);
+}
+
+function urlForLang(lang) {
+  const m = location.pathname.match(/^\/([a-z]{2})(\/.*|$)/);
+  const base = m && PREFIXED_LANGS.includes(m[1]) ? (m[2] || "/") : location.pathname;
+  const path = lang === "en" ? base : `/${lang}${base}`;
+  return path + location.search + location.hash;
+}
+
 // ---------- dropdown wiring ----------
 function wireLanguageDropdowns() {
   document.querySelectorAll(".lang-dropdown").forEach((dd) => {
@@ -147,7 +165,16 @@ function wireLanguageDropdowns() {
     menu.addEventListener("click", async (e) => {
       const b = e.target.closest("button[data-lang]");
       if (!b) return;
-      await window.setLang(b.dataset.lang);
+      const lang = b.dataset.lang.toLowerCase();
+      // Public pages have one address per language (/de/explore), so switching
+      // language is a navigation. The guest page has no such addresses and
+      // still switches in place.
+      if (!isGuestPage()) {
+        try { localStorage.setItem("lang", lang); } catch (_) {}
+        location.assign(urlForLang(lang));
+        return;
+      }
+      await window.setLang(lang);
       close();
     });
 

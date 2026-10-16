@@ -4,121 +4,1073 @@
 
   <url>
     <loc>https://auraadriatica.com/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
   </url>
 
   <url>
-    <loc>https://auraadriatica.com/apartments/olive.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://auraadriatica.com/hr/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/de/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/it/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sl/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hu/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/cs/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sk/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/uk/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/apartments/olive.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/apartments/olive.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
   </url>
 
   <url>
-    <loc>https://auraadriatica.com/apartments/onyx.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://auraadriatica.com/hr/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/apartments/onyx.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/apartments/onyx.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
   </url>
 
   <url>
-    <loc>https://auraadriatica.com/explore.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://auraadriatica.com/de/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/it/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sl/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hu/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/cs/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sk/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/uk/apartments/olive</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/olive"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/olive"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hr/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/de/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/it/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sl/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hu/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/cs/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sk/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/uk/apartments/onyx</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/apartments/onyx"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/apartments/onyx"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/explore</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/explore.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/explore.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
   </url>
 
   <url>
-    <loc>https://auraadriatica.com/gallery.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://auraadriatica.com/hr/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/de/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/it/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sl/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hu/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/cs/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sk/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/uk/explore</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/explore"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/explore"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/explore"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/explore"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/explore"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/explore"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/explore"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/explore"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/explore"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
   </url>
 
   <url>
-    <loc>https://auraadriatica.com/faq.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://auraadriatica.com/hr/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
   </url>
 
   <url>
-    <loc>https://auraadriatica.com/contact.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <loc>https://auraadriatica.com/de/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/it/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sl/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hu/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/cs/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sk/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/uk/gallery</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/gallery"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/gallery"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/gallery"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/gallery"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/gallery"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/gallery"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/gallery"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hr/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/de/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/it/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sl/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hu/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/cs/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sk/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/uk/faq</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/faq"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/faq"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/faq"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/faq"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/faq"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/faq"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/faq"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/faq"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/contact</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hr/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/de/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/it/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sl/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/hu/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/cs/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/sk/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
+  </url>
+
+  <url>
+    <loc>https://auraadriatica.com/uk/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auraadriatica.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://auraadriatica.com/hr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://auraadriatica.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://auraadriatica.com/it/contact"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://auraadriatica.com/sl/contact"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://auraadriatica.com/hu/contact"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://auraadriatica.com/cs/contact"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://auraadriatica.com/sk/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://auraadriatica.com/uk/contact"/>
   </url>
 
 </urlset>
