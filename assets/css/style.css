@@ -1565,3 +1565,7 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
   text-decoration: underline;
   font-weight: 600;
 }
+
+/* Multi-paragraph card copy rendered by i18n.js (data-i18n-paras). */
+.card-prose p { margin: 0 0 .9rem; }
+.card-prose p:last-child { margin-bottom: 0; }

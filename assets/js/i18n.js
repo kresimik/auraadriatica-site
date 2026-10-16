@@ -64,6 +64,12 @@ function applyTranslations() {
     if (typeof val !== "string") return; // only strings
     if (el.hasAttribute("data-i18n-html")) {
       el.innerHTML = val;
+    } else if (el.hasAttribute("data-i18n-paras")) {
+      // Multi-paragraph copy is stored with "\n" between paragraphs. As plain
+      // textContent those collapse into a single run of text, so build one <p>
+      // per paragraph instead — still textContent, no markup from the JSON.
+      el.replaceChildren(...val.split(/\n+/).map((s) => s.trim()).filter(Boolean)
+        .map((s) => { const p = document.createElement("p"); p.textContent = s; return p; }));
     } else {
       el.textContent = val;
     }
