@@ -1,6 +1,30 @@
 // i18n.js — translations + language dropdown (single source of truth)
 
 const DEFAULT_LANG = "en";
+const SUPPORTED_LANGS = ["hr", "en", "de", "it", "sl", "hu", "cs", "sk", "uk"];
+
+// First visit only: pick the visitor's browser language instead of always
+// English. Runs at top level, not on DOMContentLoaded, because apt.js,
+// weather.js, the calendar and the other page scripts read localStorage.lang
+// themselves — it has to be settled before any of them run, or the page would
+// come up half in one language and half in another. An explicit choice from
+// the dropdown is saved over this and always wins.
+(function pickFirstVisitLanguage() {
+  try {
+    if (localStorage.getItem("lang")) return;
+    // Bosnian, Serbian and Serbo-Croatian readers are better served by
+    // Croatian than by English.
+    const ALIAS = { bs: "hr", sr: "hr", sh: "hr" };
+    const prefs = navigator.languages && navigator.languages.length
+      ? navigator.languages : [navigator.language || ""];
+    for (const tag of prefs) {
+      const base = String(tag).toLowerCase().split("-")[0];
+      const lang = ALIAS[base] || base;
+      if (SUPPORTED_LANGS.includes(lang)) { localStorage.setItem("lang", lang); return; }
+    }
+  } catch (_) { /* storage blocked (private mode): stay on the default */ }
+})();
+
 let currentLang = DEFAULT_LANG;
 let translations = {};
 const langCache = Object.create(null); // in-memory cache
