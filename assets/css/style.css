@@ -1572,3 +1572,25 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
 /* Multi-paragraph card copy rendered by i18n.js (data-i18n-paras). */
 .card-prose p { margin: 0 0 .9rem; }
 .card-prose p:last-child { margin-bottom: 0; }
+
+/* Map click-to-load placeholder (explore page). Fills the map box until the
+   visitor opts in; map.js removes it before Leaflet takes over. */
+.map-consent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--sand);
+  border-radius: 4px;
+}
+.map-consent p {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.6;
+}

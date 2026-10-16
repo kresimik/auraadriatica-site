@@ -12,8 +12,6 @@
   const mount = document.getElementById('weather-widget');
   if (!mount) return;
 
-  // Lovran
-  const LAT = 45.291, LON = 14.272, TZ = 'Europe/Zagreb';
 
   // Jezik / locale
   function getLocale() {
@@ -145,21 +143,17 @@
     mount.innerHTML = html;
   }
 
-  // Fetch
-  const baseURL = new URL('https://api.open-meteo.com/v1/forecast');
-  baseURL.search = new URLSearchParams({
-    latitude: LAT, longitude: LON, timezone: TZ,
-    daily: 'weathercode,temperature_2m_max,temperature_2m_min',
-    forecast_days: '7'
-  }).toString();
+  // Fetch — via our own /api/weather, so the visitor's browser never talks to
+  // the forecast provider directly (see functions/api/weather.js).
+  let lastData = null;
 
   async function loadAndRender(){
     showSkeleton();
     try{
-      const r = await fetch(baseURL.toString(), { cache:'default' });
+      const r = await fetch('/api/weather', { cache:'default' });
       if (!r.ok) throw new Error('Network');
-      const json = await r.json();
-      render(json);
+      lastData = await r.json();
+      render(lastData);
     }catch(e){
       console.warn('Weather error:', e);
       mount.innerHTML = `<p class="wx-error">Weather unavailable at the moment.</p>`;
@@ -169,11 +163,15 @@
   // Init
   loadAndRender();
 
-  // Re-render na promjenu jezika (isti event koji koristiš za i18n dropdown)
+  // Language change only relabels the days — reuse the forecast we already
+  // have instead of fetching it again.
   document.addEventListener('click', (e)=>{
     const btn = e.target.closest('.lang-menu button[data-lang]');
     if (!btn) return;
-    // Pričekaj da tvoj i18n promijeni localStorage.lang pa re-render
-    setTimeout(loadAndRender, 0);
+    // i18n has written localStorage.lang by the time this tick ends.
+    setTimeout(() => {
+      if (!lastData) return loadAndRender();
+      try { render(lastData); } catch { loadAndRender(); }
+    }, 0);
   });
 })();

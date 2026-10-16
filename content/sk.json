@@ -133,5 +133,7 @@
   "events_btn": "Stiahnuť program",
   "map_label": "Mapa",
   "map_h": "Nájdite nás a preskúmajte",
+  "map_consent_text": "Mapu poskytuje Esri. Jej načítaním sa váš prehliadač pripojí k ich serverom.",
+  "map_consent_btn": "Zobraziť mapu",
   "explore_family_label": "Rodina"
 }

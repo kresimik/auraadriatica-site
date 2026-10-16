@@ -133,5 +133,7 @@
   "events_btn": "Preuzmi program",
   "map_label": "Karta",
   "map_h": "Pronađite nas i istražite",
+  "map_consent_text": "Kartu pruža Esri. Učitavanjem se vaš preglednik povezuje s njihovim poslužiteljima.",
+  "map_consent_btn": "Prikaži kartu",
   "explore_family_label": "Obitelj"
 }

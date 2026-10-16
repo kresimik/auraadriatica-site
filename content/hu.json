@@ -133,5 +133,7 @@
   "events_btn": "Program letöltése",
   "map_label": "Térkép",
   "map_h": "Találjon meg minket és fedezze fel",
+  "map_consent_text": "A térképet az Esri biztosítja. Betöltéskor a böngészője kapcsolódik a szervereikhez.",
+  "map_consent_btn": "Térkép megjelenítése",
   "explore_family_label": "Család"
 }

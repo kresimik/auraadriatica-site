@@ -43,13 +43,13 @@
   <link rel="preload" as="image" fetchpriority="high" href="/assets/img/explore-hero.webp">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20261016b">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261016c">
   <link rel="stylesheet" href="/assets/css/leaflet.css?v=20260728">
   <script src="/assets/js/leaflet.min.js" defer></script>
   <script src="/assets/js/i18n.js?v=20261016b" defer></script>
   <script src="/assets/js/ui.js?v=20261016" defer></script>
   <script src="/assets/js/explore.js?v=20260912" defer></script>
-  <script src="/assets/js/map.js?v=20260913b" defer></script>
+  <script src="/assets/js/map.js?v=20261016" defer></script>
 </head>
 <body>
 
@@ -204,7 +204,14 @@
         <button class="map-filter" data-cat="beach"><span aria-hidden="true">🏖️</span> Beaches</button>
         <button class="map-filter" data-cat="grocery"><span aria-hidden="true">🛒</span> Grocery</button>
       </div>
-      <div id="explore-map" style="height:480px;"></div>
+      <div id="explore-map" style="height:480px;">
+        <!-- Removed by map.js once the visitor opts in; nothing is requested
+             from the tile provider until then. -->
+        <div class="map-consent" id="map-consent">
+          <p data-i18n="map_consent_text">The map is provided by Esri. Loading it connects your browser to their servers.</p>
+          <button type="button" class="button" id="map-consent-btn" data-i18n="map_consent_btn">Show map</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -133,5 +133,7 @@
   "events_btn": "Prenesi program",
   "map_label": "Zemljevid",
   "map_h": "Najdite nas in raziščite",
+  "map_consent_text": "Zemljevid zagotavlja Esri. Ob nalaganju se vaš brskalnik poveže z njihovimi strežniki.",
+  "map_consent_btn": "Prikaži zemljevid",
   "explore_family_label": "Družina"
 }

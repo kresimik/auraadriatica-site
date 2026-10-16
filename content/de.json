@@ -133,5 +133,7 @@
   "events_btn": "Programm herunterladen",
   "map_label": "Karte",
   "map_h": "Finden Sie uns & erkunden Sie",
+  "map_consent_text": "Die Karte wird von Esri bereitgestellt. Beim Laden verbindet sich Ihr Browser mit deren Servern.",
+  "map_consent_btn": "Karte anzeigen",
   "explore_family_label": "Familienspaß"
 }

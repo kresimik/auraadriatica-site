@@ -133,5 +133,7 @@
   "events_btn": "Download programme",
   "map_label": "Map",
   "map_h": "Find us & explore",
+  "map_consent_text": "The map is provided by Esri. Loading it connects your browser to their servers.",
+  "map_consent_btn": "Show map",
   "explore_family_label": "Family fun"
 }

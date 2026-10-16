@@ -133,5 +133,7 @@
   "events_btn": "Scarica il programma",
   "map_label": "Mappa",
   "map_h": "Trovaci ed esplora",
+  "map_consent_text": "La mappa è fornita da Esri. Caricandola, il tuo browser si collega ai loro server.",
+  "map_consent_btn": "Mostra la mappa",
   "explore_family_label": "Famiglia"
 }

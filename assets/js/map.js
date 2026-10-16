@@ -116,5 +116,33 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", initMap);
+  // Click-to-load: tiles come from Esri, so nothing is requested from them
+  // until the visitor asks for the map. The choice is remembered, so a
+  // returning visitor gets the map straight away.
+  const CONSENT_KEY = "mapConsent";
+  let loaded = false;
+
+  function loadMap() {
+    if (loaded) return;
+    loaded = true;
+    try { localStorage.setItem(CONSENT_KEY, "1"); } catch (_) {}
+    document.getElementById("map-consent")?.remove();
+    initMap();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let consented = false;
+    try { consented = localStorage.getItem(CONSENT_KEY) === "1"; } catch (_) {}
+    if (consented) return loadMap();
+
+    document.getElementById("map-consent-btn")?.addEventListener("click", loadMap);
+    // A filter clicked before the map exists loads it, then applies itself.
+    document.querySelectorAll(".map-filter").forEach((btn) => {
+      btn.addEventListener("click", function onFirst() {
+        if (loaded) return;
+        loadMap();
+        btn.click();
+      }, { once: true });
+    });
+  });
 })();
