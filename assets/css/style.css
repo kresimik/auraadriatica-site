@@ -1378,22 +1378,29 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
 .events-text { flex: 1; }
 .events-text h2 { margin-bottom: .6rem; }
 .events-text p { margin-bottom: 1.4rem; color: var(--text-light); }
-.events-month {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background: var(--gold); color: #fff; border-radius: 4px;
-  padding: 1.4rem 2rem; text-align: center; flex-shrink: 0; min-width: 130px;
+/* First page of the current programme, linking to the PDF. The image is
+   regenerated with each month's upload (see the ?v= on its src and href). */
+.events-preview {
+  display: block;
+  flex-shrink: 0;
+  width: 170px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 20px rgba(14,14,14,.12);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.events-month-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem; font-weight: 400; line-height: 1;
-  text-transform: capitalize; letter-spacing: .02em;
+.events-preview img { display: block; width: 100%; height: auto; }
+.events-preview:hover,
+.events-preview:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(14,14,14,.18);
 }
-.events-month-year {
-  font-family: 'Jost', sans-serif;
-  font-size: .75rem; font-weight: 300; letter-spacing: .12em;
-  opacity: .8; margin-top: .35rem;
+@media (max-width: 600px) {
+  .events-card { padding: 1.5rem; }
+  .events-body { flex-direction: column; align-items: flex-start; gap: 1.4rem; }
+  .events-preview { width: 150px; }
 }
-@media (max-width: 600px) { .events-month { display: none; } .events-card { padding: 1.5rem; } }
 
 /* =========================
    FAQ ACCORDION

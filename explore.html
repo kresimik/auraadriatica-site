@@ -44,12 +44,12 @@
   <link rel="preload" as="image" fetchpriority="high" href="/assets/img/explore-hero.webp">
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20261016c">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261017">
   <link rel="stylesheet" href="/assets/css/leaflet.css?v=20260728">
   <script src="/assets/js/leaflet.min.js" defer></script>
   <script src="/assets/js/i18n.js?v=20261016c" defer></script>
   <script src="/assets/js/ui.js?v=20261016" defer></script>
-  <script src="/assets/js/explore.js?v=20260912" defer></script>
+  <script src="/assets/js/explore.js?v=20261017" defer></script>
   <script src="/assets/js/map.js?v=20261016" defer></script>
 </head>
 <body>
@@ -116,10 +116,10 @@
           <p data-i18n="events_sub">Download the full programme of cultural events, concerts and festivals in Lovran and the Opatija Riviera.</p>
           <a href="/assets/events/Lovran_program.pdf?v=2026-10" target="_blank" rel="noopener" class="button" data-i18n="events_btn">Download programme</a>
         </div>
-        <div class="events-month" id="events-month" aria-hidden="true">
-          <span class="events-month-name" id="events-month-name"></span>
-          <span class="events-month-year" id="events-month-year"></span>
-        </div>
+        <a class="events-preview" href="/assets/events/Lovran_program.pdf?v=2026-10" target="_blank" rel="noopener">
+          <img src="/assets/events/Lovran_program-preview.webp?v=2026-10" width="360" height="505" alt="" loading="lazy" decoding="async">
+          <span class="sr-only" data-i18n="events_btn">Download programme</span>
+        </a>
       </div>
     </div>
   </div>
