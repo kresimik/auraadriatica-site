@@ -176,6 +176,13 @@ body[data-apt-slug="onyx"] .aa-ical-calendar {
   text-decoration-color: var(--cal-booked-line);
 }
 
+/* Check-in from 15:00, check-out by 10:00: only half the day is taken, so
+   only half is hatched — split on the diagonal, morning top-left, afternoon
+   bottom-right, the way booking calendars usually draw it. Number not struck
+   through: the day is still bookable for the other half. */
+.aa-cal__day--checkin  .aa-cal__booked { clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.aa-cal__day--checkout .aa-cal__booked { clip-path: polygon(0 0, 100% 0, 0 100%); }
+
 /* Free days stay plain white so the eye lands on what is actually bookable. */
 .aa-cal__day:not(.aa-cal__day--booked):not(.aa-cal__day--other) {
   background: #fff;
@@ -204,7 +211,8 @@ body[data-apt-slug="onyx"] .aa-ical-calendar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
+  flex-wrap: wrap;
+  gap: .5rem 1.2rem;
   margin-top: 1rem;
   padding-top: .8rem;
   border-top: 1px solid rgba(184,150,90,.12);
@@ -231,6 +239,16 @@ body[data-apt-slug="onyx"] .aa-ical-calendar {
     var(--cal-booked-base);
   border: 1px solid var(--cal-booked-line);
   flex-shrink: 0;
+}
+.aa-cal__legend .swatch--half {
+  background:
+    linear-gradient(to bottom right, #fff 50%, transparent 50%),
+    repeating-linear-gradient(
+      135deg,
+      var(--cal-booked-bg)  0px 4px,
+      transparent           4px 8px
+    ),
+    var(--cal-booked-base);
 }
 .aa-cal__legend .swatch--free {
   background: #fff;
