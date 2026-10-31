@@ -11,3 +11,7 @@
 
 /content/*
   Cache-Control: public, max-age=3600, must-revalidate
+
+/solar/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: private, no-store
