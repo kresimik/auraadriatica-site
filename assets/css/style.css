@@ -348,12 +348,23 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
   align-items: flex-end;
   overflow: hidden;
   color: #fff;
+  /* Pages set their photo through --hero-img / --hero-img-sm (inline style);
+     phones get the -sm file: a full-height centre crop, which is all a
+     portrait screen shows of a landscape photo anyway, at about half the
+     bytes. The <link rel=preload> tags use the same 768px breakpoint. */
   background-image:
     linear-gradient(to bottom, rgba(18,36,50,.36) 0%, rgba(18,36,50,.73) 100%),
-    url('/assets/img/hero.webp');
+    var(--hero-img, url('/assets/img/hero.webp'));
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .hero {
+    background-image:
+      linear-gradient(to bottom, rgba(18,36,50,.36) 0%, rgba(18,36,50,.73) 100%),
+      var(--hero-img-sm, url('/assets/img/hero-sm.webp'));
+  }
 }
 .hero-waves {
   position: absolute;
@@ -588,8 +599,10 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
   transition: opacity .5s ease, transform .6s ease;
 }
 .apt-card:hover .apt-card-photo { opacity: .92; transform: scale(1.04); }
-.apt-olive .apt-card-photo { background-image: url('/assets/img/olive-hero.webp'); }
-.apt-onyx  .apt-card-photo { background-image: url('/assets/img/onyx-hero.webp'); }
+/* Card-sized copies (1200px): the full 1920px hero photos weighed ~930 KB
+   together for two cards. */
+.apt-olive .apt-card-photo { background-image: url('/assets/img/olive-card.webp'); }
+.apt-onyx  .apt-card-photo { background-image: url('/assets/img/onyx-card.webp'); }
 .apt-card-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.1) 60%, transparent 100%);

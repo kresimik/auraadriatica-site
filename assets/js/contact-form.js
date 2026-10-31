@@ -40,7 +40,9 @@
 
     [row('#cf-name'), row('#cf-email'), row('#cf-message')].forEach(clearErr);
 
-    if (!name.value.trim()) {
+    // Same minimums as functions/api/contact.js, so the visitor sees the
+    // field message here instead of a generic error after sending.
+    if (name.value.trim().length < 2) {
       setErr(row('#cf-name'), t('val_name','Please enter your name.'));
       ok = false;
     }
@@ -48,7 +50,7 @@
       setErr(row('#cf-email'), t('val_email','Please enter a valid email.'));
       ok = false;
     }
-    if (!message.value.trim()) {
+    if (message.value.trim().length < 5) {
       setErr(row('#cf-message'), t('val_message','Please enter a message.'));
       ok = false;
     }
@@ -144,14 +146,15 @@
       if (res.ok) {
         setStatus(t('sent_ok','Thank you! Your message has been sent.'), 'ok');
         form.reset();
-        try { window.turnstile?.reset(widget); } catch {}
       } else {
-        // Show what the server actually said. Its messages are deliberately
-        // generic ("Verification failed", "Could not send your message"), so
-        // this leaks nothing, and it beats one catch-all string that hides
-        // whether the problem was the captcha, the send, or the input.
-        let reason = '';
-        try { reason = (await res.clone().json())?.error || ''; } catch {}
+        // The server answers with a short code; show the matching message in
+        // the page's language rather than its English text.
+        let code = '';
+        try { code = (await res.clone().json())?.code || ''; } catch {}
+        const reason =
+          code === 'verify'         ? t('verify_fail', 'Verification failed. Please try again.') :
+          code === 'verify_unavail' ? t('verify_unavail', 'Verification service unavailable. Please refresh the page.') :
+          '';
 
         // Offer the mail client as a fallback — but let the visitor choose.
         // Opening it automatically hijacks the machine on every failed send,
@@ -173,6 +176,12 @@
     } catch {
       setStatus(t('sent_fail','Sending failed — please try again later.'), 'err');
     } finally {
+      // A Turnstile token is single-use and the server has already spent it,
+      // whatever the outcome. Without a fresh one every retry after a failed
+      // send came back "Verification failed" until the page was reloaded.
+      const tok = $('#cf-token');
+      if (tok) tok.value = '';
+      try { window.turnstile?.reset(widget); } catch {}
       setBusy(false);
     }
   });

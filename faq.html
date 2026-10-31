@@ -41,7 +41,8 @@
   <link rel="stylesheet" href="/assets/css/fonts.css?v=20261016">
 
   <!-- Hero image preload -->
-  <link rel="preload" as="image" fetchpriority="high" href="/assets/img/faq-hero.webp">
+  <link rel="preload" as="image" fetchpriority="high" href="/assets/img/faq-hero.webp" media="(min-width: 769px)">
+  <link rel="preload" as="image" fetchpriority="high" href="/assets/img/faq-hero-sm.webp" media="(max-width: 768px)">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -109,7 +110,7 @@
   </script>
 
   <!-- CSS & JS -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=20261017">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261031">
   <script src="/assets/js/i18n.js?v=20261016c" defer></script>
   <script src="/assets/js/ui.js?v=20261016" defer></script>
 
@@ -160,7 +161,7 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" id="main-content" style="background-image: linear-gradient(to bottom, rgba(18,36,50,.36), rgba(18,36,50,.73)), url('/assets/img/faq-hero.webp');">
+<section class="hero" id="main-content" style="--hero-img:url('/assets/img/faq-hero.webp'); --hero-img-sm:url('/assets/img/faq-hero-sm.webp');">
   <div class="container hero-center">
     <div class="hero-eyebrow">Olive &amp; Onyx · Lovran</div>
     <h1 data-i18n="faq_h">Frequently Asked Questions</h1>

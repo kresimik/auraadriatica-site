@@ -21,15 +21,15 @@
   }
   function labelsFor(locale){
     const map = {
-      'hr-HR':{today:'Danas', tomorrow:'Sutra'},
-      'de-DE':{today:'Heute', tomorrow:'Morgen'},
-      'it-IT':{today:'Oggi', tomorrow:'Domani'},
-      'sl-SI':{today:'Danes', tomorrow:'Jutri'},
-      'hu-HU':{today:'Ma', tomorrow:'Holnap'},
-      'cs-CZ':{today:'Dnes', tomorrow:'Zítra'},
-      'sk-SK':{today:'Dnes', tomorrow:'Zajtra'},
-      'uk-UA':{today:'Сьогодні', tomorrow:'Завтра'},
-      'en-GB':{today:'Today', tomorrow:'Tomorrow'}
+      'hr-HR':{today:'Danas', tomorrow:'Sutra', error:'Prognoza trenutno nije dostupna.'},
+      'de-DE':{today:'Heute', tomorrow:'Morgen', error:'Die Vorhersage ist gerade nicht verfügbar.'},
+      'it-IT':{today:'Oggi', tomorrow:'Domani', error:'Le previsioni non sono disponibili al momento.'},
+      'sl-SI':{today:'Danes', tomorrow:'Jutri', error:'Napoved trenutno ni na voljo.'},
+      'hu-HU':{today:'Ma', tomorrow:'Holnap', error:'Az előrejelzés most nem érhető el.'},
+      'cs-CZ':{today:'Dnes', tomorrow:'Zítra', error:'Předpověď teď není k dispozici.'},
+      'sk-SK':{today:'Dnes', tomorrow:'Zajtra', error:'Predpoveď teraz nie je k dispozícii.'},
+      'uk-UA':{today:'Сьогодні', tomorrow:'Завтра', error:'Прогноз зараз недоступний.'},
+      'en-GB':{today:'Today', tomorrow:'Tomorrow', error:'Weather unavailable at the moment.'}
     };
     return map[locale] || map['en-GB'];
   }
@@ -76,8 +76,14 @@
       lab: labelsFor(LOCALE)
     };
   }
-  const todayISO = () => new Date().toISOString().slice(0,10);
-  const tomorrowISO = () => new Date(Date.now()+86400000).toISOString().slice(0,10);
+  // Dates as they are in Lovran — the forecast is keyed by local days, and in
+  // UTC "today" is still yesterday until 01:00/02:00 Croatian time.
+  const zagrebISO = (ms) => {
+    try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zagreb' }).format(new Date(ms)); }
+    catch (_) { return new Date(ms).toISOString().slice(0,10); }
+  };
+  const todayISO = () => zagrebISO(Date.now());
+  const tomorrowISO = () => zagrebISO(Date.now()+86400000);
   const t = n => `${Math.round(n)}°`;
 
   function dayLabel(iso, dayFmt, lab){
@@ -156,7 +162,10 @@
       render(lastData);
     }catch(e){
       console.warn('Weather error:', e);
-      mount.innerHTML = `<p class="wx-error">Weather unavailable at the moment.</p>`;
+      const p = document.createElement('p');
+      p.className = 'wx-error';
+      p.textContent = labelsFor(getLocale()).error;
+      mount.replaceChildren(p);
     }
   }
 

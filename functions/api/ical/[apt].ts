@@ -65,6 +65,13 @@ export const onRequestGet: PagesFunction = async ({ request, params, env }) => {
     }
 
     const ics = await res.text();
+    // An empty or non-calendar answer (a login page, an error page, a blank
+    // body after a feed link changed) parses to zero bookings — which the
+    // page would draw as every day free. Treat it as an outage instead.
+    if (!/BEGIN:VCALENDAR/.test(ics)) {
+      console.error(`ICS upstream for ${key} is not a calendar`, ics.slice(0, 200));
+      return json({ error: "Calendar temporarily unavailable" }, 502);
+    }
     const bookings = parseICS(ics);
 
     return new Response(JSON.stringify({ bookings }, null, 2), {

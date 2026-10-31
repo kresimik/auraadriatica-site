@@ -57,20 +57,21 @@
     }
   };
 
-  // Half-day labels for all site languages (check-in 15:00, check-out 10:00).
+  // Half-day, loading and error labels for all site languages
+  // (check-in 15:00, check-out 10:00).
   // "free" lives here too: the dictionaries above and in i18n.js lack it for
   // several languages, which left an English "Available" on those pages.
   const LABELS = {
-    hr: { half: "Dolazak / odlazak", free: "Slobodno", checkin: "Dolazak gosta od 15:00 – slobodno do tada", checkout: "Odlazak gosta do 10:00 – slobodno od tada" },
-    en: { half: "Check-in / check-out", free: "Available", checkin: "Guest arrives from 15:00 – free until then", checkout: "Guest leaves by 10:00 – free from then" },
-    de: { half: "An- / Abreise", free: "Frei", checkin: "Anreise ab 15:00 – bis dahin frei", checkout: "Abreise bis 10:00 – danach frei" },
-    it: { half: "Arrivo / partenza", free: "Libero", checkin: "Arrivo dalle 15:00 – libero fino ad allora", checkout: "Partenza entro le 10:00 – libero da allora" },
-    sl: { half: "Prihod / odhod", free: "Prosto", checkin: "Prihod gosta od 15:00 – do takrat prosto", checkout: "Odhod gosta do 10:00 – nato prosto" },
-    hu: { half: "Érkezés / távozás", free: "Szabad", checkin: "Érkezés 15:00-tól – addig szabad", checkout: "Távozás 10:00-ig – utána szabad" },
-    cs: { half: "Příjezd / odjezd", free: "Volno", checkin: "Příjezd hosta od 15:00 – do té doby volno", checkout: "Odjezd hosta do 10:00 – poté volno" },
-    sk: { half: "Príchod / odchod", free: "Voľné", checkin: "Príchod hosťa od 15:00 – dovtedy voľné", checkout: "Odchod hosťa do 10:00 – potom voľné" },
-    uk: { half: "Заїзд / виїзд", free: "Вільно", checkin: "Заїзд гостя з 15:00 – до того вільно", checkout: "Виїзд гостя до 10:00 – після того вільно" },
-    pl: { half: "Przyjazd / wyjazd", free: "Wolne", checkin: "Przyjazd gościa od 15:00 – do tego czasu wolne", checkout: "Wyjazd gościa do 10:00 – potem wolne" }
+    hr: { half: "Dolazak / odlazak", free: "Slobodno", checkin: "Dolazak gosta od 15:00 – slobodno do tada", checkout: "Odlazak gosta do 10:00 – slobodno od tada", loading: "Učitavanje…", error: "Kalendar trenutno nije dostupan. Pišite nam za slobodne termine." },
+    en: { half: "Check-in / check-out", free: "Available", checkin: "Guest arrives from 15:00 – free until then", checkout: "Guest leaves by 10:00 – free from then", loading: "Loading…", error: "The calendar is unavailable right now. Write to us for free dates." },
+    de: { half: "An- / Abreise", free: "Frei", checkin: "Anreise ab 15:00 – bis dahin frei", checkout: "Abreise bis 10:00 – danach frei", loading: "Wird geladen…", error: "Der Kalender ist gerade nicht verfügbar. Schreiben Sie uns für freie Termine." },
+    it: { half: "Arrivo / partenza", free: "Libero", checkin: "Arrivo dalle 15:00 – libero fino ad allora", checkout: "Partenza entro le 10:00 – libero da allora", loading: "Caricamento…", error: "Il calendario non è disponibile al momento. Scriveteci per le date libere." },
+    sl: { half: "Prihod / odhod", free: "Prosto", checkin: "Prihod gosta od 15:00 – do takrat prosto", checkout: "Odhod gosta do 10:00 – nato prosto", loading: "Nalaganje…", error: "Koledar trenutno ni na voljo. Pišite nam za proste termine." },
+    hu: { half: "Érkezés / távozás", free: "Szabad", checkin: "Érkezés 15:00-tól – addig szabad", checkout: "Távozás 10:00-ig – utána szabad", loading: "Betöltés…", error: "A naptár most nem érhető el. Írjon nekünk a szabad időpontokért." },
+    cs: { half: "Příjezd / odjezd", free: "Volno", checkin: "Příjezd hosta od 15:00 – do té doby volno", checkout: "Odjezd hosta do 10:00 – poté volno", loading: "Načítání…", error: "Kalendář teď není dostupný. Napište nám pro volné termíny." },
+    sk: { half: "Príchod / odchod", free: "Voľné", checkin: "Príchod hosťa od 15:00 – dovtedy voľné", checkout: "Odchod hosťa do 10:00 – potom voľné", loading: "Načítava sa…", error: "Kalendár teraz nie je dostupný. Napíšte nám pre voľné termíny." },
+    uk: { half: "Заїзд / виїзд", free: "Вільно", checkin: "Заїзд гостя з 15:00 – до того вільно", checkout: "Виїзд гостя до 10:00 – після того вільно", loading: "Завантаження…", error: "Календар зараз недоступний. Напишіть нам, щоб дізнатися вільні дати." },
+    pl: { half: "Przyjazd / wyjazd", free: "Wolne", checkin: "Przyjazd gościa od 15:00 – do tego czasu wolne", checkout: "Wyjazd gościa do 10:00 – potem wolne", loading: "Ładowanie…", error: "Kalendarz jest teraz niedostępny. Napisz do nas w sprawie wolnych terminów." }
   };
 
   // [AA CAL] Optional override from global window.I18N[lang].calendar (if provided by i18n.js)
@@ -96,6 +97,18 @@
   const addMonths = (d, m) => new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + m, 1));
   const sameYMD = (a, b) => iso(a) === iso(b);
   const parseISOmid = (s) => Date.parse(s + "T00:00:00Z");
+
+  // Today's date in Lovran, not in UTC: between midnight and 01:00/02:00
+  // local time UTC is still on yesterday. Falls back to UTC if Intl lacks
+  // time-zone support.
+  function lovranToday() {
+    try {
+      const s = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Zagreb" }).format(new Date());
+      if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return new Date(parseISOmid(s));
+    } catch (_) {}
+    const n = new Date();
+    return atMid(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate());
+  }
 
   // check if a UTC date is in [startISO, endISO)
   function inRange(dateUTC, startISO, endISO) {
@@ -136,7 +149,7 @@
     const m = state.viewDate.getUTCMonth();
     const firstOfMonth = atMid(y, m, 1);
     const startWeekIdx = (firstOfMonth.getUTCDay() + 6) % 7; // 0=Mon .. 6=Sun
-    const today = atMid(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate());
+    const today = lovranToday();
 
     // start date for 6x7 grid
     let current = atMid(y, m, 1 - startWeekIdx);
@@ -144,6 +157,10 @@
       const isOther = current.getUTCMonth() !== m;
       const cell = el("div", "aa-cal__day" + (isOther ? " aa-cal__day--other" : ""));
       if (sameYMD(current, today)) cell.classList.add("aa-cal__day--today");
+      // Days already gone are neither free nor bookable: grey them out and
+      // skip the booking marks, so "free" only ever means something.
+      const isPast = current.getTime() < today.getTime();
+      if (isPast) cell.classList.add("aa-cal__day--past");
 
       // A day has two halves: the morning belongs to the night before (guest
       // leaves by 10:00), the evening to the night after (guest arrives from
@@ -153,7 +170,7 @@
       const nightBooked = (d) => state.bookings.some(r => inRange(d, r.start, r.end));
       const am = nightBooked(prevDay);
       const pm = nightBooked(current);
-      if (am || pm) {
+      if (!isPast && (am || pm)) {
         cell.append(el("div", "aa-cal__booked"));
         if (am && pm) {
           cell.append(el("i", "aa-cal__dot"));
@@ -210,7 +227,8 @@
        document.documentElement.getAttribute("lang") ||
        "en").toLowerCase();
 
-    el.textContent = "Loading…";
+    const labels = LABELS[loc] || LABELS.en;
+    el.textContent = labels.loading;
 
     try {
       const res = await fetch(`/api/ical/${apt}`, { cache: "no-store" });
@@ -223,7 +241,7 @@
         .sort((a, b) => a.start.localeCompare(b.start));
 
       // current month (UTC)
-      const now = new Date();
+      const now = lovranToday();
       const viewDate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
 
       // validate locale at the end (after fetch), to allow i18n override
@@ -232,7 +250,7 @@
       buildCalendar(el, { locale: loc, bookings, viewDate });
     } catch (err) {
       console.error(err);
-      el.textContent = "Unable to load availability.";
+      el.textContent = labels.error;
     }
   }
 

@@ -61,7 +61,9 @@ export async function onRequestPost(context) {
       headers: { 'Content-Type': 'application/json' }
     });
 
-  const fail = (status, msg, extra = {}) =>
+  // `code` lets the page show the error in its own language; `error` stays
+  // as a readable English fallback.
+  const fail = (status, msg, extra = { code: 'send' }) =>
     json(Object.assign({ ok: false, error: msg }, extra), status);
 
   // --- 1) Parse body
@@ -69,7 +71,7 @@ export async function onRequestPost(context) {
   try {
     data = await request.json();
   } catch {
-    return fail(400, 'Invalid JSON');
+    return fail(400, 'Invalid JSON', { code: 'input' });
   }
 
   // Ensure all fields are strings (prevent type coercion attacks)
@@ -91,10 +93,10 @@ export async function onRequestPost(context) {
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  if (!name || name.length < 2)  return fail(400, 'Please enter your name.');
-  if (!emailOk)                  return fail(400, 'Please enter a valid email address.');
-  if (!message || message.length < 5) return fail(400, 'Please enter a message.');
-  if (!token)                    return fail(400, 'Missing Turnstile token.');
+  if (!name || name.length < 2)  return fail(400, 'Please enter your name.', { code: 'input' });
+  if (!emailOk)                  return fail(400, 'Please enter a valid email address.', { code: 'input' });
+  if (!message || message.length < 5) return fail(400, 'Please enter a message.', { code: 'input' });
+  if (!token)                    return fail(400, 'Missing Turnstile token.', { code: 'verify' });
 
   // --- 2) Turnstile verify
   if (!env.TURNSTILE_SECRET) {
@@ -118,7 +120,7 @@ export async function onRequestPost(context) {
     tJson = await tRes.json();
   } catch (e) {
     console.error('Turnstile verify fetch failed', String(e));
-    return fail(502, 'Verification is temporarily unavailable. Please try again.');
+    return fail(502, 'Verification is temporarily unavailable. Please try again.', { code: 'verify_unavail' });
   }
 
   if (!tJson.success) {
@@ -127,7 +129,7 @@ export async function onRequestPost(context) {
       hostname: tJson.hostname,
       action: tJson.action
     });
-    return fail(400, 'Verification failed. Please try again.');
+    return fail(400, 'Verification failed. Please try again.', { code: 'verify' });
   }
 
   // --- 3) Resend payload priprema
@@ -314,7 +316,7 @@ export async function onRequestPost(context) {
 </body></html>`;
 
   try {
-    await fetch('https://api.resend.com/emails', {
+    const c = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
@@ -329,8 +331,11 @@ export async function onRequestPost(context) {
         reply_to: CONTACT_TO_RAW
       })
     });
-  } catch (_) {
-    // Confirmation failure is non-fatal
+    // Non-fatal for the guest, but leave a trace: otherwise confirmations
+    // could stop arriving and nobody would know.
+    if (!c.ok) console.error('Guest confirmation rejected', c.status, await c.text().catch(() => ''));
+  } catch (e) {
+    console.error('Guest confirmation fetch failed', String(e));
   }
 
   return json({ ok: true, id: (rJson && rJson.id) || null });
