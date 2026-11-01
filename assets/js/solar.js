@@ -69,7 +69,7 @@
     draw();
   }
 
-  function drawBars(el, { labels, series, tip, every, colorOf, markZero }) {
+  function drawBars(el, { labels, series, tip, every, colorOf, markZero, refLine }) {
     el.replaceChildren();
     const max = Math.max(0, ...series.flatMap((x) => x.values));
     if (!(max > 0)) {
@@ -128,6 +128,15 @@
         svg.append(t);
       }
     });
+
+    // A dashed reference across the bars, labelled at its right end.
+    if (refLine && refLine.value > 0) {
+      const ry = y(refLine.value);
+      svg.append(s('line', { x1: L, x2: W - R, y1: ry, y2: ry, stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-dasharray': '5 4' }));
+      const t = s('text', { class: 'sol-tick sol-ref', 'text-anchor': 'end', x: W - R, y: ry - 5 });
+      t.textContent = refLine.label;
+      svg.append(t);
+    }
 
     const tipEl = h('div', { class: 'sol-tip' });
     el.append(tipEl);
@@ -280,6 +289,7 @@
         .filter((p) => !EMPTY_CHANNELS.includes(`${p.inverter}-${p.channel}`))
         .map((p, i) => ({ ...p, no: i + 1 }));
       const med = median(list.map((p) => p.kwh));
+      const avg = list.length ? sum(list.map((p) => p.kwh)) / list.length : 0;
       for (const p of list) {
         p.weak = p.kwh < WEAK_PANEL * med;
         if (p.weak) weak.push({ apt: x.name, med, ...p });
@@ -292,13 +302,16 @@
         every: 1,
         colorOf: (_, i) => (list[i].weak ? 'var(--sol-bad)' : APTS[x.name]),
         markZero: (i) => list[i].weak,
+        refLine: { value: avg, label: `prosjek ${f2.format(avg)}` },
         tip: (i) => [
           h('strong', null, `Panel ${list[i].no} · inverter ${list[i].inverter}, kanal ${list[i].channel}`),
-          h('div', null, `${kwh(list[i].kwh)}${list[i].weak ? ' – puno manje od ostalih' : ''}`)
+          h('div', null, `${kwh(list[i].kwh)} · ${pct.format(avg ? list[i].kwh / avg : 0)} prosjeka${list[i].weak ? ' – puno manje od ostalih' : ''}`)
         ]
       }));
       return h('article', { class: 'sol-card' },
-        h('h3', null, swatch(APTS[x.name]), x.name),
+        h('div', { class: 'sol-card-head' },
+          h('h3', null, swatch(APTS[x.name]), x.name),
+          h('div', { class: 'sol-avg' }, 'Prosjek po panelu ', h('b', null, kwh(avg)))),
         h('p', { class: 'sol-note' }, `kWh po panelu, ${dayLabel(x.panels.date)} · ${list.length} panela na ${new Set(list.map((p) => p.inverter)).size} mikroinvertera`),
         chart);
     });

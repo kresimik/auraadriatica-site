@@ -89,6 +89,9 @@
     .sol-alert { margin: 0; padding: .8rem 1rem; border: 1px solid var(--card-border); border-radius: 6px; background: var(--card); display: flex; gap: .6rem; align-items: baseline; font-size: .92rem; }
     .sol-alert::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--sol-bad); transform: translateY(-1px); }
     .sol-alert.is-ok::before { background: var(--ok); }
+    .sol-avg { font-size: .85rem; color: var(--muted); }
+    .sol-avg b { font-weight: 500; color: var(--ink); }
+    .sol-ref { fill: var(--ink); font-weight: 500; paint-order: stroke; stroke: var(--card); stroke-width: 4px; stroke-linejoin: round; }
     .sol-error { color: var(--sol-bad); font-size: .9rem; }
     .sol-empty { min-height: 120px; display: grid; place-items: center; color: var(--muted); font-size: .85rem; }
     .sol [hidden] { display: none !important; }
@@ -162,6 +165,6 @@
     </section>
   </main>
 
-  <script src="/assets/js/solar.js?v=20261101" defer></script>
+  <script src="/assets/js/solar.js?v=20261101b" defer></script>
 </body>
 </html>
