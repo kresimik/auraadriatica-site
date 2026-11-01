@@ -10,8 +10,15 @@
   // A panel giving less than this share of its apartment's median is flagged.
   const WEAK_PANEL = 0.4;
   // Inverter channels with no panel on them, as "inverter-channel", so they
-  // aren't flagged as broken. E.g. '702000666597-2' if Onyx has 13 panels.
-  const EMPTY_CHANNELS = [];
+  // aren't flagged as broken. Onyx has 13 panels on 7 two-channel DS3-L
+  // inverters, and this channel has read 0 kWh since commissioning.
+  const EMPTY_CHANNELS = ['702000666597-2'];
+  // From each apartment's Glavni projekt (Maro projekt, April 2025): panels
+  // installed and the calculated yearly production.
+  const PLANTS = {
+    Olive: { panels: 14, plan: 6621 },
+    Onyx: { panels: 13, plan: 6147 }
+  };
 
   const MONTHS = ['sij', 'velj', 'ožu', 'tra', 'svi', 'lip', 'srp', 'kol', 'ruj', 'lis', 'stu', 'pro'];
   const MONTHS_FULL = ['siječanj', 'veljača', 'ožujak', 'travanj', 'svibanj', 'lipanj', 'srpanj', 'kolovoz', 'rujan', 'listopad', 'studeni', 'prosinac'];
@@ -164,16 +171,17 @@
       h('h3', null, color ? swatch(color) : null, name,
         status ? h('span', { class: 'sol-status' }, h('span', { class: 'sol-dot', style: { background: status[0] } }), status[1]) : null),
       h('div', { class: 'sol-big' }, h('b', null, f2.format(d.today.produced)), h('span', { class: 'sol-unit' }, 'kWh danas')),
-      h('div', { class: 'sol-sub' }, `${f2.format(d.capacity)} kWp · potrošeno danas ${kwh(d.today.consumed)}`),
+      h('div', { class: 'sol-sub' }, `${f2.format(d.capacity)} kWp${d.panels ? ` · ${d.panels} panela` : ''} · potrošeno danas ${kwh(d.today.consumed)}`),
       h('div', { class: 'sol-stats' },
         h('div', null, 'Ovaj mjesec', h('b', null, kwh(d.month.produced))),
         h('div', null, 'Ova godina', h('b', null, kwh(d.year.produced))),
         h('div', null, 'Ukupno', h('b', null, kwh(d.lifetime.produced)))));
 
-    const cards = ok.map((x) => card(x.name, APTS[x.name], { capacity: x.capacity, ...x.summary }, STATUS[x.light] || STATUS[4]));
+    const panels = (name) => (PLANTS[name] ? PLANTS[name].panels : 0);
+    const cards = ok.map((x) => card(x.name, APTS[x.name], { capacity: x.capacity, panels: panels(x.name), ...x.summary }, STATUS[x.light] || STATUS[4]));
     if (ok.length > 1) {
       const total = (p, k) => sum(ok.map((x) => x.summary[p][k]));
-      const t = { capacity: sum(ok.map((x) => x.capacity)) };
+      const t = { capacity: sum(ok.map((x) => x.capacity)), panels: sum(ok.map((x) => panels(x.name))) };
       for (const p of ['today', 'month', 'year', 'lifetime']) t[p] = { produced: total(p, 'produced'), consumed: total(p, 'consumed') };
       cards.push(card('Oba apartmana', null, t, null));
     }
@@ -260,7 +268,8 @@
   function drawYears(ok) {
     const rows = ok.flatMap((x) => x.yearly.time.map((year, i) => h('tr', null,
       h('td', null, x.name), h('td', null, year),
-      ...['produced', 'consumed', 'imported', 'exported'].map((k) => h('td', null, f0.format(x.yearly[k][i] || 0))))));
+      ...['produced', 'consumed', 'imported', 'exported'].map((k) => h('td', null, f0.format(x.yearly[k][i] || 0))),
+      h('td', null, PLANTS[x.name] ? pct.format((x.yearly.produced[i] || 0) / PLANTS[x.name].plan) : '–'))));
     document.getElementById('sol-years').replaceChildren(...rows);
   }
 
@@ -290,7 +299,7 @@
       }));
       return h('article', { class: 'sol-card' },
         h('h3', null, swatch(APTS[x.name]), x.name),
-        h('p', { class: 'sol-note' }, `kWh po panelu, ${dayLabel(x.panels.date)}`),
+        h('p', { class: 'sol-note' }, `kWh po panelu, ${dayLabel(x.panels.date)} · ${list.length} panela na ${new Set(list.map((p) => p.inverter)).size} mikroinvertera`),
         chart);
     });
     document.getElementById('sol-panels').replaceChildren(...cards);
