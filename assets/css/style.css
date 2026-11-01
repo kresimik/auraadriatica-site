@@ -720,6 +720,20 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
 /* Highlights list */
 .highlights { list-style: none; margin: 0; padding: 0; }
 .highlights li { margin: .5rem 0; font-size: .95rem; line-height: 1.55; color: var(--muted); }
+/* Small "own solar" badge under the highlights; text from solar_badge.
+   Green on purpose, but kept a plain fact rather than a seal or an "eco"
+   claim: EU rules (Directive 2024/825) bar generic green claims and
+   self-made sustainability labels. */
+.card .solar-badge {
+  display: flex; align-items: center; gap: .6rem; width: fit-content; max-width: 100%;
+  margin: 1.1rem 0 0; padding: .5rem .9rem .5rem .6rem;
+  border: 1px solid rgba(90,125,58,.28); border-radius: 10px; background: #eff4ea;
+  font-size: .85rem; font-weight: 400; line-height: 1.4; color: #34501f;
+}
+.solar-badge svg { flex: none; width: 22px; height: 22px; }
+.solar-badge .sb-sun { color: var(--gold); }
+.solar-badge .sb-leaf { fill: #5a7d3a; }
+.solar-badge[hidden] { display: none; }
 
 /* =========================
    LOCATION STATS

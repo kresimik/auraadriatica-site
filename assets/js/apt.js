@@ -117,6 +117,13 @@ async function loadApartment(slug, langOpt){
     });
   }
 
+  const solar = document.getElementById("apt-solar");
+  if (solar){
+    const text = solar.querySelector("span");
+    if (text) text.textContent = data.solar_badge || "";
+    solar.hidden = !data.solar_badge;
+  }
+
   // ---------- GALLERY ----------
   const gal = document.getElementById("apt-gallery");
   if (gal){
