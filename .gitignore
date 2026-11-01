@@ -11,3 +11,5 @@ vendor/
 Thumbs.db
 .vscode/
 .idea/
+# Claude notes, local only (the repo root is served publicly)
+CLAUDE.local.md
