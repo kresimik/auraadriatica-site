@@ -14,8 +14,8 @@
   "desc_explore": "Was man in Lovran und an der Riviera von Opatija unternehmen kann — Strände, Spaziergänge, Wanderwege auf der Učka, Gastronomie und Ausflüge.",
   "title_gallery": "Galerie — Aura Adriatica",
   "desc_gallery": "Fotos der Apartments Olive & Onyx und der schönen Umgebung der Riviera von Opatija.",
-  "title_faq": "FAQ — Aura Adriatica",
-  "desc_faq": "Häufige Fragen zu den Apartments Olive & Onyx — Check-in, Parken, Bezahlung, Pool und mehr.",
+  "title_faq": "Ferienwohnung mit Pool in Lovran — Fragen & Antworten | Aura Adriatica",
+  "desc_faq": "Häufige Fragen zu den Ferienwohnungen Olive & Onyx in Lovran: Anreise mit dem Auto, Parken, Check-in, Bezahlung, privater Pool und mehr.",
   "title_contact": "Kontakt — Aura Adriatica",
   "desc_contact": "Schreiben Sie uns für Anfragen zu Verfügbarkeit und Preisen — Apartments Olive & Onyx, Lovran.",
   "tagline": "Zwei Maisonette-Apartments in Lovran — jeweils mit privatem Pool, Sonnenterrasse, Garten und Meerblick.",
@@ -103,6 +103,14 @@
       "a": "3 kostenlose private Parkplätze pro Apartment, direkt auf dem Grundstück."
     },
     {
+      "q": "Anreise mit dem Auto",
+      "a": "Die meisten Gäste reisen mit dem Auto an. Aus Deutschland und Österreich führt die übliche Route über Ljubljana nach Rijeka und dann an der Küste entlang über Opatija nach Lovran: ab München rund 560 km. In Österreich und Slowenien gilt Vignettenpflicht (in Slowenien nur als E-Vignette); auf kroatischen Autobahnen zahlen Sie die Maut an der Mautstelle. Ihr Auto bleibt bei Ihnen: 3 kostenlose private Parkplätze pro Apartment."
+    },
+    {
+      "q": "Strände",
+      "a": "Der nächste Strand, Peharovo, liegt etwa 130 Meter von den Apartments entfernt. Entlang der Uferpromenade Lungomare finden Sie Kiesstrände, geschützte Buchten mit ruhigem Wasser, Felsbuchten und Strandbars."
+    },
+    {
       "q": "Zahlung",
       "a": "20% Anzahlung zur Bestätigung der Reservierung. Der Restbetrag ist bei Ankunft fällig."
     },
@@ -148,5 +156,7 @@
   "map_h": "Finden Sie uns & erkunden Sie",
   "map_consent_text": "Die Karte wird von Esri bereitgestellt. Beim Laden verbindet sich Ihr Browser mit deren Servern.",
   "map_consent_btn": "Karte anzeigen",
-  "explore_family_label": "Familienspaß"
+  "explore_family_label": "Familienspaß",
+  "explore_beaches_named": "Strände in der Nähe",
+  "explore_food_named": "Empfohlene Restaurants"
 }

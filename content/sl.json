@@ -14,8 +14,8 @@
   "desc_explore": "Kaj početi v Lovranu in na opatijski rivieri — plaže, sprehodi, poti na Učki, kulinarika in izleti.",
   "title_gallery": "Galerija — Aura Adriatica",
   "desc_gallery": "Fotografije apartmajev Olive in Onyx ter čudovite okolice opatijske riviere.",
-  "title_faq": "FAQ — Aura Adriatica",
-  "desc_faq": "Pogosta vprašanja o apartmajih Olive in Onyx — prijava, parkiranje, plačilo, bazen in drugo.",
+  "title_faq": "Apartmaji z bazenom v Lovranu — pogosta vprašanja | Aura Adriatica",
+  "desc_faq": "Pogosta vprašanja o apartmajih Olive in Onyx v Lovranu: prihod z avtom, parkiranje, prijava, plačilo, zasebni bazen in drugo.",
   "title_contact": "Kontakt — Aura Adriatica",
   "desc_contact": "Pišite nam za povpraševanja o razpoložljivosti in cenah — apartmaja Olive in Onyx, Lovran.",
   "tagline": "Dva dupleks apartmaja v Lovranu — vsak s privatnim bazenom, sončno teraso, vrtom in razgledom na morje.",
@@ -103,6 +103,14 @@
       "a": "3 brezplačna zasebna parkirna mesta na apartma, neposredno na posesti."
     },
     {
+      "q": "Prihod z avtom",
+      "a": "Večina gostov pride z avtom. Iz Ljubljane vodi pot čez Postojno do Reke, nato ob obali skozi Opatijo do Lovrana: približno 140 km. Za slovenske avtoceste potrebujete e-vinjeto; hrvaške avtoceste se plačujejo na cestninskih postajah. Avto ostane pri vas: 3 brezplačna zasebna parkirna mesta na apartma."
+    },
+    {
+      "q": "Plaže",
+      "a": "Najbližja plaža, Peharovo, je približno 130 metrov od apartmajev. Ob obalni promenadi Lungomare boste našli prodnate plaže, zavetne zalive z mirnim morjem, skalnate zalivčke in plažne bare."
+    },
+    {
       "q": "Plačilo",
       "a": "20% akontacija potrdi rezervacijo. Preostali znesek je plačljiv ob prihodu."
     },
@@ -148,5 +156,7 @@
   "map_h": "Najdite nas in raziščite",
   "map_consent_text": "Zemljevid zagotavlja Esri. Ob nalaganju se vaš brskalnik poveže z njihovimi strežniki.",
   "map_consent_btn": "Prikaži zemljevid",
-  "explore_family_label": "Družina"
+  "explore_family_label": "Družina",
+  "explore_beaches_named": "Plaže v bližini",
+  "explore_food_named": "Priporočene restavracije"
 }

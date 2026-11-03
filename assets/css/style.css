@@ -1349,6 +1349,25 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
 .explore-list--inline li {
   border-bottom: 1px solid var(--border-light);
 }
+/* Named beaches and restaurants under the Explore text */
+/* Also inside .two-col, whose h3 rule would make this a large serif title */
+h3.place-h,
+.two-col .col h3.place-h {
+  margin: 1.6rem 0 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+.place-list a { color: var(--sea); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+.place-list a:hover { color: var(--gold-text); text-decoration-color: currentColor; }
+.place-dist { margin-left: auto; white-space: nowrap; }
+.place-town { color: var(--text); font-weight: 500; }
 
 /* =========================
    MAP

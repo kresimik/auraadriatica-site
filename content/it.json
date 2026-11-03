@@ -14,8 +14,8 @@
   "desc_explore": "Cosa fare a Lovran e sulla Riviera di Opatija — spiagge, passeggiate, sentieri sull'Učka, gastronomia e gite.",
   "title_gallery": "Galleria — Aura Adriatica",
   "desc_gallery": "Foto degli appartamenti Olive e Onyx e dei dintorni della splendida Riviera di Opatija.",
-  "title_faq": "FAQ — Aura Adriatica",
-  "desc_faq": "Domande frequenti sugli appartamenti Olive e Onyx — check-in, parcheggio, pagamento, piscina e altro.",
+  "title_faq": "Appartamenti con piscina a Lovran — domande frequenti | Aura Adriatica",
+  "desc_faq": "Domande frequenti sugli appartamenti Olive e Onyx a Lovran: arrivo in auto, parcheggio, check-in, pagamento, piscina privata e altro.",
   "title_contact": "Contatto — Aura Adriatica",
   "desc_contact": "Scrivici per disponibilità e prezzi — appartamenti Olive e Onyx, Lovran.",
   "tagline": "Due appartamenti duplex a Lovran — ciascuno con piscina privata, terrazza solarium, giardino e vista mare.",
@@ -103,6 +103,14 @@
       "a": "3 posti auto privati gratuiti per appartamento, direttamente nella proprietà."
     },
     {
+      "q": "Arrivo in auto",
+      "a": "La maggior parte degli ospiti arriva in auto. Dall'Italia si entra in Slovenia da Trieste e si prosegue verso Rijeka, poi lungo la costa attraverso Opatija fino a Lovran: da Trieste circa 90 km. In Slovenia serve la vignetta autostradale, solo elettronica; le autostrade croate si pagano ai caselli. L'auto resta con voi: 3 posti auto privati gratuiti per appartamento."
+    },
+    {
+      "q": "Spiagge",
+      "a": "La spiaggia più vicina, Peharovo, si trova a circa 130 metri dagli appartamenti. Lungo la passeggiata Lungomare troverete spiagge di ciottoli, baie riparate con acque calme, calette rocciose e beach bar."
+    },
+    {
       "q": "Pagamento",
       "a": "Il 20% di acconto conferma la prenotazione. Il saldo è dovuto all'arrivo."
     },
@@ -148,5 +156,7 @@
   "map_h": "Trovaci ed esplora",
   "map_consent_text": "La mappa è fornita da Esri. Caricandola, il tuo browser si collega ai loro server.",
   "map_consent_btn": "Mostra la mappa",
-  "explore_family_label": "Famiglia"
+  "explore_family_label": "Famiglia",
+  "explore_beaches_named": "Spiagge vicine",
+  "explore_food_named": "Ristoranti consigliati"
 }

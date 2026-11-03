@@ -14,8 +14,8 @@
   "desc_explore": "Mit csináljunk Lovranban és az Opatijai Riviérán — strandok, séták, túraútvonalak az Učkán, gasztronómia és kirándulások.",
   "title_gallery": "Galéria — Aura Adriatica",
   "desc_gallery": "Fotók az Olive és Onyx apartmanokról és az Opatijai Riviéra gyönyörű környékéről.",
-  "title_faq": "GYIK — Aura Adriatica",
-  "desc_faq": "Gyakori kérdések az Olive és Onyx apartmanokról — bejelentkezés, parkolás, fizetés, medence és egyebek.",
+  "title_faq": "Apartmanok medencével Lovranban — GYIK | Aura Adriatica",
+  "desc_faq": "Gyakori kérdések az Olive és Onyx apartmanokról Lovranban: érkezés autóval, parkolás, bejelentkezés, fizetés, saját medence és egyebek.",
   "title_contact": "Kapcsolat — Aura Adriatica",
   "desc_contact": "Írjon nekünk elérhetőséggel és árakkal kapcsolatban — Olive és Onyx apartmanok, Lovran.",
   "tagline": "Két kétszintes apartman Lovranban — mindegyik privát medencével, napozóterasszal, kerttel és tengerre néző kilátással.",
@@ -103,6 +103,14 @@
       "a": "Apartmanonként 3 ingyenes magánparkoló közvetlenül az ingatlanon."
     },
     {
+      "q": "Érkezés autóval",
+      "a": "A legtöbb vendég autóval érkezik. Magyarországról a szokásos útvonal Zágrábon át Rijekáig vezet, onnan a parton Opatiján keresztül Lovranig: Budapestről körülbelül 530 km. A horvát autópályákon a díjat a fizetőkapuknál kell fizetni. Az autó Önnél marad: apartmanonként 3 ingyenes saját parkolóhely."
+    },
+    {
+      "q": "Strandok",
+      "a": "A legközelebbi strand, Peharovo, körülbelül 130 méterre van az apartmanoktól. A Lungomare tengerparti sétány mentén kavicsos strandokat, nyugodt vizű, védett öblöket, sziklás kis öblöket és strandbárokat talál."
+    },
+    {
       "q": "Fizetés",
       "a": "20% foglaló erősíti meg a foglalást. A fennmaradó összeg érkezéskor fizetendő."
     },
@@ -148,5 +156,7 @@
   "map_h": "Találjon meg minket és fedezze fel",
   "map_consent_text": "A térképet az Esri biztosítja. Betöltéskor a böngészője kapcsolódik a szervereikhez.",
   "map_consent_btn": "Térkép megjelenítése",
-  "explore_family_label": "Család"
+  "explore_family_label": "Család",
+  "explore_beaches_named": "Közeli strandok",
+  "explore_food_named": "Ajánlott éttermek"
 }
