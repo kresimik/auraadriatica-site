@@ -124,6 +124,37 @@ export async function onRequest(context) {
       .on('.hero p', { element(el) { if (apt.intro) el.setInnerContent(apt.intro); } });
   }
 
+  // The FAQ list is built by faq.js in the browser, and the FAQPage JSON-LD in
+  // faq.html is English. Write both from this language's file, so crawlers
+  // see the translated questions without running scripts.
+  if (/^\/faq\/?$/.test(prettyPath(rest)) && Array.isArray(dict.faq)) {
+    const faq = dict.faq.filter((x) => x && typeof x.q === 'string' && typeof x.a === 'string');
+    const ld = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      inLanguage: lang,
+      mainEntity: faq.map((x) => ({
+        '@type': 'Question',
+        name: x.q,
+        acceptedAnswer: { '@type': 'Answer', text: x.a }
+      }))
+    };
+    rw = rw
+      .on('#faq-list', {
+        element(el) {
+          el.setInnerContent(faq.map((x) => (
+            `<details class="faq-item"><summary class="faq-q">${esc(x.q)}</summary><p class="faq-a">${esc(x.a)}</p></details>`
+          )).join(''), { html: true });
+        }
+      })
+      .on('script[type="application/ld+json"]', {
+        element(el) {
+          // "<" escaped so no answer text can close the script element.
+          el.setInnerContent(JSON.stringify(ld).replace(/</g, '\\u003c'), { html: true });
+        }
+      });
+  }
+
   const out = rw.transform(res);
   const headers = new Headers(out.headers);
   headers.set('Content-Language', lang);

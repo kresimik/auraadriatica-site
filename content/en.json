@@ -14,8 +14,8 @@
   "desc_explore": "What to do in Lovran and the Opatija Riviera — beaches, walks, Učka trails, gastronomy, day trips.",
   "title_gallery": "Gallery — Aura Adriatica",
   "desc_gallery": "Photos of apartments Olive & Onyx and the beautiful Opatija Riviera surroundings.",
-  "title_faq": "FAQ — Aura Adriatica",
-  "desc_faq": "Frequently asked questions about apartments Olive & Onyx — check-in, parking, payment, pool, and more.",
+  "title_faq": "Apartments with pool in Lovran — FAQ | Aura Adriatica",
+  "desc_faq": "Questions about apartments Olive & Onyx in Lovran: arrival by car, parking, check-in, payment, private pool and more.",
   "title_contact": "Contact — Aura Adriatica",
   "desc_contact": "Contact us for availability and pricing inquiries — Aura Adriatica apartments Olive & Onyx, Lovran.",
   "tagline": "Two duplex apartments in Lovran — each with a private pool, sun terrace, garden, and sea view.",
@@ -103,6 +103,14 @@
       "a": "3 free private parking spaces per apartment, directly on the property."
     },
     {
+      "q": "Arrival by car",
+      "a": "Most guests come by car. From Germany and Austria the usual route runs via Ljubljana to Rijeka, then along the coast through Opatija to Lovran: about 560 km from Munich. Austria and Slovenia require a motorway vignette (in Slovenia it is electronic only); Croatian motorways are tolled at the toll stations. Your car stays with you: 3 free private parking spaces per apartment."
+    },
+    {
+      "q": "Beaches",
+      "a": "The nearest beach, Peharovo, is about 130 metres from the apartments. Along the Lungomare seaside promenade you will find pebble beaches, sheltered bays with calm water, rocky coves and beach bars."
+    },
+    {
       "q": "Payment",
       "a": "A 20% deposit confirms your reservation. The remaining balance is due upon arrival."
     },
@@ -148,5 +156,7 @@
   "map_h": "Find us & explore",
   "map_consent_text": "The map is provided by Esri. Loading it connects your browser to their servers.",
   "map_consent_btn": "Show map",
-  "explore_family_label": "Family fun"
+  "explore_family_label": "Family fun",
+  "explore_beaches_named": "Nearby beaches",
+  "explore_food_named": "Recommended restaurants"
 }

@@ -14,8 +14,8 @@
   "desc_explore": "Čo robiť v Lovrane a na Opatijskej riviére — pláže, prechádzky, chodníky na Učke, gastronómia a výlety.",
   "title_gallery": "Galéria — Aura Adriatica",
   "desc_gallery": "Fotografie apartmánov Olive a Onyx a krásneho okolia Opatijskej riviéry.",
-  "title_faq": "FAQ — Aura Adriatica",
-  "desc_faq": "Časté otázky o apartmánoch Olive a Onyx — check-in, parkovanie, platba, bazén a ďalšie.",
+  "title_faq": "Apartmány s bazénom v Lovrane — časté otázky | Aura Adriatica",
+  "desc_faq": "Časté otázky o apartmánoch Olive a Onyx v Lovrane: príchod autom, parkovanie, check-in, platba, súkromný bazén a ďalšie.",
   "title_contact": "Kontakt — Aura Adriatica",
   "desc_contact": "Napíšte nám ohľadom dostupnosti a cien — apartmány Olive a Onyx, Lovran.",
   "tagline": "Dva mezonetové apartmány v Lovrane — každý so súkromným bazénom, slnečnou terasou, záhradou a výhľadom na more.",
@@ -103,6 +103,14 @@
       "a": "3 bezplatné súkromné parkovacie miesta na apartmán, priamo v areáli."
     },
     {
+      "q": "Príchod autom",
+      "a": "Väčšina hostí prichádza autom. Zo Slovenska vedie obvyklá trasa cez Maďarsko a Záhreb do Rijeky a ďalej po pobreží cez Opatiju do Lovranu. Na maďarských diaľniciach je potrebná elektronická diaľničná známka; chorvátske diaľnice sa platia na mýtnych staniciach. Auto zostáva pri vás: 3 bezplatné súkromné parkovacie miesta na apartmán."
+    },
+    {
+      "q": "Pláže",
+      "a": "Najbližšia pláž Peharovo je asi 130 metrov od apartmánov. Pozdĺž pobrežnej promenády Lungomare nájdete kamienkové pláže, chránené zátoky s pokojnou vodou, skalnaté zátočiny a plážové bary."
+    },
+    {
       "q": "Platba",
       "a": "20% záloha potvrdzuje rezerváciu. Zostatok je splatný pri príchode."
     },
@@ -148,5 +156,7 @@
   "map_h": "Nájdite nás a preskúmajte",
   "map_consent_text": "Mapu poskytuje Esri. Jej načítaním sa váš prehliadač pripojí k ich serverom.",
   "map_consent_btn": "Zobraziť mapu",
-  "explore_family_label": "Rodina"
+  "explore_family_label": "Rodina",
+  "explore_beaches_named": "Pláže v okolí",
+  "explore_food_named": "Odporúčané reštaurácie"
 }
