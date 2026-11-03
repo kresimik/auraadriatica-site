@@ -168,7 +168,10 @@ async function loadJSON(env, url, path) {
 }
 
 function redirect(url, path, status) {
-  return new Response(null, { status, headers: { Location: new URL(path, url.origin).toString() } });
+  // "/en//evil.example" leaves rest = "//evil.example", which new URL() reads
+  // as another host. Collapse the leading slashes so a redirect stays on ours.
+  const local = '/' + String(path).replace(/^[\/\\]+/, '');
+  return new Response(null, { status, headers: { Location: new URL(local, url.origin).toString() } });
 }
 
 function esc(s) {

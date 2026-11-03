@@ -17,6 +17,9 @@
 const BASE = 'https://api.apsystemsema.com:9282';
 const TZ = 'Europe/Zagreb';
 const ACCESS_TEAM = 'https://auraadriatica.cloudflareaccess.com';
+// Application Audience (AUD) tag of the /solar/ Access app. Not a secret: it
+// ties the token to this app, so one issued for another app in the team fails.
+const ACCESS_AUD = 'dc5b558689b9abcfe2f9cacbceebb5f7d7f405efb87c27c2ce48e9de05590aee';
 const FAST_TTL = 3 * 3600;
 const SLOW_TTL = 24 * 3600;
 const APARTMENTS = [
@@ -178,6 +181,7 @@ async function accessUser(request) {
     const header = JSON.parse(b64urlText(head));
     const payload = JSON.parse(b64urlText(body));
     if (payload.iss !== ACCESS_TEAM || !(payload.exp * 1000 > Date.now())) return null;
+    if (![].concat(payload.aud).includes(ACCESS_AUD)) return null;
 
     const certs = await (await fetch(`${ACCESS_TEAM}/cdn-cgi/access/certs`, { cf: { cacheTtl: 3600 } })).json();
     const jwk = (certs.keys || []).find((k) => k.kid === header.kid);
