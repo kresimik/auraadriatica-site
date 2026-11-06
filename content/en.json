@@ -156,6 +156,11 @@
   "map_h": "Find us & explore",
   "map_consent_text": "The map is provided by Esri. Loading it connects your browser to their servers.",
   "map_consent_btn": "Show map",
+  "map_filter_all": "All",
+  "map_filter_apartment": "Apartments",
+  "map_filter_restaurant": "Restaurants",
+  "map_filter_beach": "Beaches",
+  "map_filter_grocery": "Grocery",
   "explore_family_label": "Family fun",
   "explore_beaches_named": "Nearby beaches",
   "explore_food_named": "Recommended restaurants"

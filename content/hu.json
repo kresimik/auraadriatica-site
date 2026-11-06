@@ -156,6 +156,11 @@
   "map_h": "Találjon meg minket és fedezze fel",
   "map_consent_text": "A térképet az Esri biztosítja. Betöltéskor a böngészője kapcsolódik a szervereikhez.",
   "map_consent_btn": "Térkép megjelenítése",
+  "map_filter_all": "Mind",
+  "map_filter_apartment": "Apartmanok",
+  "map_filter_restaurant": "Éttermek",
+  "map_filter_beach": "Strandok",
+  "map_filter_grocery": "Élelmiszerboltok",
   "explore_family_label": "Család",
   "explore_beaches_named": "Közeli strandok",
   "explore_food_named": "Ajánlott éttermek"

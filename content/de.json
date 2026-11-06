@@ -156,6 +156,11 @@
   "map_h": "Finden Sie uns & erkunden Sie",
   "map_consent_text": "Die Karte wird von Esri bereitgestellt. Beim Laden verbindet sich Ihr Browser mit deren Servern.",
   "map_consent_btn": "Karte anzeigen",
+  "map_filter_all": "Alle",
+  "map_filter_apartment": "Ferienwohnungen",
+  "map_filter_restaurant": "Restaurants",
+  "map_filter_beach": "Strände",
+  "map_filter_grocery": "Lebensmittel",
   "explore_family_label": "Familienspaß",
   "explore_beaches_named": "Strände in der Nähe",
   "explore_food_named": "Empfohlene Restaurants"

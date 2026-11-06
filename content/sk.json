@@ -156,6 +156,11 @@
   "map_h": "Nájdite nás a preskúmajte",
   "map_consent_text": "Mapu poskytuje Esri. Jej načítaním sa váš prehliadač pripojí k ich serverom.",
   "map_consent_btn": "Zobraziť mapu",
+  "map_filter_all": "Všetko",
+  "map_filter_apartment": "Apartmány",
+  "map_filter_restaurant": "Reštaurácie",
+  "map_filter_beach": "Pláže",
+  "map_filter_grocery": "Obchody",
   "explore_family_label": "Rodina",
   "explore_beaches_named": "Pláže v okolí",
   "explore_food_named": "Odporúčané reštaurácie"

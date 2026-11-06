@@ -156,6 +156,11 @@
   "map_h": "Pronađite nas i istražite",
   "map_consent_text": "Kartu pruža Esri. Učitavanjem se vaš preglednik povezuje s njihovim poslužiteljima.",
   "map_consent_btn": "Prikaži kartu",
+  "map_filter_all": "Sve",
+  "map_filter_apartment": "Apartmani",
+  "map_filter_restaurant": "Restorani",
+  "map_filter_beach": "Plaže",
+  "map_filter_grocery": "Trgovine",
   "explore_family_label": "Obitelj",
   "explore_beaches_named": "Plaže u blizini",
   "explore_food_named": "Preporučeni restorani"

@@ -1346,8 +1346,11 @@ h2 em, h1 em { font-style: italic; color: var(--gold-text); }
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 0 2rem;
 }
-.explore-list--inline li {
-  border-bottom: 1px solid var(--border-light);
+/* Line above each item, so rows match however many items they hold */
+.explore-list--inline li,
+.explore-list--inline li:last-child {
+  border-top: 1px solid var(--border-light);
+  border-bottom: none;
 }
 /* Named beaches and restaurants under the Explore text */
 /* Also inside .two-col, whose h3 rule would make this a large serif title */
@@ -1364,8 +1367,8 @@ h3.place-h,
   text-transform: uppercase;
   color: var(--gold-text);
 }
-.place-list a { color: var(--sea); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
-.place-list a:hover { color: var(--gold-text); text-decoration-color: currentColor; }
+.explore-list a { color: var(--sea); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+.explore-list a:hover { color: var(--gold-text); text-decoration-color: currentColor; }
 .place-dist { margin-left: auto; white-space: nowrap; }
 .place-town { color: var(--text); font-weight: 500; }
 

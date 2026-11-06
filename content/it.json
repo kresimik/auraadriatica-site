@@ -156,6 +156,11 @@
   "map_h": "Trovaci ed esplora",
   "map_consent_text": "La mappa è fornita da Esri. Caricandola, il tuo browser si collega ai loro server.",
   "map_consent_btn": "Mostra la mappa",
+  "map_filter_all": "Tutti",
+  "map_filter_apartment": "Appartamenti",
+  "map_filter_restaurant": "Ristoranti",
+  "map_filter_beach": "Spiagge",
+  "map_filter_grocery": "Alimentari",
   "explore_family_label": "Famiglia",
   "explore_beaches_named": "Spiagge vicine",
   "explore_food_named": "Ristoranti consigliati"

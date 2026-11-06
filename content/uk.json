@@ -156,6 +156,11 @@
   "map_h": "Знайдіть нас і дослідіть",
   "map_consent_text": "Карту надає Esri. Під час завантаження ваш браузер підключається до їхніх серверів.",
   "map_consent_btn": "Показати карту",
+  "map_filter_all": "Усі",
+  "map_filter_apartment": "Апартаменти",
+  "map_filter_restaurant": "Ресторани",
+  "map_filter_beach": "Пляжі",
+  "map_filter_grocery": "Магазини",
   "explore_family_label": "Сім'я",
   "explore_beaches_named": "Найближчі пляжі",
   "explore_food_named": "Рекомендовані ресторани"

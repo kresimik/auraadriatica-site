@@ -156,6 +156,11 @@
   "map_h": "Najdite nas in raziščite",
   "map_consent_text": "Zemljevid zagotavlja Esri. Ob nalaganju se vaš brskalnik poveže z njihovimi strežniki.",
   "map_consent_btn": "Prikaži zemljevid",
+  "map_filter_all": "Vse",
+  "map_filter_apartment": "Apartmaji",
+  "map_filter_restaurant": "Restavracije",
+  "map_filter_beach": "Plaže",
+  "map_filter_grocery": "Trgovine",
   "explore_family_label": "Družina",
   "explore_beaches_named": "Plaže v bližini",
   "explore_food_named": "Priporočene restavracije"

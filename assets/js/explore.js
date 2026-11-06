@@ -6,7 +6,7 @@
 const DEFAULT_LANG_EXPLORE = "en";
 
 async function loadExplore(lang) {
-  const v = '20260604';
+  const v = '20261106';
   const tryUrls = [
     `/content/explore/${lang}.json?v=${v}`,
     `/content/${lang}.json?v=${v}`,
@@ -36,20 +36,23 @@ async function loadExplore(lang) {
     if (Array.isArray(items)) {
       items.forEach((x) => {
         const li = document.createElement("li");
+        // One flex item next to the dash, so a link stays inside its sentence
+        const text = document.createElement("span");
+        li.appendChild(text);
         let last = 0, m;
         linkRe.lastIndex = 0;
         while ((m = linkRe.exec(x)) !== null) {
-          if (m.index > last) li.appendChild(document.createTextNode(x.slice(last, m.index)));
+          if (m.index > last) text.appendChild(document.createTextNode(x.slice(last, m.index)));
           const a = document.createElement("a");
           a.textContent = m[1];
           // Only http(s) — keeps javascript:/data: out if content is ever edited elsewhere
           a.href = /^https?:\/\//i.test(m[2]) ? m[2] : "#";
           a.target = "_blank";
           a.rel = "noopener";
-          li.appendChild(a);
+          text.appendChild(a);
           last = m.index + m[0].length;
         }
-        if (last < x.length) li.appendChild(document.createTextNode(x.slice(last)));
+        if (last < x.length) text.appendChild(document.createTextNode(x.slice(last)));
         el.appendChild(li);
       });
     }
@@ -75,7 +78,12 @@ async function loadExplore(lang) {
   renderList("ex-do-list",      get("do",      "explore_do_list"));
   renderList("ex-beaches-list", get("beaches", "explore_beaches_list"));
   renderList("ex-trips-list",   get("trips",   "explore_trips_list"));
-  renderList("ex-food-list",    get("food",    "explore_food_list"));
+  // The first food entry introduces the others
+  const food = get("food", "explore_food_list");
+  if (Array.isArray(food)) {
+    setText("ex-food-intro", food[0]);
+    renderList("ex-food-list", food.slice(1));
+  }
   renderList("ex-family-list",  get("family",  "explore_family_list"));
 }
 
